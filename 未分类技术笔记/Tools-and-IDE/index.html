@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="xaHWbGrH27PtIRsHQwRbAzWeQmtdbVP8Sj8IoFGMFhA" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="Git,IDE,Vim,tmux,Vimdiff,IDEA,Jetbrains,svn,screen," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="值得尝试的新工具 ag: 比grep、ack更快的递归搜索文件内容。 mycli: mysql客户端，支持语法高亮和命令补全，效果类似ipython，可以替代mysql命令。 shellcheck: shell脚本静态检查工具，能够识别语法错误以及不规范的写法。 cloc: 代码统计工具，能够统计代码的空行数、注释行、编程语言。  VS Code 列模式: shift + option + ↕️">
+<meta name="keywords" content="Git,IDE,Vim,tmux,Vimdiff,IDEA,Jetbrains,svn,screen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发工具（git, svn, screen, tmux） &amp; IDE快捷键（Vim, Jetbrains, etc.）速查手册">
+<meta property="og:url" content="https://whatsrtos.github.io/未分类技术笔记/Tools-and-IDE/index.html">
+<meta property="og:site_name" content="扔掉笔记 ᐛ">
+<meta property="og:description" content="值得尝试的新工具 ag: 比grep、ack更快的递归搜索文件内容。 mycli: mysql客户端，支持语法高亮和命令补全，效果类似ipython，可以替代mysql命令。 shellcheck: shell脚本静态检查工具，能够识别语法错误以及不规范的写法。 cloc: 代码统计工具，能够统计代码的空行数、注释行、编程语言。  VS Code 列模式: shift + option + ↕️">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://whatsrtos.github.io/images/git-mess.png">
+<meta property="og:updated_time" content="2020-07-16T13:08:27.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开发工具（git, svn, screen, tmux） &amp; IDE快捷键（Vim, Jetbrains, etc.）速查手册">
+<meta name="twitter:description" content="值得尝试的新工具 ag: 比grep、ack更快的递归搜索文件内容。 mycli: mysql客户端，支持语法高亮和命令补全，效果类似ipython，可以替代mysql命令。 shellcheck: shell脚本静态检查工具，能够识别语法错误以及不规范的写法。 cloc: 代码统计工具，能够统计代码的空行数、注释行、编程语言。  VS Code 列模式: shift + option + ↕️">
+<meta name="twitter:image" content="https://whatsrtos.github.io/images/git-mess.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://whatsrtos.github.io/未分类技术笔记/Tools-and-IDE/"/>
+
+
+
+
+
+  <title>开发工具（git, svn, screen, tmux） & IDE快捷键（Vim, Jetbrains, etc.）速查手册 | 扔掉笔记 ᐛ</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">扔掉笔记 ᐛ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">dropNotes</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/未分类技术笔记/Tools-and-IDE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">开发工具（git, svn, screen, tmux） & IDE快捷键（Vim, Jetbrains, etc.）速查手册</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,141
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="值得尝试的新工具"><a href="#值得尝试的新工具" class="headerlink" title="值得尝试的新工具"></a>值得尝试的新工具</h1><ul>
+<li>ag: 比grep、ack更快的递归搜索文件内容。</li>
+<li>mycli: mysql客户端，支持语法高亮和命令补全，效果类似ipython，可以替代mysql命令。</li>
+<li>shellcheck: shell脚本静态检查工具，能够识别语法错误以及不规范的写法。</li>
+<li>cloc: 代码统计工具，能够统计代码的空行数、注释行、编程语言。</li>
+</ul>
+<h1 id="VS-Code"><a href="#VS-Code" class="headerlink" title="VS Code"></a>VS Code</h1><ul>
+<li>列模式: <code>shift + option + ↕️</code></li>
+<li>快速打开: <code>⌘ + P</code></li>
+<li>连续选中光标所在的单词: <code>⌘ + D</code></li>
+</ul>
+<h1 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h1><h2 id="Shortcut-key"><a href="#Shortcut-key" class="headerlink" title="Shortcut key"></a>Shortcut key</h2><ul>
+<li><code>⌘ + P</code>: 快速打开文件</li>
+<li><code>⌘ + R</code>: 打开纲要列表</li>
+<li><code>⌘ + D/G</code>: 同步编辑/类似vim <code>#</code> and <code>*</code></li>
+<li><code>⌘ + M</code>: 括号跳转</li>
+<li><code>⌘ + F</code>: Enter查找下一个,<code>Shift + Enter</code>查找上一个</li>
+<li><code>⌘ + X</code>: 删除当前行</li>
+<li><code>⌘ + L</code>: 选择整行, 按住⌘继续按L则持续选择</li>
+<li><code>⌘ + Shift + L</code>: 多行选中后, 同时编辑这些行</li>
+<li><code>⌘ + 左键点击</code>: 多处同时编辑</li>
+<li><code>Ctrl + G</code>: 跳转到行</li>
+<li><code>Shift + Tab</code>: 折叠, 在看很长的Markdown文档时有用</li>
+</ul>
+<h2 id="Plugin"><a href="#Plugin" class="headerlink" title="Plugin"></a>Plugin</h2><ul>
+<li>Encoding: GBK Encoding Support, CovertToUTF8</li>
+<li>Syntax Checker:<ul>
+<li>Phpcs for sublime2 (<a href="http://alfred-long.iteye.com/blog/1668074" target="_blank" rel="noopener">http://alfred-long.iteye.com/blog/1668074</a>)</li>
+<li>SublimeLinter(<a href="https://github.com/SublimeLinter" target="_blank" rel="noopener">https://github.com/SublimeLinter</a>) 检测代码语法错误,支持C/Java/Python:<ul>
+<li>sublimelinter-php</li>
+<li>sublimelinter-py</li>
+<li>sublimelinter-json</li>
+<li>sublimelinter-jscs</li>
+<li>sublimelinter-cppcheck</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>SublimeCodeIntel(<a href="https://github.com/SublimeCodeIntel/SublimeCodeIntel" target="_blank" rel="noopener">https://github.com/SublimeCodeIntel/SublimeCodeIntel</a>) 代码补全, 定义跳转;</li>
+<li>Alignment:格式化代码Ctrl+Alt+A;</li>
+<li>SublimeCodeIntel:<ul>
+<li>Jump to definition = Alt+Click</li>
+<li>Jump to definition = Control+Super+Alt+Up</li>
+<li>Go back = Control+Super+Alt+Left</li>
+<li>Manual Code Intelligence = Control+Shift+space</li>
+</ul>
+</li>
+</ul>
+<h1 id="IntelliJ-IDEA"><a href="#IntelliJ-IDEA" class="headerlink" title="IntelliJ IDEA"></a>IntelliJ IDEA</h1><p><strong>Editing（编辑）</strong></p>
+<ul>
+<li><code>Alt + Enter</code> : 显示建议/导入包 ⭐️</li>
+<li><code>Control + Space</code> : 基本的代码补全（补全任何类、方法、变量） ⭐️</li>
+<li><code>⌘ + J</code> : 插入自定义动态代码模板</li>
+<li><code>⌘ + Alt + J</code> : 弹出模板选择窗口，将选定的代码使用动态模板包住</li>
+<li><code>⌘ + Alt + T</code> : 把代码用if, for等代码块包起来(当前行或选定的行)</li>
+<li><code>Ctrl + Alt + O</code> : 优化import ⭐️</li>
+<li><code>⌘ + Alt + L</code> : 格式化代码 ⭐️</li>
+<li><code>⌘ + /</code> : 注释/取消注释与行注释</li>
+<li><code>⌘ + 加号</code> : 展开当前代码块</li>
+<li><code>⌘ + 减号</code> : 折叠当前代码块</li>
+<li><code>⌘ + Shift + 加号</code> : 展开所有代码块</li>
+<li><code>⌘ + Shift + 减号</code> : 折叠所有代码块</li>
+</ul>
+<p><strong>Search/Replace（查询/替换）</strong></p>
+<ul>
+<li><code>Shift + Shift</code>: Search anywhere ⭐️</li>
+<li><code>Ctrl + N</code>, <code>Ctrl + Shift + N</code>: 查找类, 查找文件</li>
+<li><code>Ctrl + F</code>, <code>Ctrl + Shift + F</code>: search</li>
+<li><code>F2</code> 或 <code>Shift+F2</code>: 上个/下个错误</li>
+<li><code>F3</code> 或 <code>Shift+F3</code>: 上个/下个查找</li>
+<li><code>Alt + F7</code>: find usage</li>
+</ul>
+<p><strong>Navigation（导航）</strong></p>
+<ul>
+<li><code>⌘  +  Alt + ←/→</code>:  Navigate back/forward</li>
+<li><code>⌘ + E</code> : 显示最近打开的文件记录列表</li>
+<li><code>⌘ + F12</code>: 弹出当前文件结构</li>
+<li><code>Ctrl + H</code> : 显示类的继承层级（列出上下继承结构） ⭐️</li>
+<li><code>⌘ + Shift + H</code>: 显示方法继承层级（例如显示某个抽象类的所有实现） ⭐️</li>
+<li><code>Ctrl +  Alt + H</code>: 显示调用层次结构 ⭐️</li>
+</ul>
+<p><strong>VCS/Local History（版本控制/本地历史记录）</strong></p>
+<ul>
+<li><code>Command + K</code> : 提交代码到版本控制器 ⭐️</li>
+</ul>
+<p><strong>Refactoring（重构）</strong></p>
+<ul>
+<li><code>Shift + F6</code>: 重构</li>
+</ul>
+<p><strong>UI（界面）</strong></p>
+<ul>
+<li><code>⌘ + 1</code> : Project</li>
+<li><code>⌘ + 7</code> : Structure</li>
+<li><code>⌘ + 8</code> : Hierarchy</li>
+<li><code>⌘ + 9</code> : Version Control</li>
+</ul>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
+<li>Lombok</li>
+</ul>
+<ul>
+<li>Code iris: 显示类的Diagrams</li>
+<li>mongo4idea</li>
+</ul>
+<h1 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h1><ul>
+<li>格式化代码 <code>⌘ + Option + L</code>  <code>Ctrl + Alt + L</code></li>
+<li>删除行 <code>⌘ + Delete</code>  <code>Ctrl + Y</code></li>
+<li>快捷生成结构体 <code>⌘ + Option + T</code>  <code>Ctrl + Alt + T</code></li>
+<li>快捷覆写方法  <code>⌘ + O</code> <code>Ctrl + O</code></li>
+<li>快捷定位到行首/尾 <code>⌘ + Left/Right</code>  <code>Ctrl + Left/Right</code></li>
+<li>文件方法结构  <code>⌘ + F12</code> <code>Ctrl + F12</code></li>
+<li>查找调用的位置 <code>Ctrl + Option + H</code> <code>Ctrl + Alt + H</code></li>
+</ul>
+<h1 id="PHPStorm（Win）"><a href="#PHPStorm（Win）" class="headerlink" title="PHPStorm（Win）"></a>PHPStorm（Win）</h1><ul>
+<li><code>Ctrl + j</code> 常用的代码片段</li>
+<li><code>Ctrl + Alt + 左右方向键</code>，定位到上一次编辑的位置</li>
+<li><code>Ctrl + F12</code>，快速查看当前文件的所有方法</li>
+<li><code>Ctrl + Alt + L</code>，格式化代码</li>
+<li><code>Ctrl + N</code>，根据类名称查找</li>
+<li><code>Ctrl + Shift + N</code>，根据文件名查找</li>
+</ul>
+<h1 id="Eclipse（Win）"><a href="#Eclipse（Win）" class="headerlink" title="Eclipse（Win）"></a>Eclipse（Win）</h1><h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><ul>
+<li>Alt+/:  补全</li>
+<li>Ctrl+1: 快速修复建议</li>
+<li>Ctrl+D: 删除当前行</li>
+<li>Ctrl+Del: 删单词, 类似VIm的<code>daw</code></li>
+<li>Ctrl+E: 打开的标签之间切换</li>
+<li>Ctrl+M: 最大化当前的Edit或View, 配合F12(编辑窗口获得焦点), 可以立刻最大化代码编辑栏</li>
+<li>Ctrl+L: 定位在某行</li>
+<li>Ctrl+K: 选中的单词, 相当于Vim的<code>#</code>, 反向Ctrl+Shift+K</li>
+<li>Ctrl+Q: 定位到最后编辑的地方</li>
+<li>Ctrl+O: 快速显示 OutLine</li>
+<li>Ctrl+T: 快速显示当前类的继承结构</li>
+<li>Ctrl+Shift+P: 匹配括号</li>
+<li>Ctrl+Shift+G: 查找调用</li>
+<li>F2: 显示提示</li>
+<li>F3: 跳转定义</li>
+<li>F4/Ctrl+O: 打开继承, 只能看extends, 不能看implements</li>
+<li>Ctrl+H: 搜索</li>
+<li>Ctrl+Alt+H:   调用</li>
+<li>Ctrl+Shift+R: 搜索工程中的资源文件</li>
+<li>Ctrl+Shift+T: 搜索类（包括工程和关联的第三jar包）</li>
+<li>Alt+Shift+R: 自动的重命名一个类</li>
+<li>Alt+Shift+I: 自动内联选中的属性/方法</li>
+<li>Alt+Shift+j: 插入当前类/方法的注释</li>
+<li>Ctrl+/ :     对选中的部分进行注释</li>
+<li>Ctrl+Shift+/: 对选中的部分块状注释</li>
+<li>Ctrl+Shift+F: 格式化代码</li>
+<li>Ctrl+Shift+P: 匹配括号</li>
+</ul>
+<h2 id="插件-1"><a href="#插件-1" class="headerlink" title="插件"></a>插件</h2><ul>
+<li>m2e</li>
+<li>Egit</li>
+</ul>
+<h1 id="terminal-终端"><a href="#terminal-终端" class="headerlink" title="terminal(终端)"></a>terminal(终端)</h1><ul>
+<li>Ctrl – a ：移到行首</li>
+<li>Ctrl – e ：移到行尾</li>
+</ul>
+<h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><p>移动/跳转光标:</p>
+<ul>
+<li><code>H</code> <code>J</code> <code>K</code> <code>L</code>: ← ↓ ↑ →</li>
+<li><code>0</code> : 移动光标至本行开头</li>
+<li><code>$</code> : 移动光标至本行结尾</li>
+<li><code>w</code> : 移动到下个单词( a.Properties算两个单词)</li>
+<li><code>W</code> : 移动到下个单词(空格分隔的单词)</li>
+<li><code>3w</code> : 光标向前移动3个单词</li>
+<li><code>b</code> : 移动到上个单词, 如同w</li>
+<li><code>B</code> : 移动到上个单词, 如同W</li>
+<li><code>gg</code> : 移动到第一行</li>
+<li><code>G</code> : 移动到最后一行</li>
+<li><code>:133</code> : 跳到第133行</li>
+<li><code>g;</code> 在最近所有修改处跳转</li>
+<li><code>&#39;.</code> 跳转到最后修改的那一行</li>
+</ul>
+<p>编辑:</p>
+<ul>
+<li><code>i</code> : 在当前光标前面插入</li>
+<li><code>I</code> : 在当前单词开头插入</li>
+<li><code>a</code> : 在当前光标后面插入</li>
+<li><code>A</code> : 在当前单词尾部插入</li>
+<li><code>x</code> : 删除光标处字母</li>
+<li><code>d0</code> : 删除到行首</li>
+<li><code>d$</code> : 删除到行尾</li>
+<li><code>dd</code> : 删除光标所在行</li>
+<li><code>dw</code> : 删除光标所在单词</li>
+<li><code>&gt;&gt;</code> : 增加缩进</li>
+<li><code>&lt;&lt;</code> : 减少缩进</li>
+</ul>
+<p>搜索:</p>
+<ul>
+<li><code>fX</code> : 在本行搜索X</li>
+<li><code>FX</code> : 在本行搜索X(向后搜索)</li>
+<li><code>/Word</code> : 全文搜索</li>
+<li><code>?Word</code> : 全文搜索(向后)</li>
+</ul>
+<p>粘贴/复制:</p>
+<ul>
+<li><code>y</code> :  复制选中的</li>
+<li><code>yy</code> : 复制整行</li>
+<li><code>p</code> : 粘贴</li>
+<li><code>&quot;+y</code> : 复制到+寄存器</li>
+<li><code>&quot;+p</code>: 粘贴+寄存器的内容</li>
+</ul>
+<p>补全:</p>
+<ul>
+<li><code>CTRL + N</code>: 智能补全</li>
+<li><code>CTRL + X</code> , <code>CTRL + K</code> : 根据字典补全</li>
+<li><code>CTRL + X</code> , <code>CTRL + U</code> : 用户自定义补全</li>
+<li><code>CTRL + X</code> , <code>CTRL + F</code> : 文件名补全</li>
+</ul>
+<p>其他:</p>
+<ul>
+<li><code>v</code> : 进入选择模式</li>
+<li><code>Shift + v</code> : 进入选择模式(行)</li>
+<li><code>Ctrl + v</code> : 进入选择模式(列)</li>
+</ul>
+<h1 id="vimdiff"><a href="#vimdiff" class="headerlink" title="vimdiff"></a>vimdiff</h1><ul>
+<li>启动: <code>vimdiff file1 file2</code></li>
+<li>前一个: <code>[ + C</code></li>
+<li>后一个: <code>] + C</code></li>
+<li>在窗口间切换: <code>CTRL + W</code> <code>W</code></li>
+<li>将当前复制到另一个: <code>dp</code>, dp 意为 diff “put” , 也可以使用命令<code>:diffput</code></li>
+<li>将另一个复制到当前: <code>do</code>, do 意为 diff “obtain” , 也可以使用命令<code>:diffget</code>, 之所以不用dg，是因为dg已经被另一个命令占用了</li>
+<li>重新比较: <code>:diffupdate</code></li>
+</ul>
+<h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h2 id="stash"><a href="#stash" class="headerlink" title="stash"></a>stash</h2><ul>
+<li><code>git stash</code>: 暂存没有add的修改</li>
+<li><code>git stash list</code>: 查看已经暂存的</li>
+<li><code>git stash apply</code>: 应用暂存的修改到当前分支</li>
+</ul>
+<h2 id="检出-分支-合并"><a href="#检出-分支-合并" class="headerlink" title="检出,分支,合并:"></a>检出,分支,合并:</h2><ol>
+<li><p><code>git clone</code> 检出代码:</p>
+<ul>
+<li>显示remote:(origin是远程库的名字)</li>
+<li><code>git remote -v</code> 查看可以抓取和推送的origin的地址</li>
+<li><code>git remote show origin</code>, 比上面的更详细, 可以看到git pull/push到的默认是哪个分支.</li>
+<li><code>git branch</code>, 查看本地是哪个分支.</li>
+</ul>
+</li>
+<li><p><code>git checkout -b issue3 origin/master</code>, 从远端的master分支创建一个自己的分支issue3</p>
+<ul>
+<li>创建本地分支：<code>git branch [name]</code> —-只创建,不会自动切换分支</li>
+<li>切换分支：<code>git checkout [name]</code></li>
+<li>创建新分支并立即切换到新分支： <code>git checkout -b [name]</code><ul>
+<li>这时候再用<code>git branch</code>查看当前分支会显示是issue3分支.</li>
+<li>如果这时候<code>git pull</code>从服务器拉新代码, 会失败并提示服务端的分支(master/test/develop)没有和本地的issue3对应.<br>需要用<code>git branch --set-upstream-to=origin/master issue3</code>设置远端的master和本地的issue3分支连接.<br>全部修完完成, 准备merge:</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>修改完后 合并源分支(issue3) 到远程目标分支(develop)：</p>
+<ul>
+<li><code>git pull --rebase</code>    // merge 前先pull(更新dev), 如果先merge再pull, 会导致把pull下来的代码也当作自己修改的merge上去</li>
+<li><code>git checkout master</code>  // 切换到目标分支</li>
+<li><code>git merge --no-ff issue3</code></li>
+<li><code>git push origin</code>本地分支名:远程分支名</li>
+<li><p>如果merge时出现冲突,</p>
+<ul>
+<li>(4) 修改冲突文件, 然后重新<code>git add confilct_file</code>(重新staged), 将把它们标记为已解决状态（译注：实际上就是来一次快照保存到暂存区域）。因为一旦暂存，就表示冲突已经解决。</li>
+<li>(5) 然后不要忘了: <code>git commit -m &quot;conflict fixed&quot;</code></li>
+<li>(6) 解决完冲突, push上去<code>git push origin master</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>用<code>git rebase</code>替代merge, (issue3)到远程目标分支(master):</p>
+<ul>
+<li>切换到私有分支, 然后 <code>git rebase master</code> // 变基到master</li>
+<li>如果有有冲突:<ul>
+<li>(1) 修改冲突的文件, 然后 <code>git add file</code></li>
+<li>(2) 不用commit而是 rebase –continue: <code>git rebase --continue</code></li>
+</ul>
+</li>
+<li><code>git checkout master</code></li>
+<li><code>git merge issue3</code></li>
+</ul>
+</li>
+<li><p>Merge后, 撤销此次Merge : <code>git rebase --skip</code> (可能多次)</p>
+</li>
+<li><p>删除本地分支：<br><code>git branch -d branch_name</code> # 如果这个分支没有被merge,git会提示<br><code>git branch -D branch_name</code> # -D就是强行删除</p>
+</li>
+<li><p>如需要删除远程分支: <code>git push origin --delete rc3</code></p>
+</li>
+</ol>
+<h2 id="撤销和回滚"><a href="#撤销和回滚" class="headerlink" title="撤销和回滚:"></a>撤销和回滚:</h2><ul>
+<li>修改了文件, 但还没有git add:  输入<code>git status</code>, 会提示用<code>git checkout -- file</code>丢弃工作区, 文件回到服务器状态;</li>
+<li>修改并add了README.md, 还没有commit, 输入<code>git status</code>, 提示use <code>git reset HEAD filename</code> to unstage;</li>
+<li>已经commit/已经merge: <code>git log -p -n 3</code> 查看最近3次历史, 记录下commit的哈希值, 然后执行 <code>git reset --hard commit_hashid</code></li>
+<li><p>已经push:</p>
+<ul>
+<li><code>git reflog</code> 查看 commit_hashid</li>
+<li><code>git reset --hard commit_hashid</code></li>
+<li><code>git push -f</code></li>
+<li><p>我们是要把本地的修改强制推送到远程分支上，在强推mster的可能会报错，意思是没有权限之类的错误，报错如下。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">remote: GitLab: You don&apos;t have permission</span><br><span class="line">To git@10.255.223.213:code-ddreader/media-hapi.git</span><br><span class="line">! [remote rejected] master (pre-receive hook declined)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>是因为master分支一般会成为保护分支，所以我们首先要去除master为保护分支，才可以强推。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><a href="http://gitbook.liuhui998.com/4_9.html" target="_blank" rel="noopener">参考</a></p>
+</blockquote>
+<h2 id="查看git历史"><a href="#查看git历史" class="headerlink" title="查看git历史"></a>查看git历史</h2><ol>
+<li>还没add: <code>git stauts</code>啦…</li>
+<li>add了还没commit: 仍然可以<code>git stauts</code>啦…</li>
+<li>已经commit/push了: <code>git log -p -n 2</code> 解释: -p 显示详细内容修改, -n 2显示最后两次的更改</li>
+</ol>
+<h2 id="有用的alias设置"><a href="#有用的alias设置" class="headerlink" title="有用的alias设置:"></a>有用的alias设置:</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.pr &quot;pull --rebase --no-ff&quot;  #</span><br><span class="line">git config --global alias.mg &quot;merge --no-ff&quot;          # --no-ff 不使用快照合并</span><br><span class="line">git config --global alias.ca &quot;commit -a&quot;</span><br></pre></td></tr></table></figure>
+<p>以及: <code>git config --global core.autocrlf false</code> 使用LR而不是Win系统的CRLF</p>
+<h2 id="当你把git弄的一团糟时"><a href="#当你把git弄的一团糟时" class="headerlink" title="当你把git弄的一团糟时"></a>当你把git弄的一团糟时</h2><p><img src="/images/git-mess.png" alt=""></p>
+<h1 id="svn"><a href="#svn" class="headerlink" title="svn"></a>svn</h1><ul>
+<li>svn add file</li>
+<li>svn commit -m “xxx” #提交修改</li>
+<li>svn up #更新到最新版本</li>
+<li>svn revert file #没commit时的撤销</li>
+<li>svn log</li>
+<li>svn merge -r 28:25 file #从当前28回滚到25</li>
+</ul>
+<h1 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h1><p>Screen一个”会话”包括若干Windows, 每个Windows可被分割, 每个分割的区域可再创建新的Window</p>
+<h2 id="QuickStart"><a href="#QuickStart" class="headerlink" title="QuickStart"></a>QuickStart</h2><ul>
+<li><code>screen -ls</code> 查看已有的session</li>
+<li><code>screen -r id</code> 连接已有的session</li>
+<li><code>screen -S xx</code> 创建xxx为名字的session</li>
+<li><code>c-a</code> <code>&quot;</code> 查看已打开的shell</li>
+<li><code>c-a</code> <code>S</code> 上下分割当前Window, 分割出来的新Window没有运行任何Shell</li>
+<li><code>c-a</code> <code>Tab</code> 切换到新Windows</li>
+<li><code>c-a</code> <code>c</code> 创建新shell</li>
+<li><code>c-a</code> <code>&quot;</code> 查看&amp;切换已经打开的shell</li>
+<li><code>c-a</code> <code>d</code> 保存session并退出</li>
+<li><code>c-a</code> <code>k</code> 杀死Window, 不可恢复</li>
+</ul>
+<h2 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h2><ul>
+<li><code>c-a</code> <code>c</code>: 创建一个window</li>
+<li><code>c-a</code> <code>&quot;</code>: 查看已创建的windows列表</li>
+<li><code>c-a</code> <code>d</code>: deattach 整个会话, 所有Windows</li>
+<li><code>c-a</code> <code>k</code>: 关闭当前windos</li>
+<li><code>c-a</code> <code>Tab</code>: 切换</li>
+<li><code>c-a</code> <code>n/p</code>: switch</li>
+<li><code>c-a</code> <code>0~9</code>: 按序号切换到window</li>
+</ul>
+<h2 id="Split"><a href="#Split" class="headerlink" title="Split"></a>Split</h2><ul>
+<li><code>c-a</code> <code>S</code>  : 上下分割, c-a tab移动到下面的窗口, 然后c-a c创建新的</li>
+<li><code>c-a</code> <code>|</code>  : 垂直分割</li>
+</ul>
+<h2 id="翻页-amp-复制"><a href="#翻页-amp-复制" class="headerlink" title="翻页&amp;复制"></a>翻页&amp;复制</h2><ul>
+<li><code>c-a</code> <code>[</code>: 进入复制模式, 之后可以像vim里一样操作<code>h</code> <code>j</code> <code>k</code> <code>l</code>, <code>ctrl-b</code>, <code>ctrl-f</code>, 翻页</li>
+<li>进入复制模式后, 空格开始选择, 空格结束</li>
+</ul>
+<h2 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h2><ul>
+<li><code>screen -S test1</code> : 创建名为test1的会话</li>
+<li><code>screen -ls</code> ： 查看deattach的会话</li>
+<li><code>screen -r id</code> ： 重新连接</li>
+<li><code>screen -d -r id</code> : 如果上面的命令提示已经attach, 可以加-d参数先<code>deattach</code>再<code>attach</code></li>
+<li><code>screem -X -S session_id quit</code> : 退出session, -X参数是执行的意思,执行quit命令.</li>
+<li><code>rm -rf /var/run/screen/S-xxx</code> : 删除会话</li>
+</ul>
+<h1 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h1><ul>
+<li>tmux new-session -s “sessionX” 创建会话</li>
+<li>tmux attach -t sessionX 恢复会话</li>
+<li>c-b d : 再输入tmux attach可以恢复会话</li>
+<li>c-b “ : 上下新建一个面板</li>
+<li>c-b % : 左右新建一个面板</li>
+<li>c-b 方向 : 面板切换</li>
+<li>c-b Page : 进入翻页模式，此模式下可以用翻页键，q是退出翻页模式</li>
+<li>c-b:  (注意冒号)输入<code>setw mode-mouse on</code> 设置鼠标滚轮</li>
+<li>[ 复制模式</li>
+<li>] 粘贴模式</li>
+</ul>
+<h1 id="phpstorm-font-setting"><a href="#phpstorm-font-setting" class="headerlink" title="phpstorm font setting"></a>phpstorm font setting</h1><ul>
+<li>file - settings - Editor - Colors &amp; Fonts - General<ul>
+<li>TYPO 取消勾选</li>
+<li>Search Result: 002B36/B58900</li>
+<li>Search Result(write access): 002B36/657B83</li>
+<li>Text Search Result: 002B36/B58900 配色参考(<a href="http://www.zovirl.com/2011/07/22/solarized_cheat_sheet" target="_blank" rel="noopener">http://www.zovirl.com/2011/07/22/solarized_cheat_sheet</a>)</li>
+<li>BrowseWordAtCaret: 002B36/CB4B16 安装(<a href="https://plugins.jetbrains.com/plugin/201?pr=idea" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/201?pr=idea</a>)</li>
+</ul>
+</li>
+</ul>
+<h1 id="neovim-on-windows"><a href="#neovim-on-windows" class="headerlink" title="neovim on windows"></a>neovim on windows</h1><p>choco sources add -source <a href="https://www.myget.org/F/equalsraf/" target="_blank" rel="noopener">https://www.myget.org/F/equalsraf/</a> -name equalsraf<br>choco install -pre neovim-qt</p>
+<hr>
+<h1 id="Eclipse-Color-Theme"><a href="#Eclipse-Color-Theme" class="headerlink" title="Eclipse Color Theme"></a>Eclipse Color Theme</h1><p><a href="http://www.eclipsecolorthemes.org/?view=theme&amp;id=1115" target="_blank" rel="noopener">http://www.eclipsecolorthemes.org/?view=theme&amp;id=1115</a><br>AbstractTextEditor.Color.SelectionBackground=147,161,161<br>AbstractTextEditor.Color.SelectionForeground=7,54,66<br>Preferences -&gt; General -&gt; Editors -&gt; Text Editors -&gt; Annotations: <code>Occurrences</code> and <code>Write occurrences</code> 改为”Box”</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+            <a href="/tags/IDE/" rel="tag"># IDE</a>
+          
+            <a href="/tags/Vim/" rel="tag"># Vim</a>
+          
+            <a href="/tags/tmux/" rel="tag"># tmux</a>
+          
+            <a href="/tags/Vimdiff/" rel="tag"># Vimdiff</a>
+          
+            <a href="/tags/IDEA/" rel="tag"># IDEA</a>
+          
+            <a href="/tags/Jetbrains/" rel="tag"># Jetbrains</a>
+          
+            <a href="/tags/svn/" rel="tag"># svn</a>
+          
+            <a href="/tags/screen/" rel="tag"># screen</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/未分类技术笔记/开源项目源代码阅读指北/" rel="next" title="开源项目源代码阅读指北">
+                <i class="fa fa-chevron-left"></i> 开源项目源代码阅读指北
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/未分类技术笔记/Github-Repo-Starred/" rel="prev" title="Github Star项目">
+                Github Star项目 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/hexo_avatar.png"
+                alt="whatsrtos" />
+            
+              <p class="site-author-name" itemprop="name">whatsrtos</p>
+              <p class="site-description motion-element" itemprop="description"><s>代码朋克</s></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">242</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#值得尝试的新工具"><span class="nav-text">值得尝试的新工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VS-Code"><span class="nav-text">VS Code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sublime-Text"><span class="nav-text">Sublime Text</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shortcut-key"><span class="nav-text">Shortcut key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plugin"><span class="nav-text">Plugin</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IntelliJ-IDEA"><span class="nav-text">IntelliJ IDEA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-text">插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Studio"><span class="nav-text">Android Studio</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHPStorm（Win）"><span class="nav-text">PHPStorm（Win）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Eclipse（Win）"><span class="nav-text">Eclipse（Win）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键"><span class="nav-text">快捷键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件-1"><span class="nav-text">插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#terminal-终端"><span class="nav-text">terminal(终端)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vim"><span class="nav-text">vim</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vimdiff"><span class="nav-text">vimdiff</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git"><span class="nav-text">git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#stash"><span class="nav-text">stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检出-分支-合并"><span class="nav-text">检出,分支,合并:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销和回滚"><span class="nav-text">撤销和回滚:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看git历史"><span class="nav-text">查看git历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有用的alias设置"><span class="nav-text">有用的alias设置:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当你把git弄的一团糟时"><span class="nav-text">当你把git弄的一团糟时</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#svn"><span class="nav-text">svn</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#screen"><span class="nav-text">screen</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#QuickStart"><span class="nav-text">QuickStart</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Window"><span class="nav-text">Window</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Split"><span class="nav-text">Split</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#翻页-amp-复制"><span class="nav-text">翻页&amp;复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Session"><span class="nav-text">Session</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tmux"><span class="nav-text">tmux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#phpstorm-font-setting"><span class="nav-text">phpstorm font setting</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#neovim-on-windows"><span class="nav-text">neovim on windows</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Eclipse-Color-Theme"><span class="nav-text">Eclipse Color Theme</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">whatsrtos</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://whatsrtos.github.io/未分类技术笔记/Tools-and-IDE/';
+          this.page.identifier = '未分类技术笔记/Tools-and-IDE/';
+          this.page.title = '开发工具（git, svn, screen, tmux） & IDE快捷键（Vim, Jetbrains, etc.）速查手册';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dropnotes-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+</body>
+</html>

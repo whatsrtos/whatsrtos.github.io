@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="xaHWbGrH27PtIRsHQwRbAzWeQmtdbVP8Sj8IoFGMFhA" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="编程语言快速入门,前端,JavaScript,Learn-X-in-Y-Minutes," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="搬运自: Learn javascript in Y Minutes: // 注释方式和C很像，这是单行注释/* 这是多行   注释 */// 语句可以以分号结束doStuff();// ... 但是分号也可以省略，每当遇到一个新行时，分号会自动插入（除了一些特殊情况）。doStuff()// 因为这些特殊情况会导致意外的结果，所以我们在这里保留分号。///////////////////////">
+<meta name="keywords" content="编程语言快速入门,前端,JavaScript,Learn-X-in-Y-Minutes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Tutorial（Learn javascript in Y Minutes）">
+<meta property="og:url" content="https://whatsrtos.github.io/30MinsTutorial/JavaScript Tutorial/index.html">
+<meta property="og:site_name" content="扔掉笔记 ᐛ">
+<meta property="og:description" content="搬运自: Learn javascript in Y Minutes: // 注释方式和C很像，这是单行注释/* 这是多行   注释 */// 语句可以以分号结束doStuff();// ... 但是分号也可以省略，每当遇到一个新行时，分号会自动插入（除了一些特殊情况）。doStuff()// 因为这些特殊情况会导致意外的结果，所以我们在这里保留分号。///////////////////////">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-13T12:11:23.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Tutorial（Learn javascript in Y Minutes）">
+<meta name="twitter:description" content="搬运自: Learn javascript in Y Minutes: // 注释方式和C很像，这是单行注释/* 这是多行   注释 */// 语句可以以分号结束doStuff();// ... 但是分号也可以省略，每当遇到一个新行时，分号会自动插入（除了一些特殊情况）。doStuff()// 因为这些特殊情况会导致意外的结果，所以我们在这里保留分号。///////////////////////">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://whatsrtos.github.io/30MinsTutorial/JavaScript Tutorial/"/>
+
+
+
+
+
+  <title>JavaScript Tutorial（Learn javascript in Y Minutes） | 扔掉笔记 ᐛ</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">扔掉笔记 ᐛ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">dropNotes</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/30MinsTutorial/JavaScript Tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript Tutorial（Learn javascript in Y Minutes）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,994
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>搬运自: <a href="https://learnxinyminutes.com/docs/zh-cn/javascript-cn/" target="_blank" rel="noopener">Learn javascript in Y Minutes</a>:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注释方式和C很像，这是单行注释</span></span><br><span class="line"><span class="comment">/* 这是多行</span></span><br><span class="line"><span class="comment">   注释 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 语句可以以分号结束</span></span><br><span class="line">doStuff();</span><br><span class="line"></span><br><span class="line"><span class="comment">// ... 但是分号也可以省略，每当遇到一个新行时，分号会自动插入（除了一些特殊情况）。</span></span><br><span class="line">doStuff()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 因为这些特殊情况会导致意外的结果，所以我们在这里保留分号。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">///////////////////////////////////</span></span><br><span class="line"><span class="comment">// 1. 数字、字符串与操作符</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Javascript 只有一种数字类型(即 64位 IEEE 754 双精度浮点 double)。</span></span><br><span class="line"><span class="comment">// double 有 52 位表示尾数，足以精确存储大到 9✕10¹⁵ 的整数。</span></span><br><span class="line"><span class="number">3</span>; <span class="comment">// = 3</span></span><br><span class="line"><span class="number">1.5</span>; <span class="comment">// = 1.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 所有基本的算数运算都如你预期。</span></span><br><span class="line"><span class="number">1</span> + <span class="number">1</span>; <span class="comment">// = 2</span></span><br><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span>; <span class="comment">// = 0.30000000000000004</span></span><br><span class="line"><span class="number">8</span> - <span class="number">1</span>; <span class="comment">// = 7</span></span><br><span class="line"><span class="number">10</span> * <span class="number">2</span>; <span class="comment">// = 20</span></span><br><span class="line"><span class="number">35</span> / <span class="number">5</span>; <span class="comment">// = 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 包括无法整除的除法。</span></span><br><span class="line"><span class="number">5</span> / <span class="number">2</span>; <span class="comment">// = 2.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 位运算也和其他语言一样；当你对浮点数进行位运算时，</span></span><br><span class="line"><span class="comment">// 浮点数会转换为*至多* 32 位的无符号整数。</span></span><br><span class="line"><span class="number">1</span> &lt;&lt; <span class="number">2</span>; <span class="comment">// = 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 括号可以决定优先级。</span></span><br><span class="line">(<span class="number">1</span> + <span class="number">3</span>) * <span class="number">2</span>; <span class="comment">// = 8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 有三种非数字的数字类型</span></span><br><span class="line"><span class="literal">Infinity</span>; <span class="comment">// 1/0 的结果</span></span><br><span class="line">-<span class="literal">Infinity</span>; <span class="comment">// -1/0 的结果</span></span><br><span class="line"><span class="literal">NaN</span>; <span class="comment">// 0/0 的结果</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 也有布尔值。</span></span><br><span class="line"><span class="literal">true</span>;</span><br><span class="line"><span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以通过单引号或双引号来构造字符串。</span></span><br><span class="line"><span class="string">'abc'</span>;</span><br><span class="line"><span class="string">"Hello, world"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用！来取非</span></span><br><span class="line">!<span class="literal">true</span>; <span class="comment">// = false</span></span><br><span class="line">!<span class="literal">false</span>; <span class="comment">// = true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 相等 ===</span></span><br><span class="line"><span class="number">1</span> === <span class="number">1</span>; <span class="comment">// = true</span></span><br><span class="line"><span class="number">2</span> === <span class="number">1</span>; <span class="comment">// = false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不等 !=</span></span><br><span class="line"><span class="number">1</span> !== <span class="number">1</span>; <span class="comment">// = false</span></span><br><span class="line"><span class="number">2</span> !== <span class="number">1</span>; <span class="comment">// = true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 更多的比较操作符</span></span><br><span class="line"><span class="number">1</span> &lt; <span class="number">10</span>; <span class="comment">// = true</span></span><br><span class="line"><span class="number">1</span> &gt; <span class="number">10</span>; <span class="comment">// = false</span></span><br><span class="line"><span class="number">2</span> &lt;= <span class="number">2</span>; <span class="comment">// = true</span></span><br><span class="line"><span class="number">2</span> &gt;= <span class="number">2</span>; <span class="comment">// = true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串用+连接</span></span><br><span class="line"><span class="string">"Hello "</span> + <span class="string">"world!"</span>; <span class="comment">// = "Hello world!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串也可以用 &lt; 、&gt; 来比较</span></span><br><span class="line"><span class="string">"a"</span> &lt; <span class="string">"b"</span>; <span class="comment">// = true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用“==”比较时会进行类型转换...</span></span><br><span class="line"><span class="string">"5"</span> == <span class="number">5</span>; <span class="comment">// = true</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>; <span class="comment">// = true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...除非你是用 ===</span></span><br><span class="line"><span class="string">"5"</span> === <span class="number">5</span>; <span class="comment">// = false</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span>; <span class="comment">// = false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...但会导致奇怪的行为</span></span><br><span class="line"><span class="number">13</span> + !<span class="number">0</span>; <span class="comment">// 14</span></span><br><span class="line"><span class="string">"13"</span> + !<span class="number">0</span>; <span class="comment">// '13true'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 你可以用`charAt`来得到字符串中的字符</span></span><br><span class="line"><span class="string">"This is a string"</span>.charAt(<span class="number">0</span>);  <span class="comment">// = 'T'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ...或使用 `substring` 来获取更大的部分。</span></span><br><span class="line"><span class="string">"Hello world"</span>.substring(<span class="number">0</span>, <span class="number">5</span>); <span class="comment">// = "Hello"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// `length` 是一个属性，所以不要使用 ().</span></span><br><span class="line"><span class="string">"Hello"</span>.length; <span class="comment">// = 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 还有两个特殊的值：`null`和`undefined`</span></span><br><span class="line"><span class="literal">null</span>;      <span class="comment">// 用来表示刻意设置的空值</span></span><br><span class="line"><span class="literal">undefined</span>; <span class="comment">// 用来表示还没有设置的值(尽管`undefined`自身实际是一个值)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// false, null, undefined, NaN, 0 和 "" 都是假的；其他的都视作逻辑真</span></span><br><span class="line"><span class="comment">// 注意 0 是逻辑假而  "0"是逻辑真，尽管 0 == "0"。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">///////////////////////////////////</span></span><br><span class="line"><span class="comment">// 2. 变量、数组和对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 变量需要用`var`关键字声明。Javascript是动态类型语言，</span></span><br><span class="line"><span class="comment">// 所以你无需指定类型。 赋值需要用 `=`</span></span><br><span class="line"><span class="keyword">var</span> someVar = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果你在声明时没有加var关键字，你也不会得到错误...</span></span><br><span class="line">someOtherVar = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ...但是此时这个变量就会在全局作用域被创建，而非你定义的当前作用域</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有被赋值的变量都会被设置为undefined</span></span><br><span class="line"><span class="keyword">var</span> someThirdVar; <span class="comment">// = undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对变量进行数学运算有一些简写法：</span></span><br><span class="line">someVar += <span class="number">5</span>; <span class="comment">// 等价于 someVar = someVar + 5; someVar 现在是 10</span></span><br><span class="line">someVar *= <span class="number">10</span>; <span class="comment">// 现在 someVar 是 100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自增和自减也有简写</span></span><br><span class="line">someVar++; <span class="comment">// someVar 是 101</span></span><br><span class="line">someVar--; <span class="comment">// 回到 100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组是任意类型组成的有序列表</span></span><br><span class="line"><span class="keyword">var</span> myArray = [<span class="string">"Hello"</span>, <span class="number">45</span>, <span class="literal">true</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组的元素可以用方括号下标来访问。</span></span><br><span class="line"><span class="comment">// 数组的索引从0开始。</span></span><br><span class="line">myArray[<span class="number">1</span>]; <span class="comment">// = 45</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 数组是可变的，并拥有变量 length。</span></span><br><span class="line">myArray.push(<span class="string">"World"</span>);</span><br><span class="line">myArray.length; <span class="comment">// = 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在指定下标添加/修改</span></span><br><span class="line">myArray[<span class="number">3</span>] = <span class="string">"Hello"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// javascript中的对象相当于其他语言中的“字典”或“映射”：是键-值对的无序集合。</span></span><br><span class="line"><span class="keyword">var</span> myObj = &#123;<span class="attr">key1</span>: <span class="string">"Hello"</span>, <span class="attr">key2</span>: <span class="string">"World"</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 键是字符串，但如果键本身是合法的js标识符，则引号并非是必须的。</span></span><br><span class="line"><span class="comment">// 值可以是任意类型。</span></span><br><span class="line"><span class="keyword">var</span> myObj = &#123;<span class="attr">myKey</span>: <span class="string">"myValue"</span>, <span class="string">"my other key"</span>: <span class="number">4</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象属性的访问可以通过下标</span></span><br><span class="line">myObj[<span class="string">"my other key"</span>]; <span class="comment">// = 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ... 或者也可以用 . ，如果属性是合法的标识符</span></span><br><span class="line">myObj.myKey; <span class="comment">// = "myValue"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象是可变的；值也可以被更改或增加新的键</span></span><br><span class="line">myObj.myThirdKey = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果你想要获取一个还没有被定义的值，那么会返回undefined</span></span><br><span class="line">myObj.myFourthKey; <span class="comment">// = undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">///////////////////////////////////</span></span><br><span class="line"><span class="comment">// 3. 逻辑与控制结构</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 本节介绍的语法与Java的语法几乎完全相同</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// `if`语句和其他语言中一样。</span></span><br><span class="line"><span class="keyword">var</span> count = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">if</span> (count == <span class="number">3</span>)&#123;</span><br><span class="line">    <span class="comment">// count 是 3 时执行</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (count == <span class="number">4</span>)&#123;</span><br><span class="line">    <span class="comment">// count 是 4 时执行</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 其他情况下执行</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// while循环</span></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="comment">// 无限循环</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Do-while 和 While 循环很像 ，但前者会至少执行一次</span></span><br><span class="line"><span class="keyword">var</span> input;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    input = getInput();</span><br><span class="line">&#125; <span class="keyword">while</span> (!isValid(input))</span><br><span class="line"></span><br><span class="line"><span class="comment">// `for`循环和C、Java中的一样：</span></span><br><span class="line"><span class="comment">// 初始化; 继续执行的条件; 迭代。</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">    <span class="comment">// 遍历5次</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &amp;&amp; 是逻辑与, || 是逻辑或</span></span><br><span class="line"><span class="keyword">if</span> (house.size == <span class="string">"big"</span> &amp;&amp; house.colour == <span class="string">"blue"</span>)&#123;</span><br><span class="line">    house.contains = <span class="string">"bear"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (colour == <span class="string">"red"</span> || colour == <span class="string">"blue"</span>)&#123;</span><br><span class="line">    <span class="comment">// colour是red或者blue时执行</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &amp;&amp; 和 || 是“短路”语句，它在设定初始化值时特别有用</span></span><br><span class="line"><span class="keyword">var</span> name = otherName || <span class="string">"default"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// `switch`语句使用`===`检查相等性。</span></span><br><span class="line"><span class="comment">// 在每一个case结束时使用 'break'</span></span><br><span class="line"><span class="comment">// 否则其后的case语句也将被执行。</span></span><br><span class="line">grade = <span class="string">'B'</span>;</span><br><span class="line"><span class="keyword">switch</span> (grade) &#123;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'A'</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Great job"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'B'</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"OK job"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">case</span> <span class="string">'C'</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"You can do better"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  <span class="keyword">default</span>:</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Oy vey"</span>);</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">///////////////////////////////////</span></span><br><span class="line"><span class="comment">// 4. 函数、作用域、闭包</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript 函数由`function`关键字定义</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params">thing</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> thing.toUpperCase();</span><br><span class="line">&#125;</span><br><span class="line">myFunction(<span class="string">"foo"</span>); <span class="comment">// = "FOO"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注意被返回的值必须开始于`return`关键字的那一行，</span></span><br><span class="line"><span class="comment">// 否则由于自动的分号补齐，你将返回`undefined`。</span></span><br><span class="line"><span class="comment">// 在使用Allman风格的时候要注意.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="comment">// &lt;- 分号自动插在这里</span></span><br><span class="line">    &#123;</span><br><span class="line">        thisIsAn: <span class="string">'object literal'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myFunction(); <span class="comment">// = undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// javascript中函数是一等对象，所以函数也能够赋给一个变量，</span></span><br><span class="line"><span class="comment">// 并且被作为参数传递 —— 比如一个事件处理函数：</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 这段代码将在5秒钟后被调用</span></span><br><span class="line">&#125;</span><br><span class="line">setTimeout(myFunction, <span class="number">5000</span>);</span><br><span class="line"><span class="comment">// 注意：setTimeout不是js语言的一部分，而是由浏览器和Node.js提供的。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数对象甚至不需要声明名称 —— 你可以直接把一个函数定义写到另一个函数的参数中</span></span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 这段代码将在5秒钟后被调用</span></span><br><span class="line">&#125;, <span class="number">5000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript 有函数作用域；函数有其自己的作用域而其他的代码块则没有。</span></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line">i; <span class="comment">// = 5 - 并非我们在其他语言中所期望得到的undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这就导致了人们经常使用的“立即执行匿名函数”的模式，</span></span><br><span class="line"><span class="comment">// 这样可以避免一些临时变量扩散到全局作用域去。</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> temporary = <span class="number">5</span>;</span><br><span class="line">    <span class="comment">// 我们可以访问修改全局对象（"global object"）来访问全局作用域，</span></span><br><span class="line">    <span class="comment">// 在web浏览器中是`window`这个对象。</span></span><br><span class="line">    <span class="comment">// 在其他环境如Node.js中这个对象的名字可能会不同。</span></span><br><span class="line">    <span class="built_in">window</span>.permanent = <span class="number">10</span>;</span><br><span class="line">&#125;)();</span><br><span class="line">temporary; <span class="comment">// 抛出引用异常ReferenceError</span></span><br><span class="line">permanent; <span class="comment">// = 10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// javascript最强大的功能之一就是闭包。</span></span><br><span class="line"><span class="comment">// 如果一个函数在另一个函数中定义，那么这个内部函数就拥有外部函数的所有变量的访问权，</span></span><br><span class="line"><span class="comment">// 即使在外部函数结束之后。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHelloInFiveSeconds</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> prompt = <span class="string">"Hello, "</span> + name + <span class="string">"!"</span>;</span><br><span class="line">    <span class="comment">// 内部函数默认是放在局部作用域的，</span></span><br><span class="line">    <span class="comment">// 就像是用`var`声明的。</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(prompt);</span><br><span class="line">    &#125;</span><br><span class="line">    setTimeout(inner, <span class="number">5000</span>);</span><br><span class="line">    <span class="comment">// setTimeout是异步的，所以 sayHelloInFiveSeconds 函数会立即退出，</span></span><br><span class="line">    <span class="comment">// 而 setTimeout 会在后面调用inner</span></span><br><span class="line">    <span class="comment">// 然而，由于inner是由sayHelloInFiveSeconds“闭合包含”的，</span></span><br><span class="line">    <span class="comment">// 所以inner在其最终被调用时仍然能够访问`prompt`变量。</span></span><br><span class="line">&#125;</span><br><span class="line">sayHelloInFiveSeconds(<span class="string">"Adam"</span>); <span class="comment">// 会在5秒后弹出 "Hello, Adam!"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">///////////////////////////////////</span></span><br><span class="line"><span class="comment">// 5. 对象、构造函数与原型</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  对象可以包含方法。</span></span><br><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">    myFunc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello world!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">myObj.myFunc(); <span class="comment">// = "Hello world!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当对象中的函数被调用时，这个函数可以通过`this`关键字访问其依附的这个对象。</span></span><br><span class="line">myObj = &#123;</span><br><span class="line">    myString: <span class="string">"Hello world!"</span>,</span><br><span class="line">    myFunc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.myString;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">myObj.myFunc(); <span class="comment">// = "Hello world!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 但这个函数访问的其实是其运行时环境，而非定义时环境，即取决于函数是如何调用的。</span></span><br><span class="line"><span class="comment">// 所以如果函数被调用时不在这个对象的上下文中，就不会运行成功了。</span></span><br><span class="line"><span class="keyword">var</span> myFunc = myObj.myFunc;</span><br><span class="line">myFunc(); <span class="comment">// = undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 相应的，一个函数也可以被指定为一个对象的方法，并且可以通过`this`访问</span></span><br><span class="line"><span class="comment">// 这个对象的成员，即使在函数被定义时并没有依附在对象上。</span></span><br><span class="line"><span class="keyword">var</span> myOtherFunc = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.myString.toUpperCase();</span><br><span class="line">&#125;</span><br><span class="line">myObj.myOtherFunc = myOtherFunc;</span><br><span class="line">myObj.myOtherFunc(); <span class="comment">// = "HELLO WORLD!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当我们通过`call`或者`apply`调用函数的时候，也可以为其指定一个执行上下文。</span></span><br><span class="line"><span class="keyword">var</span> anotherFunc = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.myString + s;</span><br><span class="line">&#125;</span><br><span class="line">anotherFunc.call(myObj, <span class="string">" And Hello Moon!"</span>); <span class="comment">// = "Hello World! And Hello Moon!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// `apply`函数几乎完全一样，只是要求一个array来传递参数列表。</span></span><br><span class="line">anotherFunc.apply(myObj, [<span class="string">" And Hello Sun!"</span>]); <span class="comment">// = "Hello World! And Hello Sun!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当一个函数接受一系列参数，而你想传入一个array时特别有用。</span></span><br><span class="line"><span class="built_in">Math</span>.min(<span class="number">42</span>, <span class="number">6</span>, <span class="number">27</span>); <span class="comment">// = 6</span></span><br><span class="line"><span class="built_in">Math</span>.min([<span class="number">42</span>, <span class="number">6</span>, <span class="number">27</span>]); <span class="comment">// = NaN (uh-oh!)</span></span><br><span class="line"><span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, [<span class="number">42</span>, <span class="number">6</span>, <span class="number">27</span>]); <span class="comment">// = 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是`call`和`apply`只是临时的。如果我们希望函数附着在对象上，可以使用`bind`。</span></span><br><span class="line"><span class="keyword">var</span> boundFunc = anotherFunc.bind(myObj);</span><br><span class="line">boundFunc(<span class="string">" And Hello Saturn!"</span>); <span class="comment">// = "Hello World! And Hello Saturn!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// `bind` 也可以用来部分应用一个函数（柯里化）。</span></span><br><span class="line"><span class="keyword">var</span> product = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>)</span>&#123; <span class="keyword">return</span> a * b; &#125;</span><br><span class="line"><span class="keyword">var</span> doubler = product.bind(<span class="keyword">this</span>, <span class="number">2</span>);</span><br><span class="line">doubler(<span class="number">8</span>); <span class="comment">// = 16</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当你通过`new`关键字调用一个函数时，就会创建一个对象，</span></span><br><span class="line"><span class="comment">// 而且可以通过this关键字访问该函数。</span></span><br><span class="line"><span class="comment">// 设计为这样调用的函数就叫做构造函数。</span></span><br><span class="line"><span class="keyword">var</span> MyConstructor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.myNumber = <span class="number">5</span>;</span><br><span class="line">&#125;</span><br><span class="line">myNewObj = <span class="keyword">new</span> MyConstructor(); <span class="comment">// = &#123;myNumber: 5&#125;</span></span><br><span class="line">myNewObj.myNumber; <span class="comment">// = 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 每一个js对象都有一个‘原型’。当你要访问一个实际对象中没有定义的一个属性时，</span></span><br><span class="line"><span class="comment">// 解释器就回去找这个对象的原型。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 一些JS实现会让你通过`__proto__`属性访问一个对象的原型。</span></span><br><span class="line"><span class="comment">// 这虽然对理解原型很有用，但是它并不是标准的一部分；</span></span><br><span class="line"><span class="comment">// 我们后面会介绍使用原型的标准方式。</span></span><br><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">    myString: <span class="string">"Hello world!"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> myPrototype = &#123;</span><br><span class="line">    meaningOfLife: <span class="number">42</span>,</span><br><span class="line">    myFunc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.myString.toLowerCase()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">myObj.__proto__ = myPrototype;</span><br><span class="line">myObj.meaningOfLife; <span class="comment">// = 42</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数也可以工作。</span></span><br><span class="line">myObj.myFunc() <span class="comment">// = "hello world!"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当然，如果你要访问的成员在原型当中也没有定义的话，解释器就会去找原型的原型，以此类推。</span></span><br><span class="line">myPrototype.__proto__ = &#123;</span><br><span class="line">    myBoolean: <span class="literal">true</span></span><br><span class="line">&#125;;</span><br><span class="line">myObj.myBoolean; <span class="comment">// = true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这其中并没有对象的拷贝；每个对象实际上是持有原型对象的引用。</span></span><br><span class="line"><span class="comment">// 这意味着当我们改变对象的原型时，会影响到其他以这个原型为原型的对象。</span></span><br><span class="line">myPrototype.meaningOfLife = <span class="number">43</span>;</span><br><span class="line">myObj.meaningOfLife; <span class="comment">// = 43</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们知道 `__proto__` 并非标准规定，实际上也没有标准办法来修改一个已存在对象的原型。</span></span><br><span class="line"><span class="comment">// 然而，我们有两种方式为指定原型创建一个新的对象。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一种方式是 Object.create，这个方法是在最近才被添加到Js中的，</span></span><br><span class="line"><span class="comment">// 因此并不是所有的JS实现都有这个方法</span></span><br><span class="line"><span class="keyword">var</span> myObj = <span class="built_in">Object</span>.create(myPrototype);</span><br><span class="line">myObj.meaningOfLife; <span class="comment">// = 43</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种方式可以在任意版本中使用，不过必须通过构造函数。</span></span><br><span class="line"><span class="comment">// 构造函数有一个属性prototype。但是它 *不是* 构造函数本身的原型；相反，</span></span><br><span class="line"><span class="comment">// 是通过构造函数和new关键字创建的新对象的原型。</span></span><br><span class="line">MyConstructor.prototype = &#123;</span><br><span class="line">    myNumber: <span class="number">5</span>,</span><br><span class="line">    getMyNumber: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.myNumber;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> myNewObj2 = <span class="keyword">new</span> MyConstructor();</span><br><span class="line">myNewObj2.getMyNumber(); <span class="comment">// = 5</span></span><br><span class="line">myNewObj2.myNumber = <span class="number">6</span></span><br><span class="line">myNewObj2.getMyNumber(); <span class="comment">// = 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串和数字等内置类型也有通过构造函数来创建的包装类型</span></span><br><span class="line"><span class="keyword">var</span> myNumber = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">var</span> myNumberObj = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">12</span>);</span><br><span class="line">myNumber == myNumberObj; <span class="comment">// = true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是它们并非严格等价</span></span><br><span class="line"><span class="keyword">typeof</span> myNumber; <span class="comment">// = 'number'</span></span><br><span class="line"><span class="keyword">typeof</span> myNumberObj; <span class="comment">// = 'object'</span></span><br><span class="line">myNumber === myNumberObj; <span class="comment">// = false</span></span><br><span class="line"><span class="keyword">if</span> (<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="comment">// 这段代码不会执行，因为0代表假</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不过，包装类型和内置类型共享一个原型，</span></span><br><span class="line"><span class="comment">// 所以你实际可以给内置类型也增加一些功能，例如对string：</span></span><br><span class="line"><span class="built_in">String</span>.prototype.firstCharacter = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.charAt(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">"abc"</span>.firstCharacter(); <span class="comment">// = "a"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 这个技巧经常用在“代码填充”中，来为老版本的javascript子集增加新版本js的特性，</span></span><br><span class="line"><span class="comment">// 这样就可以在老的浏览器中使用新功能了。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 比如，我们知道Object.create并没有在所有的版本中都实现，</span></span><br><span class="line"><span class="comment">// 但是我们仍然可以通过“代码填充”来实现兼容：</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">Object</span>.create === <span class="literal">undefined</span>)&#123; <span class="comment">// 如果存在则不覆盖</span></span><br><span class="line">    <span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span>(<span class="params">proto</span>)</span>&#123;</span><br><span class="line">        <span class="comment">// 用正确的原型来创建一个临时构造函数</span></span><br><span class="line">        <span class="keyword">var</span> Constructor = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">        Constructor.prototype = proto;</span><br><span class="line">        <span class="comment">// 之后用它来创建一个新的对象</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Constructor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/编程语言快速入门/" rel="tag"># 编程语言快速入门</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/Learn-X-in-Y-Minutes/" rel="tag"># Learn-X-in-Y-Minutes</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/基础架构/Arch-分布式-Zookeeper/" rel="next" title="Zookeeper">
+                <i class="fa fa-chevron-left"></i> Zookeeper
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/30MinsTutorial/Python Tutorials/" rel="prev" title="Python Tutorial（Learn python in Y Minutes）">
+                Python Tutorial（Learn python in Y Minutes） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/hexo_avatar.png"
+                alt="whatsrtos" />
+            
+              <p class="site-author-name" itemprop="name">whatsrtos</p>
+              <p class="site-description motion-element" itemprop="description"><s>代码朋克</s></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">242</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">whatsrtos</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://whatsrtos.github.io/30MinsTutorial/JavaScript Tutorial/';
+          this.page.identifier = '30MinsTutorial/JavaScript Tutorial/';
+          this.page.title = 'JavaScript Tutorial（Learn javascript in Y Minutes）';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dropnotes-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+</body>
+</html>

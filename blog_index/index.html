@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="xaHWbGrH27PtIRsHQwRbAzWeQmtdbVP8Sj8IoFGMFhA" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="笔记索引," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="后端架构System Design ✐笔记: System Design 系统设计(System Design) 面试题精选 10 个常用的软件架构模式  负载均衡 轮询，比率(加权)，优先分组，动态负载均衡算法包括：最少连接，最快(Fasttest) ……">
+<meta name="keywords" content="笔记索引">
+<meta property="og:type" content="article">
+<meta property="og:title" content="🔝 笔记索引">
+<meta property="og:url" content="https://whatsrtos.github.io/blog_index/index.html">
+<meta property="og:site_name" content="扔掉笔记 ᐛ">
+<meta property="og:description" content="后端架构System Design ✐笔记: System Design 系统设计(System Design) 面试题精选 10 个常用的软件架构模式  负载均衡 轮询，比率(加权)，优先分组，动态负载均衡算法包括：最少连接，最快(Fasttest) ……">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-15T15:21:38.040Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="🔝 笔记索引">
+<meta name="twitter:description" content="后端架构System Design ✐笔记: System Design 系统设计(System Design) 面试题精选 10 个常用的软件架构模式  负载均衡 轮询，比率(加权)，优先分组，动态负载均衡算法包括：最少连接，最快(Fasttest) ……">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://whatsrtos.github.io/blog_index/"/>
+
+
+
+
+
+  <title>🔝 笔记索引 | 扔掉笔记 ᐛ</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">扔掉笔记 ᐛ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">dropNotes</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/blog_index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">🔝 笔记索引</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,002
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="后端架构"><a href="#后端架构" class="headerlink" title="后端架构"></a>后端架构</h1><h2 id="System-Design"><a href="#System-Design" class="headerlink" title="System Design"></a>System Design</h2><ul>
+<li><a href="../基础架构/Arch-架构-System-Design">✐笔记: System Design</a></li>
+<li><a href="https://soulmachine.gitbooks.io/system-design/content/cn/" target="_blank" rel="noopener">系统设计(System Design) 面试题精选</a></li>
+<li><a href="http://blog.jobbole.com/113953/" target="_blank" rel="noopener">10 个常用的软件架构模式</a></li>
+</ul>
+<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><blockquote>
+<p>轮询，比率(加权)，优先分组，动态负载均衡算法包括：最少连接，最快(Fasttest) ……</p>
+</blockquote>
+<ul>
+<li><a href="https://www.cnblogs.com/tianzhiliang/articles/2317808.html" target="_blank" rel="noopener">几种负载均衡算法</a></li>
+</ul>
+<h3 id="限流"><a href="#限流" class="headerlink" title="限流"></a>限流</h3><p>TODO</p>
+<h3 id="熔断"><a href="#熔断" class="headerlink" title="熔断"></a>熔断</h3><blockquote>
+<p>Circuit Breaker</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jianshu.com/p/14958039fd15" target="_blank" rel="noopener">Hystrix熔断器技术解析-HystrixCircuitBreaker - 简书</a></li>
+<li><a href="http://www.importnew.com/25704.html" target="_blank" rel="noopener">使用 Hystrix 实现自动降级与依赖隔离 - ImportNew</a></li>
+</ul>
+<p>常用于容错熔断的 Hystrix 项目不再开发，建议新项目转到 <a href="https://github.com/resilience4j/resilience4j" target="_blank" rel="noopener">resilience4j</a></p>
+<h3 id="容错"><a href="#容错" class="headerlink" title="容错"></a>容错</h3><blockquote>
+<p>failover, failfast, failback</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jianshu.com/p/aebc79c0fab4" target="_blank" rel="noopener">Dubbo服务集群容错模式 - 简书</a></li>
+</ul>
+<h3 id="平滑启动"><a href="#平滑启动" class="headerlink" title="平滑启动"></a>平滑启动</h3><ul>
+<li><a href="https://tech.imdada.cn/2017/06/18/jvm-safe-exit/" target="_blank" rel="noopener">JVM安全退出</a></li>
+<li><a href="http://ju.outofmemory.cn/entry/337235" target="_blank" rel="noopener">常见Java应用如何优雅关闭</a></li>
+</ul>
+<h2 id="SOA-amp-微服务"><a href="#SOA-amp-微服务" class="headerlink" title="SOA &amp; 微服务"></a>SOA &amp; 微服务</h2><blockquote>
+<p>SOA(Service-Oriented Architecture)，即面向服务的架构。</p>
+</blockquote>
+<ul>
+<li><a href="../基础架构/Arch-SOA-微服务">✐笔记: SOA &amp; 微服务</a></li>
+</ul>
+<h3 id="服务治理框架"><a href="#服务治理框架" class="headerlink" title="服务治理框架"></a>服务治理框架</h3><h4 id="服务治理框架演进"><a href="#服务治理框架演进" class="headerlink" title="服务治理框架演进"></a>服务治理框架演进</h4><ul>
+<li><a href="http://dockone.io/article/3294" target="_blank" rel="noopener">浅谈服务治理、微服务与Service Mesh（一）：Dubbo的前世今生 - DockOne.io</a></li>
+<li><a href="http://dockone.io/article/4142" target="_blank" rel="noopener">浅谈服务治理、微服务与Service Mesh（二）： Spring Cloud从入门到精通到放弃 - DockOne.io</a></li>
+<li><a href="http://dockone.io/article/8260" target="_blank" rel="noopener">浅谈服务治理、微服务与Service Mesh（三）： Service Mesh与Serverless - DockOne.io</a></li>
+</ul>
+<h4 id="Spring-Cloud"><a href="#Spring-Cloud" class="headerlink" title="Spring Cloud"></a>Spring Cloud</h4><ul>
+<li><a href="http://blog.didispace.com/Spring-Cloud%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">Spring Cloud基础教程 | 程序猿DD</a></li>
+</ul>
+<h4 id="Dobbo"><a href="#Dobbo" class="headerlink" title="Dobbo"></a>Dobbo</h4><ul>
+<li><a href="http://dubbo.apache.org/zh-cn/docs/user/preface/architecture.html" target="_blank" rel="noopener">Dubbo官方文档</a></li>
+</ul>
+<h4 id="Motan"><a href="#Motan" class="headerlink" title="Motan"></a>Motan</h4><ul>
+<li><a href="https://github.com/weibocom/motan/wiki/zh_userguide" target="_blank" rel="noopener">Motan 快速入门</a></li>
+<li><a href="https://github.com/weibocom/motan/wiki/zh_quickstart" target="_blank" rel="noopener">Motan 用户指南</a></li>
+</ul>
+<h3 id="Service-Mesh"><a href="#Service-Mesh" class="headerlink" title="Service Mesh"></a>Service Mesh</h3><blockquote>
+<p>服务网格</p>
+</blockquote>
+<ul>
+<li><a href="https://juejin.im/entry/5b4c0be66fb9a04fb900c3a4" target="_blank" rel="noopener">什么是Service Mesh？ </a></li>
+<li><a href="https://time.geekbang.org/article/2360" target="_blank" rel="noopener">Service Mesh深度解析</a></li>
+</ul>
+<h4 id="Istio"><a href="#Istio" class="headerlink" title="Istio"></a>Istio</h4><p>TODO</p>
+<h4 id="Conduit"><a href="#Conduit" class="headerlink" title="Conduit"></a>Conduit</h4><p>TODO</p>
+<h3 id="RPC"><a href="#RPC" class="headerlink" title="RPC"></a>RPC</h3><blockquote>
+<p>RPC（Remote Procedure Call）—远程过程调用，它是一种通过网络从远程计算机程序上请求服务，而不需要了解底层网络技术的协议。</p>
+</blockquote>
+<h4 id="Thrift"><a href="#Thrift" class="headerlink" title="Thrift"></a>Thrift</h4><blockquote>
+<p>Thrift是一个跨语言的服务部署框架，最初由Facebook于2007年开发，2008年进入Apache开源项目。Thrift基于自己的传输协议和序列化协议。</p>
+</blockquote>
+<ul>
+<li><a href="http://dongxicheng.org/search-engine/thrift-framework-intro/" target="_blank" rel="noopener">Thirft框架介绍</a></li>
+</ul>
+<h4 id="gRPC"><a href="#gRPC" class="headerlink" title="gRPC"></a>gRPC</h4><blockquote>
+<p>gRPC是一个高性能、通用的开源RPC框架，其由Google主要面向移动应用开发并基于HTTP/2协议标准而设计，基于ProtoBuf(Protocol Buffers)序列化协议开发，且支持众多开发语言。</p>
+</blockquote>
+<ul>
+<li><a href="http://www.infoq.com/cn/news/2015/03/grpc-google-http2-protobuf" target="_blank" rel="noopener">gRPC：Google开源的基于HTTP/2和ProtoBuf的通用RPC框架</a></li>
+</ul>
+<h4 id="Dubbo-RPC"><a href="#Dubbo-RPC" class="headerlink" title="Dubbo RPC"></a>Dubbo RPC</h4><blockquote>
+<p>Dubbo-RPC是服务治理框架Dubbo的子模块，提供了灵活的配置方式，支持常见的传输协议RMI、Dubbo、Hessain、WebService、Http 等，序列化支持Hessian2、dubbo、JSON、SOAP 等。</p>
+</blockquote>
+<ul>
+<li><a href="https://www.cnblogs.com/lengfo/p/4293399.html" target="_blank" rel="noopener">基于dubbo框架下的RPC通讯协议性能测试</a></li>
+</ul>
+<h4 id="RPC-传输协议"><a href="#RPC-传输协议" class="headerlink" title="RPC-传输协议"></a>RPC-传输协议</h4><blockquote>
+<p>常见RPC协议有: Dubbo/RMI（socket实现）, Hessian/WebService（HTTP实现） 以及Redis, Memcached等。</p>
+</blockquote>
+<ul>
+<li><a href="http://www.iocoder.cn/RPC/laoxu/rpc-protocol/" target="_blank" rel="noopener">深入理解 RPC 之协议篇</a></li>
+</ul>
+<h4 id="RPC-序列化类库"><a href="#RPC-序列化类库" class="headerlink" title="RPC-序列化类库"></a>RPC-序列化类库</h4><blockquote>
+<p>包括gRPC使用的ProtoBuf、Thrift序列化协议、Avro协议。</p>
+</blockquote>
+<ul>
+<li><a href="http://www.cnblogs.com/cocos2014/p/4259037.html" target="_blank" rel="noopener">跨语言通信方案的比较—Thrift/Protobuf和Avro</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-gpb/index.html" target="_blank" rel="noopener">Google Protocol Buffer 的使用和原理</a></li>
+</ul>
+<h2 id="API网关"><a href="#API网关" class="headerlink" title="API网关"></a>API网关</h2><h3 id="Spring-Cloud-Gateway"><a href="#Spring-Cloud-Gateway" class="headerlink" title="Spring Cloud Gateway"></a>Spring Cloud Gateway</h3><p>TODO</p>
+<h3 id="Zuul"><a href="#Zuul" class="headerlink" title="Zuul"></a>Zuul</h3><p>TODO</p>
+<h2 id="注册中心"><a href="#注册中心" class="headerlink" title="注册中心"></a>注册中心</h2><h3 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h3><ul>
+<li><a href="../基础架构/Arch-分布式-Zookeeper">✐笔记: Zookeeper</a></li>
+</ul>
+<h3 id="Consul"><a href="#Consul" class="headerlink" title="Consul"></a>Consul</h3><p>TODO</p>
+<h3 id="Etcd"><a href="#Etcd" class="headerlink" title="Etcd"></a>Etcd</h3><p>TODO</p>
+<h2 id="Web-Server"><a href="#Web-Server" class="headerlink" title="Web Server"></a>Web Server</h2><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><ul>
+<li><a href="../基础架构/Arch-反向代理-Nginx">✐笔记: Nginx</a></li>
+</ul>
+<h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><ul>
+<li><a href="../Java/JavaEE-Tomcat">✐笔记: Tomcat</a></li>
+</ul>
+<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>TODO</p>
+<h3 id="Memcached"><a href="#Memcached" class="headerlink" title="Memcached"></a>Memcached</h3><ul>
+<li><a href="../基础架构/Arch-缓存-Memcache">✐笔记: Memcached</a></li>
+</ul>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h3><h4 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h4><ul>
+<li><a href="../基础架构/Arch-DB-MySQL">✐笔记: MySQL</a></li>
+<li><a href="http://blog.codinglabs.org/articles/theory-of-mysql-index.html" target="_blank" rel="noopener">MySQL索引背后的数据结构及算法原理</a></li>
+</ul>
+<h3 id="NoSQL"><a href="#NoSQL" class="headerlink" title="NoSQL"></a>NoSQL</h3><h4 id="Mongo"><a href="#Mongo" class="headerlink" title="Mongo"></a>Mongo</h4><ul>
+<li><a href="../基础架构/Arch-NoSQL-Mongo">✐笔记: Mongo</a></li>
+</ul>
+<h4 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h4><ul>
+<li><a href="../基础架构/Arch-NoSQL-Redis">✐笔记: Redis</a></li>
+<li><a href="http://redisdoc.com/" target="_blank" rel="noopener">Redis命令参考</a></li>
+</ul>
+<h4 id="HBase"><a href="#HBase" class="headerlink" title="HBase"></a>HBase</h4><ul>
+<li><a href="../大数据/Arch-大数据-HBase">✐笔记: HBase</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/analytics/library/ba-1604-hbase-develop-practice/index.html" target="_blank" rel="noopener">Hbase 设计与开发实战</a></li>
+</ul>
+<h2 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h2><h3 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h3><ul>
+<li><a href="../大数据/Arch-大数据-Kafka">✐笔记: Kafka</a></li>
+<li><a href="http://kafka.apachecn.org" target="_blank" rel="noopener">Kafka 中文文档 - ApacheCN</a></li>
+</ul>
+<h3 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h3><p>TODO</p>
+<h3 id="ZeroMQ"><a href="#ZeroMQ" class="headerlink" title="ZeroMQ"></a>ZeroMQ</h3><p>TODO</p>
+<h2 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h2><blockquote>
+<p>TODO: <a href="https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#分布式一致" target="_blank" rel="noopener">https://github.com/xingshaocheng/architect-awesome/blob/master/README.md#分布式一致</a></p>
+</blockquote>
+<h2 id="容器化"><a href="#容器化" class="headerlink" title="容器化"></a>容器化</h2><h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><ul>
+<li><a href="../基础架构/Arch-容器-Docker">✐笔记: Docker</a></li>
+<li><a href="https://draveness.me/docker" target="_blank" rel="noopener">Docker 核心技术与实现原理</a></li>
+</ul>
+<h3 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h3><blockquote>
+<p>Kubernetes（常简称为K8s）是用于自动部署、扩展和管理容器化（containerized）应用程序的开源系统。</p>
+</blockquote>
+<ul>
+<li><a href="https://linux.cn/article-8800-1.html" target="_blank" rel="noopener">一文了解 Kubernetes 是什么？</a></li>
+<li><a href="http://dockone.io/article/932" target="_blank" rel="noopener">十分钟带你理解Kubernetes核心概念 - DockOne.io</a></li>
+</ul>
+<h2 id="资源调度"><a href="#资源调度" class="headerlink" title="资源调度"></a>资源调度</h2><ul>
+<li><a href="../基础架构/Arch-资源调度-Yarn-Mesos-k8s">✐笔记: 资源调度(YARN vs Mesos vs k8s)</a></li>
+</ul>
+<h3 id="Mesos-vs-Yarn-vs-Kubernetes"><a href="#Mesos-vs-Yarn-vs-Kubernetes" class="headerlink" title="Mesos vs Yarn vs Kubernetes"></a>Mesos vs Yarn vs Kubernetes</h3><ul>
+<li><a href="http://dongxicheng.org/mapreduce-nextgen/mesos_vs_yarn/" target="_blank" rel="noopener">统一资源管理与调度平台（系统）介绍</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/28301108" target="_blank" rel="noopener">Docker、Kubernetes 和 Apache Mesos 对比中的一些误区 - 知乎</a></li>
+<li><a href="https://www.zhihu.com/question/53751176/answer/250275995" target="_blank" rel="noopener">Kubernetes和Mesos有啥区别，我该使用哪个好? </a></li>
+<li><a href="http://dockone.io/article/927" target="_blank" rel="noopener">Mesos和YARN的区别以及它们如何协同工作 - DockOne.io</a></li>
+</ul>
+<h3 id="Yarn"><a href="#Yarn" class="headerlink" title="Yarn"></a>Yarn</h3><ul>
+<li><a href="https://www.ibm.com/developerworks/cn/data/library/bd-yarn-intro/index.html" target="_blank" rel="noopener">YARN 简介</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-hadoop-yarn/" target="_blank" rel="noopener">Hadoop 新 MapReduce 框架 Yarn 详解</a></li>
+</ul>
+<h3 id="Mesos"><a href="#Mesos" class="headerlink" title="Mesos"></a>Mesos</h3><blockquote>
+<p>Mesos可以理解为一种分布式集群的“系统内核”， 负责整个集群资源的分配（CPU、内存、存储资源、网络资源等）。在Mesos上可以运行Spark， Storm， Hadoop， Marathon等多种Framework。</p>
+</blockquote>
+<h2 id="DevOps-amp-监控"><a href="#DevOps-amp-监控" class="headerlink" title="DevOps &amp; 监控"></a>DevOps &amp; 监控</h2><h3 id="基础监控"><a href="#基础监控" class="headerlink" title="基础监控"></a>基础监控</h3><ul>
+<li><a href="https://www.jianshu.com/p/a4e55b10f5f4" target="_blank" rel="noopener">一篇文章全面了解监控知识体系</a></li>
+</ul>
+<h4 id="Ganglia"><a href="#Ganglia" class="headerlink" title="Ganglia"></a>Ganglia</h4><blockquote>
+<p>除了对基础性能的监控、Ganglia还可以通过Coda Hale开发的<a href="#Metrics">Metrics</a>库实现对Spark、Hadoop、Kafka、JStorm的监控。</p>
+</blockquote>
+<ul>
+<li><a href="https://www.ibm.com/developerworks/cn/data/library/bd-1501gangliahbase/index.html?mhq=Ganglia&amp;mhsrc=ibmsearch_a" target="_blank" rel="noopener">用Ganglia监控基于Biginsights的HBase集群性能</a></li>
+</ul>
+<h4 id="Open-Falcon"><a href="#Open-Falcon" class="headerlink" title="Open Falcon"></a>Open Falcon</h4><blockquote>
+<p>Open Falcon提供了对集群、MySQL、Redis、Nginx、JMX、Mesos等常见应用的监控功能。</p>
+</blockquote>
+<ul>
+<li><a href="http://book.open-falcon.org/zh/intro/" target="_blank" rel="noopener">Open-Falcon</a></li>
+</ul>
+<h3 id="APM"><a href="#APM" class="headerlink" title="APM"></a>APM</h3><blockquote>
+<p>应用性能管理(Application Performance Management)</p>
+</blockquote>
+<ul>
+<li><a href="http://www.infoq.com/cn/articles/apm-Pinpoint-practice" target="_blank" rel="noopener">回到网易后开源APM技术选型与实战</a></li>
+</ul>
+<h4 id="Zipkin"><a href="#Zipkin" class="headerlink" title="Zipkin"></a>Zipkin</h4><p>TODO</p>
+<h4 id="SkyWalking"><a href="#SkyWalking" class="headerlink" title="SkyWalking"></a>SkyWalking</h4><p>TODO</p>
+<h2 id="压力测试"><a href="#压力测试" class="headerlink" title="压力测试"></a>压力测试</h2><h3 id="WRK"><a href="#WRK" class="headerlink" title="WRK"></a>WRK</h3><ul>
+<li><a href="https://github.com/wg/wrk" target="_blank" rel="noopener">wg/wrk: Modern HTTP benchmarking tool</a></li>
+</ul>
+<h3 id="JMeter"><a href="#JMeter" class="headerlink" title="JMeter"></a>JMeter</h3><ul>
+<li><a href="http://www.importnew.com/13876.html" target="_blank" rel="noopener">使用JMeter进行负载测试——终极指南 - ImportNew</a></li>
+</ul>
+<h1 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h1><ul>
+<li><a href="https://www.cnblogs.com/zlslch/p/7610241.html" target="_blank" rel="noopener">大数据入门基础系列之初步认识大数据生态系统圈</a></li>
+<li><a href="https://blog.csdn.net/qq_16633405/article/details/78947969#%E7%9B%AE%E5%BD%95" target="_blank" rel="noopener">大数据面试题总结（附答案） - Magician的博客 - CSDN博客</a></li>
+</ul>
+<h2 id="批处理计算"><a href="#批处理计算" class="headerlink" title="批处理计算"></a>批处理计算</h2><h3 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h3><ul>
+<li><a href="../大数据/Arch-大数据-Hadoop">Hadoop</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/data/library/bd-hadoopoozie/index.html" target="_blank" rel="noopener">针对 Hadoop 的 Oozie 工作流管理引擎的实际应用</a></li>
+</ul>
+<h2 id="流式计算"><a href="#流式计算" class="headerlink" title="流式计算"></a>流式计算</h2><h3 id="Flink"><a href="#Flink" class="headerlink" title="Flink"></a>Flink</h3><ul>
+<li><a href="http://flink.apachecn.org" target="_blank" rel="noopener">Flink 中文文档</a></li>
+<li><a href="https://tech.meituan.com/meishi_data_flink.html" target="_blank" rel="noopener">美团点评基于 Flink 的实时数仓建设实践</a></li>
+</ul>
+<h3 id="Storm"><a href="#Storm" class="headerlink" title="Storm"></a>Storm</h3><ul>
+<li><a href="../大数据/Arch-大数据-Storm">✐笔记: Storm</a></li>
+<li><a href="http://storm.apachecn.org/releases/cn/1.1.0/" target="_blank" rel="noopener">Storm 1.1.0 中文文档 - ApacheCN</a></li>
+<li><a href="https://tech.meituan.com/real_timedata_measure.html" target="_blank" rel="noopener">美团点评基于Storm的实时数据处理实践</a></li>
+</ul>
+<h2 id="混合型计算"><a href="#混合型计算" class="headerlink" title="混合型计算"></a>混合型计算</h2><h3 id="Spark"><a href="#Spark" class="headerlink" title="Spark"></a>Spark</h3><ul>
+<li><a href="../大数据/Arch-大数据-Spark">✐笔记: Spark</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/opensource/os-spark/index.html" target="_blank" rel="noopener">Spark，一种快速数据分析替代方案</a></li>
+<li><a href="http://spark.apachecn.org" target="_blank" rel="noopener">Spark 中文文档 - ApacheCN</a></li>
+</ul>
+<h2 id="大数据分析"><a href="#大数据分析" class="headerlink" title="大数据分析"></a>大数据分析</h2><h3 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h3><blockquote>
+<p>Hive是建立在 Hadoop 上的数据仓库基础构架。它提供了一系列的工具，可以用来进行数据提取转化加载（ETL），这是一种可以存储、查询和分析存储在 Hadoop 中的大规模数据的机制。</p>
+</blockquote>
+<ul>
+<li><a href="../大数据/Arch-大数据-Hive">✐笔记: Hive</a></li>
+</ul>
+<h3 id="Druid"><a href="#Druid" class="headerlink" title="Druid"></a>Druid</h3><blockquote>
+<p>Druid.io是一个开源的，分布式的，列式存储的，适用于实时数据查询分析的OLAP系统。</p>
+</blockquote>
+<ul>
+<li><a href="http://druidio.cn/docs/0.9.0/design/index.html" target="_blank" rel="noopener">Druid说明文档</a></li>
+</ul>
+<h3 id="Spark-SQL"><a href="#Spark-SQL" class="headerlink" title="Spark SQL"></a>Spark SQL</h3><p>TODO</p>
+<h1 id="机器学习-amp-深度学习"><a href="#机器学习-amp-深度学习" class="headerlink" title="机器学习 &amp; 深度学习"></a>机器学习 &amp; 深度学习</h1><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><ul>
+<li><a href="../机器学习/MachineLearning-机器学习">✐笔记: MachineLearning-机器学习</a></li>
+</ul>
+<h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h3><h4 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h4><ul>
+<li><a href="http://blog.jobbole.com/105602/" target="_blank" rel="noopener">TensorFlow深度学习，一篇文章就够了</a></li>
+</ul>
+<h3 id="算法理论"><a href="#算法理论" class="headerlink" title="算法理论"></a>算法理论</h3><ul>
+<li><a href="https://blog.csdn.net/u011067360/article/details/24735415" target="_blank" rel="noopener">机器学习中的有监督学习，无监督学习，半监督学习</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/25140821" target="_blank" rel="noopener">通俗易懂说数据挖掘十大经典算法 - 知乎</a></li>
+<li><a href="https://cloud.tencent.com/developer/article/1330139" target="_blank" rel="noopener">数据挖掘10大算法详细介绍 - 云+社区</a></li>
+</ul>
+<h4 id="有监督学习算法"><a href="#有监督学习算法" class="headerlink" title="有监督学习算法"></a>有监督学习算法</h4><h5 id="LR"><a href="#LR" class="headerlink" title="LR"></a>LR</h5><blockquote>
+<p>逻辑回归(Logistics Regression)</p>
+</blockquote>
+<ul>
+<li><a href="https://blog.csdn.net/Chenyukuai6625/article/details/74398043" target="_blank" rel="noopener">线性回归及梯度下降算法详解</a></li>
+</ul>
+<h5 id="kNN"><a href="#kNN" class="headerlink" title="kNN"></a>kNN</h5><blockquote>
+<p>k-近邻算法</p>
+</blockquote>
+<ul>
+<li><a href="https://blog.csdn.net/Chenyukuai6625/article/details/73612440" target="_blank" rel="noopener">KNN算法（有监督学习算法）</a></li>
+</ul>
+<h5 id="FM"><a href="#FM" class="headerlink" title="FM"></a>FM</h5><blockquote>
+<p>因子分解机(Factorization Machine) 因子分解机(Factorization Machine, FM) 是由Steffen Rendle提出的一种基于矩阵分解的机器学习算法。目前，被广泛的应用于广告预估模型中</p>
+</blockquote>
+<ul>
+<li><a href="https://blog.csdn.net/bitcarmanlee/article/details/52143909" target="_blank" rel="noopener">FM算法详解</a></li>
+</ul>
+<h5 id="FFM"><a href="#FFM" class="headerlink" title="FFM"></a>FFM</h5><blockquote>
+<p>Field-aware Factorization Machines(FFM)</p>
+</blockquote>
+<h5 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h5><blockquote>
+<p>Naive Bayes</p>
+</blockquote>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/26262151" target="_blank" rel="noopener">带你理解朴素贝叶斯分类算法 - 知乎</a></li>
+</ul>
+<h5 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h5><blockquote>
+<p>支持向量机（Support Vector Machine）</p>
+</blockquote>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/41331635" target="_blank" rel="noopener">聊聊SVM - 知乎</a></li>
+</ul>
+<h5 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h5><blockquote>
+<p>决策树（Decision Tree）</p>
+</blockquote>
+<ul>
+<li><a href="https://blog.csdn.net/Chenyukuai6625/article/details/73658239" target="_blank" rel="noopener">决策树算法（有监督学习算法）</a></li>
+</ul>
+<h5 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h5><blockquote>
+<p>Random Forest</p>
+</blockquote>
+<ul>
+<li><a href="https://blog.csdn.net/Chenyukuai6625/article/details/73670473" target="_blank" rel="noopener">随机森林算法（有监督学习）</a></li>
+</ul>
+<h5 id="boosting"><a href="#boosting" class="headerlink" title="boosting"></a>boosting</h5><blockquote>
+<p>集成学习的两个流派，bagging  &amp; boosting派系</p>
+</blockquote>
+<ul>
+<li><a href="https://blog.csdn.net/Chenyukuai6625/article/details/73692347" target="_blank" rel="noopener">bagging和boosting算法（集成学习算法）</a></li>
+</ul>
+<h4 id="无监督学习算法"><a href="#无监督学习算法" class="headerlink" title="无监督学习算法"></a>无监督学习算法</h4><h5 id="k-均值"><a href="#k-均值" class="headerlink" title="k-均值"></a>k-均值</h5><blockquote>
+<p>k-means 算法</p>
+</blockquote>
+<ul>
+<li><a href="https://blog.csdn.net/Chenyukuai6625/article/details/73609112" target="_blank" rel="noopener">K-means聚类算法（无监督学习算法）</a></li>
+</ul>
+<h5 id="分层聚类"><a href="#分层聚类" class="headerlink" title="分层聚类"></a>分层聚类</h5><h5 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h5><blockquote>
+<p>主成分分析（Principal Component Analysis）</p>
+</blockquote>
+<h5 id="DBSCAN"><a href="#DBSCAN" class="headerlink" title="DBSCAN"></a>DBSCAN</h5><blockquote>
+<p>DBSCAN，英文全写为Density-based spatial clustering of applications with noise ，是在 1996 年由Martin Ester, Hans-Peter Kriegel, Jörg Sander 及 Xiaowei Xu 提出的聚类分析算法， 这个算法是以密度为本的：给定某空间里的一个点集合，这算法能把附近的点分成一组（有很多相邻点的点），并标记出位于低密度区域的局外点（最接近它的点也十分远），DBSCAN 是其中一个最常用的聚类分析算法</p>
+</blockquote>
+<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><ul>
+<li><a href="../机器学习/DeepLearning-深度学习">✐笔记: DeepLearning-深度学习</a></li>
+</ul>
+<h3 id="深度学习框架"><a href="#深度学习框架" class="headerlink" title="深度学习框架"></a>深度学习框架</h3><h4 id="TensorFlow-1"><a href="#TensorFlow-1" class="headerlink" title="TensorFlow"></a>TensorFlow</h4><ul>
+<li><a href="http://blog.jobbole.com/105602/" target="_blank" rel="noopener">TensorFlow深度学习，一篇文章就够了</a></li>
+</ul>
+<h4 id="Caffe2"><a href="#Caffe2" class="headerlink" title="Caffe2"></a>Caffe2</h4><p>TODO</p>
+<h4 id="MXNet"><a href="#MXNet" class="headerlink" title="MXNet"></a>MXNet</h4><p>TODO</p>
+<h4 id="DeepLearning4j"><a href="#DeepLearning4j" class="headerlink" title="DeepLearning4j"></a>DeepLearning4j</h4><p>TODO</p>
+<h3 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h3><h4 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h4><ul>
+<li><a href="http://www.cnblogs.com/pinard/p/6042320.html" target="_blank" rel="noopener">感知机原理小结</a></li>
+<li><a href="https://www.cnblogs.com/pinard/p/6418668.html" target="_blank" rel="noopener">深度神经网络（DNN）模型与前向传播算法</a></li>
+</ul>
+<h4 id="积神经网络（CNN）"><a href="#积神经网络（CNN）" class="headerlink" title="积神经网络（CNN）"></a>积神经网络（CNN）</h4><ul>
+<li><a href="https://my.oschina.net/u/876354/blog/1620906" target="_blank" rel="noopener">大话卷积神经网络（CNN）</a></li>
+</ul>
+<h5 id="CNN经典模型：LeNet"><a href="#CNN经典模型：LeNet" class="headerlink" title="CNN经典模型：LeNet"></a>CNN经典模型：LeNet</h5><ul>
+<li><a href="https://my.oschina.net/u/876354/blog/1632862" target="_blank" rel="noopener">大话CNN经典模型：LeNet</a></li>
+</ul>
+<h5 id="CNN经典模型：AlexNet"><a href="#CNN经典模型：AlexNet" class="headerlink" title="CNN经典模型：AlexNet"></a>CNN经典模型：AlexNet</h5><ul>
+<li><a href="https://my.oschina.net/u/876354/blog/1633143" target="_blank" rel="noopener">大话CNN经典模型：AlexNet</a></li>
+</ul>
+<h5 id="CNN经典模型：VGGNet"><a href="#CNN经典模型：VGGNet" class="headerlink" title="CNN经典模型：VGGNet"></a>CNN经典模型：VGGNet</h5><ul>
+<li><a href="https://my.oschina.net/u/876354/blog/1634322" target="_blank" rel="noopener">大话CNN经典模型：VGGNet</a></li>
+</ul>
+<h5 id="CNN经典模型：GoogLeNet"><a href="#CNN经典模型：GoogLeNet" class="headerlink" title="CNN经典模型：GoogLeNet"></a>CNN经典模型：GoogLeNet</h5><ul>
+<li><a href="https://my.oschina.net/u/876354/blog/1637819" target="_blank" rel="noopener">大话CNN经典模型：GoogLeNet（从Inception v1到v4的演进）</a></li>
+</ul>
+<h4 id="循环神经网络（RNN）"><a href="#循环神经网络（RNN）" class="headerlink" title="循环神经网络（RNN）"></a>循环神经网络（RNN）</h4><ul>
+<li><a href="https://my.oschina.net/u/876354/blog/1621839" target="_blank" rel="noopener">大话循环神经网络（RNN）</a></li>
+</ul>
+<h4 id="度残差网络（DRN）"><a href="#度残差网络（DRN）" class="headerlink" title="度残差网络（DRN）"></a>度残差网络（DRN）</h4><ul>
+<li><a href="https://my.oschina.net/u/876354/blog/1622896" target="_blank" rel="noopener">大话深度残差网络（DRN）ResNet网络原理</a></li>
+</ul>
+<h4 id="度信念网络（DBN）"><a href="#度信念网络（DBN）" class="headerlink" title="度信念网络（DBN）"></a>度信念网络（DBN）</h4><ul>
+<li><a href="https://my.oschina.net/u/876354/blog/1626639" target="_blank" rel="noopener">大话深度信念网络（DBN）</a></li>
+</ul>
+<h1 id="推荐系统"><a href="#推荐系统" class="headerlink" title="推荐系统"></a>推荐系统</h1><ul>
+<li><a href="../机器学习/RecommenderSystem-推荐系统">✐笔记: 推荐系统</a></li>
+</ul>
+<h1 id="搜索引擎"><a href="#搜索引擎" class="headerlink" title="搜索引擎"></a>搜索引擎</h1><h2 id="搜索引擎原理"><a href="#搜索引擎原理" class="headerlink" title="搜索引擎原理"></a>搜索引擎原理</h2><ul>
+<li><a href="https://blog.csdn.net/hguisu/article/details/7962350" target="_blank" rel="noopener">搜索引擎-倒排索引基础知识</a></li>
+</ul>
+<h2 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h2><ul>
+<li><a href="http://www.woshipm.com/pmd/232014.html" target="_blank" rel="noopener">搜索排序评估方法</a></li>
+</ul>
+<h2 id="ElasticSearch"><a href="#ElasticSearch" class="headerlink" title="ElasticSearch"></a>ElasticSearch</h2><ul>
+<li><a href="http://cwiki.apachecn.org/pages/viewpage.action?pageId=10813594" target="_blank" rel="noopener">ElasticSearch 5.4 中文文档</a></li>
+</ul>
+<h2 id="Lucene"><a href="#Lucene" class="headerlink" title="Lucene"></a>Lucene</h2><p>TODO</p>
+<h2 id="Solr"><a href="#Solr" class="headerlink" title="Solr"></a>Solr</h2><p>TODO</p>
+<h1 id="Linux-amp-DevOps"><a href="#Linux-amp-DevOps" class="headerlink" title="Linux &amp; DevOps"></a>Linux &amp; DevOps</h1><ul>
+<li><a href="../30MinsTutorial/Shell%20Tutorials">✐笔记: Shell Script 30分钟快速入门指北</a>: 一篇简短的Bash Shell入门教程</li>
+<li><a href="../Linux/Linux-Sed_Awk_Grep">✐笔记: Sed, Awk, Grep</a>: Linux搜索三件套</li>
+<li><a href="../Linux/Linux-Performance">✐笔记: Linux性能分析（Linux-Performance）</a>: 基础性能分析命令（uptime，ps/pstree，free，vmstat/iostat，sar，netstat），sysctl优化内核参数</li>
+<li><a href="../Linux/Linux-Primer">✐笔记: Linux进阶（Linux-Primer）</a>: 包括 Linux常用命令，I/O模型，网络编程I/O设计模式（Reactor/Proactor），用户态&amp;内核态，内存寻址，进程控制，信号，etc.</li>
+</ul>
+<h2 id="性能调优"><a href="#性能调优" class="headerlink" title="性能调优"></a>性能调优</h2><ul>
+<li><a href="http://coolshell.cn/articles/7490.html" target="_blank" rel="noopener">性能调优攻略</a></li>
+</ul>
+<h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><blockquote>
+<p>相关tag： #NIO  #IO模型  #IO设计模式</p>
+</blockquote>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000003063859" target="_blank" rel="noopener">Linux IO模式及 select、poll、epoll详解</a></li>
+<li><a href="http://blog.jobbole.com/59676/" target="_blank" rel="noopener">两种高性能I/O设计模式(Reactor/Proactor)的比较</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/aix/library/au-libev/" target="_blank" rel="noopener">使用 libevent 和 libev 提高网络应用性能</a></li>
+</ul>
+<h2 id="并发（C100K）"><a href="#并发（C100K）" class="headerlink" title="并发（C100K）"></a>并发（C100K）</h2><ul>
+<li><a href="../基础架构/Arch-架构-并发系统-C100K">✐笔记: 并发系统(C100K)</a></li>
+<li><a href="http://www.52im.net/thread-561-1-1.html" target="_blank" rel="noopener">高性能网络编程(一)：单台服务器并发TCP连接数到底可以有多少</a></li>
+<li><a href="https://segmentfault.com/a/1190000007240744" target="_blank" rel="noopener">高性能网络编程(二)：上一个10年，著名的C10K并发连接问题</a></li>
+<li><a href="http://www.52im.net/thread-568-1-1.html" target="_blank" rel="noopener">高性能网络编程(三)：下一个10年，是时候考虑C10M并发问题了</a></li>
+<li><a href="https://wetest.qq.com/lab/view/?id=103" target="_blank" rel="noopener">高并发性能调试经验分享 - 腾讯WeTest</a></li>
+</ul>
+<h2 id="OS系统原理"><a href="#OS系统原理" class="headerlink" title="OS系统原理"></a>OS系统原理</h2><ul>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-system-calls/index.html" target="_blank" rel="noopener">使用 Linux 系统调用的内核命令</a></li>
+<li><a href="https://github.com/EZLippi/practical-programming-books/blob/master/src/cpu-cache.md" target="_blank" rel="noopener">每个程序员都应该了解的CPU缓存知识</a></li>
+<li><a href="https://github.com/EZLippi/practical-programming-books/blob/master/src/virtual-memory.md" target="_blank" rel="noopener">每个程序员都应该了解的虚拟内存知识</a></li>
+<li><a href="https://github.com/EZLippi/practical-programming-books/blob/master/src/memory.md" target="_blank" rel="noopener">每个程序员都应该了解的内存知识</a></li>
+<li><a href="http://blog.xiaohansong.com/2015/10/05/Linux内存寻址之分页机制" target="_blank" rel="noopener">Linux内存寻址之分页机制</a></li>
+<li><a href="http://blog.xiaohansong.com/2015/10/03/Linux内存寻址之分段机制" target="_blank" rel="noopener">Linux内存寻址之分段机制</a></li>
+<li><a href="http://www.cnblogs.com/felixfang/p/3420462.html" target="_blank" rel="noopener">内存管理笔记(分页，分段，逻辑地址，物理地址与地址转换方式)</a></li>
+</ul>
+<h1 id="网络协议"><a href="#网络协议" class="headerlink" title="网络协议"></a>网络协议</h1><ul>
+<li><a href="../网络协议/网络协议-TCP_IP">✐笔记: TCP/IP</a></li>
+<li><a href="../网络协议/网络协议-HTTP">✐笔记: HTTP</a></li>
+</ul>
+<h1 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h1><ul>
+<li><a href="../数据结构与算法/IntroductionToAlgorithm">影响程序员发展的十类算法（zz）</a></li>
+</ul>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><ul>
+<li><a href="../数据结构与算法/Algorithm-数据结构">✐笔记: 常用数据结构</a></li>
+</ul>
+<h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><h4 id="AVL"><a href="#AVL" class="headerlink" title="AVL"></a>AVL</h4><p>TODO</p>
+<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>TODO</p>
+<h4 id="B-树"><a href="#B-树" class="headerlink" title="B-树"></a>B-树</h4><p>TODO</p>
+<h3 id="优先队列（堆）"><a href="#优先队列（堆）" class="headerlink" title="优先队列（堆）"></a>优先队列（堆）</h3><p>TODO</p>
+<h3 id="散列"><a href="#散列" class="headerlink" title="散列"></a>散列</h3><p>TODO</p>
+<h2 id="算法设计"><a href="#算法设计" class="headerlink" title="算法设计"></a>算法设计</h2><ul>
+<li><a href="../数据结构与算法/Algorithm-算法设计">✐笔记: 算法设计</a></li>
+<li><a href="../数据结构与算法/Algorithm-排序">✐笔记: 常用排序算法</a></li>
+</ul>
+<h3 id="贪婪"><a href="#贪婪" class="headerlink" title="贪婪"></a>贪婪</h3><ul>
+<li><a href="https://blog.csdn.net/Chenyukuai6625/article/details/77429266" target="_blank" rel="noopener">贪心算法详解</a></li>
+</ul>
+<h3 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h3><ul>
+<li><a href="https://blog.csdn.net/Chenyukuai6625/article/details/77427116" target="_blank" rel="noopener">分治算法详解</a></li>
+</ul>
+<h3 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h3><ul>
+<li><a href="https://blog.csdn.net/qq_32400847/article/details/51474105" target="_blank" rel="noopener">回溯算法详解</a></li>
+</ul>
+<h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><ul>
+<li><a href="https://blog.csdn.net/Chenyukuai6625/article/details/77435778" target="_blank" rel="noopener">动态规划详解</a></li>
+</ul>
+<h3 id="图论算法"><a href="#图论算法" class="headerlink" title="图论算法"></a>图论算法</h3><h4 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h4><p>TODO</p>
+<h4 id="最短路径算法"><a href="#最短路径算法" class="headerlink" title="最短路径算法"></a>最短路径算法</h4><p>TODO</p>
+<h4 id="网络流问题"><a href="#网络流问题" class="headerlink" title="网络流问题"></a>网络流问题</h4><p>TODO</p>
+<h4 id="最小生成树"><a href="#最小生成树" class="headerlink" title="最小生成树"></a>最小生成树</h4><p>TODO</p>
+<h4 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h4><p>TODO</p>
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><ul>
+<li><a href="../其他技术类笔记/设计模式">✐笔记: 设计模式</a></li>
+<li><a href="http://www.runoob.com/design-pattern/design-pattern-intro.html" target="_blank" rel="noopener">设计模式简介</a></li>
+</ul>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><ul>
+<li><a href="../其他技术类笔记/正则表达式-RegExp">✐笔记: 正则表达式</a></li>
+<li><a href="https://github.com/EZLippi/practical-programming-books/blob/master/src/30-minutes-to-learn-regex.md" target="_blank" rel="noopener">55分钟学会正则表达式</a></li>
+</ul>
+<h1 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h1><ul>
+<li><a href="../30MinsTutorial/C_C++%20Tutorials">✐笔记: C/C++ 30分钟快速入门</a></li>
+</ul>
+<h2 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h2><ul>
+<li><a href="https://msdn.microsoft.com/zh-cn/library/hh279674.aspx" target="_blank" rel="noopener">智能指针（现代 C++）</a></li>
+</ul>
+<h1 id="Java-SE"><a href="#Java-SE" class="headerlink" title="Java SE"></a>Java SE</h1><ul>
+<li><a href="../30MinsTutorial/Java%20Tutorials">✐笔记: Java 30分钟快速入门</a>：《Java核心技术》读书笔记，包括Java对象，字符串，反射和RTTI，异常，泛型，集合，I/O流，多线程，网络编程API，NIO，Native Method，Java 8~9新特性(Lambda，Stream)，etc.</li>
+<li><a href="../Java/Java%20More">✐笔记: More about Java</a>：Java虚拟机相关笔记，JVM内存分代，JVM参数调优，垃圾回收，Java内存模型，etc.</li>
+</ul>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><ul>
+<li><a href="http://www.importnew.com/16725.html" target="_blank" rel="noopener">Java常见异常及解释 - ImportNew</a></li>
+</ul>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><blockquote>
+<p>两种主要的List：<code>ArrayList</code> &amp; <code>LinkedList</code></p>
+</blockquote>
+<ul>
+<li><a href="http://www.importnew.com/18865.html" target="_blank" rel="noopener">ArrayList</a></li>
+<li><a href="http://www.importnew.com/18968.html" target="_blank" rel="noopener">LinkedList</a></li>
+</ul>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><blockquote>
+<p><code>LinkedList</code> 同时实现了Deque和Queue接口，<code>ArrayDeque</code> 以循环数组实现的Dueue，<code>PriorityQueue</code> 用二叉堆实现的优先级队列</p>
+</blockquote>
+<ul>
+<li><a href="http://www.importnew.com/20169.html" target="_blank" rel="noopener">PriorityQueue</a></li>
+</ul>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><blockquote>
+<p>Set是不能包含重复的元素的集合：<code>HashSet</code> 由HashMap实现，<code>TreeSet</code> 由TreeMap实现</p>
+</blockquote>
+<ul>
+<li><a href="http://wiki.jikexueyuan.com/project/java-enhancement/java-twentyfour.html" target="_blank" rel="noopener">HashSet</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/java-enhancement/java-twentyeight.html" target="_blank" rel="noopener">TreeSet</a></li>
+</ul>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><blockquote>
+<p><code>HashMap</code> 散列表，<code>LinkedHashMap</code> 遍历时与插入顺序一致，<code>TreeMap</code> 用红黑树实现按Key排序的Map</p>
+</blockquote>
+<ul>
+<li><a href="http://www.importnew.com/20321.html" target="_blank" rel="noopener">HashMap</a></li>
+<li><a href="http://www.importnew.com/16695.html" target="_blank" rel="noopener">LinkedHashMap</a></li>
+<li><a href="http://www.importnew.com/19074.html" target="_blank" rel="noopener">TreeMap</a></li>
+</ul>
+<h2 id="并发"><a href="#并发" class="headerlink" title="并发"></a>并发</h2><h3 id="线程API"><a href="#线程API" class="headerlink" title="线程API"></a>线程API</h3><ul>
+<li><a href="http://www.importnew.com/21015.html" target="_blank" rel="noopener">终止阻塞的线程 - ImportNew</a></li>
+</ul>
+<h3 id="线程安全集合"><a href="#线程安全集合" class="headerlink" title="线程安全集合"></a>线程安全集合</h3><h4 id="线程安全的Queue"><a href="#线程安全的Queue" class="headerlink" title="线程安全的Queue"></a>线程安全的Queue</h4><blockquote>
+<p>阻塞队列 <code>PriorityBlockingQueue</code>, <code>SynchronousQueue</code> 等;<br>非阻塞队列 <code>ConcurrentLinkedQueue</code>, <code>ConcurrentLinkedDueue</code>;</p>
+</blockquote>
+<ul>
+<li><a href="http://www.infoq.com/cn/articles/java-blocking-queue" target="_blank" rel="noopener">聊聊并发——Java中的阻塞队列</a></li>
+<li><a href="http://www.infoq.com/cn/articles/ConcurrentLinkedQueue" target="_blank" rel="noopener">聊聊并发——ConcurrentLinkedQueue的实现原理分析</a></li>
+</ul>
+<h4 id="线程安全的Set"><a href="#线程安全的Set" class="headerlink" title="线程安全的Set"></a>线程安全的Set</h4><blockquote>
+<p><code>ConcurrentSkipListSet</code> 由ConcurrentSkipListMap实现</p>
+</blockquote>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000016214450" target="_blank" rel="noopener">ConcurrentSkipListSet</a></li>
+</ul>
+<h4 id="线程安全的Map"><a href="#线程安全的Map" class="headerlink" title="线程安全的Map"></a>线程安全的Map</h4><blockquote>
+<p><code>ConcurrentHashMap</code> 分段加锁的并发安全Map，<code>ConcurrentSkipListMap</code> 跳表实现的并发安全SortedMap</p>
+</blockquote>
+<ul>
+<li><a href="http://www.importnew.com/17481.html" target="_blank" rel="noopener">深入分析ConcurrentHashMap - ImportNew</a></li>
+</ul>
+<h4 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h4><ul>
+<li><a href="https://colobu.com/2016/02/29/Java-CompletableFuture/" target="_blank" rel="noopener">Java CompletableFuture 详解 | 鸟窝</a></li>
+</ul>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><ul>
+<li><a href="https://blog.csdn.net/luanlouis/article/category/2630089" target="_blank" rel="noopener">JVM虚拟机原理图解 - luanlouis的专栏 - CSDN博客</a></li>
+</ul>
+<h3 id="JAVA内存模型"><a href="#JAVA内存模型" class="headerlink" title="JAVA内存模型"></a>JAVA内存模型</h3><blockquote>
+<p>深入理解Java内存模型-系列</p>
+</blockquote>
+<ul>
+<li><a href="http://www.infoq.com/cn/articles/java-memory-model-1" target="_blank" rel="noopener">深入理解Java内存模型</a></li>
+</ul>
+<h3 id="GC"><a href="#GC" class="headerlink" title="GC"></a>GC</h3><h4 id="GC算法"><a href="#GC算法" class="headerlink" title="GC算法"></a>GC算法</h4><p>TODO</p>
+<h4 id="GC回收器"><a href="#GC回收器" class="headerlink" title="GC回收器"></a>GC回收器</h4><ul>
+<li><a href="http://www.importnew.com/27793.html" target="_blank" rel="noopener">G1 垃圾收集器介绍 - ImportNew</a></li>
+<li><a href="https://blog.csdn.net/gupao123456/article/details/82355512" target="_blank" rel="noopener">一文读懂Java 11的ZGC为何如此高效 - CSDN博客</a></li>
+</ul>
+<h2 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h2><h3 id="深入-Java-调试体系"><a href="#深入-Java-调试体系" class="headerlink" title="深入 Java 调试体系"></a>深入 Java 调试体系</h3><ul>
+<li><a href="https://www.ibm.com/developerworks/cn/views/java/libraryview.jsp?search_by=深入%20Java%20调试体系" target="_blank" rel="noopener">深入 Java 调试体系</a></li>
+</ul>
+<h3 id="JProfiler"><a href="#JProfiler" class="headerlink" title="JProfiler"></a>JProfiler</h3><ul>
+<li><a href="https://yq.aliyun.com/articles/276" target="_blank" rel="noopener">深入浅出JProfiler</a></li>
+</ul>
+<h3 id="VisualVM"><a href="#VisualVM" class="headerlink" title="VisualVM"></a>VisualVM</h3><ul>
+<li><a href="https://www.ibm.com/developerworks/cn/java/j-lo-visualvm/index.html" target="_blank" rel="noopener">使用 VisualVM 进行性能分析及调优</a></li>
+</ul>
+<h3 id="Btrace"><a href="#Btrace" class="headerlink" title="Btrace"></a>Btrace</h3><blockquote>
+<p>BTrace是SUN Kenai云计算开发平台下的一个开源项目，旨在为java提供安全可靠的动态跟踪分析工具。</p>
+</blockquote>
+<ul>
+<li><a href="https://json-liu.gitbooks.io/btrace/content/" target="_blank" rel="noopener">BTrace使用手册</a></li>
+<li><a href="http://www.rowkey.me/blog/2016/09/20/btrace/" target="_blank" rel="noopener">BTrace原理浅析</a></li>
+<li><a href="https://github.com/btraceio/btrace/tree/master/samples" target="_blank" rel="noopener">更多BTrace使用示例</a></li>
+</ul>
+<h3 id="HouseMD"><a href="#HouseMD" class="headerlink" title="HouseMD"></a>HouseMD</h3><blockquote>
+<p>比BTrace更轻量级的Java进程运行时的诊断调式命令行工具，可以用来跟踪跟踪方法的耗时。</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/CSUG/HouseMD/wiki/UserGuideCN" target="_blank" rel="noopener">UserGuideCN · CSUG/HouseMD Wiki</a></li>
+</ul>
+<h3 id="Memory-Analyzer-MAT"><a href="#Memory-Analyzer-MAT" class="headerlink" title="Memory Analyzer (MAT)"></a>Memory Analyzer (MAT)</h3><blockquote>
+<p>Java堆转储 (Heap Dump) 文件分析工具，可以分析堆内存中每种对象的数量，还可以跟踪对象的引用链，排查内存泄漏问题。</p>
+</blockquote>
+<ul>
+<li><a href="http://www.eclipse.org/mat/" target="_blank" rel="noopener">Eclipse Memory Analyzer Open Source Project | The Eclipse Foundation</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-ecl-ma/index.html" target="_blank" rel="noopener">使用 Eclipse Memory Analyzer 进行堆转储文件分析</a></li>
+</ul>
+<h2 id="构建-amp-测试"><a href="#构建-amp-测试" class="headerlink" title="构建 &amp; 测试"></a>构建 &amp; 测试</h2><ul>
+<li><a href="../Java/JavaEE-Tools_Building">✐笔记: Java构建工具（Maven,Gradle）</a></li>
+<li><a href="../Java/JavaEE-Tools_Building">✐笔记: Java测试工具（JUnit）</a></li>
+</ul>
+<h2 id="第三方类库"><a href="#第三方类库" class="headerlink" title="第三方类库"></a>第三方类库</h2><blockquote>
+<p>当你想重新发明轮子时，应该先去Guava &amp; Apache Commons库里找找看。</p>
+</blockquote>
+<h3 id="Guava"><a href="#Guava" class="headerlink" title="Guava"></a>Guava</h3><blockquote>
+<p>Guava包含了若干被Google的 Java项目广泛依赖的核心库，例如：集合collections、caching 、并发库 concurrency libraries 、通用注解 common annotations 、字符串处理 string processing 、I/O、原生类型支持 primitives support 等等。</p>
+</blockquote>
+<ul>
+<li><a href="http://ifeve.com/google-guava/" target="_blank" rel="noopener">Google Guava官方教程（中文版）</a></li>
+</ul>
+<h3 id="Apache-Commons"><a href="#Apache-Commons" class="headerlink" title="Apache Commons"></a>Apache Commons</h3><blockquote>
+<p>Apache Commons 提供了FileUpload, Lang, Pool(对象池), IO工具集等</p>
+</blockquote>
+<ul>
+<li><a href="http://hao.jobbole.com/apache-commons/" target="_blank" rel="noopener">Apache Commons：功能齐全的通用Java组件</a></li>
+</ul>
+<h3 id="Metrics"><a href="#Metrics" class="headerlink" title="Metrics"></a>Metrics</h3><blockquote>
+<p>目前最为流行的 metrics 库是来自 Coda Hale 的 dropwizard/metrics，该库被广泛地应用于各个知名的开源项目中。例如 Hadoop、Kafka、Spark、JStorm。并且Metrics生成的数据可以很方便的与Graphite、Ganglia等监控系统结合使用。</p>
+</blockquote>
+<ul>
+<li><a href="http://www.cnblogs.com/yangecnu/p/Using-Metrics-to-Profiling-WebService-Performance.html" target="_blank" rel="noopener">使用Metrics监控应用程序的性能</a></li>
+</ul>
+<h2 id="Java-8-9-10新特性"><a href="#Java-8-9-10新特性" class="headerlink" title="Java 8/9/10新特性"></a>Java 8/9/10新特性</h2><ul>
+<li><a href="https://www.ibm.com/developerworks/cn/java/j-lo-jdk8newfeature/index.html" target="_blank" rel="noopener">Java 8 新特性概述</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/java/the-new-features-of-Java-9/index.html" target="_blank" rel="noopener">Java 9 新特性概述</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/java/the-new-features-of-Java-10/index.html" target="_blank" rel="noopener">Java 10 新特性介绍</a></li>
+</ul>
+<h2 id="深入拆解-Java-虚拟机"><a href="#深入拆解-Java-虚拟机" class="headerlink" title="深入拆解 Java 虚拟机"></a>深入拆解 Java 虚拟机</h2><blockquote>
+<p>注：文章来自<a href="https://time.geekbang.org/" target="_blank" rel="noopener">极客时间课程</a>，需要付费购买才可以查看完整内容。</p>
+</blockquote>
+<ul>
+<li><a href="https://time.geekbang.org/column/article/11289" target="_blank" rel="noopener">01 | Java代码是怎么运行的？</a><ul>
+<li>初步认识Java字节码</li>
+<li>解释执行 vs 即时编译(JIT), Hotspot默认采用混合模式;</li>
+<li>Hotspot引入了几种即时编译器? Hotspot的分层编译是怎样执行的?</li>
+</ul>
+</li>
+<li><a href="https://time.geekbang.org/column/article/11503" target="_blank" rel="noopener">02 | Java的基本类型</a><ul>
+<li>基本类型在Java虚拟机内存的存储</li>
+</ul>
+</li>
+<li><a href="https://time.geekbang.org/column/article/11523" target="_blank" rel="noopener">03 | Java虚拟机是如何加载Java类的?</a><ul>
+<li>类加载器ClassLoader的分类, 继承关系, 双亲委派模型</li>
+<li>加载的最后一步是初始化, 成员赋值操作/static代码块会被放入<code>&lt;clinit&gt;</code>方法, 虚拟机加锁确保<code>&lt;clinit&gt;</code>只会执行一次</li>
+</ul>
+</li>
+<li><a href="https://time.geekbang.org/column/article/11539" target="_blank" rel="noopener">04 | JVM是如何执行方法调用的？（上）</a><ul>
+<li>字节码指令invokestatic, invokespecial, invokevirtual, invokeinterface分别用来调用哪种方法</li>
+</ul>
+</li>
+<li><a href="https://time.geekbang.org/column/article/12098" target="_blank" rel="noopener">05 | JVM是如何执行方法调用的？（下）</a></li>
+<li><a href="https://time.geekbang.org/column/article/12134" target="_blank" rel="noopener">06 | JVM是如何处理异常的？</a><ul>
+<li>每个方法都有异常表, 异常表一个条目对应一个异常处理器(Catch), 抛出异常时会遍历异常表, 如果没有找到合适的异常处理器, 那么它会弹出当前方法对应的 Java 栈帧，并且在调用者（caller）中重复上述操作。在最坏情况下，Java 虚拟机需要遍历当前线程 Java 栈上所有方法的异常表。</li>
+<li>字节码对Try-Catch-Finally的处理</li>
+</ul>
+</li>
+<li><a href="https://time.geekbang.org/column/article/12192" target="_blank" rel="noopener">07 | JVM是如何实现反射的？</a></li>
+<li><a href="https://time.geekbang.org/column/article/13081" target="_blank" rel="noopener">10 | Java对象的内存布局</a></li>
+<li><a href="https://time.geekbang.org/column/article/12423" target="_blank" rel="noopener">【工具篇】 常用工具介绍</a></li>
+</ul>
+<h1 id="Java-EE"><a href="#Java-EE" class="headerlink" title="Java EE"></a>Java EE</h1><h2 id="Web-框架"><a href="#Web-框架" class="headerlink" title="Web 框架"></a>Web 框架</h2><h3 id="Servlet"><a href="#Servlet" class="headerlink" title="Servlet"></a>Servlet</h3><ul>
+<li><a href="../Java/JavaEE-Servlet">✐笔记: Servlet/JSP</a></li>
+<li><a href="https://waylau.gitbooks.io/servlet-3-1-specification/content/" target="_blank" rel="noopener">Servlet规范</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/java/j-lo-servlet/" target="_blank" rel="noopener">Servlet 工作原理解析</a></li>
+</ul>
+<h3 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h3><ul>
+<li><a href="../Java/JavaEE-Spring%20MVC">✐笔记: Spring MVC</a></li>
+<li><a href="http://blog.didispace.com/books/spring-mvc-4-tutorial/" target="_blank" rel="noopener">Spring MVC 4.2.4 RELEASE 中文文档</a></li>
+</ul>
+<h3 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h3><ul>
+<li><a href="../Java/JavaEE-Spring%20Boot">✐笔记: SPring Boot</a></li>
+<li><a href="http://blog.didispace.com/Spring-Boot%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">Spring Boot基础教程 | 程序猿DD</a></li>
+</ul>
+<h3 id="Spring-WebFlux"><a href="#Spring-WebFlux" class="headerlink" title="Spring WebFlux"></a>Spring WebFlux</h3><ul>
+<li><a href="https://www.bysocket.com/?p=1987" target="_blank" rel="noopener">聊聊 Spring Boot 2.0 的 WebFlux</a><ol>
+<li>Spring Web MVC 基于 Servlet API 和 Servlet 容器设计。Spring WebFlux 基于 Reactive Streams API 和 Servlet 3.1+ 容器设计</li>
+<li>Reactive Streams API 是什么？<ul>
+<li>流是序列，是生产者生产，一个或多个消费者消费的元素序列。这种具体的设计模式成为发布订阅模式。</li>
+<li>Back pressure是一种常用策略，使得发布者拥有无限制的缓冲区存储 item，用于确保发布者发布 item 太快时，不会去压制订阅者。</li>
+<li>Reactive Streams （响应式流）是提供处理非阻塞back pressure异步流的一种标准。JDK 9 <code>java.util.concurrent</code> 包提供了两个主要的 API 来处理响应流：<ul>
+<li>java.util.concurrent.Flow</li>
+<li>java.util.concurrent.SubmissionPublisher</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="ORM框架"><a href="#ORM框架" class="headerlink" title="ORM框架"></a>ORM框架</h2><ul>
+<li><a href="../Java/JavaEE-ORM">✐笔记: Java ORM框架</a></li>
+</ul>
+<h3 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h3><ul>
+<li><a href="http://www.mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">MyBatis 3 | 入门</a></li>
+<li><a href="https://gitbook.cn/books/5a37b6b66eec7c4f044a75d0/index.html" target="_blank" rel="noopener">通过源码深入理解 SQL 的执行过程</a></li>
+<li>《深入理解mybatis原理》<ul>
+<li><a href="https://blog.csdn.net/luanlouis/article/details/40422941" target="_blank" rel="noopener">MyBatis的架构设计以及实例分析</a></li>
+<li><a href="https://blog.csdn.net/luanlouis/article/details/37671851" target="_blank" rel="noopener">Mybatis数据源与连接池</a></li>
+<li><a href="https://blog.csdn.net/luanlouis/article/details/41390801" target="_blank" rel="noopener">MyBatis缓存机制的设计与实现</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h3><ul>
+<li><a href="https://www.w3cschool.cn/hibernate/" target="_blank" rel="noopener">Hibernate 教程</a></li>
+</ul>
+<h2 id="数据库中间件"><a href="#数据库中间件" class="headerlink" title="数据库中间件"></a>数据库中间件</h2><h3 id="Sharding-JDBC"><a href="#Sharding-JDBC" class="headerlink" title="Sharding JDBC"></a>Sharding JDBC</h3><blockquote>
+<p>Sharding JDBC是当当开源的轻量级分库分表Jar包</p>
+</blockquote>
+<ul>
+<li><a href="https://www.aliyun.com/jiaocheng/774911.html" target="_blank" rel="noopener">Sharding-JDBC介绍</a></li>
+</ul>
+<h3 id="MyCAT"><a href="#MyCAT" class="headerlink" title="MyCAT"></a>MyCAT</h3><blockquote>
+<p>Mycat是一个数据库分库分表代理中间件</p>
+</blockquote>
+<ul>
+<li><a href="http://www.mycat.io/" target="_blank" rel="noopener">MyCat官网</a></li>
+</ul>
+<h2 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h2><h3 id="Durid"><a href="#Durid" class="headerlink" title="Durid"></a>Durid</h3><blockquote>
+<p>Durid 不仅仅是一个数据库连接池，它还包含一个ProxyDriver，一系列内置的JDBC组件库，一个 SQL Parser。</p>
+</blockquote>
+<h3 id="DBCP"><a href="#DBCP" class="headerlink" title="DBCP"></a>DBCP</h3><blockquote>
+<p>DBCP是一个依赖Jakarta commons-pool对象池机制的数据库连接池.DBCP可以直接的在应用程序中使用，Tomcat的数据源使用的就是DBCP。</p>
+</blockquote>
+<h3 id="c3p0"><a href="#c3p0" class="headerlink" title="c3p0"></a>c3p0</h3><blockquote>
+<p>c3p0是一个开放源代码的JDBC连接池，它在lib目录中与Hibernate一起发布,包括了实现jdbc3和jdbc2扩展规范说明的Connection 和Statement 池的DataSources 对象。</p>
+</blockquote>
+<h2 id="日志框架"><a href="#日志框架" class="headerlink" title="日志框架"></a>日志框架</h2><ul>
+<li><a href="../Java/JavaEE-Log">✐笔记: Java日志框架（JCL, SLF4J, Log4J, Logback）</a></li>
+<li><a href="http://www.infoq.com/cn/articles/things-of-java-log-performance" target="_blank" rel="noopener">Java日志性能那些事</a></li>
+</ul>
+<h2 id="J2EE规范"><a href="#J2EE规范" class="headerlink" title="J2EE规范"></a>J2EE规范</h2><ul>
+<li><a href="../Java/JavaEE-技术标准">✐笔记: JavaEE-技术标准(JNDI,JTS,JTA,ORM,JPA,JMS,EJB)</a></li>
+</ul>
+<h1 id="响应式编程"><a href="#响应式编程" class="headerlink" title="响应式编程"></a>响应式编程</h1><blockquote>
+<p>响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。</p>
+</blockquote>
+<ul>
+<li><a href="../30MinsTutorial/响应式编程">✐笔记: 响应式编程</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B" target="_blank" rel="noopener">响应式编程 - 维基百科</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/android-weekly/issue-145/introduction-to-RP.html" target="_blank" rel="noopener">响应式编程（Reactive Programming）介绍 - 极客学院Wiki</a></li>
+<li><a href="https://blog.csdn.net/JasonDing1354/article/details/51418577" target="_blank" rel="noopener">响应式编程思想</a>: 响应式编程三种模型, 以及实现:<ul>
+<li>Actor模型, 实现类库:<ul>
+<li>AKKA Actor</li>
+</ul>
+</li>
+<li>响应式扩展(reactive extensions, Rx)模型, 实现类库:<ul>
+<li>RxJava</li>
+<li>Reactor</li>
+</ul>
+</li>
+<li>函数响应式编程(functional reactive programming, FRP)模型</li>
+</ul>
+</li>
+</ul>
+<h2 id="Reactive-Streams"><a href="#Reactive-Streams" class="headerlink" title="Reactive Streams"></a>Reactive Streams</h2><blockquote>
+<p>Java 9 新特性：Reactive Streams（响应式流）是一个使用非阻塞back pressure（背压机制）的异步流处理标准。在<code>java.util.concurrent</code>包中提供</p>
+</blockquote>
+<ul>
+<li><a href="https://www.cnblogs.com/IcanFixIt/p/7245377.html" target="_blank" rel="noopener">Java 9 揭秘（17. Reactive Streams）</a></li>
+</ul>
+<h2 id="Reactor"><a href="#Reactor" class="headerlink" title="Reactor"></a>Reactor</h2><blockquote>
+<p>Reactor是Pivotal发布的第四代响应式框架，跟RxJava 2有些相似。 Spring WebFlux 以Reactor为基础，实现Web领域的反应式编程框架。</p>
+</blockquote>
+<ul>
+<li><a href="https://www.ibm.com/developerworks/cn/java/j-cn-with-reactor-response-encode/index.html" target="_blank" rel="noopener">使用 Reactor 进行反应式编程</a></li>
+</ul>
+<h2 id="RxJava"><a href="#RxJava" class="headerlink" title="RxJava"></a>RxJava</h2><blockquote>
+<p>Reactive Extensions for Java</p>
+</blockquote>
+<ul>
+<li><a href="http://www.infoq.com/cn/articles/rxjava-by-example" target="_blank" rel="noopener">RXJava实例解析</a></li>
+<li><a href="http://www.infoq.com/cn/news/2016/12/rxjava-2-with-reactive-streams" target="_blank" rel="noopener">RxJava 2.0发布：支持响应式流规范</a></li>
+</ul>
+<h2 id="Akka"><a href="#Akka" class="headerlink" title="Akka"></a>Akka</h2><blockquote>
+<p>Actor模型为编写并发和分布式系统提供了一种更高的抽象级别。它将开发人员从显式地处理锁和线程管理的工作中解脱出来，使编写并发和并行系统更加容易。</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jianshu.com/p/db04cab86ab9" target="_blank" rel="noopener">漫谈并发编程：Actor模型 - 简书</a></li>
+<li><a href="https://www.cnblogs.com/MOBIN/p/7236893.html" target="_blank" rel="noopener">Actor模型原理 - MOBIN - 博客园</a></li>
+</ul>
+<h2 id="Vert-x"><a href="#Vert-x" class="headerlink" title="Vert.x"></a>Vert.x</h2><blockquote>
+<p>Java 异步非阻塞编程框架，底层基于Netty异步通信。Vert.x本身是事件驱动、非阻塞纯异步IO模型，这意味着可以使用很少的线程处理大量并发请求。</p>
+</blockquote>
+<ul>
+<li><a href="https://colobu.com/2016/03/31/vertx-thread-model/" target="_blank" rel="noopener">Vert.x 线程模型揭秘 | 鸟窝</a></li>
+</ul>
+<h1 id="其他技术类笔记"><a href="#其他技术类笔记" class="headerlink" title="其他技术类笔记"></a>其他技术类笔记</h1><ul>
+<li><a href="../其他技术类笔记/开源项目源代码阅读指北">✐笔记: 开源项目源代码阅读指北</a></li>
+<li><a href="../其他技术类笔记/安全笔记">✐笔记: 安全</a></li>
+<li><a href="../其他技术类笔记/Tools-and-IDE">✐笔记: 常用开发工具（git, svn, screen, tmux） &amp; IDE快捷键（Vim, Jetbrains）</a></li>
+<li><a href="../30MinsTutorial/PHP%20Tutorials">✐笔记: PHP 30分钟快速入门指北</a></li>
+<li><a href="../30MinsTutorial/Python%20Tutorials">Python Tutorial（Learn python in Y Minutes）</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/笔记索引/" rel="tag"># 笔记索引</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/大数据/Arch-大数据-Hive/" rel="next" title="Hive">
+                <i class="fa fa-chevron-left"></i> Hive
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/其他笔记/哲学笔记/" rel="prev" title="哲学笔记">
+                哲学笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/hexo_avatar.png"
+                alt="whatsrtos" />
+            
+              <p class="site-author-name" itemprop="name">whatsrtos</p>
+              <p class="site-description motion-element" itemprop="description"><s>代码朋克</s></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">242</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#后端架构"><span class="nav-text">后端架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#System-Design"><span class="nav-text">System Design</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#负载均衡"><span class="nav-text">负载均衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#限流"><span class="nav-text">限流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#熔断"><span class="nav-text">熔断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容错"><span class="nav-text">容错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#平滑启动"><span class="nav-text">平滑启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SOA-amp-微服务"><span class="nav-text">SOA &amp; 微服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务治理框架"><span class="nav-text">服务治理框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#服务治理框架演进"><span class="nav-text">服务治理框架演进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Spring-Cloud"><span class="nav-text">Spring Cloud</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dobbo"><span class="nav-text">Dobbo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Motan"><span class="nav-text">Motan</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-Mesh"><span class="nav-text">Service Mesh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Istio"><span class="nav-text">Istio</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conduit"><span class="nav-text">Conduit</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RPC"><span class="nav-text">RPC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Thrift"><span class="nav-text">Thrift</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gRPC"><span class="nav-text">gRPC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dubbo-RPC"><span class="nav-text">Dubbo RPC</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RPC-传输协议"><span class="nav-text">RPC-传输协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RPC-序列化类库"><span class="nav-text">RPC-序列化类库</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API网关"><span class="nav-text">API网关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud-Gateway"><span class="nav-text">Spring Cloud Gateway</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Zuul"><span class="nav-text">Zuul</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册中心"><span class="nav-text">注册中心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Zookeeper"><span class="nav-text">Zookeeper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Consul"><span class="nav-text">Consul</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Etcd"><span class="nav-text">Etcd</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-Server"><span class="nav-text">Web Server</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx"><span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat"><span class="nav-text">Tomcat</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存"><span class="nav-text">缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Memcached"><span class="nav-text">Memcached</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-text">数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关系型数据库"><span class="nav-text">关系型数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL"><span class="nav-text">MySQL</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NoSQL"><span class="nav-text">NoSQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mongo"><span class="nav-text">Mongo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Redis"><span class="nav-text">Redis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HBase"><span class="nav-text">HBase</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息队列"><span class="nav-text">消息队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Kafka"><span class="nav-text">Kafka</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RabbitMQ"><span class="nav-text">RabbitMQ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ZeroMQ"><span class="nav-text">ZeroMQ</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式系统"><span class="nav-text">分布式系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器化"><span class="nav-text">容器化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker"><span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kubernetes"><span class="nav-text">Kubernetes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源调度"><span class="nav-text">资源调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mesos-vs-Yarn-vs-Kubernetes"><span class="nav-text">Mesos vs Yarn vs Kubernetes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Yarn"><span class="nav-text">Yarn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mesos"><span class="nav-text">Mesos</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DevOps-amp-监控"><span class="nav-text">DevOps &amp; 监控</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础监控"><span class="nav-text">基础监控</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Ganglia"><span class="nav-text">Ganglia</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Open-Falcon"><span class="nav-text">Open Falcon</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APM"><span class="nav-text">APM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Zipkin"><span class="nav-text">Zipkin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SkyWalking"><span class="nav-text">SkyWalking</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压力测试"><span class="nav-text">压力测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#WRK"><span class="nav-text">WRK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JMeter"><span class="nav-text">JMeter</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大数据"><span class="nav-text">大数据</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#批处理计算"><span class="nav-text">批处理计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hadoop"><span class="nav-text">Hadoop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流式计算"><span class="nav-text">流式计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flink"><span class="nav-text">Flink</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Storm"><span class="nav-text">Storm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合型计算"><span class="nav-text">混合型计算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spark"><span class="nav-text">Spark</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大数据分析"><span class="nav-text">大数据分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hive"><span class="nav-text">Hive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Druid"><span class="nav-text">Druid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spark-SQL"><span class="nav-text">Spark SQL</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#机器学习-amp-深度学习"><span class="nav-text">机器学习 &amp; 深度学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习"><span class="nav-text">机器学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#框架"><span class="nav-text">框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TensorFlow"><span class="nav-text">TensorFlow</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法理论"><span class="nav-text">算法理论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#有监督学习算法"><span class="nav-text">有监督学习算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#LR"><span class="nav-text">LR</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#kNN"><span class="nav-text">kNN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#FM"><span class="nav-text">FM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#FFM"><span class="nav-text">FFM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#朴素贝叶斯"><span class="nav-text">朴素贝叶斯</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SVM"><span class="nav-text">SVM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#决策树"><span class="nav-text">决策树</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#随机森林"><span class="nav-text">随机森林</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#boosting"><span class="nav-text">boosting</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督学习算法"><span class="nav-text">无监督学习算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#k-均值"><span class="nav-text">k-均值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分层聚类"><span class="nav-text">分层聚类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PCA"><span class="nav-text">PCA</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DBSCAN"><span class="nav-text">DBSCAN</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习"><span class="nav-text">深度学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习框架"><span class="nav-text">深度学习框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TensorFlow-1"><span class="nav-text">TensorFlow</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Caffe2"><span class="nav-text">Caffe2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MXNet"><span class="nav-text">MXNet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DeepLearning4j"><span class="nav-text">DeepLearning4j</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#神经网络"><span class="nav-text">神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发展"><span class="nav-text">发展</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#积神经网络（CNN）"><span class="nav-text">积神经网络（CNN）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CNN经典模型：LeNet"><span class="nav-text">CNN经典模型：LeNet</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CNN经典模型：AlexNet"><span class="nav-text">CNN经典模型：AlexNet</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CNN经典模型：VGGNet"><span class="nav-text">CNN经典模型：VGGNet</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CNN经典模型：GoogLeNet"><span class="nav-text">CNN经典模型：GoogLeNet</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环神经网络（RNN）"><span class="nav-text">循环神经网络（RNN）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#度残差网络（DRN）"><span class="nav-text">度残差网络（DRN）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#度信念网络（DBN）"><span class="nav-text">度信念网络（DBN）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推荐系统"><span class="nav-text">推荐系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索引擎"><span class="nav-text">搜索引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索引擎原理"><span class="nav-text">搜索引擎原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评估方法"><span class="nav-text">评估方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ElasticSearch"><span class="nav-text">ElasticSearch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lucene"><span class="nav-text">Lucene</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solr"><span class="nav-text">Solr</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-amp-DevOps"><span class="nav-text">Linux &amp; DevOps</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#性能调优"><span class="nav-text">性能调优</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络编程"><span class="nav-text">网络编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发（C100K）"><span class="nav-text">并发（C100K）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OS系统原理"><span class="nav-text">OS系统原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#网络协议"><span class="nav-text">网络协议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构与算法"><span class="nav-text">数据结构与算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构"><span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#树"><span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AVL"><span class="nav-text">AVL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-树"><span class="nav-text">B-树</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优先队列（堆）"><span class="nav-text">优先队列（堆）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#散列"><span class="nav-text">散列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法设计"><span class="nav-text">算法设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#贪婪"><span class="nav-text">贪婪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分治"><span class="nav-text">分治</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回溯"><span class="nav-text">回溯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划"><span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图论算法"><span class="nav-text">图论算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拓扑排序"><span class="nav-text">拓扑排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最短路径算法"><span class="nav-text">最短路径算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络流问题"><span class="nav-text">网络流问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#最小生成树"><span class="nav-text">最小生成树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#深度优先搜索"><span class="nav-text">深度优先搜索</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设计模式"><span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式"><span class="nav-text">正则表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C-C"><span class="nav-text">C/C++</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#智能指针"><span class="nav-text">智能指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-SE"><span class="nav-text">Java SE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#异常"><span class="nav-text">异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#List"><span class="nav-text">List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Queue"><span class="nav-text">Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-text">Map</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发"><span class="nav-text">并发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#线程API"><span class="nav-text">线程API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程安全集合"><span class="nav-text">线程安全集合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线程安全的Queue"><span class="nav-text">线程安全的Queue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程安全的Set"><span class="nav-text">线程安全的Set</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程安全的Map"><span class="nav-text">线程安全的Map</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步"><span class="nav-text">异步</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-text">JVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JAVA内存模型"><span class="nav-text">JAVA内存模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GC"><span class="nav-text">GC</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#GC算法"><span class="nav-text">GC算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GC回收器"><span class="nav-text">GC回收器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能分析"><span class="nav-text">性能分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深入-Java-调试体系"><span class="nav-text">深入 Java 调试体系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JProfiler"><span class="nav-text">JProfiler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VisualVM"><span class="nav-text">VisualVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Btrace"><span class="nav-text">Btrace</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HouseMD"><span class="nav-text">HouseMD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Memory-Analyzer-MAT"><span class="nav-text">Memory Analyzer (MAT)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建-amp-测试"><span class="nav-text">构建 &amp; 测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三方类库"><span class="nav-text">第三方类库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Guava"><span class="nav-text">Guava</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-Commons"><span class="nav-text">Apache Commons</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Metrics"><span class="nav-text">Metrics</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-8-9-10新特性"><span class="nav-text">Java 8/9/10新特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深入拆解-Java-虚拟机"><span class="nav-text">深入拆解 Java 虚拟机</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-EE"><span class="nav-text">Java EE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Web-框架"><span class="nav-text">Web 框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Servlet"><span class="nav-text">Servlet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-MVC"><span class="nav-text">Spring MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot"><span class="nav-text">Spring Boot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-WebFlux"><span class="nav-text">Spring WebFlux</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORM框架"><span class="nav-text">ORM框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyBatis"><span class="nav-text">MyBatis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hibernate"><span class="nav-text">Hibernate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库中间件"><span class="nav-text">数据库中间件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sharding-JDBC"><span class="nav-text">Sharding JDBC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MyCAT"><span class="nav-text">MyCAT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库连接池"><span class="nav-text">数据库连接池</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Durid"><span class="nav-text">Durid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBCP"><span class="nav-text">DBCP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c3p0"><span class="nav-text">c3p0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志框架"><span class="nav-text">日志框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J2EE规范"><span class="nav-text">J2EE规范</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#响应式编程"><span class="nav-text">响应式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reactive-Streams"><span class="nav-text">Reactive Streams</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reactor"><span class="nav-text">Reactor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RxJava"><span class="nav-text">RxJava</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Akka"><span class="nav-text">Akka</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vert-x"><span class="nav-text">Vert.x</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他技术类笔记"><span class="nav-text">其他技术类笔记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">whatsrtos</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://whatsrtos.github.io/blog_index/';
+          this.page.identifier = 'blog_index/';
+          this.page.title = '🔝 笔记索引';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dropnotes-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+</body>
+</html>

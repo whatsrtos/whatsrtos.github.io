@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="xaHWbGrH27PtIRsHQwRbAzWeQmtdbVP8Sj8IoFGMFhA" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="后端技术,大数据,Hive," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="概述  Hive是建立在Hadoop上的数据仓库基础架构。它提供了一系列的工具，用来进行数据提取、转换、加载，这是一种可以存储、查询和分析存储在Hadoop中的大规模数据机制。可以把Hadoop下结构化数据文件映射为一张成Hive中的表，并提供类sql查询功能，除了不支持更新、索引和事务，sql其它功能都支持。可以将sql语句转换为MapReduce任务进行运行，作为sql到MapReduce的映">
+<meta name="keywords" content="后端技术,大数据,Hive">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hive">
+<meta property="og:url" content="https://whatsrtos.github.io/大数据/Arch-大数据-Hive/index.html">
+<meta property="og:site_name" content="扔掉笔记 ᐛ">
+<meta property="og:description" content="概述  Hive是建立在Hadoop上的数据仓库基础架构。它提供了一系列的工具，用来进行数据提取、转换、加载，这是一种可以存储、查询和分析存储在Hadoop中的大规模数据机制。可以把Hadoop下结构化数据文件映射为一张成Hive中的表，并提供类sql查询功能，除了不支持更新、索引和事务，sql其它功能都支持。可以将sql语句转换为MapReduce任务进行运行，作为sql到MapReduce的映">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-02T13:29:24.745Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hive">
+<meta name="twitter:description" content="概述  Hive是建立在Hadoop上的数据仓库基础架构。它提供了一系列的工具，用来进行数据提取、转换、加载，这是一种可以存储、查询和分析存储在Hadoop中的大规模数据机制。可以把Hadoop下结构化数据文件映射为一张成Hive中的表，并提供类sql查询功能，除了不支持更新、索引和事务，sql其它功能都支持。可以将sql语句转换为MapReduce任务进行运行，作为sql到MapReduce的映">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://whatsrtos.github.io/大数据/Arch-大数据-Hive/"/>
+
+
+
+
+
+  <title>Hive | 扔掉笔记 ᐛ</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">扔掉笔记 ᐛ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">dropNotes</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/大数据/Arch-大数据-Hive/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hive</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,030
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>  Hive是建立在Hadoop上的数据仓库基础架构。它提供了一系列的工具，用来进行数据提取、转换、加载，这是一种可以存储、查询和分析存储在Hadoop中的大规模数据机制。可以把Hadoop下结构化数据文件映射为一张成Hive中的表，并提供类sql查询功能，除了不支持更新、索引和事务，sql其它功能都支持。可以将sql语句转换为MapReduce任务进行运行，作为sql到MapReduce的映射器。提供shell、JDBC/ODBC、Thrift、Web等接口。</p>
+<p>  Hive 并不适合那些需要低延迟的应用，例如，联机事务处理（OLTP）。Hive 查询操作过程严格遵守Hadoop MapReduce 的作业执行模型，Hive 将用户的HiveQL 语句通过解释器转换为MapReduce 作业提交到Hadoop 集群上，Hadoop 监控作业执行过程，然后返回作业执行结果给用户。Hive 并非为联机事务处理而设计，Hive 并不提供实时的查询和基于行级的数据更新操作。Hive 的最佳使用场合是大数据集的批处理作业，例如，网络日志分析。</p>
+<h1 id="元数据存储"><a href="#元数据存储" class="headerlink" title="元数据存储"></a>元数据存储</h1><p>  Hive将元数据存储在RDBMS中，有三种方式可以连接到数据库。</p>
+<ul>
+<li>内嵌模式：元数据保持在内嵌数据库的Derby，一般用于单元测试，只允许一个会话连接。</li>
+<li>多用户模式：在本地安装Mysql，把元数据放到Mysql内。</li>
+<li>远程模式：元数据放置在远程的Mysql数据库。</li>
+</ul>
+<h1 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h1><p>  Hive没有专门的数据存储格式，也没有为数据建立索引，用于可以非常自由的组织Hive中的表，只需要在创建表的时候告诉Hive数据中的列分隔符和行分隔符。<br>  Hive中所有的数据都存储在HDFS中，Hive中包含4中数据模型：Tabel、ExternalTable、Partition、Bucket。</p>
+<h2 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h2><p>  类似与传统数据库中的Table，每一个Table在Hive中都有一个相应的目录来存储数据。例如：一个表zz，它在HDFS中的路径为：/wh/zz，其中wh是在hive-site.xml中由${hive.metastore.warehouse.dir}指定的数据仓库的目录，所有的Table数据（不含External Table）都保存在这个目录中。</p>
+<h2 id="Partition"><a href="#Partition" class="headerlink" title="Partition"></a>Partition</h2><p>  类似于传统数据库中划分列的索引。在Hive中，表中的一个Partition对应于表下的一个目录，所有的Partition数据都存储在对应的目录中。例如：zz表中包含ds和city两个Partition，则对应于ds=20140214，city=beijing的HDFS子目录为：/wh/zz/ds=20140214/city=Beijing。</p>
+<h2 id="ExternalTable"><a href="#ExternalTable" class="headerlink" title="ExternalTable"></a>ExternalTable</h2><p>  指向已存在HDFS中的数据，可创建Partition。和Table在元数据组织结构相同，在实际存储上有较大差异。Table创建和数据加载过程，可以用统一语句实现，实际数据被转移到数据仓库目录中，之后对数据的访问将会直接在数据仓库的目录中完成。删除表时，表中的数据和元数据都会删除。ExternalTable只有一个过程，因为加载数据和创建表是同时完成。时间数据是存储在Location后面指定的HDFS路径中的，并不会移动到数据仓库中。</p>
+<h2 id="Bcuket"><a href="#Bcuket" class="headerlink" title="Bcuket"></a>Bcuket</h2><p>  对指定列计算的hash，根据hash值切分数据，目的是为了便于并行，每一个Buckets对应一个文件。将user列分数至32个Bucket上，首先对user列的值计算hash，比如，对应hash=0的HDFS目录为：/wh/zz/ds=20140214/city=Beijing/part-00000;对应hash=20的，目录为：/wh/zz/ds=20140214/city=Beijing/part-00020。</p>
+<h1 id="Hive-QL"><a href="#Hive-QL" class="headerlink" title="Hive QL"></a>Hive QL</h1><ul>
+<li><p>create table</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">create table test_user(id int,name string) </span><br><span class="line">    // 注释</span><br><span class="line">    comment &apos;This is the test table&apos;</span><br><span class="line">    row format delimited</span><br><span class="line">    // 指定切分格式规则</span><br><span class="line">    fields terminated by &apos;,&apos;</span><br><span class="line">    // 指定文件格式</span><br><span class="line">    stored as textfile;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>insert select</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//使用select语句来批量插入数据</span><br><span class="line">insert overwrite table test_user select * from tab_user;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>load data</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//从本地导入数据到hive的表中（实质就是将文件上传到hdfs中hive管理目录下）</span><br><span class="line">load data local inpath &apos;/home/hadoop/test.txt&apos; into table test_user;</span><br><span class="line">//从hdfs上导入数据到hive表中（实质就是将文件从原始目录移动到hive管理的目录下）</span><br><span class="line">load data inpath &apos;hdfs://ns1/data.log&apos; into table test_user;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>external table</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//LOCATION指定的是hdfs路径</span><br><span class="line">//如果LOCATION路径有数据,则可以直接映射数据建表</span><br><span class="line">CREATE EXTERNAL TABLE test_user_external(id int, name string)</span><br><span class="line"> ROW FORMAT DELIMITED</span><br><span class="line"> FIELDS TERMINATED BY &apos;,&apos;</span><br><span class="line"> STORED AS TEXTFILE</span><br><span class="line"> LOCATION &apos;/external/user&apos;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CTAS</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//CTAS是通过查询,然后根据查询的结果来建立表格的一种方式。</span><br><span class="line">//CTAS会根据SELECT语句创建表结构,并把数据一并复制过来。</span><br><span class="line">CREATE TABLE test_user_ctas</span><br><span class="line">   AS</span><br><span class="line">SELECT id new_id, name new_name</span><br><span class="line">FROM test_user</span><br><span class="line">SORT BY new_id;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Partition</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//创建一个分区表,以year年份作为分区字段</span><br><span class="line">create table test_user_part(id int,name string) </span><br><span class="line">    partitioned by (year string)</span><br><span class="line">    row format delimited fields terminated by &apos;,&apos;;</span><br><span class="line">//将data.log导入到test_user_part表中,并设置分区为1990    </span><br><span class="line">load data local inpath &apos;/home/hadoop/data.log&apos; overwrite into table test_user_part</span><br><span class="line">     partition(year=&apos;1990&apos;);</span><br><span class="line">    </span><br><span class="line">load data local inpath &apos;/home/hadoop/data2.log&apos; overwrite into table test_user_part</span><br><span class="line">     partition(year=&apos;2000&apos;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Array&amp;&amp;Map:<br>hive中的列支持使用struct、map和array集合数据类型。大多数关系型数据库中不支持这些集合数据类型，因为它们会破坏标准格式。关系型数据库中为实现集合数据类型是由多个表之间建立合适的外键关联来实现。在大数据系统中，使用集合类型的数据的好处在于提高数据的吞吐量，减少寻址次数来提高查询速度。</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//array </span><br><span class="line">create table tab_array(a array&lt;int&gt;,b array&lt;string&gt;)</span><br><span class="line">row format delimited</span><br><span class="line">fields terminated by &apos;\t&apos;</span><br><span class="line">collection items terminated by &apos;,&apos;;</span><br><span class="line">select a[0] from tab_array;</span><br><span class="line">select * from tab_array where array_contains(b,&apos;word&apos;);</span><br><span class="line">insert into table tab_array select array(0),array(name,ip) from tab_ext t; </span><br><span class="line"></span><br><span class="line">//map</span><br><span class="line">create table tab_map(name string,info map&lt;string,string&gt;)</span><br><span class="line">row format delimited</span><br><span class="line">fields terminated by &apos;\t&apos;</span><br><span class="line">collection items terminated by &apos;,&apos;</span><br><span class="line">map keys terminated by &apos;:&apos;;</span><br><span class="line">load data local inpath &apos;/home/hadoop/hivetemp/tab_map.txt&apos; overwrite into table tab_map;</span><br><span class="line">insert into table tab_map select name,map(&apos;name&apos;,name,&apos;ip&apos;,ip) from tab_ext;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Hive常用优化方法"><a href="#Hive常用优化方法" class="headerlink" title="Hive常用优化方法"></a>Hive常用优化方法</h1><ul>
+<li>join连接时的优化：当三个或多个以上的表进行join操作时，如果每个on使用相同的字段连接时只会产生一个mapreduce。</li>
+<li>join连接时的优化：当多个表进行查询时，从左到右表的大小顺序应该是从小到大。原因：hive在对每行记录操作时会把其他表先缓存起来，直到扫描最后的表进行计算。</li>
+<li>在where字句中增加分区过滤器。</li>
+<li>当可以使用left semi join 语法时不要使用inner join，前者效率更高。原因：对于左表中指定的一条记录，一旦在右表中找到立即停止扫描。</li>
+<li>如果所有表中有一张表足够小，则可置于内存中，这样在和其他表进行连接的时候就能完成匹配，省略掉reduce过程。设置属性即可实现，set hive.auto.covert.join=true; * 用户可以配置希望被优化的小表的大小 set hive.mapjoin.smalltable.size=2500000; 如果需要使用这两个配置可置入$HOME/.hiverc文件中。</li>
+<li>同一种数据的多种处理：从一个数据源产生的多个数据聚合，无需每次聚合都需要重新扫描一次。</li>
+<li>例如:insert overwrite table student select 　from employee; insert overwrite table person select from employee;</li>
+<li>可以优化成 from employee insert overwrite table student select insert overwrite table person select</li>
+<li>limit调优：limit语句通常是执行整个语句后返回部分结果。set hive.limit.optimize.enable=true;</li>
+<li>开启并发执行。某个job任务中可能包含众多的阶段，其中某些阶段没有依赖关系可以并发执行，开启并发执行后job任务可以更快的完成。设置属性：set * hive.exec.parallel=true;</li>
+<li>hive提供的严格模式，禁止3种情况下的查询模式。<ul>
+<li>当表为分区表时，where字句后没有分区字段和限制时，不允许执行。</li>
+<li>当使用order by语句时，必须使用limit字段，因为order by 只会产生一个reduce任务。</li>
+<li>限制笛卡尔积的查询。</li>
+</ul>
+</li>
+<li>合理的设置map和reduce数量。</li>
+<li>jvm重用。可在hadoop的mapred-site.xml中设置jvm被重用的次数。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后端技术/" rel="tag"># 后端技术</a>
+          
+            <a href="/tags/大数据/" rel="tag"># 大数据</a>
+          
+            <a href="/tags/Hive/" rel="tag"># Hive</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/大数据/Arch-大数据-Flink/" rel="next" title="Flink">
+                <i class="fa fa-chevron-left"></i> Flink
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog_index/" rel="prev" title="🔝 笔记索引">
+                🔝 笔记索引 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/hexo_avatar.png"
+                alt="whatsrtos" />
+            
+              <p class="site-author-name" itemprop="name">whatsrtos</p>
+              <p class="site-description motion-element" itemprop="description"><s>代码朋克</s></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">242</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#元数据存储"><span class="nav-text">元数据存储</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数据存储"><span class="nav-text">数据存储</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Table"><span class="nav-text">Table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Partition"><span class="nav-text">Partition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ExternalTable"><span class="nav-text">ExternalTable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bcuket"><span class="nav-text">Bcuket</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive-QL"><span class="nav-text">Hive QL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hive常用优化方法"><span class="nav-text">Hive常用优化方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">whatsrtos</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://whatsrtos.github.io/大数据/Arch-大数据-Hive/';
+          this.page.identifier = '大数据/Arch-大数据-Hive/';
+          this.page.title = 'Hive';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dropnotes-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="xaHWbGrH27PtIRsHQwRbAzWeQmtdbVP8Sj8IoFGMFhA" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/safari-pinned-tab.svg?v=5.1.4" color="#222">
+
+
+  <link rel="manifest" href="/site.webmanifest">
+
+
+  <meta name="msapplication-config" content="/browserconfig.xml" />
+
+
+
+  <meta name="keywords" content="后端技术,K-V,Apache,大数据,Hadoop,HDFS,HBase," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="HBase简介HBase是一个分布式的、面向列的开源数据库，该技术来源于 Fay Chang 所撰写的Google论文“Bigtable：一个结构化数据的分布式存储系统”。就像Bigtable利用了Google文件系统（File System）所提供的分布式数据存储一样，HBase在Hadoop之上提供了类似于Bigtable的能力。HBase是Apache的Hadoop项目的子项目。HBase">
+<meta name="keywords" content="后端技术,K-V,Apache,大数据,Hadoop,HDFS,HBase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HBase">
+<meta property="og:url" content="https://whatsrtos.github.io/大数据/Arch-大数据-HBase/index.html">
+<meta property="og:site_name" content="扔掉笔记 ᐛ">
+<meta property="og:description" content="HBase简介HBase是一个分布式的、面向列的开源数据库，该技术来源于 Fay Chang 所撰写的Google论文“Bigtable：一个结构化数据的分布式存储系统”。就像Bigtable利用了Google文件系统（File System）所提供的分布式数据存储一样，HBase在Hadoop之上提供了类似于Bigtable的能力。HBase是Apache的Hadoop项目的子项目。HBase">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://hbase.apache.org/images/hbase_logo_with_orca_large.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-HBase/hbase_conceptual_view.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-HBase/hbase_physical_view.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-HBase/hbase_column_family.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-HBase/hbase_arch.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-HBase/hbase-memstore-skiplist-chunck.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-HBase/hbase_hfile.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-HBase/hbase_hfile_tree.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-HBase/hbase-hfile-data-index.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-HBase/hbase-memstore-cache.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-HBase/hbase-compaction.png">
+<meta property="og:updated_time" content="2020-07-29T16:37:57.623Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HBase">
+<meta name="twitter:description" content="HBase简介HBase是一个分布式的、面向列的开源数据库，该技术来源于 Fay Chang 所撰写的Google论文“Bigtable：一个结构化数据的分布式存储系统”。就像Bigtable利用了Google文件系统（File System）所提供的分布式数据存储一样，HBase在Hadoop之上提供了类似于Bigtable的能力。HBase是Apache的Hadoop项目的子项目。HBase">
+<meta name="twitter:image" content="https://hbase.apache.org/images/hbase_logo_with_orca_large.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://whatsrtos.github.io/大数据/Arch-大数据-HBase/"/>
+
+
+
+
+
+  <title>HBase | 扔掉笔记 ᐛ</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">扔掉笔记 ᐛ</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">dropNotes</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/大数据/Arch-大数据-HBase/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HBase</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6,206
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://hbase.apache.org/images/hbase_logo_with_orca_large.png" alt="HBase"></p>
+<h1 id="HBase简介"><a href="#HBase简介" class="headerlink" title="HBase简介"></a>HBase简介</h1><p>HBase是一个分布式的、面向列的开源数据库，该技术来源于 Fay Chang 所撰写的Google论文“Bigtable：一个结构化数据的分布式存储系统”。就像Bigtable利用了Google文件系统（File System）所提供的分布式数据存储一样，HBase在Hadoop之上提供了类似于Bigtable的能力。HBase是Apache的Hadoop项目的子项目。HBase不同于一般的关系数据库，它是一个适合于非结构化数据存储的数据库。另一个不同的是HBase基于列的而不是基于行的模式。<br>与FUJITSU Cliq等商用大数据产品不同，HBase是Google Bigtable的开源实现，类似Google Bigtable利用GFS作为其文件存储系统，HBase利用Hadoop HDFS作为其文件存储系统；Google运行MapReduce来处理Bigtable中的海量数据，HBase同样利用Hadoop MapReduce来处理HBase中的海量数据；Google Bigtable利用 Chubby作为协同服务，HBase利用Zookeeper作为对应。</p>
+<ul>
+<li>HBase适用于简单数据写入（如“消息类”应用）和海量、结构简单数据的查询（如“详单类”应用），适合稀疏表；</li>
+<li>作为大数据MapReduce的后台数据源，以支撑离线分析型应用；</li>
+<li><p>基于HDFS分布式文件系统, 可扩展性+；</p>
+<p>  场景：<br>  Facebook的消息类应用，包括Messages、Chats、Emails和SMS系统，用的都是HBase；<br>  淘宝的WEB版阿里旺旺，后台是HBase；<br>  小米的米聊用的也是HBase；</p>
+</li>
+</ul>
+<h2 id="概念-表-行-列族-列-版本"><a href="#概念-表-行-列族-列-版本" class="headerlink" title="概念: 表, 行, 列族, 列, 版本"></a>概念: 表, 行, 列族, 列, 版本</h2><ul>
+<li>行（Row）: HBase 中的一行包含一个行键和一个或多个与其相关的值的列。在存储行时，行按字母顺序排序。<br>出于这个原因，行键的设计非常重要。目标是以相关行相互靠近的方式存储数据。常用的行键模式是网站域。如果你的行键是域名，则你可能应该将它们存储在相反的位置（org.apache.www，org.apache.mail，org.apache.jira）。这样，表中的所有 Apache 域都彼此靠近，而不是根据子域的第一个字母分布。</li>
+<li>列（Column）: HBase 中的列由一个列族和一个列限定符组成，它们由:（冒号）字符分隔。<ul>
+<li>列族（Column Family）: 出于性能原因，列族在物理上共同存在一组列和它们的值。在 HBase 中每个列族都有一组存储属性，例如其值是否应缓存在内存中，数据如何压缩或其行编码是如何编码的等等。表中的每一行都有相同的列族，但给定的行可能不会在给定的列族中存储任何内容。列族一旦确定后，就不能轻易修改，因为它会影响到 HBase 真实的物理存储结构，但是列族中的列标识(Column Qualifier)以及其对应的值可以动态增删。</li>
+<li>列限定符（Column Qualifier）: 列限定符被添加到列族中，以提供给定数据段的索引。鉴于列族的content，列限定符可能是content:html，而另一个可能是content:pdf。虽然列族在创建表时是固定的，但列限定符是可变的，并且在行之间可能差别很大。</li>
+</ul>
+</li>
+<li>单元格（Cell） 单元格是行、列族和列限定符的组合，并且包含值和时间戳，它表示值的版本。</li>
+<li>时间戳（Timestamp） 时间戳与每个值一起编写，并且是给定版本的值的标识符。默认情况下，时间戳表示写入数据时 RegionServer 上的时间，但可以在将数据放入单元格时指定不同的时间戳值。</li>
+</ul>
+<h3 id="概念视图"><a href="#概念视图" class="headerlink" title="概念视图"></a>概念视图</h3><p><img src="/images/Arch-大数据-HBase/hbase_conceptual_view.png" alt=""></p>
+<p>上面的数据有相同的Row key = “com.cnn.www”, 每行表示一个数据版本, 共有5个版本(Time Stamp表示),<br>有两个列族 contents 和anchor, 两个列族下分别有contents:html, anchor:cnnsi.com, anchor:my.look.ca三个列,</p>
+<p>用json格式表示概念视图:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"com.cnn.www"</span>: &#123;</span><br><span class="line">        <span class="attr">"contents"</span>: &#123;</span><br><span class="line">            <span class="attr">"t6"</span>: <span class="string">"contents:html..."</span>,</span><br><span class="line">            <span class="attr">"t5"</span>: <span class="string">"contents:html..."</span>,</span><br><span class="line">            <span class="attr">"t3"</span>: <span class="string">"contents:html..."</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">"anchor"</span>: &#123;</span><br><span class="line">            <span class="attr">"t9"</span>: <span class="string">"anchor:cnnsi.com = ..."</span>,</span><br><span class="line">            <span class="attr">"t8"</span>: <span class="string">"anchor:my.look.ca = ..."</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="物理视图"><a href="#物理视图" class="headerlink" title="物理视图"></a>物理视图</h3><p><img src="/images/Arch-大数据-HBase/hbase_physical_view.png" alt=""><br>物理存储是按照列族(family)分布的, 相同的列族在连续的物理空间存储.</p>
+<p>如下图, 一张表里有不同的列族CF1, CF2, 每个列族下面有自己的qualifier, 可以看到一张表的数据被按照列族分布在不同的物理位置。<br><img src="/images/Arch-大数据-HBase/hbase_column_family.png" alt=""></p>
+<h3 id="TTL"><a href="#TTL" class="headerlink" title="TTL"></a>TTL</h3><p>HBase的生存时间(TTL)是针对列族设置的, 一旦达到到期时间，HBase 将自动删除行。修改一个列族的TTL如下:<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">disable 'table1'  #先禁用表</span><br><span class="line">alter 'table1', &#123;NAME=&gt;'col_family1', TTL =&gt; '100'&#125; #指明修改哪个列族, 100的单位是秒</span><br><span class="line">enable 'table1'</span><br></pre></td></tr></table></figure></p>
+<p>从上面可以看到, TTL虽然是针对列族的参数, 但是给某个列族修改/增加TTL需要暂时disable表, 所以在生产环境里最好还是在建表的时候就给每个列族指定好TTL</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>@TODO</p>
+<h1 id="客户端API-基础"><a href="#客户端API-基础" class="headerlink" title="客户端API: 基础"></a>客户端API: 基础</h1><p>包括hbase shell命令行 和Java API</p>
+<h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><ul>
+<li><code>hbase shell</code>: 进入hbase shell, 然后可以用以下的hbase命令行</li>
+<li><code>list</code> : list all table</li>
+<li><code>help &#39;list&#39;</code> : 查看帮助</li>
+<li><code>status</code> : 查看状态</li>
+<li><code>create &#39;table1&#39;,&#39;col_family1&#39;,&#39;col_family2&#39;</code> : 创建表, 并包含两个列族</li>
+<li><code>alter &#39;table1&#39;, NAME =&gt; &#39;col_family1&#39;, TTL =&gt; &#39;604800&#39;</code> : 修改列族的TTL(秒)</li>
+<li><code>describe &#39;table1&#39;</code> : 查看表描述</li>
+<li><code>put &#39;table1&#39;, &#39;rowkey1&#39;, &#39;col_family1:col111&#39;, &#39;value&#39;</code> : 插入一条数据, 格式为<code>put 表名, 行键, 列族:列, 值</code></li>
+<li><code>get &#39;table1&#39;, &#39;rowkey1&#39;</code> : 查询记录, 格式为<code>get 表名, 行键</code></li>
+<li><code>get &#39;table1&#39;, &#39;rowkey1&#39;, &#39;col_family1:col111&#39;</code> : 查询记录, 格式为<code>get 表名, 行键, 列族:列</code></li>
+<li><code>get &#39;table1&#39;, &#39;rowkey1&#39;, { COLUMN =&gt; &#39;col_family1:col111&#39;, VERSIONS=&gt;1}</code>: 查询记录, 格式为<code>get 表名, 行键, {条件}</code>, 其中<code>COLUMN</code>和<code>VERSIONS</code>是预定义的, 分别表示列和版本号</li>
+<li><code>count &#39;table1&#39;</code> : 统计表的行数</li>
+<li><code>scan &#39;table1&#39; , {&#39;LIMIT&#39; =&gt; 5}</code> : 扫描一个表, <code>{&#39;LIMIT&#39; =&gt; 5}</code>是可选的</li>
+<li><code>scan &#39;table1&#39;, {COLUMNS =&gt; &#39;fam:col&#39;, STARTROW =&gt; &#39;executed|1530226272&#39;, STOPROW =&gt; &#39;executed|1530233472&#39;}</code> : 带条件的扫描</li>
+<li><code>scan &#39;hbase:meta&#39;</code> 扫描 hbase:meta 表, 旧的HBase版本里该表叫: <code>.META.</code></li>
+<li><code>scan &#39;hbase:meta&#39;, {COLUMNS =&gt; &#39;info:regioninfo&#39;}</code> 参考 # META表</li>
+<li><code>deleteall &#39;table1&#39;, &#39;rowkey1&#39;, &#39;column&#39;</code> : 删除该行键下”column”列的数据</li>
+<li><code>deleteall &#39;table1&#39;, &#39;rowkey1&#39;</code> : 删除所有该行键下的数据</li>
+<li><code>truncate &#39;table1&#39;</code> 清空表</li>
+<li><code>disable &#39;table1&#39;</code> 然后<code>drop &#39;table1&#39;</code> : 删除表</li>
+</ul>
+<h2 id="Java-API"><a href="#Java-API" class="headerlink" title="Java API"></a>Java API</h2><p>@TODO</p>
+<h3 id="批处理-bacth"><a href="#批处理-bacth" class="headerlink" title="批处理(bacth)"></a>批处理(bacth)</h3><p>批量处理操作：可以批量处理跨多行的不同操作,<br>许多基于列表的操作，如delete、get的列表操作都是基于batch 方法实现的.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Configuration conf = HBaseConfiguration.create();</span><br><span class="line">HTable table = <span class="keyword">new</span> HTable(conf,<span class="string">"test_table"</span>);</span><br><span class="line"></span><br><span class="line">List&lt;Row&gt; batch = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">Put put = <span class="keyword">new</span> Put(Bytes.toBytes(<span class="string">"row_key1"</span>));</span><br><span class="line">put.addColumn(Bytes.toBytes(<span class="string">"col_fam1"</span>), Bytes.toBytes(<span class="string">"col_qual3"</span>), Bytes.toBytes(<span class="string">"test_data3"</span>));</span><br><span class="line">batch.add(put);</span><br><span class="line"><span class="comment">// 添加更多...</span></span><br><span class="line"></span><br><span class="line">Object[] results = <span class="keyword">new</span> Object[batch.size()];</span><br><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">    table.batch(batch, results);</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">    System.err.println(e);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;results.length;i++)&#123;</span><br><span class="line">    System.out.println(<span class="string">"result"</span>+<span class="string">"["</span>+i+<span class="string">"]:"</span>+results[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Table-vs-BufferedMutator"><a href="#Table-vs-BufferedMutator" class="headerlink" title="Table vs BufferedMutator"></a>Table vs BufferedMutator</h3><p>In the new API, <code>BufferedMutator</code> is used.<br>You could change <code>Table t = connection.getTable(TableName.valueOf(&quot;foo&quot;))</code> to <code>BufferedMutator t = connection.getBufferedMutator(TableName.valueOf(&quot;foo&quot;))</code>. And then change <code>t.put(p)</code> to <code>t.mutate(p)</code></p>
+<h2 id="行锁"><a href="#行锁" class="headerlink" title="行锁"></a>行锁</h2><p>行锁 在客户端 API中仍然存在， 但是不鼓励使用，因为管理不好，会锁定整个RegionServer.</p>
+<h1 id="客户端API-高级特性"><a href="#客户端API-高级特性" class="headerlink" title="客户端API: 高级特性"></a>客户端API: 高级特性</h1><h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><p>Get 和 Scan 实例可以用 filters 配置，以应用于 RegionServer.<br>所有的过滤器都在服务端生效, 叫做”谓词下推”（ predicate push down）。这样可以保证过滤掉的数据不会被传送到客户端.<br>过滤器在客户端被创建, 通过RPC传送到服务器端, 然后在服务器端执行.</p>
+<p>Hbase客户端api提供了几种过滤器:</p>
+<ul>
+<li>SingleColumnValueFilter : 列值过滤, 用于测试值的情况（相等，不等，范围 、、、）</li>
+<li>RegexStringComparator: 支持正则表达式的值比较</li>
+<li>SubstringComparator: 用于检测一个子串是否存在于值中。大小写不敏感。</li>
+<li>FamilyFilter: 用于过滤列族。 通常，在Scan中选择ColumnFamilie优于在过滤器中做。</li>
+<li>QualifierFilter: 用于基于列名(即 Qualifier)过滤.</li>
+<li>ColumnPrefixFilter: 可基于列名(即Qualifier)前缀过滤。</li>
+<li>RowFilter: 通常认为行选择时Scan采用 startRow/stopRow 方法比较好。然而 RowFilter 也可以用。</li>
+</ul>
+<p>下面是列值过滤器的一个例子:</p>
+<pre><code><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">SingleColumnValueFilter filter = <span class="keyword">new</span> SingleColumnValueFilter(</span><br><span class="line">    cf,</span><br><span class="line">    column,</span><br><span class="line">    CompareOp.EQUAL,</span><br><span class="line">    Bytes.toBytes(<span class="string">"my value"</span>)</span><br><span class="line">    );</span><br><span class="line">scan.setFilter(filter);</span><br></pre></td></tr></table></figure>
+</code></pre><h2 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h2><p>一种支持的数据类型，值得一提的是“计数器”(如, 具有原子递增能力的数值)。参考 HTable的 Increment .<br>同步计数器在区域服务器中完成，不是客户端。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">incr '&lt;table&gt;', '&lt;row&gt;', '&lt;column&gt;', |&lt;increment-value&gt;|</span><br></pre></td></tr></table></figure>
+<h2 id="协处理器"><a href="#协处理器" class="headerlink" title="协处理器"></a>协处理器</h2><p>@TODO</p>
+<h2 id="批处理客户端"><a href="#批处理客户端" class="headerlink" title="批处理客户端"></a>批处理客户端</h2><h3 id="Hive"><a href="#Hive" class="headerlink" title="Hive"></a>Hive</h3><p>Hive+HBase: 使用Hive读取Hbase中的数据。<br>我们可以使用HQL语句在HBase表上进行查询、插入操作；甚至是进行Join和Union等复杂查询。此功能是从Hive 0.6.0开始引入的，详情可以参见HIVE-705。Hive与HBase整合的实现是利用两者本身对外的API接口互相进行通信，相互通信主要是依靠hive-hbase-handler-1.2.0.jar工具里面的类实现的。</p>
+<p>参考: <a href="https://www.iteblog.com/archives/1718.html" target="_blank" rel="noopener">Hive和HBase整合用户指南</a></p>
+<h3 id="Apache-Pig"><a href="#Apache-Pig" class="headerlink" title="Apache Pig"></a>Apache Pig</h3><p>如果不满足Hvie提供的HQL查询, 还可以用Pig Latin脚本实现更复杂的MapReduce Job,<br>Pig支持对Hbase表的读写, Hbase表中的”列”可以映射到Pig的元组</p>
+<h3 id="MapReduce"><a href="#MapReduce" class="headerlink" title="MapReduce"></a>MapReduce</h3><p>与Hadoop MapReduce Java API的整合</p>
+<p>参考: <a href="https://www.evernote.com/shard/s120/nl/12825969/ea4dc0a2-0d89-4f2e-a0c2-21501fc3e0d8/" target="_blank" rel="noopener">使用MapReduce APIs读写HBase</a></p>
+<h1 id="HBase架构-amp-原理"><a href="#HBase架构-amp-原理" class="headerlink" title="HBase架构 &amp; 原理"></a>HBase架构 &amp; 原理</h1><p>本章包括HBase底层实现(LSM Tree), META表设计, 查询数据时HBase都做了什么? 查询时间复杂度分析, Region拆分策略.</p>
+<h2 id="架构介绍"><a href="#架构介绍" class="headerlink" title="架构介绍"></a>架构介绍</h2><p><img src="/images/Arch-大数据-HBase/hbase_arch.png" alt=""></p>
+<p>HBase包含3个重要组件：Zookeeper、HMaster和HRegionServer。</p>
+<ul>
+<li>（1）Zookeeper： 为整个HBase集群提供协助服务，包括：<ul>
+<li>a. 存放整个 HBase集群的元数据以及集群的状态信息。</li>
+<li>b. 实现HMaster主从节点的failover。<blockquote>
+<p>ZooKeeper为HBase集群提供协调服务，它管理着HMaster和HRegionServer的状态(available/alive等)，<br>并且会在它们宕机时通知给HMaster，从而HMaster可以实现HMaster之间的failover，或对宕机的HRegionServer中的HRegion集合的修复(将它们分配给其他的HRegionServer)。<br>ZooKeeper集群本身使用一致性协议(PAXOS协议)保证每个节点状态的一致性。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>（2）HMaster： 主要用于监控和操作集群中的所有HRegionServer。HMaster没有单点问题，HBase中可以启动多个HMaster，通过Zookeeper的MasterElection机制保证总有一个Master在运行，HMaster 主要负责Table和Region的管理工作：<ul>
+<li>a. 管理用户对表的增删改查操作</li>
+<li>b. 管理HRegionServer的负载均衡，调整Region分布</li>
+<li>c. Region Split后，负责新Region的分布</li>
+<li>d. 在HRegionServer停机后，负责失效HRegionServer上Region迁移</li>
+</ul>
+</li>
+<li>（3）HRegion Server： HBase中最核心的模块，主要负责响应用户I/O请求，向HDFS文件系统中读写数据。<ul>
+<li>a. 存放和管理本地HRegion。</li>
+<li>b. 读写HDFS，管理Table中的数据。</li>
+<li>c. Client直接通过HRegionServer读写数据（从HMaster中获取元数据，找到RowKey所在的HRegion/HRegionServer后）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="HMaster"><a href="#HMaster" class="headerlink" title="HMaster"></a>HMaster</h2><p>@TODO</p>
+<h2 id="HRegion-Server"><a href="#HRegion-Server" class="headerlink" title="HRegion Server"></a>HRegion Server</h2><p>@TODO [[#HBase #RegionServer 架构和存储]]</p>
+<h2 id="MemStore"><a href="#MemStore" class="headerlink" title="MemStore"></a>MemStore</h2><blockquote>
+<p><a href="http://hbasefly.com/2019/10/18/hbase-memstore-evolution/" target="_blank" rel="noopener">HBase内存管理之MemStore进化论 – 有态度的HBase/Spark/BigData</a></p>
+</blockquote>
+<p><img src="/images/Arch-大数据-HBase/hbase-memstore-skiplist-chunck.png" alt="hbase_memstore_skiplist_chunck"></p>
+<h2 id="StoreFile-HFile"><a href="#StoreFile-HFile" class="headerlink" title="StoreFile(HFile)"></a>StoreFile(HFile)</h2><p><img src="/images/Arch-大数据-HBase/hbase_hfile.png" alt="HFile结构-图1"></p>
+<p>HFile 的文件长度是变长的，仅 FILE INFO/Trailer 部分是定长，Trailer 中有指针指向其他数据块的起始点。而 Index 数据块则记录了每个 Data 块和 Meta 块的起始点。Data 块和 Meta 块都是可有可无的，但对于大多数 HFile，都有 Data 块。</p>
+<p><img src="/images/Arch-大数据-HBase/hbase_hfile_tree.png" alt="HFile结构-图2"></p>
+<p>图2 的说明: HFile分为trailer，索引块，数据块，bloom过滤器。</p>
+<ul>
+<li>Data Block主要存储用户的key-value数据 // 1个Data Block默认为64kb</li>
+<li>Index Block: 存储了每一个Data Block的索引信息{Offset，Size，FirstKey}, 如上图,Index Block 是三层索引</li>
+<li>Trailer主要记录 Data Index的索引信息{Data Index Offset, Data Block Count}</li>
+<li>Bloom filter主要用来快速定位Key是否在HFile。// Bloom Block 的数据是在启动的时候就已经加载到内存里，除了 Block Cache 和 MemStore 以外，这个也对 HBase 随机读性能的优化起着至关重要的作用。生成 HFile 的时候，会将 key 经过三次 hash 最终落到 Bloom Block 位数组的某三位上，并将其由0更改成1，以此标记该 key 的确存在这个 HFile 文件之中，查询的时候不需要将文件打开并检索，避免了一次 I/O 操作。然而随着 HFile 的膨胀，Bloom Block会越来越大。</li>
+</ul>
+<h3 id="HFile-的-Data-Index"><a href="#HFile-的-Data-Index" class="headerlink" title="HFile 的 Data Index"></a>HFile 的 Data Index</h3><p><img src="/images/Arch-大数据-HBase/hbase-hfile-data-index.png" alt="hbase_hfile_data_index"></p>
+<p>图中上面三层为索引层，在数据量不大的时候只有最上面一层，数据量大了之后开始分裂为多层，最多三层，如图所示。最下面一层为数据层，存储用户的实际keyvalue数据。这个索引树结构类似于InnoSQL的聚集索引，只是HBase并没有辅助索引的概念。</p>
+<p>图中红线表示一次查询的索引过程（HBase中相关类为HFileBlockIndex和HFileReaderV2），基本流程可以表示为：</p>
+<ol>
+<li>用户输入rowkey为fb，在root index block中通过二分查找定位到fb在’a’和’m’之间，因此需要访问索引’a’指向的中间节点。因为root index block常驻内存，所以这个过程很快。</li>
+<li>将索引’a’指向的中间节点索引块加载到内存，然后通过二分查找定位到fb在index ‘d’和’h’之间，接下来访问索引’d’指向的叶子节点。</li>
+<li>同理，将索引’d’指向的中间节点索引块加载到内存，一样通过二分查找定位找到fb在index ‘f’和’g’之间，最后需要访问索引’f’指向的数据块节点。</li>
+<li>将索引’f’指向的数据块加载到内存，通过遍历的方式找到对应的keyvalue。</li>
+</ol>
+<p>上述流程中因为 <strong>中间节点</strong>、 <strong>叶子节点</strong> 和 <strong>数据块</strong> 都需要加载到内存，所以io次数正常为3次。但是实际上HBase为block提供了缓存机制，可以将频繁使用的block缓存在内存中，可以进一步加快实际读取过程。所以，在HBase中，通常一次随机读请求最多会产生3次io，如果数据量小（只有一层索引），数据已经缓存到了内存，就不会产生io。</p>
+<h2 id="ROOT-amp-META表"><a href="#ROOT-amp-META表" class="headerlink" title="ROOT &amp; META表"></a>ROOT &amp; META表</h2><p>早期的设计（0.96.0）之前是被称之为三层查询架构: <code>ROOT</code>  -&gt; <code>META</code>  -&gt; Region.</p>
+<p><code>-ROOT-</code>和<code>.META.</code>是两个特殊的表。其中<code>.META.</code> 表记录 Region 分区信息，同时，<code>.META.</code> 也可以有多个 Region 分区，同时<code>-ROOT-</code>表又记录<code>.META.</code> 表的 Region 信息，但<code>-ROOT-</code>只有一个 Region，而<code>-ROOT-</code>表的位置由 Hbase 的集群管控框架，即 Zookeeper 记录。</p>
+<ul>
+<li>-ROOT-：记录.META.表的Region信息。</li>
+<li>.META.：记录用户表的Region信息。</li>
+</ul>
+<p>从0.96版本以后，三层架构被改为二层架构，-ROOT-表被去掉了。直接把.META.表所在的RegionServer信息存储到了zk中的/hbase/meta-region-server。再后来引入了namespace，.META.表这样别扭的名字被修改成了hbase:meta。</p>
+<h2 id="META表的缓存设计"><a href="#META表的缓存设计" class="headerlink" title="META表的缓存设计"></a>META表的缓存设计</h2><blockquote>
+<p>参考: <a href="https://zhuanlan.zhihu.com/p/92103602" target="_blank" rel="noopener">HBase源码：Region的定位与优化 - 知乎</a></p>
+</blockquote>
+<p>Meta缓存的数据结构设计的很巧妙，首先采用了copy on write的思想，自定义了一个CopyOnWriteArrayMap。copy on write即可以支持并发读，当写的时候采用拷贝引用的方式快速变更。HBase自定义了一个数组Map，其中数组结构第一层为表，数组部分的查询采用二分查找；第二层是startkey；当有RegionLocation信息需要更新时，采用System.arraycopy实现快速拷贝更新。</p>
+<p>图: 通过table和rowkey快速定位到对应的Region(复杂度是多少?):<br><img src="/images/Arch-大数据-HBase/hbase-memstore-cache.png" alt="hbase_memstore_cache"></p>
+<h2 id="LSM-Tree"><a href="#LSM-Tree" class="headerlink" title="LSM Tree"></a>LSM Tree</h2><p>[[#HBase LSM-Tree原理]] @TODO</p>
+<h2 id="Minor-amp-Major-Compact"><a href="#Minor-amp-Major-Compact" class="headerlink" title="Minor &amp; Major Compact"></a>Minor &amp; Major Compact</h2><p>当一个Store中的StoreFile达到一定的阈值后，就会进行一次合并(major compact)，将对同一个key的修改合并到一起，形成一个大的StoreFile，当StoreFile的大小达到一定阈值后，又会对 StoreFile进行分割(split)，等分为两个StoreFile。</p>
+<p>其中，minor compaction是自动将相关的小文件做一些适当的紧凑，但不彻底；<br>而major compaction则是放在午夜跑的定时任务，将文件做最大化的紧凑。这时候LSM树的磁盘树数量很少, 被并入一个大的树</p>
+<p><img src="/images/Arch-大数据-HBase/hbase-compaction.png" alt="hbase_compaction"></p>
+<h2 id="Region拆分策略"><a href="#Region拆分策略" class="headerlink" title="Region拆分策略"></a>Region拆分策略</h2><p>HBase的表由多个Regions组成，这些Regions分布在多个Region Server上面。<br>Region的拆分逻辑是通过CompactSplitThread线程的requestSplit方法来触发的，每当执行MemstoreFlush操作时都会调用该方法进行判断，看是否有必要对目标Region进行拆分。Region的拆分有三种策略：</p>
+<ul>
+<li>ConstantSizeRegionSplitPolicy：在0.94之前只有这个策略。当region中的一个store（对应一个columnfamily的一个storefile）超过了配置参数hbase.hregion.max.filesize时拆分成两个，该配置参数默认为10GB。region拆分线是最大storefile的中间rowkey。</li>
+<li>IncreasingToUpperBoundRegionSplitPolicy：0.94默认策略。拆分阈值是<code>Min (R^2 * “hbase.hregion.memstore.flush.size”, “hbase.hregion.max.filesize”)</code>，其中R是一张表中位于同一个regionserver的region的数目。<code>hbase.hregion.memstore.flush.size</code>默认是128MB，后一个参数默认是10GB。因此，如果region没有预拆分，默认的行为是，表的第一个region会位于一个regionserver上，然后当达到<code>1^2*128MB=128MB</code>，region被拆分成2个，它们仍然位于同一个regionserver上，因此，随着region的增加，拆分阈值也增加：128MB、512MB、1152MB、2GB、3.2GB、4.6GB、6.2GB，依次类推，直至达到9个region之后，拆分阈值就恒定为10GB。这可以控制一个regionserver拥有的region个数在小数据量的时候不会太少，在大的数据量时候不会太多。region拆分线是最大storefile的中间rowkey。</li>
+<li><p>KeyPrefixRegionSplitPolicy：你可以配置用来对你的rowkey进行分组所依赖的前缀长度，然后该策略保证region的拆分线不会在一组拥有相同前缀的rowkey的中间，也就是说，拆分后的region中，相同前缀的rowkey会一直位于同一个region上。其他的拆分策略与IncreasingToUpperBoundRegionSplitPolicy是一样的。</p>
+<p>  <strong>如何配置策略？</strong><br>  通过配置参数<code>hbase.regionserver.region.split.policy</code>来配置，这是全局的。可以针对单独的表进行配置，用表的API<code>HTableDescriptor.setValue()</code>可以配置。另外，后一种配置还可以使用自定义的拆分策略类。</p>
+</li>
+</ul>
+<h1 id="应用场景-amp-性能优化"><a href="#应用场景-amp-性能优化" class="headerlink" title="应用场景 &amp; 性能优化"></a>应用场景 &amp; 性能优化</h1><h2 id="表的设计"><a href="#表的设计" class="headerlink" title="表的设计"></a>表的设计</h2><p>在HBase中表的概念并不是那么重要, 数据的物理存储是基于列族的.</p>
+<h2 id="Row-Key设计"><a href="#Row-Key设计" class="headerlink" title="Row Key设计"></a>Row Key设计</h2><p>设计合理的 Row Key设计可以加速scan操作, 还可以在大量写入数据时让多个RegionServer分担负载.</p>
+<blockquote>
+<p>Region是HBase中扩展和负载均衡的基本单元, Region本质上是以Row Key的字典顺序连续存储的, 这种设计优化了scan的操作，<br>一个Table最初只有一个Region, 当一个Region过大时, 系统会在中间键(middle key)将这个Region拆分成两个大致相等的子Region。<br>Row Key设计不好就会造成读写热点问题，造成大量客户端直接访问集群某一个或者极少数的节点，造成节点性能下降或者Region不可用</p>
+</blockquote>
+<p><strong>几种Row key设计方案:</strong></p>
+<ul>
+<li>key长度不宜过长, 否则占用过多存储空间;</li>
+<li>如果有大量的对时间范围的scan查询, 时间戳适合放在Row key后面, 还有一种常用的设计方式是用<code>Long.MAX - Timestamp</code>, 这样<code>scan()</code>可以先取到时间戳最新的行;</li>
+<li>避免Row key前缀是递增序列, 比如 时间戳 or 递增的user_id, 这样会导致某个Region成为读写热点, 有如下几种解决方案<ul>
+<li>如果uid这种递增id做Row key前缀(前几位几乎相同), 可以把uid的字符倒序排列;</li>
+<li>对做Row key前缀的属性进行哈希, 这种做法可以完全解决Region读写热点问题, 所有的数据都是均匀写在每个Region上, 但是scan几乎不可能;</li>
+<li>哈希和预分区结合使用, 预分区一开始就预建好了N个region,这些region都维护着自已的”start-end keys”， 可以使用<code>hash mod N</code>计算出应该属于哪个region;  但是scan会带来一些额外的操作, 一般用多线程scan每个分区然后汇总结果;</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>对于”哈希和预分区结合使用”的方案, 在上传时，客户端需要跟N个regionserver保持连接，<br>在查询时，无论是连续区域查询，还是单条查询，都需要访问N个逻辑分区，这意味着与N个regionserver都要建立连接。<br>当集群规模较大（即N较大）时，连接开销是巨大的。因此，这种方案只适用于小规模集群（N小于20）。<br>在小集群情况下，直接让客户端遍历所有分区时，如果采取多线程查询，启动线程数为k（k小于等于N），不同线程的查询负载会落到不同regionserver上。<br>也就是说，原本一个regionserver执行一次操作就能完成的查询，采取方案后每个regionserver都要执行一次操作才能完成。</p>
+</blockquote>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p><strong>① Server端优化:</strong></p>
+<ul>
+<li>JVM内存优化: <code>export HBASE_REGIONSERVER_OPT=&quot;-Xmx8g -Xms8g -Xmn128m -XX:+UseParNewGC -XX:UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=70 -verbose:gc -XX:+printGCDetails -XX:+PrintGCTimeStamps -Xloggc:${HBASE_HOME}/logs/gc-${hostname}-hbase.log&quot;</code></li>
+<li>使用压缩: GZIP, LZO, Zippy/Snappy, 创建表的时候指定列族的压缩格式：<code>create &#39;testtable&#39;,{NAME =&gt; &#39;colfam1&#39;,COMPRESSION =&gt; &#39;GZ&#39;}</code></li>
+<li>预分Region: 在建表的时候预先创建多个Region, 并规定好每个Region存储的Rowkey范围, 通过对数据的特性进行分析预先创建分区可以有效的解决HBase中的数据倾斜问题</li>
+<li>防止拆分/合并风暴:<ul>
+<li>考虑这种情况：拆分之后的两个子region都已恒定的速率增大，导致在同一时刻进行拆分，但是如果两个region拆分之后继续以恒定的速率增长导致子子region又一起拆分，这种情况被称为拆分/合并风暴，这将导致磁盘IO的飙升。这种情况下，与其依赖HBase的自动拆分，用户不如手动使用split和major_compact命令来管理，因为手动管理的话可以将这些region的拆分/合并时机分割开来，尽量分散IO负载。</li>
+<li>碰到这种情况的时候不要忘记把配置文件中的<code>hbase.hregion.max.filesize</code>设置为非常大（但是major_compat时会耗时很长, 尽量在维护期间做major_compat）</li>
+</ul>
+</li>
+<li><p>region热点问题: 通过合理设计row key解决;</p>
+<p>  Major Compaction是指将所有的StoreFile合并成一个StoreFile，这个过程还会清理三类无意义数据：被删除的数据、TTL过期数据、版本号超过设定版本号的数据。<br>  另外，一般情况下，Major Compaction时间会持续比较长，整个过程会消耗大量系统资源，对上层业务有比较大的影响。因此线上业务都会将关闭自动触发Major Compaction功能，改为手动在业务低峰期触发。</p>
+</li>
+</ul>
+<p><strong>② 客户端API优化:</strong></p>
+<ul>
+<li>禁用自动刷写 <code>Table.setAutoFlush(false)</code></li>
+</ul>
+<h2 id="比较elasticsearch-和-hbase"><a href="#比较elasticsearch-和-hbase" class="headerlink" title="比较elasticsearch 和 hbase"></a>比较elasticsearch 和 hbase</h2><p><a href="https://www.zhihu.com/question/41109030" target="_blank" rel="noopener">海量日志数据存储用 elasticsearch 和 hbase 哪个好？ - 知乎</a></p>
+<ul>
+<li>1）两者都可以通过扩展集群来加大可存储的数据量。随着数据量的增加，es的读写性能会有所下降</li>
+<li>2）数据更新es数据更新是对文档进行更新，需要先将es中的数据取出，设置更新字段后再写入es。hbase是列存储的，可以方便地更新任意字段的值。</li>
+<li>3）查询复杂度hbase支持简单的行、列或范围查询，若没有对查询字段做二级索引的话会引发扫全表操作，性能较差。而ES提供了丰富的查询语法，支持对多种类型的精确匹配、模糊匹配、范围查询、聚合等操作，ES对字段做了反向索引，支持全文检索, 即使在亿级数据量下还可以达到秒级的查询响应速度。</li>
+<li>4）字段扩展性hbase和es都对非结构化数据存储提供了良好的支持。es可以通过动态字段方便地对字段进行扩展，而hbase本身就是基于列存储的，可以很方便地添加qualifier来实现字段的扩展</li>
+</ul>
+<hr>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><h2 id="hbase-client-源码分析"><a href="#hbase-client-源码分析" class="headerlink" title="hbase-client 源码分析"></a>hbase-client 源码分析</h2><p>施工中</p>
+<h3 id="createConnection"><a href="#createConnection" class="headerlink" title="createConnection()"></a>createConnection()</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Configuration configuration = HBaseConfiguration.create();</span><br><span class="line">Connection connection = ConnectionFactory.createConnection(configuration);</span><br><span class="line">connection.getTable(TableName.valueOf(<span class="string">"tbl_xxx"</span>));</span><br></pre></td></tr></table></figure>
+<p>创建connection过程如下:<br><code>ConnectionFactory.createConnection(Configuration conf)</code>, 返回的是一个HConnectionImplementation的对象, 调用了HConnectionImplementation的构造函数:<br><code>HConnectionImplementation(Configuration conf, boolean managed, ExecutorService pool, User user)</code></p>
+<p>看一下HConnectionImplementation构造都做了哪些初始化:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    this.asyncProcess = this.createAsyncProcess(this.conf);</span><br><span class="line">    this.rpcClient = RpcClientFactory.createClient(this.conf, this.clusterId, this.metrics);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="getTable"><a href="#getTable" class="headerlink" title="getTable()"></a>getTable()</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Connection connection = ConnectionFactory.createConnection(configuration);</span><br><span class="line">connection.getTable(TableName.valueOf(<span class="string">"tbl_xxx"</span>));</span><br></pre></td></tr></table></figure>
+<p><code>Connection.getTable()</code>实际调用到了<code>HConnectionImplementation.getTable()</code><br>返回了一个新对象: <code>new HTable(tableName, this, this.connectionConfig, this.rpcCallerFactory, this.rpcControllerFactory, pool)</code></p>
+<p>HTable有几个重要成员:<br>    connection,<br>    multiAp,<br>    locator</p>
+<p>在HTable初始化时, 上面几个成员按如下顺序初始化:<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">this</span>.multiAp = <span class="keyword">this</span>.connection.getAsyncProcess();</span><br><span class="line"><span class="keyword">this</span>.locator = <span class="keyword">new</span> HRegionLocator(<span class="keyword">this</span>.tableName, <span class="keyword">this</span>.connection);</span><br></pre></td></tr></table></figure></p>
+<h3 id="put"><a href="#put" class="headerlink" title="put()"></a>put()</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Put put = <span class="keyword">new</span> Put(rowKey.getBytes());</span><br><span class="line">put.addColumn(family.getBytes(), qualifier.getBytes(), val.getBytes());</span><br><span class="line">table.put(put);</span><br></pre></td></tr></table></figure>
+<p><code>HTable.put(Put)</code> 并不会立刻发送RPC请求, 而是等多次请求后再一次backgroundFlushCommits,<br><code>submit(tableName, buffer, true, null, false);</code></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/后端技术/" rel="tag"># 后端技术</a>
+          
+            <a href="/tags/K-V/" rel="tag"># K-V</a>
+          
+            <a href="/tags/Apache/" rel="tag"># Apache</a>
+          
+            <a href="/tags/大数据/" rel="tag"># 大数据</a>
+          
+            <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
+          
+            <a href="/tags/HDFS/" rel="tag"># HDFS</a>
+          
+            <a href="/tags/HBase/" rel="tag"># HBase</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/后端架构/Arch-SOA-RPC-微服务/" rel="next" title="SOA & RPC & 微服务">
+                <i class="fa fa-chevron-left"></i> SOA & RPC & 微服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Java/JavaEE-Spring MVC/" rel="prev" title="Spring MVC">
+                Spring MVC <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/hexo_avatar.png"
+                alt="whatsrtos" />
+            
+              <p class="site-author-name" itemprop="name">whatsrtos</p>
+              <p class="site-description motion-element" itemprop="description"><s>代码朋克</s></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">242</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HBase简介"><span class="nav-text">HBase简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念-表-行-列族-列-版本"><span class="nav-text">概念: 表, 行, 列族, 列, 版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#概念视图"><span class="nav-text">概念视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理视图"><span class="nav-text">物理视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TTL"><span class="nav-text">TTL</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端API-基础"><span class="nav-text">客户端API: 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令行"><span class="nav-text">命令行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-API"><span class="nav-text">Java API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#批处理-bacth"><span class="nav-text">批处理(bacth)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Table-vs-BufferedMutator"><span class="nav-text">Table vs BufferedMutator</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行锁"><span class="nav-text">行锁</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端API-高级特性"><span class="nav-text">客户端API: 高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤器"><span class="nav-text">过滤器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计数器"><span class="nav-text">计数器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协处理器"><span class="nav-text">协处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批处理客户端"><span class="nav-text">批处理客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hive"><span class="nav-text">Hive</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache-Pig"><span class="nav-text">Apache Pig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MapReduce"><span class="nav-text">MapReduce</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HBase架构-amp-原理"><span class="nav-text">HBase架构 &amp; 原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#架构介绍"><span class="nav-text">架构介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HMaster"><span class="nav-text">HMaster</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HRegion-Server"><span class="nav-text">HRegion Server</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MemStore"><span class="nav-text">MemStore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StoreFile-HFile"><span class="nav-text">StoreFile(HFile)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HFile-的-Data-Index"><span class="nav-text">HFile 的 Data Index</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROOT-amp-META表"><span class="nav-text">ROOT &amp; META表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#META表的缓存设计"><span class="nav-text">META表的缓存设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSM-Tree"><span class="nav-text">LSM Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Minor-amp-Major-Compact"><span class="nav-text">Minor &amp; Major Compact</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Region拆分策略"><span class="nav-text">Region拆分策略</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用场景-amp-性能优化"><span class="nav-text">应用场景 &amp; 性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#表的设计"><span class="nav-text">表的设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Row-Key设计"><span class="nav-text">Row Key设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能优化"><span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较elasticsearch-和-hbase"><span class="nav-text">比较elasticsearch 和 hbase</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源码"><span class="nav-text">源码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase-client-源码分析"><span class="nav-text">hbase-client 源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#createConnection"><span class="nav-text">createConnection()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getTable"><span class="nav-text">getTable()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#put"><span class="nav-text">put()</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">whatsrtos</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://whatsrtos.github.io/大数据/Arch-大数据-HBase/';
+          this.page.identifier = '大数据/Arch-大数据-HBase/';
+          this.page.title = 'HBase';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://dropnotes-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+  <script type="text/javascript" src="/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/scroll-cookie.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+
+</body>
+</html>
