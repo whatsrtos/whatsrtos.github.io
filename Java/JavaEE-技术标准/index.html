@@ -124,7 +124,7 @@
 <meta property="og:description" content="相关概念Java平台共分为三个主要版本：Java SE、Java EE 和 Java ME。  Java SE，Java Platform Standard Edition，Java平台标准版, 基本等同于 JDK； Java EE，Java Platform Enterprise Edition，也即Java平台企业版，JavaEE实际上是一系列技术标准的集合，并不提供具体实现； Java M">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://whatsrtos.github.io/images/JavaEE-技术标准/JavaEE-Title.png">
-<meta property="og:updated_time" content="2020-06-27T00:28:14.940Z">
+<meta property="og:updated_time" content="2021-03-07T02:36:05.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java EE 技术标准（JTS,JMS,JMX,JTA,JPA,EJB,JNDI,JDBC）">
 <meta name="twitter:description" content="相关概念Java平台共分为三个主要版本：Java SE、Java EE 和 Java ME。  Java SE，Java Platform Standard Edition，Java平台标准版, 基本等同于 JDK； Java EE，Java Platform Enterprise Edition，也即Java平台企业版，JavaEE实际上是一系列技术标准的集合，并不提供具体实现； Java M">
@@ -332,7 +332,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,117
+                  1,138
                 </span>
               
 
@@ -381,7 +381,7 @@
 <li>JTA(Java Transaction API): Java事务API.</li>
 <li>JTS(Java Transaction Service): Java事务服务.</li>
 <li>JPA(Java Persistence API): 通过注解或XML描述对象－关系表的映射关系, 并将对象持久化到数据库中, 实现有Spring-data-jpa, Hibernate。</li>
-<li>JMS（Java Message Service): Java消息服务接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。<br>Java消息服务的规范包括两种消息模式，点对点和发布者／订阅者。</li>
+<li>JMS(Java Message Service): Java消息服务接口是一个Java平台中关于面向消息中间件（MOM）的API，用于在两个应用程序之间，或分布式系统中发送消息，进行异步通信。<br>Java消息服务的规范包括两种消息模式，点对点和发布者／订阅者。</li>
 <li>JMX(Java Management Extensions): Java管理扩展，JMX提供了一套接口，让开发者和管理者可以通过 MBean 获取程序运行的状态以及动态的修改程序的相关配置。<br>JMX可以跨越一系列异构操作系统平台、系统体系结构和网络传输协议，灵活的开发无缝集成的系统、网络和服务管理应用。<br>Tomcat、Kafka等都通过JMX实现了监控接口，Jconsole和VisualVM可以通过JMX协议获取程序运行状态实现监控。</li>
 <li>Java Bean: 一般情况下指的是实体类, 所有属性为private, 提供默认构造方法和getter, setter, 如果一个JavaBean需要在不同的JVM的进程中进行传递，还需要实现Serializable接口.</li>
 <li>MBean（Managed Bean）: 托管Bean, 是一种通过依赖注入创建的Java Bean。MBean代表了运行在Java虚拟机上的资源，例如应用程序或Java EE服务（事务监控、JDBC驱动程序等）。<br>其可以用于收集如性能、资源使用率、问题信息等关键的统计信息（通过拉取），获取或设置应用程序的配置或属性（通过推送或拉取），以及对故障或状态变化等的通知事件（通过推送）。</li>
@@ -397,16 +397,25 @@
 <li>2018 年 2 月: <a href="https://www.infoq.cn/article/2018/02/from-javaee-to-jakartaee" target="_blank" rel="noopener">Java EE重命名为Jakarta EE：Java EE Guardians与Oracle的分歧</a></li>
 <li>2019 年 5 月: <a href="https://www.infoq.cn/article/7TvOThYKv-Hbzp4NIsIf" target="_blank" rel="noopener">谈判失败，Oracle亲手把Java EE送上断头台</a></li>
 </ul>
-<h1 id="JTA"><a href="#JTA" class="headerlink" title="JTA"></a>JTA</h1><blockquote>
-<p><a href="https://zh.wikipedia.org/wiki/Java事务API" target="_blank" rel="noopener">Java事务API - 维基百科，自由的百科全书</a></p>
-</blockquote>
-<h1 id="JTS"><a href="#JTS" class="headerlink" title="JTS"></a>JTS</h1><blockquote>
-<p><a href="https://zh.wikipedia.org/zh-hans/Java事务服务" target="_blank" rel="noopener">Java事务服务 - 维基百科，自由的百科全书</a></p>
-</blockquote>
-<h1 id="JMS"><a href="#JMS" class="headerlink" title="JMS"></a>JMS</h1><blockquote>
-<p><a href="https://zh.wikipedia.org/zh-hans/Java消息服务" target="_blank" rel="noopener">Java消息服务 - 维基百科，自由的百科全书</a></p>
-</blockquote>
-<h1 id="JMX"><a href="#JMX" class="headerlink" title="JMX"></a>JMX</h1><blockquote>
+<h1 id="JTA-Java-Transaction-API"><a href="#JTA-Java-Transaction-API" class="headerlink" title="JTA (Java Transaction API)"></a>JTA (Java Transaction API)</h1><p>@Ref:</p>
+<ul>
+<li><a href="https://www.oracle.com/java/technologies/jta.html" target="_blank" rel="noopener">Java Transaction API (JTA)</a></li>
+<li><a href="https://www.baeldung.com/jee-jta" target="_blank" rel="noopener">Guide to Jakarta EE JTA | Baeldung</a></li>
+<li><a href="https://www.progress.com/tutorials/jdbc/understanding-jta" target="_blank" rel="noopener">Understanding JTA - The Java Transaction API</a></li>
+<li><a href="https://spring.io/blog/2011/08/15/configuring-spring-and-jta-without-full-java-ee/" target="_blank" rel="noopener">Configuring Spring and JTA without full Java EE</a></li>
+</ul>
+<h1 id="JTS-Java-Transaction-Service"><a href="#JTS-Java-Transaction-Service" class="headerlink" title="JTS (Java Transaction Service):"></a>JTS (Java Transaction Service):</h1><p>@Ref:</p>
+<ul>
+<li><a href="https://docs.oracle.com/cd/E19644-01/817-5449/djjts.html" target="_blank" rel="noopener">Chapter 3 Using the Transaction Service</a></li>
+<li><a href="https://www.ibm.com/support/pages/learning-more-about-java-transaction-service-jts" target="_blank" rel="noopener">Learning more about Java Transaction Service (JTS)</a></li>
+</ul>
+<h1 id="JMS-Java-Message-Service"><a href="#JMS-Java-Message-Service" class="headerlink" title="JMS (Java Message Service)"></a>JMS (Java Message Service)</h1><p>@Ref:</p>
+<ul>
+<li><a href="https://www.oracle.com/java/technologies/java-message-service.html" target="_blank" rel="noopener">Java Message Service (JMS)</a></li>
+<li><a href="https://www.javatpoint.com/jms-tutorial" target="_blank" rel="noopener">JMS Tutorial - javatpoint</a></li>
+<li><a href="https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html" target="_blank" rel="noopener">javax.jms (Java(TM) EE 7 Specification APIs)</a></li>
+</ul>
+<h1 id="JMX-Java-Management-Extensions"><a href="#JMX-Java-Management-Extensions" class="headerlink" title="JMX (Java Management Extensions)"></a>JMX (Java Management Extensions)</h1><blockquote>
 <p><a href="https://zh.wikipedia.org/wiki/JMX" target="_blank" rel="noopener">JMX - 维基百科，自由的百科全书</a></p>
 </blockquote>
 
@@ -457,8 +466,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/基础架构/Arch-架构-并发系统-C100K/" rel="next" title="高并发系统(C10K, C100K)">
-                <i class="fa fa-chevron-left"></i> 高并发系统(C10K, C100K)
+              <a href="/大数据/Arch-大数据-Kafka/" rel="next" title="Kafka">
+                <i class="fa fa-chevron-left"></i> Kafka
               </a>
             
           </div>
@@ -467,8 +476,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Java/JavaEE-Log/" rel="prev" title="Java日志框架（JCL,SLF4J,Log4J,Logback）">
-                Java日志框架（JCL,SLF4J,Log4J,Logback） <i class="fa fa-chevron-right"></i>
+              <a href="/后端架构/Arch-容器-Docker/" rel="prev" title="Docker">
+                Docker <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -560,7 +569,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -571,7 +580,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -582,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">242</span>
+                  <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -637,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关概念"><span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaEE的发展"><span class="nav-text">JavaEE的发展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JTA"><span class="nav-text">JTA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JTS"><span class="nav-text">JTS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JMS"><span class="nav-text">JMS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JMX"><span class="nav-text">JMX</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关概念"><span class="nav-text">相关概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaEE的发展"><span class="nav-text">JavaEE的发展</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JTA-Java-Transaction-API"><span class="nav-text">JTA (Java Transaction API)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JTS-Java-Transaction-Service"><span class="nav-text">JTS (Java Transaction Service):</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JMS-Java-Message-Service"><span class="nav-text">JMS (Java Message Service)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JMX-Java-Management-Extensions"><span class="nav-text">JMX (Java Management Extensions)</span></a></li></ol></div>
             
 
           </div>
@@ -657,7 +666,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

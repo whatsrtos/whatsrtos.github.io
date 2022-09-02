@@ -278,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/后端架构/Arch-架构-System-Design/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/后端架构/Arch-架构-并发系统-C100K/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -297,7 +297,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/后端架构/Arch-架构-System-Design/" itemprop="url">后端架构：System Design</a></h1>
+                <a class="post-title-link" href="/后端架构/Arch-架构-并发系统-C100K/" itemprop="url">高并发系统(C10K, C100K)</a></h1>
         
 
         <div class="post-meta">
@@ -331,990 +331,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6,997
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p> <a href="https://book.douban.com/subject/26999243/" target="_blank" rel="noopener">《亿级流量网站架构核心技术》</a> - 读书笔记</p>
-<p><img src="/images/Arch-架构-System-Design/亿级流量网站架构核心技术.png" alt=""></p>
-<h1 id="一些概念和测试基准"><a href="#一些概念和测试基准" class="headerlink" title="一些概念和测试基准"></a>一些概念和测试基准</h1><p>本章内容包括: 系统可用性的概念和指标, 系统性能的概念和指标, 如何严谨地做性能测试.</p>
-<h2 id="系统可用性的概念和指标"><a href="#系统可用性的概念和指标" class="headerlink" title="系统可用性的概念和指标"></a>系统可用性的概念和指标</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/后端架构/Arch-架构-System-Design/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/后端架构/Arch-分布式-Zookeeper/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/后端架构/Arch-分布式-Zookeeper/" itemprop="url">Zookeeper</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  341
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h1><h1 id="zookeeper命令"><a href="#zookeeper命令" class="headerlink" title="zookeeper命令"></a>zookeeper命令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 连接 zk Server:</span></span><br><span class="line">bin/zkCli.sh -server 127.0.0.1:2181</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">ls /</span><br><span class="line">create /zk myData # 创建节点/zk, 对应值为myData</span><br><span class="line">set /zk "xxx"</span><br><span class="line">get /zk</span><br><span class="line">ls /cmt5/prod/config # 类似目录操作</span><br></pre></td></tr></table></figure>
-<p>或者使用socket:</p>
-<ul>
-<li>echo stat|nc 127.0.0.1 2181 查看哪个节点被选择作为follower或者leader</li>
-<li>echo ruok|nc 127.0.0.1 2181 测试是否启动了该Server，若回复imok表示已经启动。</li>
-<li>echo dump| nc 127.0.0.1 2181 ,列出未经处理的会话和临时节点。</li>
-<li>echo kill | nc 127.0.0.1 2181 ,关掉server</li>
-<li>echo conf | nc 127.0.0.1 2181 ,输出相关服务配置的详细信息。</li>
-<li>echo cons | nc 127.0.0.1 2181 ,列出所有连接到服务器的客户端的完全的连接 / 会话的详细信息。</li>
-<li>echo envi |nc 127.0.0.1 2181 ,输出关于服务环境的详细信息（区别于 conf 命令）。</li>
-<li>echo reqs | nc 127.0.0.1 2181 ,列出未经处理的请求。</li>
-<li>echo wchs | nc 127.0.0.1 2181 ,列出服务器 watch 的详细信息。</li>
-<li>echo wchc | nc 127.0.0.1 2181 ,通过 session 列出服务器 watch 的详细信息，它的输出是一个与 watch 相关的会话的列表。</li>
-<li>echo wchp | nc 127.0.0.1 2181 ,通过路径列出服务器 watch 的详细信息。它输出一个与 session 相关的路径。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/后端架构/Arch-分布式-Zookeeper/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/后端架构/Arch-资源调度-Yarn-Mesos-k8s/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/后端架构/Arch-资源调度-Yarn-Mesos-k8s/" itemprop="url">资源调度(YARN vs Mesos vs k8s)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  741
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="YARN"><a href="#YARN" class="headerlink" title="YARN"></a>YARN</h1><p>Apache Hadoop YARN （Yet Another Resource Negotiator，另一种资源协调者）是一种新的 Hadoop 资源管理器，<br>它是一个通用资源管理系统，可为上层应用提供统一的资源管理和调度，它的引入为集群在利用率、资源统一管理和数据共享等方面带来了巨大好处。</p>
-<h2 id="术语解释"><a href="#术语解释" class="headerlink" title="术语解释"></a>术语解释</h2><p>YARN的基本思想是将JobTracker的两个主要功能（资源管理和作业调度/监控）分离，<br>主要方法是创建一个全局的ResourceManager（RM）和若干个针对应用程序的ApplicationMaster（AM）。<br>这里的应用程序是指传统的MapReduce作业或作业的DAG（有向无环图）。</p>
-<p>YARN 分层结构的本质是 ResourceManager。<br>这个实体控制整个集群并管理应用程序向基础计算资源的分配。<br>ResourceManager 将各个资源部分（计算、内存、带宽等）精心安排给基础 NodeManager（YARN 的每节点代理）。<br>ResourceManager 还与 ApplicationMaster 一起分配资源，与 NodeManager 一起启动和监视它们的基础应用程序。在此上下文中，ApplicationMaster 承担了以前的 TaskTracker 的一些角色，ResourceManager 承担了 JobTracker 的角色。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/后端架构/Arch-资源调度-Yarn-Mesos-k8s/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/后端架构/Arch-反向代理-Nginx/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/后端架构/Arch-反向代理-Nginx/" itemprop="url">Nginx</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,863
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="https://cdn-1.wp.nginx.com/wp-content/uploads/2015/04/NGINX_logo_rgb-01.png" alt=""></p>
-<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>  Nginx（发音同engine x）是一个异步框架的 Web服务器，也可以用作反向代理，负载平衡器 和 HTTP缓存。该软件由 Igor Sysoev 创建，并于2004年首次公开发布。同名公司成立于2011年，以提供支持。</p>
-<p>  Nginx可以部署在网络上使用FastCGI脚本、SCGI处理程序、WSGI应用服务器或Phusion乘客模块的动态HTTP内容，并可作为软件负载均衡器。</p>
-<p>  Nginx使用异步事件驱动的方法来处理请求。Nginx的模块化事件驱动架构[11]可以在高负载下提供更可预测的性能。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/后端架构/Arch-反向代理-Nginx/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/未分类技术笔记/前端笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/未分类技术笔记/前端笔记/" itemprop="url">前端笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,300
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h1><ul>
-<li>Javascript绝对简明教程 <a href="http://wiki.woodpecker.org.cn/moin/jsInAWord" target="_blank" rel="noopener">http://wiki.woodpecker.org.cn/moin/jsInAWord</a></li>
-<li>对Web标准的理解, 浏览器差异</li>
-<li>HTML / CSS / JavaScript(基础, JS面向对象实现原理/闭包机制/作用域)</li>
-<li>AngularJS / Ember.js / jQuery</li>
-<li>Jade / Swig / Handlebars / Mustache 或者其它模板引擎</li>
-<li>SASS 或者其它 CSS 预处理器</li>
-<li>Js代码混淆 grunt/uglify</li>
-</ul>
-<h1 id="Content-Type"><a href="#Content-Type" class="headerlink" title="Content-Type"></a>Content-Type</h1><ul>
-<li>各浏览器对常用或者错误的 Content-Type 类型处理方式 <a href="http://w3help.org/zh-cn/causes/CH9001" target="_blank" rel="noopener">http://w3help.org/zh-cn/causes/CH9001</a> or <a href="http://www.w3help.org/zh-cn/causes/CH9002" target="_blank" rel="noopener">http://www.w3help.org/zh-cn/causes/CH9002</a></li>
-</ul>
-<h1 id="P3P-Cookie"><a href="#P3P-Cookie" class="headerlink" title="P3P Cookie"></a>P3P Cookie</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/未分类技术笔记/前端笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/未分类技术笔记/Github-Repo-Starred/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/未分类技术笔记/Github-Repo-Starred/" itemprop="url">Github Star项目</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  495
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>@TODO</p>
-<ul>
-<li>High-performance event loop : such as libev;</li>
-<li>PHP Framework;</li>
-<li>Python mvc;</li>
-</ul>
-<h1 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h1><p><a href="https://github.com/WhatsDJGPP/STL" target="_blank" rel="noopener">STL</a> : STL笔记;</p>
-<p><a href="http://git.oschina.net/whatsdjgpp/protothreads-port" target="_blank" rel="noopener">Protothreads</a> : 针对C语言封装后的宏函数库, 为C语言模拟了一种无堆栈的轻量线程环境, 能够实现模拟线程的条件阻塞、信号量操作等操作系统中特有的机制, 从而使程序实现多线程操作.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/未分类技术笔记/Github-Repo-Starred/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/未分类技术笔记/Tools-and-IDE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/未分类技术笔记/Tools-and-IDE/" itemprop="url">开发工具（git, svn, screen, tmux） & IDE快捷键（Vim, Jetbrains, etc.）速查手册</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  3,141
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="值得尝试的新工具"><a href="#值得尝试的新工具" class="headerlink" title="值得尝试的新工具"></a>值得尝试的新工具</h1><ul>
-<li>ag: 比grep、ack更快的递归搜索文件内容。</li>
-<li>mycli: mysql客户端，支持语法高亮和命令补全，效果类似ipython，可以替代mysql命令。</li>
-<li>shellcheck: shell脚本静态检查工具，能够识别语法错误以及不规范的写法。</li>
-<li>cloc: 代码统计工具，能够统计代码的空行数、注释行、编程语言。</li>
-</ul>
-<h1 id="VS-Code"><a href="#VS-Code" class="headerlink" title="VS Code"></a>VS Code</h1><ul>
-<li>列模式: <code>shift + option + ↕️</code></li>
-<li>快速打开: <code>⌘ + P</code></li>
-<li>连续选中光标所在的单词: <code>⌘ + D</code></li>
-</ul>
-<h1 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/未分类技术笔记/Tools-and-IDE/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/未分类技术笔记/开源项目源代码阅读指北/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/未分类技术笔记/开源项目源代码阅读指北/" itemprop="url">开源项目源代码阅读指北</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,158
+                  2,651
                 </span>
               
 
@@ -1341,17 +358,21 @@
       
         
           <blockquote>
-<p>本文参考自: <a href="http://www.nosqlnotes.com/techpoints/how-to-read-opensource-code/" target="_blank" rel="noopener">Jaison - 阅读开源项目源码的建议姿势</a> @Ref</p>
+<p><strong>本篇只讨论OS级别的并发优化，不包括语言层面对并发的支持特性</strong></p>
 </blockquote>
-<h1 id="先选择合适的源码版本"><a href="#先选择合适的源码版本" class="headerlink" title="先选择合适的源码版本"></a>先选择合适的源码版本</h1><p>需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”</p>
+<h1 id="有关Linux系统的限制"><a href="#有关Linux系统的限制" class="headerlink" title="有关Linux系统的限制"></a>有关Linux系统的限制</h1><h2 id="系统最大文件数"><a href="#系统最大文件数" class="headerlink" title="系统最大文件数"></a>系统最大文件数</h2><p>使用<code>ulimit</code>设置最多能打开文件数:</p>
 <ul>
-<li>如果是前者，那完全可以选择最新发布或待发布的稳定版本。</li>
-<li>如果是后者，则需要选择自己业务系统中正在使用的版本。</li>
+<li>查看所有的限制: <code>ulimit -a</code></li>
+<li>设置最大打开文件句柄数: <code>ulimit -n 65535</code>, 65535 = 2^16 = 0xFFFF</li>
+<li>设置 <strong>每个用户的</strong> 最大进程数: <code>ulimit -u 32768</code></li>
+<li>设置线程栈的大小: <code>ulimit -s 10240</code></li>
+<li>设置最大线程数数: <code>ulimit -T</code> (在Unix上可能不同)</li>
+<li>设置产生core文件大小: <code>ulimit -c xxx</code></li>
+<li>不限制core的大小: <code>ulimit -c unlimited</code></li>
 </ul>
-<h1 id="快速了解架构和关键特性"><a href="#快速了解架构和关键特性" class="headerlink" title="快速了解架构和关键特性"></a>快速了解架构和关键特性</h1>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/未分类技术笔记/开源项目源代码阅读指北/#more" rel="contents">
+            <a class="btn" href="/后端架构/Arch-架构-并发系统-C100K/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1402,7 +423,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/未分类技术笔记/设计模式/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/30MinsTutorial/Shell Tutorials/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -1421,7 +442,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/未分类技术笔记/设计模式/" itemprop="url">设计模式</a></h1>
+                <a class="post-title-link" href="/30MinsTutorial/Shell Tutorials/" itemprop="url">Shell Script Tutorials</a></h1>
         
 
         <div class="post-meta">
@@ -1455,7 +476,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  678
+                  2,248
                 </span>
               
 
@@ -1481,40 +502,21 @@
 
       
         
-          
-            <h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><ul>
-<li>创建模式:<ul>
-<li>抽象工厂模式：抽象工厂模式提供了一个协议来生成一系列的相关或者独立的对象，而不用指定具体对象的类型，如 java.util.Calendar#getInstance()。</li>
-<li>建造模式(Builder)：定义了一个新的类来构建另一个类的实例，以简化复杂对象的创建，如：java.lang.StringBuilder#append()。</li>
-<li>工厂方法：就是 一个返* 回具体对象的方法，而不是多个，如 java.lang.Object#toString()、java.lang.Class#newInstance()。</li>
-<li>原型模式：使得类的实例能够生成自身的拷贝、如：java.lang.Object#clone()。</li>
-<li>单例模式：全局只有一个实例，如 java.lang.Runtime#getRuntime()。</li>
+          <h1 id="Shell-简介"><a href="#Shell-简介" class="headerlink" title="Shell 简介"></a>Shell 简介</h1><p>Shell是用户和 Linux操作系统之间的接口, 也可以看作是命令行的解释器.<br>常见的 Shell Script解释器有:</p>
+<ul>
+<li>sh: 即 Bourne shell，POSIX（Portable Operating System Interface）标准的shell解释器，它的二进制文件路径通常是/bin/sh，由Bell Labs开发。</li>
+<li>bash: Bash是Bourne shell的替代品，属GNU Project，二进制文件路径通常是/bin/bash。</li>
+<li>zsh: zsh是由Paul Falstad于1990年创建的，它是一个Bourne风格的shell，它包含了bash中的功能，甚至更多。 例如，zsh具有拼写检查功能，可以监视登录/注销，某些内置编程功能（如字节码），支持语法中的科学计数，允许浮点运算和更多功能。</li>
 </ul>
-</li>
-<li>结构型模式：<ul>
-<li>适配器：用来把一个接口转化成另一个接口，如 java.util.Arrays#asList()。</li>
-<li>桥接模式：这个模式将抽象和抽象操作的实现进行了解耦，这样使得抽象和实现可以独立地变化，如JDBC；</li>
-<li>组合模式：使得客户端看来单个对象和对象的组合是同等的。换句话说，某个类型的方法同时也接受自身类型作为参数，如 Map.putAll，List.addAll、Set.addAll。</li>
-<li>装饰者模式：动态的给一个对象附加额外的功能，这也是子类的一种替代方式，如 java.util.Collections#checkedList|Map|Set|SortedSet|SortedMap。</li>
-<li>享元模式：使用缓存来加速大量小对象的访问时间，如 valueOf(int)。</li>
-<li>代理模式：代理模式是用一个简单的对象来代替一个复杂的或者创建耗时的对象，如 java.lang.reflect.Proxy</li>
-</ul>
-</li>
-<li>行为模式：<ul>
-<li>命令模式：将操作封装到对象内，以便存储，传递和返回，如：java.lang.Runnable。</li>
-<li>解释器模式：定义了一个语言的语法，然后解析相应语法的语句，如，java.text.Format，java.text.Normalizer。</li>
-<li>迭代器模式：提供一个一致的方法来顺序访问集合中的对象，如 java.util.Iterator。</li>
-<li>中介者模式：通过使用一个中间对象来进行消息分发以及减少类之间的直接依赖，java.lang.reflect.Method#invoke()。</li>
-<li>观察者模式：它使得一个对象可以灵活的将消息发送给感兴趣的对象，如 java.util.EventListener。</li>
-<li>责任链模式：通过把请求从一个对象传递到链条中下一个对象的方式，直到请求被处理完毕，以实现对象间的解耦。如 javax.servlet.Filter#doFilter()。</li>
-<li>空对象模式：如 java.util.Collections#emptyList()。</li>
-<li>模板方法模式：让子类可以重写方法的一部分，而不是整个重写，如 java.util.Collections#sort()。</li>
-</ul>
-</li>
-</ul>
-<h1 id="JDK里的设计模式"><a href="#JDK里的设计模式" class="headerlink" title="JDK里的设计模式"></a>JDK里的设计模式</h1><p>@Ref: <a href="http://blog.jobbole.com/62314/" target="_blank" rel="noopener">细数JDK里的设计模式 - 文章 - 伯乐在线</a></p>
-
-          
+<p>Shell 脚本文件开头一般会声明用哪种脚本解释器:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!/bin/bash</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/30MinsTutorial/Shell Tutorials/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1561,7 +563,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/基础架构/Arch-DB-MySQL/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/未分类技术笔记/安全笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -1580,7 +582,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/基础架构/Arch-DB-MySQL/" itemprop="url">MySQL</a></h1>
+                <a class="post-title-link" href="/未分类技术笔记/安全笔记/" itemprop="url">安全笔记</a></h1>
         
 
         <div class="post-meta">
@@ -1614,7 +616,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8,487
+                  235
                 </span>
               
 
@@ -1640,12 +642,987 @@
 
       
         
-          <p><img src="/images/Arch-DB-MySQL/Database-MySQL-Title.png" alt=""></p>
-<h1 id="MySQL基础"><a href="#MySQL基础" class="headerlink" title="MySQL基础"></a>MySQL基础</h1><p>参考:《深入浅出MySQL》</p>
-<h2 id="SCHEMA"><a href="#SCHEMA" class="headerlink" title="SCHEMA"></a>SCHEMA</h2><p><strong>schema</strong> 为数据库对象的集合，schema里面包含了各种对象如tables, views, sequences, 可以视作”数据库”, <code>show database</code>可以看到schema.<br>不同数据库产品的schema概念是不同的:</p>
+          <h1 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h1><p><a href="../30MinsToturial/Java Tutorials.md">参考 Java Tutorials.md - (十七)安全</a></p>
+<blockquote>
+<p>Blowfish是1993年布鲁斯·施奈尔(Bruce Schneier)开发的对称密钥区块加密算法，区块长为64位，密钥为1至448位的可变长度。与DES等算法相比，其处理速度较快。因为其无须授权即可使用，作为一种自由授权的加密方式在SSH、文件加密软件等被广泛地使用</p>
+</blockquote>
+<p>bcrypt是根据Blowfish加密算法所设计的密码散列函数</p>
+<h1 id="Salt"><a href="#Salt" class="headerlink" title="Salt"></a>Salt</h1>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/基础架构/Arch-DB-MySQL/#more" rel="contents">
+            <a class="btn" href="/未分类技术笔记/安全笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/Java/JavaEE-Servlet/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Java/JavaEE-Servlet/" itemprop="url">Servelt & JSP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6,367
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Java-Web应用"><a href="#Java-Web应用" class="headerlink" title="Java Web应用"></a>Java Web应用</h1><p>Java Web 应用是一个 servlets, HTML 页面,类,和其他资源的集合，用于一个在 Web 服务器的完成的应用。Web 应用可以捆绑和运行来自多个供应商的在多个容器。<br>servlet 容器必须强制 Web 应用程序和 ServletContext 之间一对一对应的关系。ServletContext 对象提供了一个 servlet 和它的应用程序视图。</p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>可以使用标准的 Java 归档工具把 Web 应用程序打包并签名到一个 Web 存档格式（WAR）文件中。例如，一个关于“issue tracking”的应用程序可以分布在一个称为 issuetrack.war 的归档文件中。</p>
+<p>当打包成这种形式时，将生成一个 META-INF 目录，其中包含了对 java归档工具有用的信息。尽管这个目录的内容可以通过 servlet 代码调用ServletContext 的 getResource 和 getResourceAsStream 方法来访问，容器也不能把这个目录当作内容来响应客户端请求。此外，任何请求访问 META-INF 目录中的资源必须返回一个 SC_NOT_FOUND（404）的响应。常见的归档格式war 和 ear格式对比：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Java/JavaEE-Servlet/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/Java/JavaEE-Tomcat/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Java/JavaEE-Tomcat/" itemprop="url">Tomcat</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  10,419
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Tomcat-logo.svg/300px-Tomcat-logo.svg.png" alt="Tomcat"></p>
+<h1 id="配置文件-server-xml"><a href="#配置文件-server-xml" class="headerlink" title="配置文件 server.xml"></a>配置文件 server.xml</h1><p>一个配置文件实例:<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">"8005"</span> <span class="attr">shutdown</span>=<span class="string">"SHUTDOWN"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.startup.VersionLoggerListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.AprLifecycleListener"</span> <span class="attr">SSLEngine</span>=<span class="string">"on"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.JasperListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.JreMemoryLeakPreventionListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.ThreadLocalLeakPreventionListener"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">GlobalNamingResources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Resource</span> <span class="attr">name</span>=<span class="string">"UserDatabase"</span> <span class="attr">auth</span>=<span class="string">"Container"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">type</span>=<span class="string">"org.apache.catalina.UserDatabase"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">description</span>=<span class="string">"User database that can be updated and saved"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">factory</span>=<span class="string">"org.apache.catalina.users.MemoryUserDatabaseFactory"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">pathname</span>=<span class="string">"conf/tomcat-users.xml"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">GlobalNamingResources</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Service</span> <span class="attr">name</span>=<span class="string">"Catalina"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8009"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Engine</span> <span class="attr">name</span>=<span class="string">"Catalina"</span> <span class="attr">defaultHost</span>=<span class="string">"localhost"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Realm</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.realm.LockOutRealm"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Realm</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.realm.UserDatabaseRealm"</span> <span class="attr">resourceName</span>=<span class="string">"UserDatabase"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">Realm</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span>  <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.valves.AccessLogValve"</span> <span class="attr">directory</span>=<span class="string">"logs"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">prefix</span>=<span class="string">"localhost_access_log."</span> <span class="attr">suffix</span>=<span class="string">".txt"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">pattern</span>=<span class="string">"%h %l %u %t &amp;quot;%r&amp;quot; %s %b"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Server</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="server-xml配置元素分类"><a href="#server-xml配置元素分类" class="headerlink" title="server.xml配置元素分类"></a>server.xml配置元素分类</h2><h3 id="整体结构"><a href="#整体结构" class="headerlink" title="整体结构"></a>整体结构</h3>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Java/JavaEE-Tomcat/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/Java/JavaEE-Spring Boot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Java/JavaEE-Spring Boot/" itemprop="url">Spring Boot</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  371
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="https://sdtimes.com/wp-content/uploads/2018/03/spring-boot-490x257.png" alt="Spring Boot"></p>
+<h1 id="Spring-Boot-vs-Spring"><a href="#Spring-Boot-vs-Spring" class="headerlink" title="Spring Boot vs Spring"></a>Spring Boot vs Spring</h1><ul>
+<li>内置了嵌入式的Tomcat、Jetty等Servlet容器，应用可以不用打包成War格式，而是可以直接以Jar格式运行</li>
+<li>Spring Boot提倡无XML配置文件的理念，使用Spring Boot生成的应用完全不会生成任何配置代码与XML配置文件。</li>
+<li>提供了多个可选择的「starter」:<ul>
+<li>spring-boot-starter-data-redis:</li>
+<li>spring-boot-starter-activemq:</li>
+<li>spring-boot-starter-jdbc:</li>
+<li>spring-boot-starter-web:</li>
+<li>spring-boot-starter-actuator:</li>
+</ul>
+</li>
+</ul>
+<h1 id="Spring-Boot-全家桶-简介"><a href="#Spring-Boot-全家桶-简介" class="headerlink" title="Spring Boot 全家桶(简介)"></a>Spring Boot 全家桶(简介)</h1><p>@TODO</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Java/JavaEE-Spring Boot/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/Java/JavaEE-Spring MVC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Java/JavaEE-Spring MVC/" itemprop="url">Spring MVC</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  7,682
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="使用Spring-Context"><a href="#使用Spring-Context" class="headerlink" title="使用Spring Context"></a>使用Spring Context</h1><p>使用ClassPathXmlApplicationContext:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ClassPathXmlApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"META-INF/spring/spring-main.xml"</span>);</span><br><span class="line">A a = context.getBean(A.class);</span><br></pre></td></tr></table></figure>
+<p>直接使用 DefaultListableBeanFactory:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Resource resource = <span class="keyword">new</span> ClassPathResource(<span class="string">"spring-core.xml"</span>);</span><br><span class="line">DefaultListableBeanFactory beanFactory = <span class="keyword">new</span> DefaultListableBeanFactory();</span><br><span class="line">XmlBeanDefinitionReader reader = <span class="keyword">new</span> XmlBeanDefinitionReader(beanFactory);</span><br><span class="line">reader.loadBeanDefinitions(resource);</span><br><span class="line">MyBean myBean = (MyBean) beanFactory.getBean(<span class="string">"myBean"</span>);</span><br><span class="line">myBean.sayHello();</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Java/JavaEE-Spring MVC/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/大数据/Arch-大数据-HBase/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/大数据/Arch-大数据-HBase/" itemprop="url">HBase</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6,206
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="https://hbase.apache.org/images/hbase_logo_with_orca_large.png" alt="HBase"></p>
+<h1 id="HBase简介"><a href="#HBase简介" class="headerlink" title="HBase简介"></a>HBase简介</h1><p>HBase是一个分布式的、面向列的开源数据库，该技术来源于 Fay Chang 所撰写的Google论文“Bigtable：一个结构化数据的分布式存储系统”。就像Bigtable利用了Google文件系统（File System）所提供的分布式数据存储一样，HBase在Hadoop之上提供了类似于Bigtable的能力。HBase是Apache的Hadoop项目的子项目。HBase不同于一般的关系数据库，它是一个适合于非结构化数据存储的数据库。另一个不同的是HBase基于列的而不是基于行的模式。<br>与FUJITSU Cliq等商用大数据产品不同，HBase是Google Bigtable的开源实现，类似Google Bigtable利用GFS作为其文件存储系统，HBase利用Hadoop HDFS作为其文件存储系统；Google运行MapReduce来处理Bigtable中的海量数据，HBase同样利用Hadoop MapReduce来处理HBase中的海量数据；Google Bigtable利用 Chubby作为协同服务，HBase利用Zookeeper作为对应。</p>
+<ul>
+<li>HBase适用于简单数据写入（如“消息类”应用）和海量、结构简单数据的查询（如“详单类”应用），适合稀疏表；</li>
+<li>作为大数据MapReduce的后台数据源，以支撑离线分析型应用；</li>
+<li><p>基于HDFS分布式文件系统, 可扩展性+；</p>
+<p>  场景：<br>  Facebook的消息类应用，包括Messages、Chats、Emails和SMS系统，用的都是HBase；<br>  淘宝的WEB版阿里旺旺，后台是HBase；<br>  小米的米聊用的也是HBase；</p>
+</li>
+</ul>
+<h2 id="概念-表-行-列族-列-版本"><a href="#概念-表-行-列族-列-版本" class="headerlink" title="概念: 表, 行, 列族, 列, 版本"></a>概念: 表, 行, 列族, 列, 版本</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/大数据/Arch-大数据-HBase/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/后端架构/Arch-SOA-RPC-微服务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/后端架构/Arch-SOA-RPC-微服务/" itemprop="url">SOA & RPC & 微服务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  814
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="/images/Arch-SOA-微服务/SOA-Microservices-Title.png" alt=""></p>
+<h1 id="从SOA到微服务"><a href="#从SOA到微服务" class="headerlink" title="从SOA到微服务"></a>从SOA到微服务</h1><p>▶ <strong>SOA</strong>: 面向服务的架构（英语：service-oriented architecture）, 即把后台系统按照功能拆分为不同的服务, 这些服务通过统一接口(RPC 或 Http)提供给调用者.</p>
+<p>▶ <strong>微服务</strong>: 微服务是SOA架构演进的结果。两者都是”对外提供接口的”一种架构设计方式，随着互联网架构的发展，更复杂的平台和业务的出现，导致SOA架构向更细粒度、更通用化发展，就演变成所谓的微服务了。<strong>微服务是SOA发展出来的产物，它是一种比较现代化的细粒度的SOA实现方式，微服务更强调去中心化分布式部署。</strong></p>
+<p>SOA与微服务的区别在于如下几个方面：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/后端架构/Arch-SOA-RPC-微服务/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/网络协议/网络协议-TCP_IP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/网络协议/网络协议-TCP_IP/" itemprop="url">网络协议：TCP/IP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,952
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="Part-I-TCP"><a href="#Part-I-TCP" class="headerlink" title="Part I: TCP"></a>Part I: TCP</h1><h2 id="OSI七层模型回顾"><a href="#OSI七层模型回顾" class="headerlink" title="OSI七层模型回顾"></a>OSI七层模型回顾</h2><ul>
+<li>7应用层: 该层协议包括 Socket, HTTP, HTTPS, FTP, SSH, POP3,  // WebSocket属于哪一层?</li>
+<li>6表示层: 格式转换, 把数据转换为应用层能兼容的格式 或 适合传输的格式, 比如: 加密/解密, 压缩/解压</li>
+<li>5会话层: 维护和管理数据传输过程中两台计算机之间的连接, 该层协议有: SSL/TLS</li>
+<li>4传输层: 传输控制, 例如TCP协议(传输控制协议, 主要实现了传输的可靠性, 例如超时重传), 该层把「传输表头」TH加入数据形成「报文」Segment, 传输表头包括了传输协议等</li>
+<li>3网络层: 决定数据的路由, 例如IP/ICMP协议, 该层把「网络表头」NH加入数据形成「包」Packet, 网络表头包括: @TODO</li>
+<li>2链路层: 负责网络寻找和错误侦测, 该层把「数据链表头」DLH加入数据开头, 以及「数据链表尾」DLT加入数据结尾, 形成「信息框」Data Frame, 数据链表头包括, 该层协议包括WiFi, GPRS(通用分组无线服务)</li>
+<li>1物理层: 在局部局域网上传送「数据帧」Data Frame, 该层定义了网络硬件和网络数据之间的互通, 包括: 针脚/电压/集线器/网卡等</li>
+</ul>
+<h2 id="TCP报头"><a href="#TCP报头" class="headerlink" title="TCP报头"></a>TCP报头</h2><p><img src="/images/网络协议-TCP_IP/tcp_header.jpg" alt="TCP头"></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/网络协议/网络协议-TCP_IP/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1687,7 +1664,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1737,7 +1714,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">120</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1748,7 +1725,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">68</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1759,7 +1736,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">242</span>
+                  <span class="site-state-item-count">252</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1818,7 +1795,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
