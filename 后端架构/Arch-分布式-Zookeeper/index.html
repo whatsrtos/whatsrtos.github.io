@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="后端架构,分布式,Apache,Zookeeper,Paxos,ZAB,CAP," />
+  <meta name="keywords" content="Apache,后端架构,分布式,Zookeeper,Paxos,ZAB,CAP," />
 
 
 
@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="Zookeeperzookeeper命令# 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作  或者使用socket:  echo stat|nc 127.0.0.1">
-<meta name="keywords" content="后端架构,分布式,Apache,Zookeeper,Paxos,ZAB,CAP">
+<meta name="description" content="Zookeeper zookeeper命令 # 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作 或者使用socket:  echo stat|nc 127.0.0.">
+<meta name="keywords" content="Apache,后端架构,分布式,Zookeeper,Paxos,ZAB,CAP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zookeeper">
 <meta property="og:url" content="https://whatsrtos.github.io/后端架构/Arch-分布式-Zookeeper/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="Zookeeperzookeeper命令# 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作  或者使用socket:  echo stat|nc 127.0.0.1">
+<meta property="og:description" content="Zookeeper zookeeper命令 # 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作 或者使用socket:  echo stat|nc 127.0.0.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-16T13:08:27.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zookeeper">
-<meta name="twitter:description" content="Zookeeperzookeeper命令# 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作  或者使用socket:  echo stat|nc 127.0.0.1">
+<meta name="twitter:description" content="Zookeeper zookeeper命令 # 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作 或者使用socket:  echo stat|nc 127.0.0.">
 
 
 
@@ -355,8 +355,9 @@
       
 
       
-        <h1 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h1><h1 id="zookeeper命令"><a href="#zookeeper命令" class="headerlink" title="zookeeper命令"></a>zookeeper命令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 连接 zk Server:</span></span><br><span class="line">bin/zkCli.sh -server 127.0.0.1:2181</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">ls /</span><br><span class="line">create /zk myData # 创建节点/zk, 对应值为myData</span><br><span class="line">set /zk "xxx"</span><br><span class="line">get /zk</span><br><span class="line">ls /cmt5/prod/config # 类似目录操作</span><br></pre></td></tr></table></figure>
-
+        <h1>Zookeeper</h1>
+<h1>zookeeper命令</h1>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 连接 zk Server:</span></span><br><span class="line">bin/zkCli.sh -server 127.0.0.1:2181</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">ls /</span><br><span class="line">create /zk myData # 创建节点/zk, 对应值为myData</span><br><span class="line">set /zk "xxx"</span><br><span class="line">get /zk</span><br><span class="line">ls /cmt5/prod/config # 类似目录操作</span><br></pre></td></tr></table></figure>
 <p>或者使用socket:</p>
 <ul>
 <li>echo stat|nc 127.0.0.1 2181 查看哪个节点被选择作为follower或者leader</li>
@@ -371,7 +372,8 @@
 <li>echo wchc | nc 127.0.0.1 2181 ,通过 session 列出服务器 watch 的详细信息，它的输出是一个与 watch 相关的会话的列表。</li>
 <li>echo wchp | nc 127.0.0.1 2181 ,通过路径列出服务器 watch 的详细信息。它输出一个与 session 相关的路径。</li>
 </ul>
-<h1 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h1><p><a href="https://www.ruanyifeng.com/blog/2018/07/cap.html" target="_blank" rel="noopener">CAP 定理的含义 - 阮一峰的网络日志</a></p>
+<h1>CAP</h1>
+<p><a href="https://www.ruanyifeng.com/blog/2018/07/cap.html" target="_blank" rel="noopener">CAP 定理的含义 - 阮一峰的网络日志</a></p>
 
       
     </div>
@@ -389,11 +391,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/Apache/" rel="tag"># Apache</a>
+          
             <a href="/tags/后端架构/" rel="tag"># 后端架构</a>
           
             <a href="/tags/分布式/" rel="tag"># 分布式</a>
-          
-            <a href="/tags/Apache/" rel="tag"># Apache</a>
           
             <a href="/tags/Zookeeper/" rel="tag"># Zookeeper</a>
           
@@ -517,7 +519,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -528,7 +530,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -594,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Zookeeper"><span class="nav-text">Zookeeper</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#zookeeper命令"><span class="nav-text">zookeeper命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CAP"><span class="nav-text">CAP</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Zookeeper</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">zookeeper命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">CAP</span></a></li></ol></div>
             
 
           </div>

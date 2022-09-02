@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="（一） Server端安装xdebug:Windows服务器For windows的xdebug都是预编译好的binary包, 根据PHP版本下载对应的xdebug: 下载地址 Linux服务器(1) 安装最简单的安装方法是通过PECL安装: pecl install xdebug">
+<meta name="description" content="（一） Server端安装xdebug: Windows服务器 For windows的xdebug都是预编译好的binary包, 根据PHP版本下载对应的xdebug: 下载地址 Linux服务器 (1) 安装 最简单的安装方法是通过PECL安装: pecl install xdebug">
 <meta name="keywords" content="PHP,Xdebug">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Xdebug调试PHP">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[PHP] 使用Xdebug调试PHP/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="（一） Server端安装xdebug:Windows服务器For windows的xdebug都是预编译好的binary包, 根据PHP版本下载对应的xdebug: 下载地址 Linux服务器(1) 安装最简单的安装方法是通过PECL安装: pecl install xdebug">
+<meta property="og:description" content="（一） Server端安装xdebug: Windows服务器 For windows的xdebug都是预编译好的binary包, 根据PHP版本下载对应的xdebug: 下载地址 Linux服务器 (1) 安装 最简单的安装方法是通过PECL安装: pecl install xdebug">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Xdebug调试PHP">
-<meta name="twitter:description" content="（一） Server端安装xdebug:Windows服务器For windows的xdebug都是预编译好的binary包, 根据PHP版本下载对应的xdebug: 下载地址 Linux服务器(1) 安装最简单的安装方法是通过PECL安装: pecl install xdebug">
+<meta name="twitter:description" content="（一） Server端安装xdebug: Windows服务器 For windows的xdebug都是预编译好的binary包, 根据PHP版本下载对应的xdebug: 下载地址 Linux服务器 (1) 安装 最简单的安装方法是通过PECL安装: pecl install xdebug">
 
 
 
@@ -355,34 +355,44 @@
       
 
       
-        <h1 id="（一）-Server端安装xdebug"><a href="#（一）-Server端安装xdebug" class="headerlink" title="（一） Server端安装xdebug:"></a>（一） Server端安装xdebug:</h1><h2 id="Windows服务器"><a href="#Windows服务器" class="headerlink" title="Windows服务器"></a>Windows服务器</h2><p>For windows的xdebug都是预编译好的binary包, 根据PHP版本下载对应的xdebug: <a href="http://xdebug.org/download.php" target="_blank" rel="noopener">下载地址</a></p>
-<h2 id="Linux服务器"><a href="#Linux服务器" class="headerlink" title="Linux服务器"></a>Linux服务器</h2><p>(1) 安装<br>最简单的安装方法是通过PECL安装: <code>pecl install xdebug</code></p>
+        <h1>（一） Server端安装xdebug:</h1>
+<h2 id="Windows服务器">Windows服务器</h2>
+<p>For windows的xdebug都是预编译好的binary包, 根据PHP版本下载对应的xdebug: <a href="http://xdebug.org/download.php" target="_blank" rel="noopener">下载地址</a></p>
+<h2 id="Linux服务器">Linux服务器</h2>
+<p>(1) 安装<br>
+最简单的安装方法是通过PECL安装: <code>pecl install xdebug</code></p>
 <p>如果你的服务器上没有PECL, 可以通过源码编译安装xdebug:</p>
 <ol>
-<li>在(<a href="http://xdebug.org/download.php#releases)下载source" target="_blank" rel="noopener">http://xdebug.org/download.php#releases)下载source</a></li>
+<li>在(<a href="http://xdebug.org/download.php#releases" target="_blank" rel="noopener">http://xdebug.org/download.php#releases</a>)下载source</li>
 <li>解压源码包: <code>tar -xzf xdebug-2.2.5.tgz</code> , and <code>cd xdebug-2.2.5</code></li>
 <li>继续终端执行: <code>phpize</code> , and then <code>./configure --enable-xdebug</code>, <code>make &amp;&amp; make install</code></li>
 </ol>
-<p>(2) 配置<br>编辑服务端的php.ini, 增加:</p>
+<p>(2) 配置<br>
+编辑服务端的php.ini, 增加:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zend_extension=&quot;/usr/local/php/modules/xdebug.so&quot;</span><br><span class="line">xdebug.remote_autostart = 1</span><br><span class="line">xdebug.remote_enable=1</span><br><span class="line">xdebug.remote_handler = &quot;dbgp&quot;</span><br><span class="line">xdebug.remote_host = &quot;127.0.0.1&quot; # 允许指定IP的调试客户端连接</span><br><span class="line">xdebug.remote_port=9000 # 监听的端口</span><br><span class="line">xdebug.trace_output_dir = &quot;/tmp/xampp/trace&quot;</span><br><span class="line">;xdebug.profiler_enable=1 # 性能分析, 非常占资源, 暂关</span><br><span class="line">;xdebug.profiler_output_dir = &quot;/tmp/xampp/profile&quot;</span><br></pre></td></tr></table></figure>
-
-<p>(3) 测试xdebug server<br>重启web server, 然后新建一个test.php, 内容<code>&lt;?php phpinfo(); ?&gt;</code>, 如果访问这个test.php能看到<code>xdebug</code>相关, 说明安装完成.</p>
-<h1 id="（二）PC端安装xdebug-client"><a href="#（二）PC端安装xdebug-client" class="headerlink" title="（二）PC端安装xdebug client"></a>（二）PC端安装xdebug client</h1><h2 id="浏览器设置"><a href="#浏览器设置" class="headerlink" title="浏览器设置"></a>浏览器设置</h2><p>Chrome安装”debug helper”, 火狐安装”The easiest Xdebug”, 并在插件在设置<code>IDE Key</code>为”PHPSTORM” (这里名字随便设, 但是记住要与IDE里的设置一致).</p>
-<h2 id="IDE设置"><a href="#IDE设置" class="headerlink" title="IDE设置"></a>IDE设置</h2><p>这里xdebug client根据你的IDE有多个版本可以选择: Eclipse , NetBeans, Vim, 选择自己喜欢的开发环境, 下面是Vim设置xdebug的例子, 其他的IDE可以参考链接:</p>
+<p>(3) 测试xdebug server<br>
+重启web server, 然后新建一个test.php, 内容<code>&lt;?php phpinfo(); ?&gt;</code>, 如果访问这个test.php能看到<code>xdebug</code>相关, 说明安装完成.</p>
+<h1>（二）PC端安装xdebug client</h1>
+<h2 id="浏览器设置">浏览器设置</h2>
+<p>Chrome安装&quot;debug helper&quot;, 火狐安装&quot;The easiest Xdebug&quot;, 并在插件在设置<code>IDE Key</code>为&quot;PHPSTORM&quot; (这里名字随便设, 但是记住要与IDE里的设置一致).</p>
+<h2 id="IDE设置">IDE设置</h2>
+<p>这里xdebug client根据你的IDE有多个版本可以选择: Eclipse , NetBeans, Vim, 选择自己喜欢的开发环境, 下面是Vim设置xdebug的例子, 其他的IDE可以参考链接:</p>
 <ul>
 <li>[Xdebug Client for Phpstorm] (<a href="https://www.jetbrains.com/phpstorm/help/configuring-xdebug.html" target="_blank" rel="noopener">https://www.jetbrains.com/phpstorm/help/configuring-xdebug.html</a>)</li>
 <li>[Xdebug Client for Eclipse] (<a href="https://wiki.eclipse.org/Debugging_using_XDebug" target="_blank" rel="noopener">https://wiki.eclipse.org/Debugging_using_XDebug</a>)</li>
 <li>[Xdebug Client for vim] (<a href="http://thorpesystems.com/blog/debugging-php-in-vim/" target="_blank" rel="noopener">http://thorpesystems.com/blog/debugging-php-in-vim/</a>)</li>
 </ul>
-<h3 id="在Vim中安装vdebug"><a href="#在Vim中安装vdebug" class="headerlink" title="在Vim中安装vdebug"></a>在Vim中安装vdebug</h3><ul>
+<h3 id="在Vim中安装vdebug">在Vim中安装vdebug</h3>
+<ul>
 <li>在_vimrc中增加如下配置:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bundle &apos;joonty/vdebug.git&apos;</span><br><span class="line">&quot; 以下选项的说明在 https://github.com/joonty/vdebug/blob/master/doc/Vdebug.txt</span><br><span class="line">let g:vdebug_options = &#123;</span><br><span class="line">  \    &quot;port&quot; : 9000,</span><br><span class="line">  \    &quot;timeout&quot; : 10,</span><br><span class="line">  \    &quot;break_on_open&quot; : 0,</span><br><span class="line">  \    &quot;ide_key&quot; : &apos;PHPSTORM&apos;</span><br><span class="line">  \&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
-<li><p>执行<code>:BundleInstall</code>安装vdebug</p>
+<li>
+<p>执行<code>:BundleInstall</code>安装vdebug</p>
 </li>
-<li><p>vdebug默认按键:</p>
+<li>
+<p>vdebug默认按键:</p>
 <ul>
 <li><code>&lt;F5&gt;</code>: start/run (to next breakpoint/end of script)</li>
 <li><code>&lt;F2&gt;</code>: step over</li>
@@ -395,8 +405,9 @@
 </ul>
 </li>
 </ul>
-<h3 id="在Vim中使用vdebug"><a href="#在Vim中使用vdebug" class="headerlink" title="在Vim中使用vdebug"></a>在Vim中使用vdebug</h3><ul>
-<li>在Vim打开test.php并按下F5, 状态栏会提示”Waiting for a connection…”并持续20秒等待, 在20秒之内通过浏览器访问test.php, vdebug会自动定位在test.php第一行.</li>
+<h3 id="在Vim中使用vdebug">在Vim中使用vdebug</h3>
+<ul>
+<li>在Vim打开test.php并按下F5, 状态栏会提示&quot;Waiting for a connection…&quot;并持续20秒等待, 在20秒之内通过浏览器访问test.php, vdebug会自动定位在test.php第一行.</li>
 <li>注: 上面的20秒等待时间是通过<code>timeout</code>参数设置的, <code>break_on_open</code>参数决定是否自动断在脚本第一行</li>
 <li>如果按下F5后没有反应, 可以尝试在Vim中执行<code>:python debugger.run()</code>, 看是否有错误提示;</li>
 </ul>
@@ -535,7 +546,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -546,7 +557,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -612,7 +623,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#（一）-Server端安装xdebug"><span class="nav-text">（一） Server端安装xdebug:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows服务器"><span class="nav-text">Windows服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux服务器"><span class="nav-text">Linux服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#（二）PC端安装xdebug-client"><span class="nav-text">（二）PC端安装xdebug client</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器设置"><span class="nav-text">浏览器设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE设置"><span class="nav-text">IDE设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在Vim中安装vdebug"><span class="nav-text">在Vim中安装vdebug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Vim中使用vdebug"><span class="nav-text">在Vim中使用vdebug</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">（一） Server端安装xdebug:</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows服务器"><span class="nav-text">Windows服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux服务器"><span class="nav-text">Linux服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">（二）PC端安装xdebug client</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器设置"><span class="nav-text">浏览器设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE设置"><span class="nav-text">IDE设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在Vim中安装vdebug"><span class="nav-text">在Vim中安装vdebug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在Vim中使用vdebug"><span class="nav-text">在Vim中使用vdebug</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -278,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/基础架构/Arch-分布式-Zookeeper/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/哲学&心理学/虚无主义/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -297,7 +297,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/基础架构/Arch-分布式-Zookeeper/" itemprop="url">Zookeeper</a></h1>
+                <a class="post-title-link" href="/哲学&心理学/虚无主义/" itemprop="url">虚无主义</a></h1>
         
 
         <div class="post-meta">
@@ -331,7 +331,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  341
+                  3,626
                 </span>
               
 
@@ -357,25 +357,17 @@
 
       
         
-          <h1 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h1><h1 id="zookeeper命令"><a href="#zookeeper命令" class="headerlink" title="zookeeper命令"></a>zookeeper命令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 连接 zk Server:</span></span><br><span class="line">bin/zkCli.sh -server 127.0.0.1:2181</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">ls /</span><br><span class="line">create /zk myData # 创建节点/zk, 对应值为myData</span><br><span class="line">set /zk "xxx"</span><br><span class="line">get /zk</span><br><span class="line">ls /cmt5/prod/config # 类似目录操作</span><br></pre></td></tr></table></figure>
-
-<p>或者使用socket:</p>
-<ul>
-<li>echo stat|nc 127.0.0.1 2181 查看哪个节点被选择作为follower或者leader</li>
-<li>echo ruok|nc 127.0.0.1 2181 测试是否启动了该Server，若回复imok表示已经启动。</li>
-<li>echo dump| nc 127.0.0.1 2181 ,列出未经处理的会话和临时节点。</li>
-<li>echo kill | nc 127.0.0.1 2181 ,关掉server</li>
-<li>echo conf | nc 127.0.0.1 2181 ,输出相关服务配置的详细信息。</li>
-<li>echo cons | nc 127.0.0.1 2181 ,列出所有连接到服务器的客户端的完全的连接 / 会话的详细信息。</li>
-<li>echo envi |nc 127.0.0.1 2181 ,输出关于服务环境的详细信息（区别于 conf 命令）。</li>
-<li>echo reqs | nc 127.0.0.1 2181 ,列出未经处理的请求。</li>
-<li>echo wchs | nc 127.0.0.1 2181 ,列出服务器 watch 的详细信息。</li>
-<li>echo wchc | nc 127.0.0.1 2181 ,通过 session 列出服务器 watch 的详细信息，它的输出是一个与 watch 相关的会话的列表。</li>
-<li>echo wchp | nc 127.0.0.1 2181 ,通过路径列出服务器 watch 的详细信息。它输出一个与 session 相关的路径。</li>
-</ul>
+          <blockquote>
+<p>虚无主义作为哲学意义，是怀疑主义的极致形式。认为世界、生命的存在是没有客观意义、目的以及可以理解的真相。—— <a href="https://artsandculture.google.com/entity/m05fnf?hl=zh" target="_blank" rel="noopener">虚无主义 — Google 艺术与文化</a></p>
+</blockquote>
+<h1>引言</h1>
+<h2 id="为什么《瑞克和莫蒂》里的瑞克很痛苦？-知乎"><a href="https://www.zhihu.com/question/54732488/answer/2352682900" target="_blank" rel="noopener">为什么《瑞克和莫蒂》里的瑞克很痛苦？ - 知乎</a></h2>
+<p>存在主义者说，意义是自己创建的</p>
+<p>那问题来了，创建意义的一个大前提，不是你得足够聪明，而是得足够愚蠢。愚蠢到萨特那样才行，不是说萨特真笨，而是说这种大智若愚一般人真学不来。有人对萨特吹苏联的时候有概念吗，当时连不识字的文盲都能清晰地感觉到，公社里的猪都比萨特有常识。萨特身上有一种哈耶克所强调的知识分子的蜜汁傲慢，为什么萨特能做到忽略宏观世界的复杂性并做到在没有充分根据的情况下胡说八道。因为他胡说八道的时候，潜意识里其实根本没有渴求别人相信他说的是真理，他渴望的那个东西其实是一种爱，一种先骗过自己再把理想和理性强行划等号并急于求认同的那种爱。有点类似自恋型人格障碍。但这招到了rick这不好用了。rick的人设要是活在上世纪，这点毛病对他来说基本是一眼看穿的。这种问题可能对于他来说，连解决的兴趣和理由都找不到。或者一定要以一句提问作为不解决的决定：“我为什么要这样做”，纠正苏联和拯救平行宇宙的另一个地球都需要花费一秒。而还有无数个待拯救的地球每个也只需要花费一秒，我先救哪个。<br>
+当人过于聪明时，眼里总能看到一堆问题，当问题多到无法权衡重要性的时候，问题就消失了。眼下有两个问题，A和B，B更重要，在这样的选项面前，再蠢的人也很难从选择A中找到满足感，有的话那不是蠢，那是二逼。所以不要瞧不起二逼。而瑞克面临任何一个问题的时候，脑子里瞬间就会冒出一堆更重要的问题。并很快经由推论，这样的问题有无穷多个，它们经由解构后，无论从紧迫性还是重要性，都无法比较。从而问题在rick这里直接消失。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/基础架构/Arch-分布式-Zookeeper/#more" rel="contents">
+            <a class="btn" href="/哲学&心理学/虚无主义/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -426,7 +418,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/数据结构与算法/IntroductionToAlgorithm/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/哲学&心理学/哲学笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -445,7 +437,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/数据结构与算法/IntroductionToAlgorithm/" itemprop="url">影响程序员发展的十类算法（zz）</a></h1>
+                <a class="post-title-link" href="/哲学&心理学/哲学笔记/" itemprop="url">哲学笔记</a></h1>
         
 
         <div class="post-meta">
@@ -479,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,988
+                  19,098
                 </span>
               
 
@@ -505,1012 +497,163 @@
 
       
         
-          <ol>
-<li><strong>基本思想</strong>（时空复杂度，规约，枚举，贪心，分治，递推与递归，构造，模拟）</li>
-<li><strong>排序</strong>（冒泡，选择，插入，归并，堆，快速，桶，基数，希尔，Timsort）（Top K）</li>
-<li><strong>经典数据结构</strong>（栈，队列，链表，哈希，单调队列，优先队列，平衡树，线段树，并查集）</li>
-<li><strong>搜索</strong>（BFS，DFS，A*搜索)</li>
-<li><strong>基础数学算法</strong>（二分查找算法，欧几里得算法，快速幂算法）</li>
-<li><strong>图论基础算法</strong>（拓扑排序，最小生成树算法，最短路径算法）</li>
-<li><strong>动态规划算法</strong>（最长上升子序列，最长公共子序列，最大连续子段和，背包问题）</li>
-<li><strong>计算几何算法</strong>（线段交，凸包，平面最近点对）</li>
-<li><strong>字符串匹配算法</strong>（KMP算法，Trie树）</li>
-<li><strong>网络流算法</strong>（最大流算法，最小费用最大流算法）</li>
-</ol>
-<hr>
-<h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><h3 id="时空复杂度"><a href="#时空复杂度" class="headerlink" title="时空复杂度"></a>时空复杂度</h3><h3 id="归约"><a href="#归约" class="headerlink" title="归约"></a>归约</h3>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/数据结构与算法/IntroductionToAlgorithm/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[工具] 同步VSCode配置文件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/farbox_archive/[工具] 同步VSCode配置文件/" itemprop="url">同步 VSCode 配置文件（macOS）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  54
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="方法1-使用Dropbox同步"><a href="#方法1-使用Dropbox同步" class="headerlink" title="方法1) 使用Dropbox同步"></a>方法1) 使用Dropbox同步</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~/Library/Application\ Support/Code</span><br><span class="line">mv -f User ~/Dropbox/VSCode/</span><br><span class="line">ln -s ~/Dropbox/VSCode/User User</span><br></pre></td></tr></table></figure>
-
-<h1 id="方法2-使用-Microsoft-账号同步"><a href="#方法2-使用-Microsoft-账号同步" class="headerlink" title="方法2) 使用 Microsoft 账号同步"></a>方法2) 使用 Microsoft 账号同步</h1><p><a href="https://code.visualstudio.com/docs/editor/settings-sync" target="_blank" rel="noopener">Settings Sync in Visual Studio Code</a></p>
-<h1 id="方法3-使用-Settings-Sync-扩展"><a href="#方法3-使用-Settings-Sync-扩展" class="headerlink" title="方法3) 使用 Settings Sync 扩展"></a>方法3) 使用 Settings Sync 扩展</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/farbox_archive/[工具] 同步VSCode配置文件/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/大数据/Arch-大数据-Spark/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/大数据/Arch-大数据-Spark/" itemprop="url">Spark</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,516
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="/images/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark/Stream-Processing-Analitics-and-Machine-Learning.jpg" alt></p>
-<h1 id="什么是Spark"><a href="#什么是Spark" class="headerlink" title="什么是Spark"></a>什么是Spark</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>现如今在大规模数据处理分析的技术领域中，Hadoop及其生态内的各功能组件占据了绝对的统治地位。<br>Hadoop原生的MapReduce计算框架由于任务抽象简单、计算流程固定、计算的中间结果写入磁盘引起大量读写开销等短板，正逐步的被基于内存的分布式计算框架Spark代替，应用于各类大规模数据处理分析的场景中，其优势主要体现在以下5个方面：</p>
-<ul>
-<li>1、更快的计算速度。采用计算中间结果的内存缓存机制和基于DAG的数据处理过程优化策略，进一步提升数据处理速率。</li>
-<li>2、简单易用的分布式计算。将大规模数据处理任务，抽象为RDD的处理变换操作，将并行实现的分布式计算任务拆分为各自独立的串行计算过程。</li>
-<li>3、适合丰富的应用场景。Spark内部集成了SQL、机器学习、流计算、图运算等多种类型计算模型，满足多种大规模数据分析的场景需求。</li>
-<li>4、兼容多样的存储系统。满足对包括HDFS、HBase、Hive、S3等多种大规模数据存储系统的高效读写需求，轻松处理TB级以上规模以上的数据。</li>
-<li>5、资源管理与高可靠性。结合Yarn、Mesos等多种类型的资源管理器，监控协调各计算子任务的运行状态，失败重启机制确保分布式作业的可靠性。</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/大数据/Arch-大数据-Spark/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/生产力工具/OKR是什么/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/生产力工具/OKR是什么/" itemprop="url">OKR是什么</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  674
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="vs-KPI"><a href="#vs-KPI" class="headerlink" title="vs KPI"></a>vs KPI</h1><p>KPI只有数据指标, 没有目标（Objective）</p>
-<p>KPI还有一个更严重的问题，那就是为了完成可测量的目标，有可能实际执行手段与该目标要达到的不可测量愿景正好相反。举个例子来说，我们希望用户更喜欢使用我们的产品，因为喜欢无法测量，所以把PV写进了KPI里面。但在实际执行过程中，我们可以把用户原本在一个页面上就能完成的事情分到几个页面上来完成，结果PV达到了KPI指定的目标，但用户其实更讨厌我们的产品了。</p>
-<p>OKR解决了KPI的种种缺陷。首先它和绩效考核分离，把绩效考核交给peerreview（相当于中国公司的360度评价）来做。</p>
-<h1 id="制定"><a href="#制定" class="headerlink" title="制定"></a>制定</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/生产力工具/OKR是什么/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/Java/JavaEE-ORM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Java/JavaEE-ORM/" itemprop="url">Java ORM框架</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  513
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h1><p><strong>ORM</strong> :对象关系映射（Object Relational Mapping，简称ORM）是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。 简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将java程序中的对象自动持久化到关系数据库中。</p>
-<p><strong>JDBC</strong> (Java Database Connectivity) API，即Java数据库编程接口，是一组标准的Java语言中的接口和类，使用这些接口和类，Java客户端程序可以访问各种不同类型的数据库。<br>常见的JDBC代码，简单的select语句也需要冗长的出错处理，并且每个函数都不断地重复同样的代码。<br>Spring Framework的<code>JdbcTemplate</code>正是为了减少上述繁琐的代码而设计出来的。它是对JDBC的一种封装，抽象我们常用的一些方法。</p>
-<p><strong>JPA</strong> 全称为Java Persistence API ，Java持久化API是Sun公司在Java EE 5规范中提出的Java持久化接口。JPA吸取了目前Java持久化技术的优点，旨在规范、简化Java对象的持久化工作。使用JPA持久化对象，并不是依赖于某一个ORM框架。<br>JPA规范本质上就是一种ORM规范，注意不是ORM框架——因为JPA并未提供ORM实现，它只是制订了一些规范，提供了一些编程的API接口，但具体实现则由服务厂商来提供实现，JBoss应用服务器底层就以Hibernate作为JPA的实现。<br>虽然ORM框架都实现了JPA规范，但是在不同ORM框架之间切换是需要编写的代码有一些差异，而通过使用Spring Data Jpa能够方便大家在不同的ORM框架中间进行切换而不要更改代码。并且Spring Data Jpa对Repository层封装的很好，可以省去不少的麻烦。</p>
-<h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Java/JavaEE-ORM/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/基础架构/Arch-缓存-Memcache/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/基础架构/Arch-缓存-Memcache/" itemprop="url">Memcached</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  137
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h1><p>Memcached默认情况下采用了名为Slab Allocator的机制分配来避免内存碎片</p>
-<ul>
-<li>chunks: 每个chunk中都保存了一个item结构体、一对key和value</li>
-<li>slab: 一个slab由若干个大小相等的chunk组成</li>
-<li>page:</li>
-</ul>
-<h1 id="缓存淘汰算法"><a href="#缓存淘汰算法" class="headerlink" title="缓存淘汰算法:"></a>缓存淘汰算法:</h1><ul>
-<li>LRU: Least Recently Used, 最近最不常访问的被淘汰, 访问时间距离现在最久远的被淘汰(较常用)</li>
-<li>LFU: Least Frequently Used, 在一段时间内访问次数最少( 访问频率最少)的被淘汰</li>
-<li>FIFO:</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/基础架构/Arch-缓存-Memcache/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/文化/新裤子年鉴/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/文化/新裤子年鉴/" itemprop="url">新裤子年鉴</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,024
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="专辑list"><a href="#专辑list" class="headerlink" title="专辑list"></a>专辑list</h1><p><img src="/images/%E6%96%B0%E8%A3%A4%E5%AD%90%E5%B9%B4%E9%89%B4/%E6%96%B0%E8%A3%A4%E5%AD%90.png" alt="新裤子"></p>
-<ul>
-<li>1998年：<a href="https://music.douban.com/subject/1406354/" target="_blank" rel="noopener">同名专辑《新裤子》</a> #punk<ol start="2">
-<li>我们的时代</li>
-<li>嘿！你</li>
-<li>我不想失去你</li>
-<li>猴子</li>
-<li>过时</li>
-</ol>
-</li>
-</ul>
-<p><img src="/images/%E6%96%B0%E8%A3%A4%E5%AD%90%E5%B9%B4%E9%89%B4/disco-girl.png" alt="Disco Girl"></p>
-<ul>
-<li><a href="https://music.douban.com/subject/3576615/" target="_blank" rel="noopener">2000年：《Disco Girl》</a>  #punk #disco #new_wave<ol>
-<li>流行一代</li>
-<li>Disco Girl</li>
-<li>我爱你</li>
-<li>计算机</li>
-<li>Modern Sky</li>
-<li>我们明天就分手</li>
-</ol>
-</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/文化/新裤子年鉴/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[OSX] OSX开发环境配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/farbox_archive/[OSX] OSX开发环境配置/" itemprop="url">OSX（macOS）开发环境配置 & Tweaks</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,781
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="安装OSX"><a href="#安装OSX" class="headerlink" title="安装OSX"></a>安装OSX</h1><ul>
-<li>从OSX制作启动U盘: <a href="http://www.iplaysoft.com/osx-yosemite-usb-install-drive.html" target="_blank" rel="noopener">http://www.iplaysoft.com/osx-yosemite-usb-install-drive.html</a></li>
-<li>从WIN制作启动U盘: <a href="http://www.cnblogs.com/maybego/p/3266528.html" target="_blank" rel="noopener">http://www.cnblogs.com/maybego/p/3266528.html</a></li>
-</ul>
-<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><ul>
-<li><code>Command + Option + Esc</code> : 相当于Windows上的 Ctrl + Alt + Del，或者点击左上角图标-强制退出</li>
-</ul>
+          <p><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Philbar_3.png" alt></p>
+<h1>简介</h1>
 <blockquote>
-<p>参考 <a href="https://support.apple.com/zh-cn/HT201236" target="_blank" rel="noopener">https://support.apple.com/zh-cn/HT201236</a></p>
+<p>大部分哲学研究的基本内容可以归纳为本体论认识论和方法论。<br>
+本体论探寻的是这个世界最根本的东西是什么，WHAT；<br>
+认识论探究的是人的意识如何理解这个世界，WHY；<br>
+方法论探讨的是人的意识如何作用于世界，HOW。<br>
+作用于个人的话，那就是门卫三问，你是谁，从哪里来，到哪里去。</p>
+</blockquote>
+<p>以下参考自: <a href="https://zh.wikipedia.org/wiki/%E5%93%B2%E5%AD%A6" target="_blank" rel="noopener">哲学 - 维基百科，自由的百科全书</a></p>
+<h2 id="词源">词源</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/哲学&心理学/哲学笔记/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/blog_index_ver_0x21/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/blog_index_ver_0x21/" itemprop="url">🔝 笔记索引</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5,002
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>后端架构</h1>
+<h2 id="System-Design">System Design</h2>
+<ul>
+<li><a href="../%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-%E6%9E%B6%E6%9E%84-System-Design">✐笔记: System Design</a></li>
+<li><a href="https://soulmachine.gitbooks.io/system-design/content/cn/" target="_blank" rel="noopener">系统设计(System Design) 面试题精选</a></li>
+<li><a href="http://blog.jobbole.com/113953/" target="_blank" rel="noopener">10 个常用的软件架构模式</a></li>
+</ul>
+<h3 id="负载均衡">负载均衡</h3>
+<blockquote>
+<p>轮询，比率(加权)，优先分组，动态负载均衡算法包括：最少连接，最快(Fasttest) ……</p>
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/farbox_archive/[OSX] OSX开发环境配置/#more" rel="contents">
+            <a class="btn" href="/blog_index_ver_0x21/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1561,7 +704,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/哲学&心理学/心理学笔记/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/大数据/Arch-大数据-Hive/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -1580,7 +723,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/哲学&心理学/心理学笔记/" itemprop="url">Ψ 心理学笔记</a></h1>
+                <a class="post-title-link" href="/大数据/Arch-大数据-Hive/" itemprop="url">Hive</a></h1>
         
 
         <div class="post-meta">
@@ -1614,7 +757,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,940
+                  2,030
                 </span>
               
 
@@ -1640,31 +783,883 @@
 
       
         
-          <h1 id="Read-it-Later"><a href="#Read-it-Later" class="headerlink" title="Read it Later"></a>Read it Later</h1><ul>
-<li><p><a href="https://www.jianshu.com/p/7363cc368024" target="_blank" rel="noopener">奖励系统，多巴胺与洗脑术 - 简书</a></p>
-<ul>
-<li>大脑的奖励系统: 为了促使你追寻目标，大脑的奖励系统有两大武器——胡萝卜和大棒。胡萝卜就是奖励的承诺。<ul>
-<li>@Uncertain 多巴胺和内啡肽, 谁是胡萝卜谁是大棒?</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><a href="https://zhuanlan.zhihu.com/p/24697188" target="_blank" rel="noopener">从快感到成就感：多巴胺vs内啡肽 - 知乎</a></p>
-<ul>
-<li>多巴胺: “渴望,成瘾”, 其效用产生于期待奖赏，而不是获得奖赏。多巴胺≈ want，所带来的是渴望和幻想。</li>
-<li>内啡肽: “成就感”,它能与吗啡受体结合，产生跟吗啡、鸦片剂一样有止痛和欣快感。等同天然的镇痛剂。利用药物可增加脑内啡的分泌效果。内啡肽类似于是成就感，内心宁静。</li>
-<li>奖励机制: 在奖励机制中，内啡肽，脑啡肽，内源性大麻素等属于“胡萝卜”型，而多巴胺则属于“大棒”型。前三者给人们带来的是获得后的满足感，而多巴胺给人带来的则是获得前的饥渴感。</li>
-</ul>
-<blockquote>
-<p>疑问: 多巴胺和内啡肽在大脑奖励机制中的作用还需要确认</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h1 id="心理学历史"><a href="#心理学历史" class="headerlink" title="心理学历史"></a>心理学历史</h1><h2 id="1-科学心理学"><a href="#1-科学心理学" class="headerlink" title="1. 科学心理学"></a>1. 科学心理学</h2>
+          <h1>概述</h1>
+<p>Hive是建立在Hadoop上的数据仓库基础架构。它提供了一系列的工具，用来进行数据提取、转换、加载，这是一种可以存储、查询和分析存储在Hadoop中的大规模数据机制。可以把Hadoop下结构化数据文件映射为一张成Hive中的表，并提供类sql查询功能，除了不支持更新、索引和事务，sql其它功能都支持。可以将sql语句转换为MapReduce任务进行运行，作为sql到MapReduce的映射器。提供shell、JDBC/ODBC、Thrift、Web等接口。</p>
+<p>Hive 并不适合那些需要低延迟的应用，例如，联机事务处理（OLTP）。Hive 查询操作过程严格遵守Hadoop MapReduce 的作业执行模型，Hive 将用户的HiveQL 语句通过解释器转换为MapReduce 作业提交到Hadoop 集群上，Hadoop 监控作业执行过程，然后返回作业执行结果给用户。Hive 并非为联机事务处理而设计，Hive 并不提供实时的查询和基于行级的数据更新操作。Hive 的最佳使用场合是大数据集的批处理作业，例如，网络日志分析。</p>
+<h1>元数据存储</h1>
+<p>Hive将元数据存储在RDBMS中，有三种方式可以连接到数据库。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/哲学&心理学/心理学笔记/#more" rel="contents">
+            <a class="btn" href="/大数据/Arch-大数据-Hive/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/大数据/Arch-大数据-Flink/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/大数据/Arch-大数据-Flink/" itemprop="url">Flink</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/哲学&心理学/博弈论笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/哲学&心理学/博弈论笔记/" itemprop="url">博弈论笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,519
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>博弈论相关概念</h1>
+<ul>
+<li>纳什均衡</li>
+<li>囚徒困境</li>
+<li>重复博弈</li>
+<li>大众定理</li>
+<li>信息</li>
+<li>帕累托最优</li>
+<li>零和博弈</li>
+<li>非零和博弈</li>
+<li>微分包含式</li>
+<li>拍卖博弈</li>
+</ul>
+<h1>帕累托最优</h1>
+<p><strong>帕累托最优</strong> 也称为帕累托效率（Pareto Efficiency）、帕雷托最佳配置，是博弈论中的重要概念，并且在经济学， 工程学和社会科学中有着广泛的应用。<br>
+　　帕累托最优是指资源分配的一种理想状态，假定固有的一群人和可分配的资源，从一种分配状态到另一种状态的变化中，在没有使任何人境况变坏的前提下，使得至少一个人变得更好，这就是帕累托改进或帕累托最优化。帕累托最优的状态就是不可能再有更多的帕累托改进的余地；换句话说，帕累托改进是达到帕累托最优的路径和方法。帕累托最优是公平与效率的“理想王国”。<br>
+　　帕累托最优回答的是效率问题。从社会福利角度出发，用效率来评价总体经济运行有其合理性，因为如果资源配置未达到帕累托最优，那么，总有一些人能改善境况而没有人会受损，也就是说，社会福利总量肯定能上升，那么通过一种恰当的分配或补偿措施，能使所有人的境况都有所改善。[1]</p>
+<p><strong>举例1：</strong><br>
+假设现在有两个人，甲和乙，分10块蛋糕，并且两个人都喜欢吃蛋糕。10块蛋糕无论在两个人之间如何分配，都是帕累托最优，因为你想让某一个人拥有更大利益的唯一办法是从另一个人手里拿走蛋糕，导致的结果是那个被拿走蛋糕的人利益受损</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/哲学&心理学/博弈论笔记/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/30MinsTutorial/30_Mins_Tutorial_Preface/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/30MinsTutorial/30_Mins_Tutorial_Preface/" itemprop="url">编程语言30分钟快速入门-索引</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  455
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>系列简介</h1>
+<p>偶然在csdn博客上看到一篇博文<a href="http://blog.csdn.net/myan/article/details/3144661" target="_blank" rel="noopener">快速掌握一个语言最常用的50%</a>之后,才有了想要去写这篇看起来很长并且很可能成为烂尾工程的笔记的想法. 这篇文章的目的是让你能在30分钟之内熟悉这门语言并写出简单的demo, 还可以横向对比这几门语言的异同.<br>
+最近几周我会不断把文章更新到<a href="https://whatsrtos.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%8030%E5%88%86%E9%92%9F%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">编程语言30分钟快速入门</a>上, 对了, 这篇文章将包括我工作中涉及到的几种编程语言, 包括C/C++,Java,Shell,PHP和Python.<br>
+如果要给这个系列起一个名字, 我觉得叫&quot;xx快速入门&quot;, “xx简明教程”, 或者&quot;xx30分钟入门教程&quot;都不错. 写这些玩意的目的一是检验自己对编程语言的掌握, 二是方便自己随时查阅.<br>
+这几篇教程无论哪一种语言, 都将包括下面的内容:</p>
+<ul>
+<li>1 基本语法: 注释,缩进,关键字,符号;</li>
+<li>2 变量与常量, 基本数据类型;</li>
+<li>3 运算符(数学运算符/逻辑运算符);</li>
+<li>4 流程控制(if/for/while/switch), 符号(@#$%,分号,括号)和关键字 ;</li>
+<li>5 函数定义, 调用(如何传值,引用传递or值传递);</li>
+<li>6 面向对象(接口,泛型,继承/多态,访问控制);</li>
+<li>7 模块化(import,include)</li>
+<li>8 异常处理, 断言, ide调试;</li>
+<li>9 数据结构(Map/Set/List), 迭代器iterator, 结构的访问/遍历/性能;</li>
+<li>10 文件IO, 流;</li>
+<li>11 序列化/反序列化;</li>
+<li>12 多线程, 异步, 并发的支持;</li>
+<li>13 其他高级特性(Java的反射/Stream/NIO, python的动态编程, ruby元驱动编程, C的宏/变参);</li>
+</ul>
+<h1>文章索引</h1>
+<ul>
+<li><a href="https://whatsrtos.github.io/30MinsTutorial/C&amp;C++%20Tutorials/">C&amp;C++</a></li>
+<li><a href="https://whatsrtos.github.io/30MinsTutorial/Java%20Tutorials/">Java</a></li>
+<li><a href="https://whatsrtos.github.io/30MinsTutorial/PHP%20Tutorials/">PHP</a></li>
+<li><a href="https://whatsrtos.github.io/30MinsTutorial/Shell%20Tutorials/">Bash Shell</a></li>
+<li><a href="https://whatsrtos.github.io/30MinsTutorial/Python%20Tutorials/">Python</a></li>
+<li><a href="https://whatsrtos.github.io/30MinsTutorial/JavaScript%20Tutorial/">JavaScript</a></li>
+<li><a href="https://whatsrtos.github.io/30MinsTutorial/Objective-C%20Tutorials/">Objective-C</a></li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/30MinsTutorial/30_Mins_Tutorial_Preface/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/GitBook使用指北/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/farbox_archive/GitBook使用指北/" itemprop="url">GitBook 使用指北</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  192
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>安装cli: <code>mkdir GitBook &amp;&amp; cd GitBook &amp;&amp; npm install gitbook-cli -g</code></p>
+<p>查看是否安装成功: <code>gitbook -V</code></p>
+<p>创建书籍目录:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bookRoot</span><br><span class="line">├── 1-FirstChapter   // The first chapter，format: &#123;orderNumber or alphabet&#125;-&#123;chapterName&#125;.md</span><br><span class="line">├────── 1-FirstDocument.md</span><br><span class="line">├────── 5-SecondDocument.md  // concentrating solely on the order, not the numbers.</span><br><span class="line">├── 3-SecondChapter                     // Focus only on the order, not the numbers.</span><br><span class="line">├────── 1-FirstDocumentOfSecondChapter.md</span><br><span class="line">├────── 2-SecondDocumentOfSecondChapter.md</span><br><span class="line">├── 7-ThirdChapter</span><br><span class="line">├── FourthChapter  // May have no order</span><br><span class="line">├── README.md // In addition to readme.md, not to put other markdown documents</span><br><span class="line">└── book.json     // Set up the book</span><br></pre></td></tr></table></figure>
+<p>安装SUMMARY.md自动生成插件: <code>npm install -g gitbook-summary</code></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/farbox_archive/GitBook使用指北/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/在Macbook上使用surge/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/farbox_archive/在Macbook上使用surge/" itemprop="url">在Macbook上使用Surge</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  301
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>安装surge</h1>
+<p>Surge for Mac并不提供公开下载, 只对已经在手机上购买过Surge for iPhone的用户提供beta版本,<br>
+在Surge for iPhone的’More’标签找到<code>Surge Mac</code>, 下载链接会被发送到注册邮箱.</p>
+<h1>导出Surge iPhone的配置文件</h1>
+<p>Surge iPhone的配置文件是通用的, 可以直接使用在Surge for Mac上.<br>
+导出方法很多, 可以通过url共享, dropbox, 或者iTunes导出.</p>
+<h1>配置Surge</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/farbox_archive/在Macbook上使用surge/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/使用fluentd,kafka,mongodb搭建日志处理系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/farbox_archive/使用fluentd,kafka,mongodb搭建日志处理系统/" itemprop="url">使用fluentd,kafka,mongodb搭建日志处理系统</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,811
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>设计实现</h1>
+<ul>
+<li>采集: 可选的有fluentd, td-agent(fluentd的稳定版本, 二者区别), Apache flume.</li>
+<li>消息持久化队列: <a href="http://kafka.apache.org/" target="_blank" rel="noopener">http://kafka.apache.org/</a> (分布式消息队列),
+<ul>
+<li>数据源进行topic分流，实现Category</li>
+<li>作为一层buffer来适配输入输出的消息速率，解除系统耦合度</li>
+<li>作用类似于缓存，即活跃的数据和离线处理系统之间的缓存</li>
+<li>kafka是显式分布式架构，producer、broker（Kafka）和consumer都可以有多个。Kafka的作用类似于缓存，即活跃的数据和离线处理系统之间的缓存。几个基本概念：</li>
+</ul>
+<ol>
+<li>message（消息）是通信的基本单位，每个producer可以向一个topic（主题）发布一些消息。如果consumer订阅了这个主题，那么新发布的消息就会广播给这些consumer。</li>
+<li>Kafka是显式分布式的，多个producer、consumer和broker可以运行在一个大的集群上，作为一个逻辑整体对外提供服务。对于consumer，多个consumer可以组成一个group，这个message只能传输给某个group中的某一个consumer.</li>
+</ol>
+</li>
+<li>存储: mongo</li>
+</ul>
+<h1>Fluentd(td-agent)</h1>
+<p>Fluentd内置三种日志采集, file-tail, tcp, http-url, 通过插件可以支持更多的采集方式.</p>
+<h2 id="Install-fluentd-td-agent-by-RPM">Install fluentd(td-agent) by RPM</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/farbox_archive/使用fluentd,kafka,mongodb搭建日志处理系统/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1706,7 +1701,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1756,7 +1751,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1767,7 +1762,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

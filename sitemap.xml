@@ -30,14 +30,14 @@
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E4%B9%A0%E6%83%AF%E7%9A%84%E5%8A%9B%E9%87%8F%EF%BC%9A%E5%AF%8C%E5%85%B0%E5%85%8B%E6%9E%97%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</loc>
+    <loc>https://whatsrtos.github.io/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
     
     <lastmod>2022-09-02T14:27:21.360Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
+    <loc>https://whatsrtos.github.io/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E4%B9%A0%E6%83%AF%E7%9A%84%E5%8A%9B%E9%87%8F%EF%BC%9A%E5%AF%8C%E5%85%B0%E5%85%8B%E6%9E%97%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</loc>
     
     <lastmod>2022-09-02T14:27:21.360Z</lastmod>
     
@@ -93,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E6%91%84%E5%BD%B1/%E8%83%B6%E7%89%87-manual-%E5%AE%BE%E5%BE%97SPII/</loc>
+    <loc>https://whatsrtos.github.io/%E6%91%84%E5%BD%B1/%E8%83%B6%E7%89%87-%E6%B5%8B%E5%85%89%E7%BB%8F%E9%AA%8C%E8%A1%A8/</loc>
     
     <lastmod>2022-03-03T13:37:15.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E6%91%84%E5%BD%B1/%E8%83%B6%E7%89%87-%E6%B5%8B%E5%85%89%E7%BB%8F%E9%AA%8C%E8%A1%A8/</loc>
+    <loc>https://whatsrtos.github.io/%E6%91%84%E5%BD%B1/%E8%83%B6%E7%89%87-manual-%E5%AE%BE%E5%BE%97SPII/</loc>
     
     <lastmod>2022-03-03T13:37:15.000Z</lastmod>
     
@@ -702,23 +702,9 @@
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-DB-MySQL/</loc>
-    
-    <lastmod>2020-06-28T13:47:05.240Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://whatsrtos.github.io/Java/JavaEE-Log/</loc>
     
     <lastmod>2020-06-27T00:28:14.966Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-%E6%9E%B6%E6%9E%84-%E5%B9%B6%E5%8F%91%E7%B3%BB%E7%BB%9F-C100K/</loc>
-    
-    <lastmod>2020-06-26T17:07:07.100Z</lastmod>
     
   </url>
   
@@ -786,48 +772,6 @@
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-NoSQL-Redis/</loc>
-    
-    <lastmod>2020-06-26T14:08:32.117Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-SOA-%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
-    
-    <lastmod>2020-06-26T14:08:32.085Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86-Nginx/</loc>
-    
-    <lastmod>2020-06-26T14:08:31.992Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-%E6%9E%B6%E6%9E%84-System-Design/</loc>
-    
-    <lastmod>2020-06-26T14:08:31.963Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-%E5%AE%B9%E5%99%A8-Docker/</loc>
-    
-    <lastmod>2020-06-26T14:08:31.929Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6-Yarn-Mesos-k8s/</loc>
-    
-    <lastmod>2020-06-26T14:08:31.904Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://whatsrtos.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/RecommenderSystem-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</loc>
     
     <lastmod>2020-06-26T14:08:31.767Z</lastmod>
@@ -884,13 +828,6 @@
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-%E5%88%86%E5%B8%83%E5%BC%8F-Zookeeper/</loc>
-    
-    <lastmod>2020-04-16T13:43:12.591Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://whatsrtos.github.io/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/IntroductionToAlgorithm/</loc>
     
     <lastmod>2020-04-04T00:52:43.914Z</lastmod>
@@ -919,13 +856,6 @@
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-%E7%BC%93%E5%AD%98-Memcache/</loc>
-    
-    <lastmod>2019-09-21T12:09:35.106Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://whatsrtos.github.io/30MinsTutorial/30_Mins_Tutorial_Preface/</loc>
     
     <lastmod>2018-12-28T13:53:16.006Z</lastmod>
@@ -943,13 +873,6 @@
     <loc>https://whatsrtos.github.io/%E5%A4%A7%E6%95%B0%E6%8D%AE/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Flink/</loc>
     
     <lastmod>2018-11-02T13:15:24.676Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whatsrtos.github.io/%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84/Arch-NoSQL-Mongo/</loc>
-    
-    <lastmod>2018-07-20T17:43:15.256Z</lastmod>
     
   </url>
   

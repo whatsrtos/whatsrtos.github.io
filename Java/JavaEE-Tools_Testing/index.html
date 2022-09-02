@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="JUnitHow to maven 顶层POM文件增加JUnit依赖, &amp;lt;dependencies&amp;gt;     &amp;lt;dependency&amp;gt;         &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;         &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;         &amp;lt;version&amp;gt;3">
+<meta name="description" content="JUnit How to   maven 顶层POM文件增加JUnit依赖, &amp;lt;dependencies&amp;gt;     &amp;lt;dependency&amp;gt;         &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;         &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;         &amp;lt;version&amp;g">
 <meta name="keywords" content="Java,JUnit,单元测试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java测试工具（JUnit）">
 <meta property="og:url" content="https://whatsrtos.github.io/Java/JavaEE-Tools_Testing/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="JUnitHow to maven 顶层POM文件增加JUnit依赖, &amp;lt;dependencies&amp;gt;     &amp;lt;dependency&amp;gt;         &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;         &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;         &amp;lt;version&amp;gt;3">
+<meta property="og:description" content="JUnit How to   maven 顶层POM文件增加JUnit依赖, &amp;lt;dependencies&amp;gt;     &amp;lt;dependency&amp;gt;         &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;         &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;         &amp;lt;version&amp;g">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-06-26T14:08:32.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java测试工具（JUnit）">
-<meta name="twitter:description" content="JUnitHow to maven 顶层POM文件增加JUnit依赖, &amp;lt;dependencies&amp;gt;     &amp;lt;dependency&amp;gt;         &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;         &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;         &amp;lt;version&amp;gt;3">
+<meta name="twitter:description" content="JUnit How to   maven 顶层POM文件增加JUnit依赖, &amp;lt;dependencies&amp;gt;     &amp;lt;dependency&amp;gt;         &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;         &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;         &amp;lt;version&amp;g">
 
 
 
@@ -355,28 +355,36 @@
       
 
       
-        <h1 id="JUnit"><a href="#JUnit" class="headerlink" title="JUnit"></a>JUnit</h1><h2 id="How-to"><a href="#How-to" class="headerlink" title="How to"></a>How to</h2><ul>
-<li><p>maven 顶层POM文件增加JUnit依赖,</p>
+        <h1>JUnit</h1>
+<h2 id="How-to">How to</h2>
+<ul>
+<li>
+<p>maven 顶层POM文件增加JUnit依赖,</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">         &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">         &lt;version&gt;3.8.1&lt;/version&gt;</span><br><span class="line">         &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"> &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>IDEA, 右键项目, maven -&gt; reimport</p>
+<li>
+<p>IDEA, 右键项目, maven -&gt; reimport</p>
 </li>
-<li><p>在src下, 创建一个test目录, 与main同级</p>
+<li>
+<p>在src下, 创建一个test目录, 与main同级</p>
 </li>
-<li><p>右键这个test目录, “Mark Directory as”  -&gt; “Test Resources Root”</p>
+<li>
+<p>右键这个test目录, “Mark Directory as”  -&gt; “Test Resources Root”</p>
 </li>
-<li><p>选中要测试的类, cmd+shift+T, 创建Test类 （Junit3是继承TestCase, Junit4是基于<code>@Test</code>注解）</p>
+<li>
+<p>选中要测试的类, cmd+shift+T, 创建Test类 （Junit3是继承TestCase, Junit4是基于<code>@Test</code>注解）</p>
 </li>
-<li><p>Junit提供的断言:</p>
+<li>
+<p>Junit提供的断言:</p>
 <ul>
 <li>assertEquals</li>
 <li>assertNull</li>
 </ul>
 </li>
 </ul>
-<h2 id="用Junit4测试Spring项目"><a href="#用Junit4测试Spring项目" class="headerlink" title="用Junit4测试Spring项目"></a>用Junit4测试Spring项目</h2><p>同样创建测试类, 测试类要加上如下注解:</p>
+<h2 id="用Junit4测试Spring项目">用Junit4测试Spring项目</h2>
+<p>同样创建测试类, 测试类要加上如下注解:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(locations=<span class="string">"/META-INF/applicationContext.xml"</span>)</span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDAOImplTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>@Ref: <a href="http://linbinghe.com/2017/3698e116.html" target="_blank" rel="noopener">关于Java单元测试，你需要知道的一切 | Lam’s Blog</a></p>
 </blockquote>
@@ -517,7 +525,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -528,7 +536,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -594,7 +602,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JUnit"><span class="nav-text">JUnit</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to"><span class="nav-text">How to</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用Junit4测试Spring项目"><span class="nav-text">用Junit4测试Spring项目</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">JUnit</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to"><span class="nav-text">How to</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用Junit4测试Spring项目"><span class="nav-text">用Junit4测试Spring项目</span></a></li></ol></li></ol></div>
             
 
           </div>

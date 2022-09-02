@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="Git,Github,SSH," />
+  <meta name="keywords" content="Github,Git,SSH," />
 
 
 
@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="生成SSH Key 生成SSH KEY: ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot; , 然后会提示输入公钥的名字，如果你需要多个SSH-KEY（比如有多个github帐号）就需要在命名的时候区分一下，这样在/用户HOME目录/.ssh/文件夹下生成两个文件：xxx_rsa.pub和 xxx_rsa，分别是你的公钥和私钥。 生成S">
-<meta name="keywords" content="Git,Github,SSH">
+<meta name="description" content="生成SSH Key  生成SSH KEY: ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot; , 然后会提示输入公钥的名字，如果你需要多个SSH-KEY（比如有多个github帐号）就需要在命名的时候区分一下，这样在/用户HOME目录/.ssh/文件夹下生成两个文件：xxx_rsa.pub和 xxx_rsa，分别是你的公钥和私钥。 生成">
+<meta name="keywords" content="Github,Git,SSH">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 的 SSH KEY 配置">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[版本控制] Git的SSH Key配置/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="生成SSH Key 生成SSH KEY: ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot; , 然后会提示输入公钥的名字，如果你需要多个SSH-KEY（比如有多个github帐号）就需要在命名的时候区分一下，这样在/用户HOME目录/.ssh/文件夹下生成两个文件：xxx_rsa.pub和 xxx_rsa，分别是你的公钥和私钥。 生成S">
+<meta property="og:description" content="生成SSH Key  生成SSH KEY: ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot; , 然后会提示输入公钥的名字，如果你需要多个SSH-KEY（比如有多个github帐号）就需要在命名的时候区分一下，这样在/用户HOME目录/.ssh/文件夹下生成两个文件：xxx_rsa.pub和 xxx_rsa，分别是你的公钥和私钥。 生成">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 的 SSH KEY 配置">
-<meta name="twitter:description" content="生成SSH Key 生成SSH KEY: ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot; , 然后会提示输入公钥的名字，如果你需要多个SSH-KEY（比如有多个github帐号）就需要在命名的时候区分一下，这样在/用户HOME目录/.ssh/文件夹下生成两个文件：xxx_rsa.pub和 xxx_rsa，分别是你的公钥和私钥。 生成S">
+<meta name="twitter:description" content="生成SSH Key  生成SSH KEY: ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot; , 然后会提示输入公钥的名字，如果你需要多个SSH-KEY（比如有多个github帐号）就需要在命名的时候区分一下，这样在/用户HOME目录/.ssh/文件夹下生成两个文件：xxx_rsa.pub和 xxx_rsa，分别是你的公钥和私钥。 生成">
 
 
 
@@ -355,29 +355,35 @@
       
 
       
-        <h3 id="生成SSH-Key"><a href="#生成SSH-Key" class="headerlink" title="生成SSH Key"></a>生成SSH Key</h3><ul>
+        <h3 id="生成SSH-Key">生成SSH Key</h3>
+<ul>
 <li>生成SSH KEY: <code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code> , 然后会提示输入公钥的名字，如果你需要多个SSH-KEY（比如有多个github帐号）就需要在命名的时候区分一下，这样在/用户HOME目录/.ssh/文件夹下生成两个文件：xxx_rsa.pub和 xxx_rsa，分别是你的公钥和私钥。</li>
 <li>生成SSH KEY的时候还要求输入私钥密码 “Enter passphrase (empty for no passphrase):”， 请记住私钥的密码，后面会用到。</li>
 <li>将SSH 私钥增加到ssh-agent: <code>ssh-add ~/.ssh/id_rsa</code>， 这里会提示输入一次私钥的密码;</li>
 <li>查看已经add的SSH KEY： <code>ssh-add -l</code>；</li>
 <li>如果提示 ssh agent没启动: eval <code>ssh-agent -s</code></li>
-<li>非必要步骤: <del>安装xclip(终端到剪切板的工具)</del>: <code>sudo yum install xclip</code> , <del>将公钥内容拷贝到剪切板</del>: <code>xclip -sel clip &lt; ~/.ssh/id_rsa.pub</code></li>
-<li>浏览器登录自己的github页面，进入”Account Settings”，再点击左边的”SSH Key”可以看到自己上传过的SSH公钥列表。再点击”Add SSH Key”新增一个公钥，把公钥(~/.ssh/id_rsa.pub) 文件内容粘贴过来。</li>
+<li>非必要步骤: <s>安装xclip(终端到剪切板的工具)</s>: <code>sudo yum install xclip</code> , <s>将公钥内容拷贝到剪切板</s>: <code>xclip -sel clip &lt; ~/.ssh/id_rsa.pub</code></li>
+<li>浏览器登录自己的github页面，进入&quot;Account Settings&quot;，再点击左边的&quot;SSH Key&quot;可以看到自己上传过的SSH公钥列表。再点击&quot;Add SSH Key&quot;新增一个公钥，把公钥(~/.ssh/id_rsa.pub) 文件内容粘贴过来。</li>
 </ul>
-<h3 id="测试SSH-Key登录"><a href="#测试SSH-Key登录" class="headerlink" title="测试SSH Key登录"></a>测试SSH Key登录</h3><ul>
-<li>打开终端, 测试: <code>ssh -T git@github.com</code>;<br>你可能会看到下面的错误信息:</li>
+<h3 id="测试SSH-Key登录">测试SSH Key登录</h3>
+<ul>
+<li>打开终端, 测试: <code>ssh -T git@github.com</code>;<br>
+你可能会看到下面的错误信息:</li>
 </ul>
 <blockquote>
-<p>Agent admitted failure to sign using the key.<br>debug1: No more authentication methods to try.<br>Permission denied (publickey).</p>
+<p>Agent admitted failure to sign using the key.<br>
+debug1: No more authentication methods to try.<br>
+Permission denied (publickey).</p>
 </blockquote>
-<p>上面的错误在某些Linux发行版（比如我的Fedora 17）是一个已知的错误， 可以忽略。<br>然后会看到打印出公钥的指纹，请确认此指纹和你公钥的一致，然后输入”yes”确认。</p>
+<p>上面的错误在某些Linux发行版（比如我的Fedora 17）是一个已知的错误， 可以忽略。<br>
+然后会看到打印出公钥的指纹，请确认此指纹和你公钥的一致，然后输入&quot;yes&quot;确认。</p>
 <blockquote>
-<p>“ Hi your_name! You’ve successfully authenticated, but GitHub does not provide shell access.”</p>
+<p>&quot; Hi your_name! You’ve successfully authenticated, but GitHub does not provide shell access.&quot;</p>
 </blockquote>
 <p>如果your_name正确显示你的ID，则说明成功设置了SSH公钥.</p>
-<h3 id="一台机器上管理多个SSH-Key"><a href="#一台机器上管理多个SSH-Key" class="headerlink" title="一台机器上管理多个SSH Key"></a>一台机器上管理多个SSH Key</h3><p>如果你在一台机器使用两个github账号（比如私人账号和工作账号）, 两个帐号用不同的SSH KEY，还需要编辑一下配置文件~/.ssh/config:</p>
+<h3 id="一台机器上管理多个SSH-Key">一台机器上管理多个SSH Key</h3>
+<p>如果你在一台机器使用两个github账号（比如私人账号和工作账号）, 两个帐号用不同的SSH KEY，还需要编辑一下配置文件~/.ssh/config:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Host code.company.com</span><br><span class="line">    HostName code.company.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/key_for_company</span><br><span class="line"></span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/key_for_github</span><br></pre></td></tr></table></figure>
-
 <p>解释此配置文件：</p>
 <ul>
 <li>HostName：比如我工作的git仓储地址是<code>git@code.company.com:username/repo_name.git</code>, 那么我的HostName就要填<code>code.company.com</code>;</li>
@@ -385,29 +391,33 @@
 </ul>
 <p>配置完毕，用下面的命令测试一下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -vT git@github.com</span><br><span class="line">Hi xyz! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
-
-<p>注： @符号后面的”github.com”就是在~/.ssh/config文件中指定的<code>Host</code>项</p>
-<h4 id="1-为已经clone下来的repos指定ssh-key："><a href="#1-为已经clone下来的repos指定ssh-key：" class="headerlink" title="(1) 为已经clone下来的repos指定ssh-key："></a>(1) 为已经clone下来的repos指定ssh-key：</h4><p>在已经检出的repos目录下执行:</p>
+<p>注： @符号后面的&quot;<a href="http://github.com" target="_blank" rel="noopener">github.com</a>&quot;就是在~/.ssh/config文件中指定的<code>Host</code>项</p>
+<h4 id="1-为已经clone下来的repos指定ssh-key：">(1) 为已经clone下来的repos指定ssh-key：</h4>
+<p>在已经检出的repos目录下执行:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config user.name your_name &amp;&amp; git config user.email your_email</span><br></pre></td></tr></table></figure>
-
 <p>上面<code>git config</code>只对该项目生效</p>
 <p>修改.git/config并找到<code>[remote &quot;origin&quot;]</code>,修改<code>url</code>的值为：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = git@github.com:&lt;user_name&gt;/&lt;repos_name&gt;.git</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-使用指定ssh-key-重新clone一个reop"><a href="#2-使用指定ssh-key-重新clone一个reop" class="headerlink" title="(2) 使用指定ssh-key 重新clone一个reop:"></a>(2) 使用指定ssh-key 重新clone一个reop:</h4><ol>
-<li>使用指定账号clone:<br>执行<code>git clone git@github.com:user_name/repos_name.git</code></li>
+<h4 id="2-使用指定ssh-key-重新clone一个reop">(2) 使用指定ssh-key 重新clone一个reop:</h4>
+<ol>
+<li>使用指定账号clone:<br>
+执行<code>git clone git@github.com:user_name/repos_name.git</code></li>
 </ol>
 <blockquote>
-<p>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:user_name/repos_name.git<br>Cloning into ‘repos_name’…</p>
+<p>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:user_name/repos_name.git<br>
+Cloning into ‘repos_name’…</p>
 </blockquote>
 <ol start="2">
 <li>然后还需要config一下user.name和user.email, 进入本地git仓库目录执行:</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config user.name your_name &amp;&amp; git config user.email your_email</span><br></pre></td></tr></table></figure>
-
 <p>以后在此repos下执行<code>git push origin master</code>就是使用指定的用户push.</p>
 <hr>
-<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="http://code.tutsplus.com/tutorials/quick-tip-how-to-work-with-github-and-multiple-accounts--net-22574" target="_blank" rel="noopener">《Quick Tip: How to Work with GitHub and Multiple Accounts》</a><br><a href="https://gist.github.com/jexchan/2351996" target="_blank" rel="noopener">《Multiple SSH Keys settings for different github account》</a><br><a href="http://www.cnblogs.com/mackxu/p/ssh-keygen.html" target="_blank" rel="noopener">《多个github帐号的SSH key切换》</a><br><a href="https://help.github.com/articles/generating-ssh-keys" target="_blank" rel="noopener">《GitHub: Generating SSH Keys》</a></p>
+<h3 id="参考：">参考：</h3>
+<p><a href="http://code.tutsplus.com/tutorials/quick-tip-how-to-work-with-github-and-multiple-accounts--net-22574" target="_blank" rel="noopener">《Quick Tip: How to Work with GitHub and Multiple Accounts》</a><br>
+<a href="https://gist.github.com/jexchan/2351996" target="_blank" rel="noopener">《Multiple SSH Keys settings for different github account》</a><br>
+<a href="http://www.cnblogs.com/mackxu/p/ssh-keygen.html" target="_blank" rel="noopener">《多个github帐号的SSH key切换》</a><br>
+<a href="https://help.github.com/articles/generating-ssh-keys" target="_blank" rel="noopener">《GitHub: Generating SSH Keys》</a></p>
 
       
     </div>
@@ -425,9 +435,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
-          
             <a href="/tags/Github/" rel="tag"># Github</a>
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
           
             <a href="/tags/SSH/" rel="tag"># SSH</a>
           
@@ -545,7 +555,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -556,7 +566,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

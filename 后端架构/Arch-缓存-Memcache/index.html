@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="内存分配Memcached默认情况下采用了名为Slab Allocator的机制分配来避免内存碎片  chunks: 每个chunk中都保存了一个item结构体、一对key和value slab: 一个slab由若干个大小相等的chunk组成 page:  缓存淘汰算法: LRU: Least Recently Used, 最近最不常访问的被淘汰, 访问时间距离现在最久远的被淘汰(较常用) LFU">
+<meta name="description" content="内存分配 Memcached默认情况下采用了名为Slab Allocator的机制分配来避免内存碎片  chunks: 每个chunk中都保存了一个item结构体、一对key和value slab: 一个slab由若干个大小相等的chunk组成 page:  缓存淘汰算法:  LRU: Least Recently Used, 最近最不常访问的被淘汰, 访问时间距离现在最久远的被淘汰(较常用) L">
 <meta name="keywords" content="后端架构,缓存,Memcached,LRU,LFU">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Memcached">
 <meta property="og:url" content="https://whatsrtos.github.io/后端架构/Arch-缓存-Memcache/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="内存分配Memcached默认情况下采用了名为Slab Allocator的机制分配来避免内存碎片  chunks: 每个chunk中都保存了一个item结构体、一对key和value slab: 一个slab由若干个大小相等的chunk组成 page:  缓存淘汰算法: LRU: Least Recently Used, 最近最不常访问的被淘汰, 访问时间距离现在最久远的被淘汰(较常用) LFU">
+<meta property="og:description" content="内存分配 Memcached默认情况下采用了名为Slab Allocator的机制分配来避免内存碎片  chunks: 每个chunk中都保存了一个item结构体、一对key和value slab: 一个slab由若干个大小相等的chunk组成 page:  缓存淘汰算法:  LRU: Least Recently Used, 最近最不常访问的被淘汰, 访问时间距离现在最久远的被淘汰(较常用) L">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-16T13:08:27.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Memcached">
-<meta name="twitter:description" content="内存分配Memcached默认情况下采用了名为Slab Allocator的机制分配来避免内存碎片  chunks: 每个chunk中都保存了一个item结构体、一对key和value slab: 一个slab由若干个大小相等的chunk组成 page:  缓存淘汰算法: LRU: Least Recently Used, 最近最不常访问的被淘汰, 访问时间距离现在最久远的被淘汰(较常用) LFU">
+<meta name="twitter:description" content="内存分配 Memcached默认情况下采用了名为Slab Allocator的机制分配来避免内存碎片  chunks: 每个chunk中都保存了一个item结构体、一对key和value slab: 一个slab由若干个大小相等的chunk组成 page:  缓存淘汰算法:  LRU: Least Recently Used, 最近最不常访问的被淘汰, 访问时间距离现在最久远的被淘汰(较常用) L">
 
 
 
@@ -355,18 +355,21 @@
       
 
       
-        <h1 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h1><p>Memcached默认情况下采用了名为Slab Allocator的机制分配来避免内存碎片</p>
+        <h1>内存分配</h1>
+<p>Memcached默认情况下采用了名为Slab Allocator的机制分配来避免内存碎片</p>
 <ul>
 <li>chunks: 每个chunk中都保存了一个item结构体、一对key和value</li>
 <li>slab: 一个slab由若干个大小相等的chunk组成</li>
 <li>page:</li>
 </ul>
-<h1 id="缓存淘汰算法"><a href="#缓存淘汰算法" class="headerlink" title="缓存淘汰算法:"></a>缓存淘汰算法:</h1><ul>
+<h1>缓存淘汰算法:</h1>
+<ul>
 <li>LRU: Least Recently Used, 最近最不常访问的被淘汰, 访问时间距离现在最久远的被淘汰(较常用)</li>
 <li>LFU: Least Frequently Used, 在一段时间内访问次数最少( 访问频率最少)的被淘汰</li>
 <li>FIFO:</li>
 </ul>
-<h1 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h1><ul>
+<h1>统计</h1>
+<ul>
 <li>stats: 命中率</li>
 <li>stats items: LRU</li>
 </ul>
@@ -511,7 +514,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -522,7 +525,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -588,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#内存分配"><span class="nav-text">内存分配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存淘汰算法"><span class="nav-text">缓存淘汰算法:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#统计"><span class="nav-text">统计</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">内存分配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">缓存淘汰算法:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">统计</span></a></li></ol></div>
             
 
           </div>

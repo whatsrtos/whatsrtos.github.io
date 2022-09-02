@@ -115,17 +115,17 @@
 
 
 
-<meta name="description" content="![](https://whatsrtos.github.io/images/150428.png)   0x01 后端架构 Backend Arch 系统设计（System Design） 高并发系统（C100K） SOA &amp;amp; RPC &amp;amp; 微服务 Nginx Redis Memcached MySQL Mongo Docker Zookeeper Tomcat 资源调度（YAR">
+<meta name="description" content="![](https://whatsrtos.github.io/images/150428.png)  0x01 后端架构 Backend Arch  系统设计（System Design） 高并发系统（C100K） SOA &amp;amp; RPC &amp;amp; 微服务 Nginx Redis Memcached MySQL Mongo Docker Zookeeper Tomcat 资源调度（YAR">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ⓘ Ⓝ Ⓓ Ⓔ Ⓧ">
 <meta property="og:url" content="https://whatsrtos.github.io/index/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="![](https://whatsrtos.github.io/images/150428.png)   0x01 后端架构 Backend Arch 系统设计（System Design） 高并发系统（C100K） SOA &amp;amp; RPC &amp;amp; 微服务 Nginx Redis Memcached MySQL Mongo Docker Zookeeper Tomcat 资源调度（YAR">
+<meta property="og:description" content="![](https://whatsrtos.github.io/images/150428.png)  0x01 后端架构 Backend Arch  系统设计（System Design） 高并发系统（C100K） SOA &amp;amp; RPC &amp;amp; 微服务 Nginx Redis Memcached MySQL Mongo Docker Zookeeper Tomcat 资源调度（YAR">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2022-09-02T13:51:50.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ⓘ Ⓝ Ⓓ Ⓔ Ⓧ">
-<meta name="twitter:description" content="![](https://whatsrtos.github.io/images/150428.png)   0x01 后端架构 Backend Arch 系统设计（System Design） 高并发系统（C100K） SOA &amp;amp; RPC &amp;amp; 微服务 Nginx Redis Memcached MySQL Mongo Docker Zookeeper Tomcat 资源调度（YAR">
+<meta name="twitter:description" content="![](https://whatsrtos.github.io/images/150428.png)  0x01 后端架构 Backend Arch  系统设计（System Design） 高并发系统（C100K） SOA &amp;amp; RPC &amp;amp; 微服务 Nginx Redis Memcached MySQL Mongo Docker Zookeeper Tomcat 资源调度（YAR">
 
 
 
@@ -285,167 +285,192 @@
         
           <br>
 ![](https://whatsrtos.github.io/images/150428.png)
-
 <p><br><br></p>
-<h1 id="0x01-后端架构-Backend-Arch"><a href="#0x01-后端架构-Backend-Arch" class="headerlink" title="0x01 后端架构 Backend Arch"></a>0x01 后端架构 Backend Arch</h1><ul>
-<li><a href="../后端架构/Arch-架构-System-Design">系统设计（System Design）</a></li>
-<li><a href="../后端架构/Arch-架构-并发系统-C100K">高并发系统（C100K）</a></li>
-<li><a href="../后端架构/Arch-SOA-RPC-微服务">SOA &amp; RPC &amp; 微服务</a></li>
-<li><a href="../后端架构/Arch-反向代理-Nginx">Nginx</a></li>
-<li><a href="../后端架构/Arch-NoSQL-Redis">Redis</a></li>
-<li><a href="../后端架构/Arch-缓存-Memcache">Memcached</a></li>
-<li><a href="../后端架构/Arch-DB-MySQL">MySQL</a></li>
-<li><a href="../后端架构/Arch-NoSQL-Mongo">Mongo</a></li>
-<li><a href="../后端架构/Arch-容器-Docker">Docker</a></li>
-<li><a href="../后端架构/Arch-分布式-Zookeeper">Zookeeper</a></li>
+<h1>0x01 后端架构 Backend Arch</h1>
+<ul>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-%E6%9E%B6%E6%9E%84-System-Design">系统设计（System Design）</a></li>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-%E6%9E%B6%E6%9E%84-%E5%B9%B6%E5%8F%91%E7%B3%BB%E7%BB%9F-C100K">高并发系统（C100K）</a></li>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-SOA-RPC-%E5%BE%AE%E6%9C%8D%E5%8A%A1">SOA &amp; RPC &amp; 微服务</a></li>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86-Nginx">Nginx</a></li>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-NoSQL-Redis">Redis</a></li>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-%E7%BC%93%E5%AD%98-Memcache">Memcached</a></li>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-DB-MySQL">MySQL</a></li>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-NoSQL-Mongo">Mongo</a></li>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-%E5%AE%B9%E5%99%A8-Docker">Docker</a></li>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-%E5%88%86%E5%B8%83%E5%BC%8F-Zookeeper">Zookeeper</a></li>
 <li><a href="../Java/JavaEE-Tomcat">Tomcat</a></li>
-<li><a href="../后端架构/Arch-资源调度-Yarn-Mesos-k8s">资源调度（YARN vs Mesos vs k8s）</a></li>
+<li><a href="../%E5%90%8E%E7%AB%AF%E6%9E%B6%E6%9E%84/Arch-%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6-Yarn-Mesos-k8s">资源调度（YARN vs Mesos vs k8s）</a></li>
 </ul>
 <p><br><br></p>
-<h1 id="0x02-操作系统-Operating-System"><a href="#0x02-操作系统-Operating-System" class="headerlink" title="0x02 操作系统 Operating System"></a>0x02 操作系统 Operating System</h1><ul>
+<h1>0x02 操作系统 Operating System</h1>
+<ul>
 <li><a href="../Linux/Linux-Primer">Linux进阶（Linux-Primer）</a></li>
 <li><a href="../Linux/Linux-Performance">Linux性能分析（Linux-Performance）</a></li>
 <li><a href="../30MinsTutorial/Shell%20Tutorials">Shell Script 30分钟快速入门指北</a>：Bash Shell入门教程</li>
 <li><a href="../Linux/Linux-Sed_Awk_Grep">Sed, Awk, Grep</a>：Linux搜索三件套</li>
 </ul>
 <p><br><br></p>
-<h1 id="0x03-网络协议-Communications-Protocol"><a href="#0x03-网络协议-Communications-Protocol" class="headerlink" title="0x03 网络协议 Communications Protocol"></a>0x03 网络协议 Communications Protocol</h1><ul>
-<li><a href="../网络协议/网络协议-TCP_IP">TCP/IP</a></li>
-<li><a href="../网络协议/网络协议-HTTP">HTTP</a></li>
+<h1>0x03 网络协议 Communications Protocol</h1>
+<ul>
+<li><a href="../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP">TCP/IP</a></li>
+<li><a href="../%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-HTTP">HTTP</a></li>
 </ul>
 <p><br><br></p>
-<h1 id="0x04-数据结构与算法-Algorithm-and-Data-Structure"><a href="#0x04-数据结构与算法-Algorithm-and-Data-Structure" class="headerlink" title="0x04 数据结构与算法 Algorithm and Data Structure"></a>0x04 数据结构与算法 Algorithm and Data Structure</h1><ul>
-<li><a href="../数据结构与算法/Algorithm-排序">常用排序算法</a></li>
-<li><a href="../数据结构与算法/Algorithm-数据结构">常用数据结构</a></li>
-<li><a href="../数据结构与算法/Algorithm-算法设计">算法设计</a></li>
-<li><a href="../数据结构与算法/IntroductionToAlgorithm">影响程序员发展的十类算法（zz）</a></li>
+<h1>0x04 数据结构与算法 Algorithm and Data Structure</h1>
+<ul>
+<li><a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/Algorithm-%E6%8E%92%E5%BA%8F">常用排序算法</a></li>
+<li><a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/Algorithm-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">常用数据结构</a></li>
+<li><a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/Algorithm-%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1">算法设计</a></li>
+<li><a href="../%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/IntroductionToAlgorithm">影响程序员发展的十类算法（zz）</a></li>
 </ul>
 <p><br><br></p>
-<h1 id="0x05-编程语言-Programming-Language"><a href="#0x05-编程语言-Programming-Language" class="headerlink" title="0x05 编程语言 Programming Language"></a>0x05 编程语言 Programming Language</h1><h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><ul>
+<h1>0x05 编程语言 Programming Language</h1>
+<h2 id="Java">Java</h2>
+<ul>
 <li><a href="../30MinsTutorial/Java%20Tutorials">Java Tutorials</a>：《Java核心技术》读书笔记</li>
 <li><a href="../Java/Advanced-Java-Tutorial">Advanced Java Tutorial</a>：JVM/JMM/GC</li>
 <li><a href="../Java/JavaEE-Spring%20MVC">Spring MVC</a></li>
 <li><a href="../Java/JavaEE-Spring%20Boot">Spring Boot</a></li>
 <li><a href="../Java/JavaEE-ORM">Java ORM框架</a></li>
 <li><a href="../Java/JavaEE-Log">Java 日志框架（JCL,SLF4J,Log4J,Logback）</a></li>
-<li><a href="../Java/JavaEE-技术标准">JavaEE 技术标准（JTS,JMS,JMX,JTA,JPA,EJB,JNDI,JDBC）</a></li>
+<li><a href="../Java/JavaEE-%E6%8A%80%E6%9C%AF%E6%A0%87%E5%87%86">JavaEE 技术标准（JTS,JMS,JMX,JTA,JPA,EJB,JNDI,JDBC）</a></li>
 <li><a href="../Java/JavaEE-Servlet">Servlet &amp; JSP</a></li>
 <li><a href="../Java/JavaEE-Tools_Building">Java构建工具（Maven,Gradle）</a></li>
 <li><a href="../Java/JavaEE-Tools_Building">Java测试工具（JUnit）</a></li>
 </ul>
-<h2 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h2><ul>
+<h2 id="C-C">C/C++</h2>
+<ul>
 <li><a href="../30MinsTutorial/C_C++%20Tutorials">30分钟快速入门 - C/C++ Tutorials</a></li>
 </ul>
-<h2 id="Other-Language"><a href="#Other-Language" class="headerlink" title="Other Language"></a>Other Language</h2><ul>
+<h2 id="Other-Language">Other Language</h2>
+<ul>
 <li><a href="../30MinsTutorial/PHP%20Tutorials">30分钟快速入门 - PHP Tutorials</a></li>
-<li><a href="../30MinsTutorial/响应式编程">响应式编程</a></li>
+<li><a href="../30MinsTutorial/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B">响应式编程</a></li>
 </ul>
 <p><br><br></p>
-<h1 id="0x06-大数据-Big-Data"><a href="#0x06-大数据-Big-Data" class="headerlink" title="0x06 大数据 Big Data"></a>0x06 大数据 Big Data</h1><ul>
-<li><a href="../大数据/Arch-大数据-HBase">HBase</a></li>
-<li><a href="../大数据/Arch-大数据-Storm">Storm</a></li>
-<li><a href="../大数据/Arch-大数据-Spark">Spark</a></li>
-<li><a href="../大数据/Arch-大数据-Hive">Hive</a></li>
-<li><a href="../大数据/Arch-大数据-Hadoop">Hadoop</a></li>
+<h1>0x06 大数据 Big Data</h1>
+<ul>
+<li><a href="../%E5%A4%A7%E6%95%B0%E6%8D%AE/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-HBase">HBase</a></li>
+<li><a href="../%E5%A4%A7%E6%95%B0%E6%8D%AE/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Storm">Storm</a></li>
+<li><a href="../%E5%A4%A7%E6%95%B0%E6%8D%AE/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark">Spark</a></li>
+<li><a href="../%E5%A4%A7%E6%95%B0%E6%8D%AE/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Hive">Hive</a></li>
+<li><a href="../%E5%A4%A7%E6%95%B0%E6%8D%AE/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Hadoop">Hadoop</a></li>
 </ul>
 <p><br><br></p>
-<h1 id="0x07-机器学习-Machine-Learning"><a href="#0x07-机器学习-Machine-Learning" class="headerlink" title="0x07 机器学习 Machine Learning"></a>0x07 机器学习 Machine Learning</h1><ul>
-<li><a href="../机器学习/RecommenderSystem-推荐系统">推荐系统·Recommender System</a></li>
-<li><a href="../机器学习/MachineLearning-机器学习">机器学习·Machine Learning</a></li>
-<li><a href="../机器学习/DeepLearning-深度学习">深度学习·Deep Learning</a></li>
+<h1>0x07 机器学习 Machine Learning</h1>
+<ul>
+<li><a href="../%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/RecommenderSystem-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F">推荐系统·Recommender System</a></li>
+<li><a href="../%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/MachineLearning-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习·Machine Learning</a></li>
+<li><a href="../%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/DeepLearning-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0">深度学习·Deep Learning</a></li>
 </ul>
 <p><br><br></p>
-<h1 id="0x08-未分类技术类笔记-Uncategorized-Tech-Notes"><a href="#0x08-未分类技术类笔记-Uncategorized-Tech-Notes" class="headerlink" title="0x08 未分类技术类笔记 Uncategorized Tech Notes"></a>0x08 未分类技术类笔记 Uncategorized Tech Notes</h1><ul>
-<li><a href="../未分类技术笔记/设计模式">设计模式·Design Pattern</a></li>
-<li><a href="../未分类技术笔记/正则表达式-RegExp">正则表达式·Regular Expression</a></li>
-<li><a href="../未分类技术笔记/开源项目源代码阅读指北">开源项目源代码阅读指北</a></li>
-<li><a href="../未分类技术笔记/安全笔记">安全笔记</a></li>
-<li><a href="../未分类技术笔记/前端笔记">前端笔记</a></li>
-<li><a href="../未分类技术笔记/Tools-and-IDE">开发工具（git,svn,screen,tmux） &amp; IDE快捷键（Vim,Jetbrains,etc.）速查手册</a></li>
-<li><a href="../未分类技术笔记/Github-Repo-Starred">Github Star项目</a></li>
+<h1>0x08 未分类技术类笔记 Uncategorized Tech Notes</h1>
+<ul>
+<li><a href="../%E6%9C%AA%E5%88%86%E7%B1%BB%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式·Design Pattern</a></li>
+<li><a href="../%E6%9C%AA%E5%88%86%E7%B1%BB%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-RegExp">正则表达式·Regular Expression</a></li>
+<li><a href="../%E6%9C%AA%E5%88%86%E7%B1%BB%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%BA%90%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB%E6%8C%87%E5%8C%97">开源项目源代码阅读指北</a></li>
+<li><a href="../%E6%9C%AA%E5%88%86%E7%B1%BB%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%AE%89%E5%85%A8%E7%AC%94%E8%AE%B0">安全笔记</a></li>
+<li><a href="../%E6%9C%AA%E5%88%86%E7%B1%BB%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0">前端笔记</a></li>
+<li><a href="../%E6%9C%AA%E5%88%86%E7%B1%BB%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Tools-and-IDE">开发工具（git,svn,screen,tmux） &amp; IDE快捷键（Vim,Jetbrains,etc.）速查手册</a></li>
+<li><a href="../%E6%9C%AA%E5%88%86%E7%B1%BB%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Github-Repo-Starred">Github Star项目</a></li>
 </ul>
 <p><br><br></p>
-<h1 id="0x09-哲学-amp-心理学-Philosophy-amp-Psychology"><a href="#0x09-哲学-amp-心理学-Philosophy-amp-Psychology" class="headerlink" title="0x09 哲学&amp;心理学 Philosophy&amp;Psychology"></a>0x09 哲学&amp;心理学 Philosophy&amp;Psychology</h1><ul>
-<li><a href="../哲学&心理学/心理学笔记">心理学</a></li>
-<li><a href="../哲学&心理学/哲学笔记">西方哲学史</a></li>
-<li><a href="../哲学&心理学/博弈论笔记">博弈论</a></li>
-<li><a href="../哲学&心理学/罗素《What%20I%20Have%20Lived%20For》">罗素《What I Have Lived For》</a></li>
-<li><a href="../哲学&心理学/马基雅维利主义">马基雅维利主义</a></li>
-<li><a href="../哲学&心理学/虚无主义">虚无主义</a></li>
-<li><a href="../哲学&心理学/此在的本真-海德格的存在主义">此在的本真·海德格的存在主义</a></li>
-<li><a href="../哲学&心理学/《存在主义心理治疗》读书笔记">《存在主义心理治疗》读书笔记</a></li>
+<h1>0x09 哲学&amp;心理学 Philosophy&amp;Psychology</h1>
+<ul>
+<li><a href="../%E5%93%B2%E5%AD%A6&amp;%E5%BF%83%E7%90%86%E5%AD%A6/%E5%BF%83%E7%90%86%E5%AD%A6%E7%AC%94%E8%AE%B0">心理学</a></li>
+<li><a href="../%E5%93%B2%E5%AD%A6&amp;%E5%BF%83%E7%90%86%E5%AD%A6/%E5%93%B2%E5%AD%A6%E7%AC%94%E8%AE%B0">西方哲学史</a></li>
+<li><a href="../%E5%93%B2%E5%AD%A6&amp;%E5%BF%83%E7%90%86%E5%AD%A6/%E5%8D%9A%E5%BC%88%E8%AE%BA%E7%AC%94%E8%AE%B0">博弈论</a></li>
+<li><a href="../%E5%93%B2%E5%AD%A6&amp;%E5%BF%83%E7%90%86%E5%AD%A6/%E7%BD%97%E7%B4%A0%E3%80%8AWhat%20I%20Have%20Lived%20For%E3%80%8B">罗素《What I Have Lived For》</a></li>
+<li><a href="../%E5%93%B2%E5%AD%A6&amp;%E5%BF%83%E7%90%86%E5%AD%A6/%E9%A9%AC%E5%9F%BA%E9%9B%85%E7%BB%B4%E5%88%A9%E4%B8%BB%E4%B9%89">马基雅维利主义</a></li>
+<li><a href="../%E5%93%B2%E5%AD%A6&amp;%E5%BF%83%E7%90%86%E5%AD%A6/%E8%99%9A%E6%97%A0%E4%B8%BB%E4%B9%89">虚无主义</a></li>
+<li><a href="../%E5%93%B2%E5%AD%A6&amp;%E5%BF%83%E7%90%86%E5%AD%A6/%E6%AD%A4%E5%9C%A8%E7%9A%84%E6%9C%AC%E7%9C%9F-%E6%B5%B7%E5%BE%B7%E6%A0%BC%E7%9A%84%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89">此在的本真·海德格的存在主义</a></li>
+<li><a href="../%E5%93%B2%E5%AD%A6&amp;%E5%BF%83%E7%90%86%E5%AD%A6/%E3%80%8A%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89%E5%BF%83%E7%90%86%E6%B2%BB%E7%96%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0">《存在主义心理治疗》读书笔记</a></li>
 </ul>
 <p><br><br></p>
-<h1 id="0x0a-摄影-Photography"><a href="#0x0a-摄影-Photography" class="headerlink" title="0x0a 摄影 Photography"></a>0x0a 摄影 Photography</h1><ul>
-<li><a href="../摄影/摄影笔记">📸 摄影笔记</a></li>
-<li><a href="../摄影/关于闪光灯你应该知道的一些事">关于闪光灯你应该知道的一些事</a></li>
-<li><a href="../摄影/VSCO滤镜使用指南">VSCO滤镜使用指南</a></li>
-<li><a href="../摄影/胶片-manual-宾得SPII">宾得SPII使用说明</a></li>
-<li><a href="../摄影/胶片-测光经验表">胶片测光经验表</a></li>
+<h1>0x0a 摄影 Photography</h1>
+<ul>
+<li><a href="../%E6%91%84%E5%BD%B1/%E6%91%84%E5%BD%B1%E7%AC%94%E8%AE%B0">📸 摄影笔记</a></li>
+<li><a href="../%E6%91%84%E5%BD%B1/%E5%85%B3%E4%BA%8E%E9%97%AA%E5%85%89%E7%81%AF%E4%BD%A0%E5%BA%94%E8%AF%A5%E7%9F%A5%E9%81%93%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B">关于闪光灯你应该知道的一些事</a></li>
+<li><a href="../%E6%91%84%E5%BD%B1/VSCO%E6%BB%A4%E9%95%9C%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97">VSCO滤镜使用指南</a></li>
+<li><a href="../%E6%91%84%E5%BD%B1/%E8%83%B6%E7%89%87-manual-%E5%AE%BE%E5%BE%97SPII">宾得SPII使用说明</a></li>
+<li><a href="../%E6%91%84%E5%BD%B1/%E8%83%B6%E7%89%87-%E6%B5%8B%E5%85%89%E7%BB%8F%E9%AA%8C%E8%A1%A8">胶片测光经验表</a></li>
 </ul>
 <p><br><br></p>
-<h1 id="0x0b-生产力工具-Productivity"><a href="#0x0b-生产力工具-Productivity" class="headerlink" title="0x0b 生产力工具 Productivity"></a>0x0b 生产力工具 Productivity</h1><ul>
-<li><a href="../生产力工具/OKR是什么">OKR是什么</a></li>
-<li><a href="../生产力工具/看板（Kanban）">看板(Kanban)</a></li>
-<li><a href="../生产力工具/数据可视化">数据可视化</a></li>
-<li><a href="../生产力工具/PARA%20vs%20IARP">PARA vs IARP</a></li>
-<li><a href="../生产力工具/富兰克林的自我修养">富兰克林的自我修养</a></li>
+<h1>0x0b 生产力工具 Productivity</h1>
+<ul>
+<li><a href="../%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/OKR%E6%98%AF%E4%BB%80%E4%B9%88">OKR是什么</a></li>
+<li><a href="../%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E7%9C%8B%E6%9D%BF%EF%BC%88Kanban%EF%BC%89">看板(Kanban)</a></li>
+<li><a href="../%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96">数据可视化</a></li>
+<li><a href="../%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/PARA%20vs%20IARP">PARA vs IARP</a></li>
+<li><a href="../%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E5%AF%8C%E5%85%B0%E5%85%8B%E6%9E%97%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB">富兰克林的自我修养</a></li>
 </ul>
 <p><br><br></p>
-<h1 id="0x0c-旧博客备份-Farbox-Archive"><a href="#0x0c-旧博客备份-Farbox-Archive" class="headerlink" title="0x0c 旧博客备份 Farbox Archive"></a>0x0c 旧博客备份 Farbox Archive</h1><h2 id="Ⅰ-代码相关-Coding"><a href="#Ⅰ-代码相关-Coding" class="headerlink" title="Ⅰ 代码相关 Coding"></a>Ⅰ 代码相关 Coding</h2><ul>
-<li><a href="../farbox_archive/[C]%20C语言里面的一些陷阱">C语言里面的一些陷阱</a></li>
-<li><a href="../farbox_archive/[C]%20C语言的编译与链接">C语言的编译与链接 - gcc,ld,ar</a></li>
-<li><a href="../farbox_archive/[C]%20GNU的obj分析工具的使用">GNU的obj分析工具的使用 - nm,objdump</a></li>
-<li><a href="../farbox_archive/[PHP]%20使用Xdebug调试PHP">使用Xdebug调试PHP</a></li>
+<h1>0x0c 旧博客备份 Farbox Archive</h1>
+<h2 id="Ⅰ-代码相关-Coding">Ⅰ 代码相关 Coding</h2>
+<ul>
+<li><a href="../farbox_archive/%5BC%5D%20C%E8%AF%AD%E8%A8%80%E9%87%8C%E9%9D%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%99%B7%E9%98%B1">C语言里面的一些陷阱</a></li>
+<li><a href="../farbox_archive/%5BC%5D%20C%E8%AF%AD%E8%A8%80%E7%9A%84%E7%BC%96%E8%AF%91%E4%B8%8E%E9%93%BE%E6%8E%A5">C语言的编译与链接 - gcc,ld,ar</a></li>
+<li><a href="../farbox_archive/%5BC%5D%20GNU%E7%9A%84obj%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8">GNU的obj分析工具的使用 - nm,objdump</a></li>
+<li><a href="../farbox_archive/%5BPHP%5D%20%E4%BD%BF%E7%94%A8Xdebug%E8%B0%83%E8%AF%95PHP">使用Xdebug调试PHP</a></li>
 </ul>
-<h2 id="Ⅱ-生产力工具-Productivity"><a href="#Ⅱ-生产力工具-Productivity" class="headerlink" title="Ⅱ 生产力工具 Productivity"></a>Ⅱ 生产力工具 Productivity</h2><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><ul>
-<li><a href="../farbox_archive/[CYGWIN]%20Cygwin食用指南">Cygwin食用指南</a></li>
-<li><a href="../farbox_archive/[效率]%20Shell的进化%20-%20Zsh">Shell的进化-Zsh</a></li>
-<li><a href="../farbox_archive/[效率]%20终端复用软件%20-%20tmux">终端复用软件-tmux</a></li>
-<li><a href="../farbox_archive/[工具]%20Linux下配置NFS服务">Linux下配置NFS服务</a></li>
-<li><a href="../farbox_archive/[效率]%20在Linux上安装BitTorrent%20Sync">在Linux上安装BitTorrent Sync</a></li>
-<li><a href="../farbox_archive/[工具]%20Linux下安装tpacpi-bat%20控制thinkpad%20充电阈值">Linux下安装tpacpi-bat 控制thinkpad 充电阈值</a></li>
-<li><a href="../farbox_archive/[工具]%20还是告别Linux%20Desktop了">还是告别Linux Desktop了</a></li>
+<h2 id="Ⅱ-生产力工具-Productivity">Ⅱ 生产力工具 Productivity</h2>
+<h3 id="Linux">Linux</h3>
+<ul>
+<li><a href="../farbox_archive/%5BCYGWIN%5D%20Cygwin%E9%A3%9F%E7%94%A8%E6%8C%87%E5%8D%97">Cygwin食用指南</a></li>
+<li><a href="../farbox_archive/%5B%E6%95%88%E7%8E%87%5D%20Shell%E7%9A%84%E8%BF%9B%E5%8C%96%20-%20Zsh">Shell的进化-Zsh</a></li>
+<li><a href="../farbox_archive/%5B%E6%95%88%E7%8E%87%5D%20%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8%E8%BD%AF%E4%BB%B6%20-%20tmux">终端复用软件-tmux</a></li>
+<li><a href="../farbox_archive/%5B%E5%B7%A5%E5%85%B7%5D%20Linux%E4%B8%8B%E9%85%8D%E7%BD%AENFS%E6%9C%8D%E5%8A%A1">Linux下配置NFS服务</a></li>
+<li><a href="../farbox_archive/%5B%E6%95%88%E7%8E%87%5D%20%E5%9C%A8Linux%E4%B8%8A%E5%AE%89%E8%A3%85BitTorrent%20Sync">在Linux上安装BitTorrent Sync</a></li>
+<li><a href="../farbox_archive/%5B%E5%B7%A5%E5%85%B7%5D%20Linux%E4%B8%8B%E5%AE%89%E8%A3%85tpacpi-bat%20%E6%8E%A7%E5%88%B6thinkpad%20%E5%85%85%E7%94%B5%E9%98%88%E5%80%BC">Linux下安装tpacpi-bat 控制thinkpad 充电阈值</a></li>
+<li><a href="../farbox_archive/%5B%E5%B7%A5%E5%85%B7%5D%20%E8%BF%98%E6%98%AF%E5%91%8A%E5%88%ABLinux%20Desktop%E4%BA%86">还是告别Linux Desktop了</a></li>
 </ul>
-<h3 id="OSX"><a href="#OSX" class="headerlink" title="OSX"></a>OSX</h3><ul>
-<li><a href="../farbox_archive/[OSX]%20OSX开发环境配置">macOS（OSX）开发环境配置 &amp; Tweaks</a></li>
-<li><a href="../farbox_archive/在Macbook上使用surge">在Macbook上使用surge</a></li>
-<li><a href="../farbox_archive/[工具]%20在Windows和OSX之间同步Sublime配置文件">在Windows和OSX之间同步Sublime配置文件</a></li>
-<li><a href="../farbox_archive/[工具]%20同步VSCode配置文件">同步 VSCode 配置文件（MacOS）</a></li>
+<h3 id="OSX">OSX</h3>
+<ul>
+<li><a href="../farbox_archive/%5BOSX%5D%20OSX%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE">macOS（OSX）开发环境配置 &amp; Tweaks</a></li>
+<li><a href="../farbox_archive/%E5%9C%A8Macbook%E4%B8%8A%E4%BD%BF%E7%94%A8surge">在Macbook上使用surge</a></li>
+<li><a href="../farbox_archive/%5B%E5%B7%A5%E5%85%B7%5D%20%E5%9C%A8Windows%E5%92%8COSX%E4%B9%8B%E9%97%B4%E5%90%8C%E6%AD%A5Sublime%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">在Windows和OSX之间同步Sublime配置文件</a></li>
+<li><a href="../farbox_archive/%5B%E5%B7%A5%E5%85%B7%5D%20%E5%90%8C%E6%AD%A5VSCode%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">同步 VSCode 配置文件（MacOS）</a></li>
 </ul>
-<h3 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h3><ul>
-<li><a href="../farbox_archive/[效率]%20Markdown入门指北">Markdown入门指北</a></li>
-<li><a href="../farbox_archive/MarkEditor使用体验">MarkEditor使用体验</a></li>
-<li><a href="../farbox_archive/[Vim]%20Vim入门指北">Vim入门指北</a></li>
-<li><a href="../farbox_archive/[Vim]%20我的Vim配置文件">我的Vim配置文件</a></li>
-<li><a href="../farbox_archive/[Vim]%20使用vundle管理vim插件">使用Vundle管理Vim插件（Windows）</a></li>
-<li><a href="../farbox_archive/[Vim]%20EasyGrep使用介绍">EasyGrep使用介绍</a></li>
-<li><a href="../farbox_archive/[Vim]%20在Windows下使用vim%20grep的正确姿势">在Windows下使用 vim_grep的正确姿势</a></li>
+<h3 id="Vim">Vim</h3>
+<ul>
+<li><a href="../farbox_archive/%5B%E6%95%88%E7%8E%87%5D%20Markdown%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97">Markdown入门指北</a></li>
+<li><a href="../farbox_archive/MarkEditor%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C">MarkEditor使用体验</a></li>
+<li><a href="../farbox_archive/%5BVim%5D%20Vim%E5%85%A5%E9%97%A8%E6%8C%87%E5%8C%97">Vim入门指北</a></li>
+<li><a href="../farbox_archive/%5BVim%5D%20%E6%88%91%E7%9A%84Vim%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">我的Vim配置文件</a></li>
+<li><a href="../farbox_archive/%5BVim%5D%20%E4%BD%BF%E7%94%A8vundle%E7%AE%A1%E7%90%86vim%E6%8F%92%E4%BB%B6">使用Vundle管理Vim插件（Windows）</a></li>
+<li><a href="../farbox_archive/%5BVim%5D%20EasyGrep%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D">EasyGrep使用介绍</a></li>
+<li><a href="../farbox_archive/%5BVim%5D%20%E5%9C%A8Windows%E4%B8%8B%E4%BD%BF%E7%94%A8vim%20grep%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF">在Windows下使用 vim_grep的正确姿势</a></li>
 </ul>
-<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><ul>
-<li><a href="../farbox_archive/[协议]%20非对称加密算法RSA简介以及GPG工具的使用">非对称加密算法RSA简介以及GPG工具的使用</a></li>
-<li><a href="../farbox_archive/[协议]%20SSH协议简介">SSH协议简介</a></li>
-<li><a href="../farbox_archive/[版本控制]%20Git的SSH%20Key配置">Git的SSH Key配置</a></li>
+<h3 id="SSH">SSH</h3>
+<ul>
+<li><a href="../farbox_archive/%5B%E5%8D%8F%E8%AE%AE%5D%20%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95RSA%E7%AE%80%E4%BB%8B%E4%BB%A5%E5%8F%8AGPG%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8">非对称加密算法RSA简介以及GPG工具的使用</a></li>
+<li><a href="../farbox_archive/%5B%E5%8D%8F%E8%AE%AE%5D%20SSH%E5%8D%8F%E8%AE%AE%E7%AE%80%E4%BB%8B">SSH协议简介</a></li>
+<li><a href="../farbox_archive/%5B%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%5D%20Git%E7%9A%84SSH%20Key%E9%85%8D%E7%BD%AE">Git的SSH Key配置</a></li>
 </ul>
-<h3 id="Blog"><a href="#Blog" class="headerlink" title="Blog"></a>Blog</h3><ul>
-<li><a href="../farbox_archive/Hexo部署和使用指北">Hexo部署和使用指北</a></li>
-<li><a href="../farbox_archive/GitBook使用指北">GitBook使用指北</a></li>
+<h3 id="Blog">Blog</h3>
+<ul>
+<li><a href="../farbox_archive/Hexo%E9%83%A8%E7%BD%B2%E5%92%8C%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8C%97">Hexo部署和使用指北</a></li>
+<li><a href="../farbox_archive/GitBook%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8C%97">GitBook使用指北</a></li>
 </ul>
-<h3 id="Other-Editor-amp-IDE"><a href="#Other-Editor-amp-IDE" class="headerlink" title="Other Editor &amp; IDE"></a>Other Editor &amp; IDE</h3><ul>
-<li><a href="../farbox_archive/[工具]%20Sublime%20Text%203%20快捷键">Sublime Text 3 扩展&amp;快捷键</a></li>
-<li><a href="../farbox_archive/[工具]%20Github%20Atom%20For%20Windows">在Windows上安装Atom编辑器</a></li>
-<li><a href="../farbox_archive/[IDE]为Eclipse安装Remote%20System%20Explorer">为Eclipse安装Remote System Explorer</a></li>
+<h3 id="Other-Editor-IDE">Other Editor &amp; IDE</h3>
+<ul>
+<li><a href="../farbox_archive/%5B%E5%B7%A5%E5%85%B7%5D%20Sublime%20Text%203%20%E5%BF%AB%E6%8D%B7%E9%94%AE">Sublime Text 3 扩展&amp;快捷键</a></li>
+<li><a href="../farbox_archive/%5B%E5%B7%A5%E5%85%B7%5D%20Github%20Atom%20For%20Windows">在Windows上安装Atom编辑器</a></li>
+<li><a href="../farbox_archive/%5BIDE%5D%E4%B8%BAEclipse%E5%AE%89%E8%A3%85Remote%20System%20Explorer">为Eclipse安装Remote System Explorer</a></li>
 </ul>
-<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><ul>
-<li><a href="../farbox_archive/[版本控制]%20Git简易使用指北">Git简易使用指北</a></li>
+<h3 id="版本控制">版本控制</h3>
+<ul>
+<li><a href="../farbox_archive/%5B%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%5D%20Git%E7%AE%80%E6%98%93%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8C%97">Git简易使用指北</a></li>
 </ul>
-<h3 id="DevOps"><a href="#DevOps" class="headerlink" title="DevOps"></a>DevOps</h3><ul>
-<li><a href="../farbox_archive/使用fluentd,kafka,mongodb搭建日志处理系统">使用fluentd,kafka,mongodb搭建日志处理系统</a></li>
+<h3 id="DevOps">DevOps</h3>
+<ul>
+<li><a href="../farbox_archive/%E4%BD%BF%E7%94%A8fluentd,kafka,mongodb%E6%90%AD%E5%BB%BA%E6%97%A5%E5%BF%97%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F">使用fluentd,kafka,mongodb搭建日志处理系统</a></li>
 </ul>
-<h2 id="Ⅲ-嵌入式-Embedded"><a href="#Ⅲ-嵌入式-Embedded" class="headerlink" title="Ⅲ 嵌入式 Embedded"></a>Ⅲ 嵌入式 Embedded</h2><ul>
-<li><a href="../farbox_archive/[Raspberry]%20树莓派手动玩">树莓派手动玩</a></li>
-<li><a href="../farbox_archive/[Raspberry]%20在树莓派上安装无线网卡">在树莓派上安装无线网卡</a></li>
-<li><a href="../farbox_archive/[Raspberry]%20在树莓派上安装Samba和FTP服务">在树莓派上安装Samba和FTP服务</a></li>
+<h2 id="Ⅲ-嵌入式-Embedded">Ⅲ 嵌入式 Embedded</h2>
+<ul>
+<li><a href="../farbox_archive/%5BRaspberry%5D%20%E6%A0%91%E8%8E%93%E6%B4%BE%E6%89%8B%E5%8A%A8%E7%8E%A9">树莓派手动玩</a></li>
+<li><a href="../farbox_archive/%5BRaspberry%5D%20%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85%E6%97%A0%E7%BA%BF%E7%BD%91%E5%8D%A1">在树莓派上安装无线网卡</a></li>
+<li><a href="../farbox_archive/%5BRaspberry%5D%20%E5%9C%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E4%B8%8A%E5%AE%89%E8%A3%85Samba%E5%92%8CFTP%E6%9C%8D%E5%8A%A1">在树莓派上安装Samba和FTP服务</a></li>
 </ul>
 <p><br><br></p>
 <p style="text-align:center">
@@ -518,7 +543,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -529,7 +554,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -595,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0x01-后端架构-Backend-Arch"><span class="nav-text">0x01 后端架构 Backend Arch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x02-操作系统-Operating-System"><span class="nav-text">0x02 操作系统 Operating System</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x03-网络协议-Communications-Protocol"><span class="nav-text">0x03 网络协议 Communications Protocol</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x04-数据结构与算法-Algorithm-and-Data-Structure"><span class="nav-text">0x04 数据结构与算法 Algorithm and Data Structure</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x05-编程语言-Programming-Language"><span class="nav-text">0x05 编程语言 Programming Language</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-C"><span class="nav-text">C/C++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Language"><span class="nav-text">Other Language</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x06-大数据-Big-Data"><span class="nav-text">0x06 大数据 Big Data</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x07-机器学习-Machine-Learning"><span class="nav-text">0x07 机器学习 Machine Learning</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x08-未分类技术类笔记-Uncategorized-Tech-Notes"><span class="nav-text">0x08 未分类技术类笔记 Uncategorized Tech Notes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x09-哲学-amp-心理学-Philosophy-amp-Psychology"><span class="nav-text">0x09 哲学&amp;心理学 Philosophy&amp;Psychology</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x0a-摄影-Photography"><span class="nav-text">0x0a 摄影 Photography</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x0b-生产力工具-Productivity"><span class="nav-text">0x0b 生产力工具 Productivity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0x0c-旧博客备份-Farbox-Archive"><span class="nav-text">0x0c 旧博客备份 Farbox Archive</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ⅰ-代码相关-Coding"><span class="nav-text">Ⅰ 代码相关 Coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ⅱ-生产力工具-Productivity"><span class="nav-text">Ⅱ 生产力工具 Productivity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSX"><span class="nav-text">OSX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim"><span class="nav-text">Vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH"><span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Blog"><span class="nav-text">Blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Editor-amp-IDE"><span class="nav-text">Other Editor &amp; IDE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本控制"><span class="nav-text">版本控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DevOps"><span class="nav-text">DevOps</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ⅲ-嵌入式-Embedded"><span class="nav-text">Ⅲ 嵌入式 Embedded</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x01 后端架构 Backend Arch</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x02 操作系统 Operating System</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x03 网络协议 Communications Protocol</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x04 数据结构与算法 Algorithm and Data Structure</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x05 编程语言 Programming Language</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java"><span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-C"><span class="nav-text">C/C++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other-Language"><span class="nav-text">Other Language</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x06 大数据 Big Data</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x07 机器学习 Machine Learning</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x08 未分类技术类笔记 Uncategorized Tech Notes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x09 哲学&amp;心理学 Philosophy&amp;Psychology</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x0a 摄影 Photography</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x0b 生产力工具 Productivity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">0x0c 旧博客备份 Farbox Archive</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ⅰ-代码相关-Coding"><span class="nav-text">Ⅰ 代码相关 Coding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ⅱ-生产力工具-Productivity"><span class="nav-text">Ⅱ 生产力工具 Productivity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OSX"><span class="nav-text">OSX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vim"><span class="nav-text">Vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH"><span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Blog"><span class="nav-text">Blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Other-Editor-IDE"><span class="nav-text">Other Editor &amp; IDE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本控制"><span class="nav-text">版本控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DevOps"><span class="nav-text">DevOps</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ⅲ-嵌入式-Embedded"><span class="nav-text">Ⅲ 嵌入式 Embedded</span></a></li></ol></li></ol></div>
             
 
           </div>

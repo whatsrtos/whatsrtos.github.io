@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="国内镜像网易: http://mirrors.163.com/.help/cygwin.html 选择的包 Archive: bzip2 p7zip zip Base: 全选 Devel: autoconf automake cmake cvs cscope ctags git gdb make Editor: vim vim-common Interpreters: php php-devel">
+<meta name="description" content="国内镜像 网易: http://mirrors.163.com/.help/cygwin.html 选择的包  Archive: bzip2 p7zip zip Base: 全选 Devel: autoconf automake cmake cvs cscope ctags git gdb make Editor: vim vim-common Interpreters: php php-deve">
 <meta name="keywords" content="Windows,Cygwin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cygwin食用指南">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[CYGWIN] Cygwin食用指南/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="国内镜像网易: http://mirrors.163.com/.help/cygwin.html 选择的包 Archive: bzip2 p7zip zip Base: 全选 Devel: autoconf automake cmake cvs cscope ctags git gdb make Editor: vim vim-common Interpreters: php php-devel">
+<meta property="og:description" content="国内镜像 网易: http://mirrors.163.com/.help/cygwin.html 选择的包  Archive: bzip2 p7zip zip Base: 全选 Devel: autoconf automake cmake cvs cscope ctags git gdb make Editor: vim vim-common Interpreters: php php-deve">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cygwin食用指南">
-<meta name="twitter:description" content="国内镜像网易: http://mirrors.163.com/.help/cygwin.html 选择的包 Archive: bzip2 p7zip zip Base: 全选 Devel: autoconf automake cmake cvs cscope ctags git gdb make Editor: vim vim-common Interpreters: php php-devel">
+<meta name="twitter:description" content="国内镜像 网易: http://mirrors.163.com/.help/cygwin.html 选择的包  Archive: bzip2 p7zip zip Base: 全选 Devel: autoconf automake cmake cvs cscope ctags git gdb make Editor: vim vim-common Interpreters: php php-deve">
 
 
 
@@ -355,8 +355,10 @@
       
 
       
-        <h1 id="国内镜像"><a href="#国内镜像" class="headerlink" title="国内镜像"></a>国内镜像</h1><p>网易: <a href="http://mirrors.163.com/.help/cygwin.html" target="_blank" rel="noopener">http://mirrors.163.com/.help/cygwin.html</a></p>
-<h1 id="选择的包"><a href="#选择的包" class="headerlink" title="选择的包"></a>选择的包</h1><ul>
+        <h1>国内镜像</h1>
+<p>网易: <a href="http://mirrors.163.com/.help/cygwin.html" target="_blank" rel="noopener">http://mirrors.163.com/.help/cygwin.html</a></p>
+<h1>选择的包</h1>
+<ul>
 <li>Archive: bzip2 p7zip zip</li>
 <li>Base: 全选</li>
 <li>Devel: autoconf automake cmake cvs cscope ctags git gdb make</li>
@@ -365,20 +367,19 @@
 <li>Net: curl openssl ping putty openssh</li>
 <li>Web: wget</li>
 </ul>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><ul>
+<h1>工具</h1>
+<ul>
 <li>安装完成Cygwin之后, 如果想要再安装新软件, 可以使用官网下载的<code>setup-x86.exe</code>, 命令: <code>setup-x86.exe -q -P packagename1,packagename2</code></li>
 <li>选择之二: <a href="https://github.com/transcode-open/apt-cyg" target="_blank" rel="noopener">apt-cyg</a> , 使用方法类似ubuntu 的apt-get <code>apt-cyg install yourPackage</code></li>
 </ul>
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><ul>
-<li><p>把windows的盘符链接为<code>/c</code>, <code>/d</code>这样的路径: <code>ln -s /cygdrive/c /c</code></p>
-</li>
-<li><p>alias:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alias ll=&apos;ls -alh&apos;</span><br><span class="line">alias ls=&apos;ls --color=tty&apos;</span><br><span class="line">alias yum=&apos;apt-cyg&apos;</span><br></pre></td></tr></table></figure>
-
-</li>
+<h1>配置</h1>
+<ul>
+<li>把windows的盘符链接为<code>/c</code>, <code>/d</code>这样的路径: <code>ln -s /cygdrive/c /c</code></li>
+<li>alias:</li>
 </ul>
-<h1 id="如何删除Cygwin"><a href="#如何删除Cygwin" class="headerlink" title="如何删除Cygwin"></a>如何删除Cygwin</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">takeown /f C:\cygwin /r /d y</span><br><span class="line">icacls c:\cygwin /t /grant everyone:F</span><br></pre></td></tr></table></figure>
-
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">alias ll=&apos;ls -alh&apos;</span><br><span class="line">alias ls=&apos;ls --color=tty&apos;</span><br><span class="line">alias yum=&apos;apt-cyg&apos;</span><br></pre></td></tr></table></figure>
+<h1>如何删除Cygwin</h1>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">takeown /f C:\cygwin /r /d y</span><br><span class="line">icacls c:\cygwin /t /grant everyone:F</span><br></pre></td></tr></table></figure>
 <p>删除整个Cygwin安装目录.</p>
 
       
@@ -515,7 +516,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -526,7 +527,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -592,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#国内镜像"><span class="nav-text">国内镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选择的包"><span class="nav-text">选择的包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#工具"><span class="nav-text">工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置"><span class="nav-text">配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何删除Cygwin"><span class="nav-text">如何删除Cygwin</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">国内镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">选择的包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">工具</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">如何删除Cygwin</span></a></li></ol></div>
             
 
           </div>

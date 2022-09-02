@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="Git,Github,SSH," />
+  <meta name="keywords" content="Github,Git,SSH," />
 
 
 
@@ -115,20 +115,20 @@
 
 
 
-<meta name="description" content="推荐先阅读一下在线版本Git简明指南  http://rogerdudler.github.io/git-guide/index.zh.html 如果你的一台电脑上管理多个Github帐号的SSH Keys，请参照SSH协议的应用 &amp;amp;为Github配置SSH Key Git工作流的概念你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（I">
-<meta name="keywords" content="Git,Github,SSH">
+<meta name="description" content="推荐先阅读一下在线版本Git简明指南  http://rogerdudler.github.io/git-guide/index.zh.html 如果你的一台电脑上管理多个Github帐号的SSH Keys，请参照SSH协议的应用 &amp;amp;为Github配置SSH Key Git工作流的概念 你的本地仓库由 git 维护的三棵“树”组成。 第一个是你的 工作目录，它持有实际文件； 第二个是 暂存">
+<meta name="keywords" content="Github,Git,SSH">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 简易指北">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[版本控制] Git简易使用指北/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="推荐先阅读一下在线版本Git简明指南  http://rogerdudler.github.io/git-guide/index.zh.html 如果你的一台电脑上管理多个Github帐号的SSH Keys，请参照SSH协议的应用 &amp;amp;为Github配置SSH Key Git工作流的概念你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（I">
+<meta property="og:description" content="推荐先阅读一下在线版本Git简明指南  http://rogerdudler.github.io/git-guide/index.zh.html 如果你的一台电脑上管理多个Github帐号的SSH Keys，请参照SSH协议的应用 &amp;amp;为Github配置SSH Key Git工作流的概念 你的本地仓库由 git 维护的三棵“树”组成。 第一个是你的 工作目录，它持有实际文件； 第二个是 暂存">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://rogerdudler.github.io/git-guide/img/trees.png">
 <meta property="og:image" content="http://rogerdudler.github.io/git-guide/img/branches.png">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 简易指北">
-<meta name="twitter:description" content="推荐先阅读一下在线版本Git简明指南  http://rogerdudler.github.io/git-guide/index.zh.html 如果你的一台电脑上管理多个Github帐号的SSH Keys，请参照SSH协议的应用 &amp;amp;为Github配置SSH Key Git工作流的概念你的本地仓库由 git 维护的三棵“树”组成。第一个是你的 工作目录，它持有实际文件；第二个是 暂存区（I">
+<meta name="twitter:description" content="推荐先阅读一下在线版本Git简明指南  http://rogerdudler.github.io/git-guide/index.zh.html 如果你的一台电脑上管理多个Github帐号的SSH Keys，请参照SSH协议的应用 &amp;amp;为Github配置SSH Key Git工作流的概念 你的本地仓库由 git 维护的三棵“树”组成。 第一个是你的 工作目录，它持有实际文件； 第二个是 暂存">
 <meta name="twitter:image" content="http://rogerdudler.github.io/git-guide/img/trees.png">
 
 
@@ -360,44 +360,55 @@
       
         <p>推荐先阅读一下在线版本<em>Git简明指南</em>  <a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="noopener">http://rogerdudler.github.io/git-guide/index.zh.html</a></p>
 <p>如果你的一台电脑上管理多个Github帐号的SSH Keys，请参照<a href="http://geeksafari.farbox.com/post/tools/sshxie-yi-de-ying-yong" target="_blank" rel="noopener">SSH协议的应用 &amp;为Github配置SSH Key</a></p>
-<p>Git工作流的概念<br>你的本地仓库由 git 维护的三棵“树”组成。<br>第一个是你的 工作目录，它持有实际文件；<br>第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；<br>最后是 HEAD，它指向你最后一次提交的结果。<br>盗用一下别人的图:<br><img src="http://rogerdudler.github.io/git-guide/img/trees.png" alt=""></p>
-<h2 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1.新建仓库"></a>1.新建仓库</h2><p>首先在github上创建一个新的repository，然后</p>
+<p>Git工作流的概念<br>
+你的本地仓库由 git 维护的三棵“树”组成。<br>
+第一个是你的 工作目录，它持有实际文件；<br>
+第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；<br>
+最后是 HEAD，它指向你最后一次提交的结果。<br>
+盗用一下别人的图:<br>
+<img src="http://rogerdudler.github.io/git-guide/img/trees.png" alt=""></p>
+<h2 id="1-新建仓库">1.新建仓库</h2>
+<p>首先在github上创建一个新的repository，然后</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/repos_name/</span><br><span class="line">$ touch README.md</span><br><span class="line">$ git init</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"first commit"</span></span><br><span class="line">$ git remote add origin https://github.com/username/repos_name.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-
 <p>如果是已有项目:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd existing_git_repo</span><br><span class="line">git remote add origin https://git.oschina.net/whatsdjgpp/CodeBox.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-提交代码"><a href="#2-提交代码" class="headerlink" title="2.提交代码"></a>2.提交代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add *</span><br><span class="line">$ git commit -m <span class="string">"代码提交信息"</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-
+<h2 id="2-提交代码">2.提交代码</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git add *</span><br><span class="line">$ git commit -m <span class="string">"代码提交信息"</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
 <p>执行git commit之后只是将改提交到了本地的HEAD, 而git push将改动提交到远端仓库, 可以把 master 换成你想要推送的任何分支.</p>
-<p>如果你还没有克隆现有仓库，又想将代码改动某个远程服务器，你可以使用如下命令添加：<br>git remote add origin <server></server></p>
-<h2 id="3-修改默认值"><a href="#3-修改默认值" class="headerlink" title="3.修改默认值"></a>3.修改默认值</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xxx"</span></span><br><span class="line">$ git config --global user.email xxx@gmail.com</span><br><span class="line">$ git config --global core.editor gvim</span><br><span class="line">$ git config --global merge.tool gvimdiff</span><br></pre></td></tr></table></figure>
-
-<p>注意， 这里加了“–global”参数，设置参数会存储在～/.git/config。<br>如果要针对某个仓库进行设置，则是：</p>
+<p>如果你还没有克隆现有仓库，又想将代码改动某个远程服务器，你可以使用如下命令添加：<br>
+git remote add origin <server></server></p>
+<h2 id="3-修改默认值">3.修改默认值</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xxx"</span></span><br><span class="line">$ git config --global user.email xxx@gmail.com</span><br><span class="line">$ git config --global core.editor gvim</span><br><span class="line">$ git config --global merge.tool gvimdiff</span><br></pre></td></tr></table></figure>
+<p>注意， 这里加了“–global”参数，设置参数会存储在～/.git/config。<br>
+如果要针对某个仓库进行设置，则是：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd repos_dir</span><br><span class="line">git config  user.name &quot;your-id&quot;</span><br><span class="line">git config  user.email &quot;your-id@gmail.com&quot;</span><br></pre></td></tr></table></figure>
-
 <p>配置会写入“仓库目录/.git/config”</p>
-<h2 id="4-从Git上删除文件"><a href="#4-从Git上删除文件" class="headerlink" title="4.从Git上删除文件"></a>4.从Git上删除文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm test.txt</span><br><span class="line">$ rm <span class="string">'test.txt'</span></span><br><span class="line">$ git commit -m <span class="string">"remove test.txt"</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="5-从服务器获取最新代码"><a href="#5-从服务器获取最新代码" class="headerlink" title="5.从服务器获取最新代码"></a>5.从服务器获取最新代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
-
+<h2 id="4-从Git上删除文件">4.从Git上删除文件</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git rm test.txt</span><br><span class="line">$ rm <span class="string">'test.txt'</span></span><br><span class="line">$ git commit -m <span class="string">"remove test.txt"</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-从服务器获取最新代码">5.从服务器获取最新代码</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
 <p>相当于两个命令 Git fetch + Git merge, 从服务器的仓库中获取代码，和本地代码合并.</p>
-<h2 id="6-对比代码"><a href="#6-对比代码" class="headerlink" title="6.对比代码"></a>6.对比代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git diff</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-检出别人的仓库"><a href="#7-检出别人的仓库" class="headerlink" title="7.检出别人的仓库"></a>7.检出别人的仓库</h2><p>执行如下命令以创建一个本地仓库的克隆版本：</p>
+<h2 id="6-对比代码">6.对比代码</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ git diff</span><br></pre></td></tr></table></figure>
+<h2 id="7-检出别人的仓库">7.检出别人的仓库</h2>
+<p>执行如下命令以创建一个本地仓库的克隆版本：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone /path/to/repository</span><br></pre></td></tr></table></figure>
-
 <p>如果是远端服务器上的仓库，你的命令会是这个样子：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone username@host:/path/to/repository</span><br></pre></td></tr></table></figure>
-
-<h2 id="如何让git忽略某些文件"><a href="#如何让git忽略某些文件" class="headerlink" title="如何让git忽略某些文件"></a>如何让git忽略某些文件</h2><p>在本地仓库目录新建.gitignore文件并添加以下内容：</p>
+<h2 id="如何让git忽略某些文件">如何让git忽略某些文件</h2>
+<p>在本地仓库目录新建.gitignore文件并添加以下内容：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">obj\</span><br><span class="line">*.so</span><br><span class="line">*.o</span><br><span class="line">*.swp</span><br></pre></td></tr></table></figure>
-
-<p>将会自动忽略目录“obj”，以及<em>.so，</em>.o等类型的文件</p>
-<h2 id="如果你手误了…"><a href="#如果你手误了…" class="headerlink" title="如果你手误了…"></a>如果你手误了…</h2><p>干掉本地的改动, 以服务器上的代码为准:</p>
+<p>将会自动忽略目录“obj”，以及*.so，*.o等类型的文件</p>
+<h2 id="如果你手误了…">如果你手误了…</h2>
+<p>干掉本地的改动, 以服务器上的代码为准:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git fetch origin</span><br><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure>
-
-<h2 id="分支概念"><a href="#分支概念" class="headerlink" title="分支概念"></a>分支概念</h2><p>Git在创建仓储的时候, 默认有一个”master”分支, 可以在”master”上拉出分支, 修改完成后再merge到master上.<br>创建一个叫做“feature_x”的分支，并切换过去：git checkout -b feature_x<br>切换回主分支：git checkout master<br>再把新建的分支删掉：  git branch -d feature_x<br>除非你将分支推送到远端仓库，不然该分支就是不为他人所见的：git push origin <branch><br><img src="http://rogerdudler.github.io/git-guide/img/branches.png" alt=""></branch></p>
+<h2 id="分支概念">分支概念</h2>
+<p>Git在创建仓储的时候, 默认有一个&quot;master&quot;分支, 可以在&quot;master&quot;上拉出分支, 修改完成后再merge到master上.<br>
+创建一个叫做“feature_x”的分支，并切换过去：git checkout -b feature_x<br>
+切换回主分支：git checkout master<br>
+再把新建的分支删掉：  git branch -d feature_x<br>
+除非你将分支推送到远端仓库，不然该分支就是不为他人所见的：git push origin <branch><br>
+<img src="http://rogerdudler.github.io/git-guide/img/branches.png" alt=""></branch></p>
 
       
     </div>
@@ -415,9 +426,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag"># Git</a>
-          
             <a href="/tags/Github/" rel="tag"># Github</a>
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
           
             <a href="/tags/SSH/" rel="tag"># SSH</a>
           
@@ -535,7 +546,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -546,7 +557,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

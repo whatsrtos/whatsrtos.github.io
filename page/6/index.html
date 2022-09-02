@@ -357,21 +357,23 @@
 
       
         
-          <h1 id="值得尝试的新工具"><a href="#值得尝试的新工具" class="headerlink" title="值得尝试的新工具"></a>值得尝试的新工具</h1><ul>
+          <h1>值得尝试的新工具</h1>
+<ul>
 <li>ag: 比grep、ack更快的递归搜索文件内容。</li>
 <li>mycli: mysql客户端，支持语法高亮和命令补全，效果类似ipython，可以替代mysql命令。</li>
 <li>shellcheck: shell脚本静态检查工具，能够识别语法错误以及不规范的写法。</li>
 <li>cloc: 代码统计工具，能够统计代码的空行数、注释行、编程语言。</li>
 </ul>
-<h1 id="VS-Code"><a href="#VS-Code" class="headerlink" title="VS Code"></a>VS Code</h1><ul>
+<h1>VS Code</h1>
+<ul>
 <li>列模式: <code>shift + option + ↕️</code></li>
 <li>快速打开: <code>⌘ + P</code></li>
 <li>连续选中光标所在的单词: <code>⌘ + D</code></li>
 </ul>
-<h1 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h1>
+<h1>Sublime Text</h1>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/未分类技术笔记/Tools-and-IDE/#more" rel="contents">
+            <a class="btn" href="/未分类技术笔记/Tools-and-IDE/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -504,15 +506,16 @@
           <blockquote>
 <p>本文参考自: <a href="http://www.nosqlnotes.com/techpoints/how-to-read-opensource-code/" target="_blank" rel="noopener">Jaison - 阅读开源项目源码的建议姿势</a> @Ref</p>
 </blockquote>
-<h1 id="先选择合适的源码版本"><a href="#先选择合适的源码版本" class="headerlink" title="先选择合适的源码版本"></a>先选择合适的源码版本</h1><p>需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”</p>
+<h1>先选择合适的源码版本</h1>
+<p>需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”</p>
 <ul>
 <li>如果是前者，那完全可以选择最新发布或待发布的稳定版本。</li>
 <li>如果是后者，则需要选择自己业务系统中正在使用的版本。</li>
 </ul>
-<h1 id="快速了解架构和关键特性"><a href="#快速了解架构和关键特性" class="headerlink" title="快速了解架构和关键特性"></a>快速了解架构和关键特性</h1>
+<h1>快速了解架构和关键特性</h1>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/未分类技术笔记/开源项目源代码阅读指北/#more" rel="contents">
+            <a class="btn" href="/未分类技术笔记/开源项目源代码阅读指北/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -643,8 +646,10 @@
       
         
           
-            <h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><ul>
-<li>创建模式:<ul>
+            <h1>分类</h1>
+<ul>
+<li>创建模式:
+<ul>
 <li>抽象工厂模式：抽象工厂模式提供了一个协议来生成一系列的相关或者独立的对象，而不用指定具体对象的类型，如 java.util.Calendar#getInstance()。</li>
 <li>建造模式(Builder)：定义了一个新的类来构建另一个类的实例，以简化复杂对象的创建，如：java.lang.StringBuilder#append()。</li>
 <li>工厂方法：就是 一个返* 回具体对象的方法，而不是多个，如 java.lang.Object#toString()、java.lang.Class#newInstance()。</li>
@@ -652,7 +657,8 @@
 <li>单例模式：全局只有一个实例，如 java.lang.Runtime#getRuntime()。</li>
 </ul>
 </li>
-<li>结构型模式：<ul>
+<li>结构型模式：
+<ul>
 <li>适配器：用来把一个接口转化成另一个接口，如 java.util.Arrays#asList()。</li>
 <li>桥接模式：这个模式将抽象和抽象操作的实现进行了解耦，这样使得抽象和实现可以独立地变化，如JDBC；</li>
 <li>组合模式：使得客户端看来单个对象和对象的组合是同等的。换句话说，某个类型的方法同时也接受自身类型作为参数，如 Map.putAll，List.addAll、Set.addAll。</li>
@@ -661,7 +667,8 @@
 <li>代理模式：代理模式是用一个简单的对象来代替一个复杂的或者创建耗时的对象，如 java.lang.reflect.Proxy</li>
 </ul>
 </li>
-<li>行为模式：<ul>
+<li>行为模式：
+<ul>
 <li>命令模式：将操作封装到对象内，以便存储，传递和返回，如：java.lang.Runnable。</li>
 <li>解释器模式：定义了一个语言的语法，然后解析相应语法的语句，如，java.text.Format，java.text.Normalizer。</li>
 <li>迭代器模式：提供一个一致的方法来顺序访问集合中的对象，如 java.util.Iterator。</li>
@@ -673,144 +680,10 @@
 </ul>
 </li>
 </ul>
-<h1 id="JDK里的设计模式"><a href="#JDK里的设计模式" class="headerlink" title="JDK里的设计模式"></a>JDK里的设计模式</h1><p>@Ref: <a href="http://blog.jobbole.com/62314/" target="_blank" rel="noopener">细数JDK里的设计模式 - 文章 - 伯乐在线</a></p>
+<h1>JDK里的设计模式</h1>
+<p>@Ref: <a href="http://blog.jobbole.com/62314/" target="_blank" rel="noopener">细数JDK里的设计模式 - 文章 - 伯乐在线</a></p>
 
           
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/基础架构/Arch-DB-MySQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/基础架构/Arch-DB-MySQL/" itemprop="url">MySQL</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  8,486
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="/images/Arch-DB-MySQL/Database-MySQL-Title.png" alt></p>
-<h1 id="MySQL基础"><a href="#MySQL基础" class="headerlink" title="MySQL基础"></a>MySQL基础</h1><p>参考:《深入浅出MySQL》</p>
-<h2 id="SCHEMA"><a href="#SCHEMA" class="headerlink" title="SCHEMA"></a>SCHEMA</h2><p><strong>schema</strong> 为数据库对象的集合，schema里面包含了各种对象如tables, views, sequences, 可以视作”数据库”, <code>show database</code>可以看到schema.<br>不同数据库产品的schema概念是不同的:</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/基础架构/Arch-DB-MySQL/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
         
       
     </div>
@@ -936,165 +809,26 @@
 
       
         
-          <h1 id="日志框架简介"><a href="#日志框架简介" class="headerlink" title="日志框架简介"></a>日志框架简介</h1><ul>
+          <h1>日志框架简介</h1>
+<ul>
 <li><code>Commons Logging</code>和<code>SLF4J</code>是java中的 <em>日志门面</em>，即它们提供了一套通用的接口，具体的实现可以由开发者自由选择。</li>
 <li><code>Log4j</code>（以及最新的log4j 2）和<code>Logback</code>则是具体的 <em>日志实现</em> 方案。它们可以理解为接口与实现类的关系</li>
-<li>四个框架都可以在程序中使用，但是为了考虑扩展性，一般我们在程序开发的时候，会选择使用Commons Logging或者SLF4J这些日志门面，而不是直接使用log4j或者Logback这些实现。即我们写代码的时候导入的类一般都是来自门面框架中的类，然后将某个日志的实现框架加入到项目中，提供真正的日志输出功能。<br>如果项目依赖多个库，这些库又使用了不同的日志门面，这种情况可以方便的通过 Adapter 转接到同一个日志实现上；</li>
-<li>比较常用的搭配是:<ol>
+<li>四个框架都可以在程序中使用，但是为了考虑扩展性，一般我们在程序开发的时候，会选择使用Commons Logging或者SLF4J这些日志门面，而不是直接使用log4j或者Logback这些实现。即我们写代码的时候导入的类一般都是来自门面框架中的类，然后将某个日志的实现框架加入到项目中，提供真正的日志输出功能。<br>
+如果项目依赖多个库，这些库又使用了不同的日志门面，这种情况可以方便的通过 Adapter 转接到同一个日志实现上；</li>
+<li>比较常用的搭配是:
+<ol>
 <li>commons-logging + log4j，这是一种比较老但稳妥的组合, 缺点是commons-logging不支持占位符;</li>
 <li>slf4j + logback，slf4j支持占位符, logback性能优于log4j;</li>
 </ol>
 </li>
 </ul>
-<h1 id="日志门面（SLF4J，Commons-Loggings）"><a href="#日志门面（SLF4J，Commons-Loggings）" class="headerlink" title="日志门面（SLF4J，Commons-Loggings）"></a>日志门面（SLF4J，Commons-Loggings）</h1><h2 id="SLF4J"><a href="#SLF4J" class="headerlink" title="SLF4J"></a>SLF4J</h2><p>SLF4J全称为<code>Simple Logging Facade for JAVA</code>，Java简单日志门面。<br>类似于Commons Logging，是对不同日志框架提供的一个门面封装，可以在部署的时候不修改任何配置即可接入一种日志实现方案。</p>
+<h1>日志门面（SLF4J，Commons-Loggings）</h1>
+<h2 id="SLF4J">SLF4J</h2>
+<p>SLF4J全称为<code>Simple Logging Facade for JAVA</code>，Java简单日志门面。<br>
+类似于Commons Logging，是对不同日志框架提供的一个门面封装，可以在部署的时候不修改任何配置即可接入一种日志实现方案。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/Java/JavaEE-Log/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/基础架构/Arch-架构-并发系统-C100K/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/基础架构/Arch-架构-并发系统-C100K/" itemprop="url">高并发系统(C10K, C100K)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2,651
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p><strong>本篇只讨论OS级别的并发优化，不包括语言层面对并发的支持特性</strong></p>
-</blockquote>
-<h1 id="有关Linux系统的限制"><a href="#有关Linux系统的限制" class="headerlink" title="有关Linux系统的限制"></a>有关Linux系统的限制</h1><h2 id="系统最大文件数"><a href="#系统最大文件数" class="headerlink" title="系统最大文件数"></a>系统最大文件数</h2><p>使用<code>ulimit</code>设置最多能打开文件数:</p>
-<ul>
-<li>查看所有的限制: <code>ulimit -a</code></li>
-<li>设置最大打开文件句柄数: <code>ulimit -n 65535</code>, 65535 = 2^16 = 0xFFFF</li>
-<li>设置 <strong>每个用户的</strong> 最大进程数: <code>ulimit -u 32768</code></li>
-<li>设置线程栈的大小: <code>ulimit -s 10240</code></li>
-<li>设置最大线程数数: <code>ulimit -T</code> (在Unix上可能不同)</li>
-<li>设置产生core文件大小: <code>ulimit -c xxx</code></li>
-<li>不限制core的大小: <code>ulimit -c unlimited</code></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/基础架构/Arch-架构-并发系统-C100K/#more" rel="contents">
+            <a class="btn" href="/Java/JavaEE-Log/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1224,14 +958,14 @@
 
       
         
-          <h1 id="h文件"><a href="#h文件" class="headerlink" title="h文件"></a>h文件</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"AnyHeaderFile.h"</span></span></span><br><span class="line">@interface ClassName : SuperClass</span><br><span class="line">&#123;</span><br><span class="line">    @property <span class="keyword">int</span> x; <span class="comment">// @property属性成员, m文件不用自己写getter 和 setter</span></span><br><span class="line">    @property (nonatomic, assign) <span class="keyword">int</span> commentTimeFontSize;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 公有方法</span></span><br><span class="line">+ (<span class="keyword">void</span>) getInstance; <span class="comment">// 静态方法</span></span><br><span class="line">- (type)doItWithA:(type)a;</span><br><span class="line">- (type)doItWithA:(type)a</span><br><span class="line">    ParamB:(type)b</span><br><span class="line">    ParamC:(type)c;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-
-<h1 id="m文件"><a href="#m文件" class="headerlink" title="m文件"></a>m文件</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"YourClassName.h"</span></span></span><br><span class="line">@<span class="function">interface <span class="title">ClassName</span> <span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="comment">// m文件里也可以定义interface</span></span></span><br><span class="line">@end</span><br><span class="line">@implementation ClassName &#123;</span><br><span class="line">    <span class="comment">// define private instance variables</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// implement methods</span></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
-
-<h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1>
+          <h1>h文件</h1>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"AnyHeaderFile.h"</span></span></span><br><span class="line">@interface ClassName : SuperClass</span><br><span class="line">&#123;</span><br><span class="line">    @property <span class="keyword">int</span> x; <span class="comment">// @property属性成员, m文件不用自己写getter 和 setter</span></span><br><span class="line">    @property (nonatomic, assign) <span class="keyword">int</span> commentTimeFontSize;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 公有方法</span></span><br><span class="line">+ (<span class="keyword">void</span>) getInstance; <span class="comment">// 静态方法</span></span><br><span class="line">- (type)doItWithA:(type)a;</span><br><span class="line">- (type)doItWithA:(type)a</span><br><span class="line">    ParamB:(type)b</span><br><span class="line">    ParamC:(type)c;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h1>m文件</h1>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"YourClassName.h"</span></span></span><br><span class="line">@<span class="function">interface <span class="title">ClassName</span> <span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="comment">// m文件里也可以定义interface</span></span></span><br><span class="line">@end</span><br><span class="line">@implementation ClassName &#123;</span><br><span class="line">    <span class="comment">// define private instance variables</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// implement methods</span></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<h1>对象</h1>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/30MinsTutorial/Objective-C Tutorials/#more" rel="contents">
+            <a class="btn" href="/30MinsTutorial/Objective-C Tutorials/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1361,15 +1095,20 @@
 
       
         
-          <h1 id="什么是响应式编程"><a href="#什么是响应式编程" class="headerlink" title="什么是响应式编程"></a>什么是响应式编程</h1><p>响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。<br>例如，在命令式编程环境中， <code>a:=b+c</code>表示将表达式的结果赋给 a，而之后改变 b或 c的值不会影响 a。<br>但在响应式编程中， a的值会随着 b或 c的更新而更新。</p>
+          <h1>什么是响应式编程</h1>
+<p>响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。<br>
+例如，在命令式编程环境中， <code>a:=b+c</code>表示将表达式的结果赋给 a，而之后改变 b或 c的值不会影响 a。<br>
+但在响应式编程中， a的值会随着 b或 c的更新而更新。</p>
 <p>响应式编程最初是为了简化交互式用户界面的创建和实时系统动画的绘制而提出来的一种方法，但它本质上是一种通用的编程范式。例如，在MVC软件架构中，响应式编程允许将相关模型的变化自动反映到视图上，反之亦然。</p>
 <p>响应式编程的三种模型:</p>
 <ol>
-<li>Actor模型, 实现类库:<ul>
+<li>Actor模型, 实现类库:
+<ul>
 <li>AKKA Actor: Actor模型为编写并发和分布式系统提供了一种更高的抽象级别。它将开发人员从显式地处理锁和线程管理的工作中解脱出来，使编写并发和并行系统更加容易。</li>
 </ul>
 </li>
-<li>响应式扩展(reactive extensions, Rx)模型, 实现类库:<ul>
+<li>响应式扩展(reactive extensions, Rx)模型, 实现类库:
+<ul>
 <li>RxJava: Reactive Extensions for Java</li>
 <li>Reactor: Reactor是Pivotal发布的第四代响应式框架，跟RxJava 2有些相似。 Spring WebFlux 以Reactor为基础，实现Web领域的反应式编程框架。</li>
 </ul>
@@ -1378,7 +1117,7 @@
 </ol>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/30MinsTutorial/响应式编程/#more" rel="contents">
+            <a class="btn" href="/30MinsTutorial/响应式编程/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1482,7 +1221,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,365
+                  5,366
                 </span>
               
 
@@ -1508,17 +1247,17 @@
 
       
         
-          <h1 id="变量引用"><a href="#变量引用" class="headerlink" title="变量引用"></a>变量引用</h1><ul>
-<li><code>$ref =&amp; $a</code> : <code>$ref</code>是一个引用, ‘ref’会被增加到符号表, 但不会新建一个zval, 而是<code>$ref</code>和<code>$a</code>指向同一个zval, <code>zval::is_ref</code>变为1, <code>zval::refcount</code>变为2</li>
+          <h1>变量引用</h1>
+<ul>
+<li><code>$ref =&amp; $a</code> : <code>$ref</code>是一个引用, 'ref’会被增加到符号表, 但不会新建一个zval, 而是<code>$ref</code>和<code>$a</code>指向同一个zval, <code>zval::is_ref</code>变为1, <code>zval::refcount</code>变为2</li>
 <li>在函数内引用全局变量:</li>
 </ul>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$var1 = <span class="string">"hello world"</span>;</span><br><span class="line">$var2 = <span class="string">""</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 相当于$var1 =&amp; GLOBALS['var1'], 函数内新建一个本地的引用$var1指向全局变量</span></span><br><span class="line">    <span class="keyword">global</span> $var1,$var2;</span><br><span class="line">    $var2 =&amp; var1; <span class="comment">// 本地的引用$var2重新被指向</span></span><br><span class="line">&#125;</span><br><span class="line">f();</span><br><span class="line">var_dump($var2); <span class="comment">// var2仍然是空字串</span></span><br></pre></td></tr></table></figure>
-
 <p>下面的代码不会改变$bar的值:</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">(&amp;ref)</span> </span>&#123; <span class="comment">// 新建本地引用变量$ref, 指向$bar</span></span><br><span class="line">    $ref =&amp; GLOBALS[<span class="string">'xxx'</span>]; <span class="comment">// $ref被重新指向</span></span><br><span class="line">&#125;</span><br><span class="line">f($bar);</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/30MinsTutorial/PHP Tutorials/#more" rel="contents">
+            <a class="btn" href="/30MinsTutorial/PHP Tutorials/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1648,11 +1387,341 @@
 
       
         
-          <h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><h2 id="setting-xml"><a href="#setting-xml" class="headerlink" title="setting.xml"></a>setting.xml</h2><p>@Ref <a href="https://maven.apache.org/settings.html" target="_blank" rel="noopener">https://maven.apache.org/settings.html</a><br>默认配置文件在<code>~/.m2/settings.xml</code>, <code>命令mvn -X</code>可以查看正在使用哪个Setting.xml, 以及xml文件中的配置参数.<br>国内的mirrors和repositories基本都不可用, 所以直接使用central repositories(<a href="http://repo1.maven.org/maven2)并且设置proxy" target="_blank" rel="noopener">http://repo1.maven.org/maven2)并且设置proxy</a>.</p>
-<h2 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h2><p>@Ref <a href="https://maven.apache.org/pom.html" target="_blank" rel="noopener">https://maven.apache.org/pom.html</a><br>见下面的 #一个POM</p>
+          <h1>Maven</h1>
+<h2 id="setting-xml">setting.xml</h2>
+<p>@Ref <a href="https://maven.apache.org/settings.html" target="_blank" rel="noopener">https://maven.apache.org/settings.html</a><br>
+默认配置文件在<code>~/.m2/settings.xml</code>, <code>命令mvn -X</code>可以查看正在使用哪个Setting.xml, 以及xml文件中的配置参数.<br>
+国内的mirrors和repositories基本都不可用, 所以直接使用central repositories(<a href="http://repo1.maven.org/maven2" target="_blank" rel="noopener">http://repo1.maven.org/maven2</a>)并且设置proxy.</p>
+<h2 id="pom-xml">pom.xml</h2>
+<p>@Ref <a href="https://maven.apache.org/pom.html" target="_blank" rel="noopener">https://maven.apache.org/pom.html</a><br>
+见下面的 #一个POM</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/Java/JavaEE-Tools_Building/#more" rel="contents">
+            <a class="btn" href="/Java/JavaEE-Tools_Building/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/Java/JavaEE-Tools_Testing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Java/JavaEE-Tools_Testing/" itemprop="url">Java测试工具（JUnit）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  153
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>JUnit</h1>
+<h2 id="How-to">How to</h2>
+<ul>
+<li>
+<p>maven 顶层POM文件增加JUnit依赖,</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">         &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">         &lt;version&gt;3.8.1&lt;/version&gt;</span><br><span class="line">         &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"> &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>IDEA, 右键项目, maven -&gt; reimport</p>
+</li>
+<li>
+<p>在src下, 创建一个test目录, 与main同级</p>
+</li>
+<li>
+<p>右键这个test目录, “Mark Directory as”  -&gt; “Test Resources Root”</p>
+</li>
+<li>
+<p>选中要测试的类, cmd+shift+T, 创建Test类 （Junit3是继承TestCase, Junit4是基于<code>@Test</code>注解）</p>
+</li>
+<li>
+<p>Junit提供的断言:</p>
+<ul>
+<li>assertEquals</li>
+<li>assertNull</li>
+</ul>
+</li>
+</ul>
+<h2 id="用Junit4测试Spring项目">用Junit4测试Spring项目</h2>
+<p>同样创建测试类, 测试类要加上如下注解:</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Java/JavaEE-Tools_Testing/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/Linux/Linux-Performance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Linux/Linux-Performance/" itemprop="url">Linux性能分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,732
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><img src="/images/Linux-Performance/Linux-Series-Title.png" alt></p>
+<h1>@TLDR</h1>
+<ul>
+<li><strong>cpu</strong>:
+<ul>
+<li>uptime 查看load值, 不高于core数, <code>sar -q</code>也可以查看load值</li>
+<li>vmstat: 关注r(同load), 和b(等待资源的进程数), 以及cpu占用(用户进程和内核进程)时间百分比: us%不超过50%, us% + sy%不超过80%</li>
+<li>sar也可以查看us% sy%占用CPU时间百分比</li>
+</ul>
+</li>
+<li><strong>内存</strong>:
+<ul>
+<li>free: 可用内存小于20%需要关注, <code>sar -r</code>类似</li>
+<li>vmstat的si和so: 一般不应该大于0, <code>sar -W</code>也可以查看交换区</li>
+</ul>
+</li>
+<li><strong>I/O</strong>:
+<ul>
+<li>vmstat: 需关注wa(IO等待占用CPU百分比): 大于30%时需关注, bi/bo也需要关注(阈值?)</li>
+<li>iowait: sar也可以查看iowait%</li>
+</ul>
+</li>
+<li><strong>网络</strong>:
+<ul>
+<li>netstat -antp : 查看所有tcp连接</li>
+<li>iperf: 吞吐量(Throughput) , 大约为网卡最大速率的一半</li>
+</ul>
+</li>
+</ul>
+<h1>基础性能参数</h1>
+<h2 id="load">load</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Linux/Linux-Performance/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1694,7 +1763,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1744,7 +1813,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1755,7 +1824,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>

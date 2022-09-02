@@ -115,19 +115,19 @@
 
 
 
-<meta name="description" content="安装 &amp;amp; 启动 安装 yum install -y docker  装完之后需要在 /etc/docker/daemon.json 修改image注册地址 &amp;amp; 存储目录 &amp;#123;  &amp;quot;insecure-registries&amp;quot; : [&amp;quot;registry.xxx.com&amp;quot;]  &amp;quot;graph&amp;quot;: &amp;quot;/data0/">
+<meta name="description" content="安装 &amp;amp; 启动  安装    yum install -y docker  装完之后需要在 /etc/docker/daemon.json 修改image注册地址 &amp;amp; 存储目录">
 <meta name="keywords" content="后端架构,容器化,Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
 <meta property="og:url" content="https://whatsrtos.github.io/后端架构/Arch-容器-Docker/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="安装 &amp;amp; 启动 安装 yum install -y docker  装完之后需要在 /etc/docker/daemon.json 修改image注册地址 &amp;amp; 存储目录 &amp;#123;  &amp;quot;insecure-registries&amp;quot; : [&amp;quot;registry.xxx.com&amp;quot;]  &amp;quot;graph&amp;quot;: &amp;quot;/data0/">
+<meta property="og:description" content="安装 &amp;amp; 启动  安装    yum install -y docker  装完之后需要在 /etc/docker/daemon.json 修改image注册地址 &amp;amp; 存储目录">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/2000px-Docker_%28container_engine%29_logo.svg.png">
 <meta property="og:updated_time" content="2021-03-07T02:36:05.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker">
-<meta name="twitter:description" content="安装 &amp;amp; 启动 安装 yum install -y docker  装完之后需要在 /etc/docker/daemon.json 修改image注册地址 &amp;amp; 存储目录 &amp;#123;  &amp;quot;insecure-registries&amp;quot; : [&amp;quot;registry.xxx.com&amp;quot;]  &amp;quot;graph&amp;quot;: &amp;quot;/data0/">
+<meta name="twitter:description" content="安装 &amp;amp; 启动  安装    yum install -y docker  装完之后需要在 /etc/docker/daemon.json 修改image注册地址 &amp;amp; 存储目录">
 <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/2000px-Docker_%28container_engine%29_logo.svg.png">
 
 
@@ -358,19 +358,22 @@
 
       
         <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/2000px-Docker_%28container_engine%29_logo.svg.png" alt="Docker"></p>
-<h1 id="安装-amp-启动"><a href="#安装-amp-启动" class="headerlink" title="安装 &amp; 启动"></a>安装 &amp; 启动</h1><ol>
-<li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y docker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>装完之后需要在 /etc/docker/daemon.json 修改image注册地址 &amp; 存储目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;insecure-registries&quot; : [&quot;registry.xxx.com&quot;]</span><br><span class="line">  &quot;graph&quot;: &quot;/data0/docker&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后启动 dockerd:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl enable docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-
-</li>
+<h1>安装 &amp; 启动</h1>
+<ol>
+<li>安装</li>
 </ol>
-<h1 id="Docker命令参考"><a href="#Docker命令参考" class="headerlink" title="Docker命令参考"></a>Docker命令参考</h1><h2 id="命令概览"><a href="#命令概览" class="headerlink" title="命令概览"></a>命令概览</h2><ul>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y docker</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>装完之后需要在 /etc/docker/daemon.json 修改image注册地址 &amp; 存储目录</li>
+</ol>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;insecure-registries&quot; : [&quot;registry.xxx.com&quot;]</span><br><span class="line">  &quot;graph&quot;: &quot;/data0/docker&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>然后启动 dockerd:</li>
+</ol>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">systemctl enable docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+<h1>Docker命令参考</h1>
+<h2 id="命令概览">命令概览</h2>
+<ul>
 <li>容器生命周期管理 — docker [run|start|stop|restart|kill|rm|pause|unpause]</li>
 <li>容器操作运维 — docker [ps|inspect|top|attach|events|logs|wait|export|port]</li>
 <li>容器rootfs命令 — docker [commit|cp|diff]</li>
@@ -379,20 +382,25 @@
 <li>其他命令 — docker [info|version]</li>
 </ul>
 <p>参考: <a href="http://www.runoob.com/docker/docker-command-manual.html" target="_blank" rel="noopener">Docker 命令大全</a> @Ref</p>
-<h2 id="pull镜像"><a href="#pull镜像" class="headerlink" title="pull镜像"></a>pull镜像</h2><p>获取镜像: <code>docker pull [选项] [Docker Registry地址]&lt;仓库名&gt;:&lt;标签&gt;</code></p>
+<h2 id="pull镜像">pull镜像</h2>
+<p>获取镜像: <code>docker pull [选项] [Docker Registry地址]&lt;仓库名&gt;:&lt;标签&gt;</code></p>
 <blockquote>
 <p>可能需要先执行 <code>docker login</code></p>
 </blockquote>
-<h2 id="管理本地镜像"><a href="#管理本地镜像" class="headerlink" title="管理本地镜像"></a>管理本地镜像</h2><ul>
-<li>列出已经下载下来的镜像: <code>docker images -a</code> # 列表包含了仓库名(REPOSITORY)、标签(TAG)、镜像ID(IMAGE ID)、创建时间以及所占用的空间<ul>
-<li>无标签的镜像很多都是”中间层镜像”</li>
+<h2 id="管理本地镜像">管理本地镜像</h2>
+<ul>
+<li>列出已经下载下来的镜像: <code>docker images -a</code> # 列表包含了仓库名(REPOSITORY)、标签(TAG)、镜像ID(IMAGE ID)、创建时间以及所占用的空间
+<ul>
+<li>无标签的镜像很多都是&quot;中间层镜像&quot;</li>
 <li>根据仓库名列出镜像: <code>docker images 仓库名</code></li>
 </ul>
 </li>
 <li>删除镜像: <code>docker rmi 仓库:Tag</code></li>
 </ul>
-<h2 id="运行镜像"><a href="#运行镜像" class="headerlink" title="运行镜像"></a>运行镜像</h2><ul>
-<li><code>docker run --name webserver -d -p 80:80 repoName:tag</code> # 启动镜像<ul>
+<h2 id="运行镜像">运行镜像</h2>
+<ul>
+<li><code>docker run --name webserver -d -p 80:80 repoName:tag</code> # 启动镜像
+<ul>
 <li>-p host_port:container_port # 端口映射</li>
 <li>-v host_path:container_path # 绑定主机目录到…</li>
 <li>-d  #容器在后台运行, 并不立即进入容器终端</li>
@@ -402,27 +410,33 @@
 </li>
 </ul>
 <blockquote>
-<p>示例:<br><code>docker run -d repoName:tag -v /localDir:/containerPath</code>: 启动容器, 并设置目录挂载<br><code>docker run -d repoName:tag -it</code>: 启动容器, 并进入一个交互的终端</p>
+<p>示例:<br>
+<code>docker run -d repoName:tag -v /localDir:/containerPath</code>: 启动容器, 并设置目录挂载<br>
+<code>docker run -d repoName:tag -it</code>: 启动容器, 并进入一个交互的终端</p>
 </blockquote>
-<h2 id="登录-退出容器"><a href="#登录-退出容器" class="headerlink" title="登录/退出容器"></a>登录/退出容器</h2><ul>
+<h2 id="登录-退出容器">登录/退出容器</h2>
+<ul>
 <li><code>docker exec -it 容器ID /bin/bash</code> : 进入镜像的bash命令行, <code>-i</code>保持STDIN 打开, <code>-t</code>分配一个伪终端</li>
 <li><code>docker attach 容器ID</code>: 如果<code>docker run -d</code>在后台运行的镜像, 需要这样连接上容器</li>
 <li><code>exit</code> 退出容器</li>
 </ul>
-<h2 id="镜像修改和提交"><a href="#镜像修改和提交" class="headerlink" title="镜像修改和提交"></a>镜像修改和提交</h2><p><code>docker attach</code> or <code>docker exec -it</code> 进入容器后, 可以对正在运行的镜像进行修改,</p>
+<h2 id="镜像修改和提交">镜像修改和提交</h2>
+<p><code>docker attach</code> or <code>docker exec -it</code> 进入容器后, 可以对正在运行的镜像进行修改,</p>
 <ul>
 <li><code>docker cp /Users/xx/xxx/ 容器ID:/tmp</code> : 本地文件拷贝到docker 容器内</li>
 </ul>
-<p>然后 <code>exit</code> 退出 ..</p>
+<p>然后 <code>exit</code> 退出 …</p>
 <ul>
 <li><code>docker diff</code> # 显示对 docker 镜像做了哪些修改</li>
 <li><code>docker commit --author &quot;xx&quot; --message &quot;xxx&quot; webserver 仓库名:TAG</code> # 提交修改到镜像仓库</li>
 <li><code>docker history 仓库名:TAG</code> # 列出改动历史</li>
 <li><code>docker push 仓库名:TAG</code> # 上传</li>
 </ul>
-<h2 id="管理容器"><a href="#管理容器" class="headerlink" title="管理容器"></a>管理容器</h2><p>运行镜像之后:</p>
+<h2 id="管理容器">管理容器</h2>
+<p>运行镜像之后:</p>
 <ul>
-<li><code>docker ps -a</code>: 列出容器(不是镜像!)<ul>
+<li><code>docker ps -a</code>: 列出容器(不是镜像!)
+<ul>
 <li>列出正在运行的 容器ID(CONTAINER ID), 镜像(IMAGE), 状态(STATUS)</li>
 </ul>
 </li>
@@ -432,25 +446,29 @@
 <li><code>docker restart 容器ID</code> : 重启</li>
 <li><code>docker rm 容器ID</code>: 删除容器, 如果加了<code>-f</code>参数则是直接发送SIGKILL</li>
 </ul>
-<h2 id="容器日志"><a href="#容器日志" class="headerlink" title="容器日志"></a>容器日志</h2><ul>
+<h2 id="容器日志">容器日志</h2>
+<ul>
 <li><code>docker logs -f 容器ID</code>: 查看log, 类似tailf</li>
 <li><code>docker logs --since 30m CONTAINER_ID</code> : 查看近30分钟的日志</li>
 </ul>
-<h1 id="创建镜像-amp-编译镜像"><a href="#创建镜像-amp-编译镜像" class="headerlink" title="创建镜像 &amp; 编译镜像"></a>创建镜像 &amp; 编译镜像</h1><ul>
+<h1>创建镜像 &amp; 编译镜像</h1>
+<ul>
 <li>准备Dockerfile</li>
-<li>执行: <code>docker build --build-arg xArg1=$ARG1 --build-arg xArg2=$ARG2</code><ul>
+<li>执行: <code>docker build --build-arg xArg1=$ARG1 --build-arg xArg2=$ARG2</code>
+<ul>
 <li><code>--build-arg xArg1=$ARG1</code>: 把外界参数传入Dockerfile, 在Dockerfile里可以<code>$xArg1</code>取到</li>
 </ul>
 </li>
 </ul>
-<h2 id="Dockerfile-说明"><a href="#Dockerfile-说明" class="headerlink" title="Dockerfile 说明"></a>Dockerfile 说明</h2><p>Example:</p>
+<h2 id="Dockerfile-说明">Dockerfile 说明</h2>
+<p>Example:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM xxx.com/REPOSITORY:latest</span><br><span class="line"></span><br><span class="line">RUN mkdir -p /data/remotedump-controller</span><br><span class="line"></span><br><span class="line">COPY remotedump-controller/* /data/remotedump-controller</span><br><span class="line">RUN ls -la /home/oicq/remotedump-controller/*</span><br><span class="line"></span><br><span class="line"># 创建两个ARG变量, 只在dockerfile内有效</span><br><span class="line">ARG xArg1=x</span><br><span class="line">ARG xArg2=x</span><br><span class="line"></span><br><span class="line"># ENV创建的变量可以在docker运行环境使用</span><br><span class="line">ENV COS_SecretId=$xArg1</span><br><span class="line">ENV COS_SecretKey=$xArg2</span><br><span class="line"></span><br><span class="line">COPY remotedump-controller/start.sh /etc/kickStart.d/</span><br><span class="line">RUN chmod +x /etc/kickStart.d/start.sh</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>参考: <a href="https://docs.docker.com/engine/reference/builder/" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder/</a>:</p>
 </blockquote>
 <ul>
-<li>Dockerfile 中每一个指令都会建立一层, 新建立一层, 在其上执行这些命令, 执行结束后, commit 这一层的修改, 构成新的镜像.<ul>
+<li>Dockerfile 中每一个指令都会建立一层, 新建立一层, 在其上执行这些命令, 执行结束后, commit 这一层的修改, 构成新的镜像.
+<ul>
 <li>Union FS 是有最大层数限制的, 比如 AUFS, 曾经是最大不得超过 42 层, 现在是不得超过 127 层.</li>
 </ul>
 </li>
@@ -461,15 +479,18 @@
 <li>COPY: <code>COPY ./package.json /app/</code> # 拷贝资源</li>
 <li>ADD 类似COPY, 但ADD更高级, 源地址可以是URL</li>
 <li>EXPOSE: <code>EXPOSE 3306</code> 声明镜像的3306端口要暴露给外面, 仅仅是声明, 真正映射还是在<code>docker run -p 宿主端口:容器端口</code></li>
-<li>CMD:<ul>
+<li>CMD:
+<ul>
 <li><code>CMD [&quot;sh&quot;, &quot;-c&quot;, &quot;echo $HOME&quot;]</code> : 执行sh, 执行完后sh会退出, 容器也退出了</li>
 <li><code>CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]</code> : CMD的可执行程序必须在前台执行! 否则容器自动退出</li>
 </ul>
 </li>
 <li>ENTRYPOINT: <code>ENTRYPOINT command param1 param2</code></li>
 </ul>
-<h2 id="docker-build"><a href="#docker-build" class="headerlink" title="docker build"></a>docker build</h2><ul>
-<li>编译命令:  <code>docker build --build-arg env=${env} -t repository_name:tag_name -f Dockerfile .</code><ul>
+<h2 id="docker-build">docker build</h2>
+<ul>
+<li>编译命令:  <code>docker build --build-arg env=${env} -t repository_name:tag_name -f Dockerfile . </code>
+<ul>
 <li>注: 最后的<code>.</code>和<code>tar cvzf xxx.tar.gz .</code>类似, 表示打包哪个目录</li>
 <li><code>--build-arg k=v</code>会把参数传入dockerfile, 在dockerfile里</li>
 <li><code>-t repository_name:tag_name</code>: 冒号前面部分是仓库名, 后面是TAG</li>
@@ -477,7 +498,8 @@
 </li>
 <li>删除镜像: <code>docker rm IMAGE_ID</code>, 或者 <code>docker rmi repository_name:tag_name</code>注意这样会删除该tag下所有镜像</li>
 </ul>
-<h1 id="核心技术与实现原理"><a href="#核心技术与实现原理" class="headerlink" title="核心技术与实现原理"></a>核心技术与实现原理</h1><p>参考:</p>
+<h1>核心技术与实现原理</h1>
+<p>参考:</p>
 <ul>
 <li><a href="https://draveness.me/docker" target="_blank" rel="noopener">Docker 核心技术与实现原理</a></li>
 </ul>
@@ -618,7 +640,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -629,7 +651,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -695,7 +717,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-amp-启动"><span class="nav-text">安装 &amp; 启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker命令参考"><span class="nav-text">Docker命令参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令概览"><span class="nav-text">命令概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pull镜像"><span class="nav-text">pull镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理本地镜像"><span class="nav-text">管理本地镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行镜像"><span class="nav-text">运行镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录-退出容器"><span class="nav-text">登录/退出容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#镜像修改和提交"><span class="nav-text">镜像修改和提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理容器"><span class="nav-text">管理容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器日志"><span class="nav-text">容器日志</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建镜像-amp-编译镜像"><span class="nav-text">创建镜像 &amp; 编译镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockerfile-说明"><span class="nav-text">Dockerfile 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-build"><span class="nav-text">docker build</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#核心技术与实现原理"><span class="nav-text">核心技术与实现原理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">安装 &amp; 启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Docker命令参考</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令概览"><span class="nav-text">命令概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pull镜像"><span class="nav-text">pull镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理本地镜像"><span class="nav-text">管理本地镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行镜像"><span class="nav-text">运行镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录-退出容器"><span class="nav-text">登录/退出容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#镜像修改和提交"><span class="nav-text">镜像修改和提交</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理容器"><span class="nav-text">管理容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#容器日志"><span class="nav-text">容器日志</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">创建镜像 &amp; 编译镜像</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockerfile-说明"><span class="nav-text">Dockerfile 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-build"><span class="nav-text">docker build</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">核心技术与实现原理</span></a></li></ol></div>
             
 
           </div>

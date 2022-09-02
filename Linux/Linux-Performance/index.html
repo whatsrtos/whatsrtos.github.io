@@ -115,13 +115,13 @@
 
 
 
-<meta name="description" content="@TLDR cpu: uptime 查看load值, 不高于core数, sar -q也可以查看load值 vmstat: 关注r(同load), 和b(等待资源的进程数), 以及cpu占用(用户进程和内核进程)时间百分比: us%不超过50%, us% + sy%不超过80% sar也可以查看us% sy%占用CPU时间百分比   内存: free: 可用内存小于20%需要关注, sar -r">
+<meta name="description" content="@TLDR  cpu:  uptime 查看load值, 不高于core数, sar -q也可以查看load值 vmstat: 关注r(同load), 和b(等待资源的进程数), 以及cpu占用(用户进程和内核进程)时间百分比: us%不超过50%, us% + sy%不超过80% sar也可以查看us% sy%占用CPU时间百分比   内存:  free: 可用内存小于20%需要关注, sar">
 <meta name="keywords" content="Linux,命令行,后端技术,系统性能分析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux性能分析">
 <meta property="og:url" content="https://whatsrtos.github.io/Linux/Linux-Performance/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="@TLDR cpu: uptime 查看load值, 不高于core数, sar -q也可以查看load值 vmstat: 关注r(同load), 和b(等待资源的进程数), 以及cpu占用(用户进程和内核进程)时间百分比: us%不超过50%, us% + sy%不超过80% sar也可以查看us% sy%占用CPU时间百分比   内存: free: 可用内存小于20%需要关注, sar -r">
+<meta property="og:description" content="@TLDR  cpu:  uptime 查看load值, 不高于core数, sar -q也可以查看load值 vmstat: 关注r(同load), 和b(等待资源的进程数), 以及cpu占用(用户进程和内核进程)时间百分比: us%不超过50%, us% + sy%不超过80% sar也可以查看us% sy%占用CPU时间百分比   内存:  free: 可用内存小于20%需要关注, sar">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://whatsrtos.github.io/images/Linux-Performance/Linux-Series-Title.png">
 <meta property="og:image" content="https://whatsrtos.github.io/images/Linux-Performance/linux-load-uptime.png">
@@ -131,7 +131,7 @@
 <meta property="og:updated_time" content="2020-06-26T14:08:32.408Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux性能分析">
-<meta name="twitter:description" content="@TLDR cpu: uptime 查看load值, 不高于core数, sar -q也可以查看load值 vmstat: 关注r(同load), 和b(等待资源的进程数), 以及cpu占用(用户进程和内核进程)时间百分比: us%不超过50%, us% + sy%不超过80% sar也可以查看us% sy%占用CPU时间百分比   内存: free: 可用内存小于20%需要关注, sar -r">
+<meta name="twitter:description" content="@TLDR  cpu:  uptime 查看load值, 不高于core数, sar -q也可以查看load值 vmstat: 关注r(同load), 和b(等待资源的进程数), 以及cpu占用(用户进程和内核进程)时间百分比: us%不超过50%, us% + sy%不超过80% sar也可以查看us% sy%占用CPU时间百分比   内存:  free: 可用内存小于20%需要关注, sar">
 <meta name="twitter:image" content="https://whatsrtos.github.io/images/Linux-Performance/Linux-Series-Title.png">
 
 
@@ -362,38 +362,47 @@
 
       
         <p><img src="/images/Linux-Performance/Linux-Series-Title.png" alt=""></p>
-<h1 id="TLDR"><a href="#TLDR" class="headerlink" title="@TLDR"></a>@TLDR</h1><ul>
-<li><strong>cpu</strong>:<ul>
+<h1>@TLDR</h1>
+<ul>
+<li><strong>cpu</strong>:
+<ul>
 <li>uptime 查看load值, 不高于core数, <code>sar -q</code>也可以查看load值</li>
 <li>vmstat: 关注r(同load), 和b(等待资源的进程数), 以及cpu占用(用户进程和内核进程)时间百分比: us%不超过50%, us% + sy%不超过80%</li>
 <li>sar也可以查看us% sy%占用CPU时间百分比</li>
 </ul>
 </li>
-<li><strong>内存</strong>:<ul>
+<li><strong>内存</strong>:
+<ul>
 <li>free: 可用内存小于20%需要关注, <code>sar -r</code>类似</li>
 <li>vmstat的si和so: 一般不应该大于0, <code>sar -W</code>也可以查看交换区</li>
 </ul>
 </li>
-<li><strong>I/O</strong>:<ul>
+<li><strong>I/O</strong>:
+<ul>
 <li>vmstat: 需关注wa(IO等待占用CPU百分比): 大于30%时需关注, bi/bo也需要关注(阈值?)</li>
 <li>iowait: sar也可以查看iowait%</li>
 </ul>
 </li>
-<li><strong>网络</strong>:<ul>
+<li><strong>网络</strong>:
+<ul>
 <li>netstat -antp : 查看所有tcp连接</li>
 <li>iperf: 吞吐量(Throughput) , 大约为网卡最大速率的一半</li>
 </ul>
 </li>
 </ul>
-<h1 id="基础性能参数"><a href="#基础性能参数" class="headerlink" title="基础性能参数"></a>基础性能参数</h1><h2 id="load"><a href="#load" class="headerlink" title="load"></a>load</h2><p>一个类比说明load值: 如果CPU每分钟最多处理100个进程，那么系统负荷0.2，意味着CPU在这1分钟里只处理20个进程</p>
-<h3 id="cat-proc-cpuinfo"><a href="#cat-proc-cpuinfo" class="headerlink" title="cat /proc/cpuinfo"></a>cat /proc/cpuinfo</h3><p>一个物理封装的CPU（通过<code>physical id</code>区分判断）, 可以有多个”核心”（通过<code>core id</code>区分判断）, 每个核可以有多个”逻辑cpu”（通过<code>processor</code>区分判断）</p>
+<h1>基础性能参数</h1>
+<h2 id="load">load</h2>
+<p>一个类比说明load值: 如果CPU每分钟最多处理100个进程，那么系统负荷0.2，意味着CPU在这1分钟里只处理20个进程</p>
+<h3 id="cat-proc-cpuinfo">cat /proc/cpuinfo</h3>
+<p>一个物理封装的CPU（通过<code>physical id</code>区分判断）, 可以有多个&quot;核心&quot;（通过<code>core id</code>区分判断）, 每个核可以有多个&quot;逻辑cpu&quot;（通过<code>processor</code>区分判断）</p>
 <ul>
 <li>物理Cpu数: <code>cat /proc/cpuinfo | grep &quot;physical id&quot; | sort -u |wc -l</code> 输出2</li>
 <li>核心数: <code>cat /proc/cpuinfo | grep &quot;core id&quot; | sort -u |wc -l</code> 输出8</li>
 <li>逻辑Cpu数: <code>cat /proc/cpuinfo | grep &quot;processor&quot; | sort -u | wc -l</code>  输出32</li>
 </ul>
-<h3 id="uptime"><a href="#uptime" class="headerlink" title="uptime"></a>uptime</h3><ul>
-<li>uptime返回1/5/15分钟内的load值(进程队列的长度), 对于单核cpu, load值在1.0以下可以接受, 对于多核CPU, load值要除以”核心数”</li>
+<h3 id="uptime">uptime</h3>
+<ul>
+<li>uptime返回1/5/15分钟内的load值(进程队列的长度), 对于单核cpu, load值在1.0以下可以接受, 对于多核CPU, load值要除以&quot;核心数&quot;</li>
 <li>多核CPU的话, 满负荷状态的数字为 “1.00 * CPU核数”, 这里的CPU核数是<code>processor</code>的数量,</li>
 <li>某台服务器举例: 2个物理CPU, 每个物理CPU包括8个Core, 每个Core包括4个Processor(HT超线程),</li>
 <li>以上参考<a href="http://blog.scoutapp.com/articles/2009/07/31/understanding-load-averages" target="_blank" rel="noopener">Understanding Linux CPU Load - when should you be worried?</a> @Ref</li>
@@ -403,36 +412,48 @@
 <blockquote>
 <p>load值走高也不一定就是cpu资源紧张导致的, 还需要结合<code>vmstat</code>, <code>iostat</code>工具进行确认和判断是cpu不足还是磁盘IO问题又或者是内存不足导致.</p>
 </blockquote>
-<h2 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h2><ul>
+<h2 id="ps">ps</h2>
+<ul>
 <li><code>ps -ef</code> : e参数列出所有(用户)的进程, f列出PPID;</li>
-<li><code>ps aux</code> : 能显示出更多的线程信息, 比如”VSZ”,”RSS”,”TTY”,”STAT”.</li>
+<li><code>ps aux</code> : 能显示出更多的线程信息, 比如&quot;VSZ&quot;,“RSS”,“TTY”,“STAT”.</li>
 <li><code>ps -l</code> : 列出进程优先级(PRI), Nice值(NI),内存占用(SZ)</li>
 <li><code>ps -T -p &lt;pid&gt;</code> : 查看进程的所有线程</li>
 </ul>
-<h3 id="ps-aux"><a href="#ps-aux" class="headerlink" title="ps aux"></a>ps aux</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">USER               PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND</span><br><span class="line">root                47   0.0  0.0  2502056   1700   ??  Ss   一09上午   0:11.65 /usr/libexec/kextd</span><br><span class="line">root                45   0.0  0.2  2503976   6576   ??  Ss   一09上午   0:29.45 /usr/libexec/UserEventAgent (System)</span><br><span class="line">root                44   0.0  0.0  2472460   1204   ??  Ss   一09上午   0:32.91 /usr/sbin/syslogd</span><br><span class="line">beefymiracle       424  98.7  0.1  2507128   4764   ??  R    一09上午 1762:56.80 /System/Library/PrivateFrameworks/ParsecUI.framework/Versions/A/Support/SpotlightNetHelper.app/Contents/MacOS/SpotlightNetHelper</span><br></pre></td></tr></table></figure>
-
-<h4 id="VSZ"><a href="#VSZ" class="headerlink" title="VSZ"></a>VSZ</h4><p>KB, virtual memory size, Device mappings are currently excluded;</p>
-<h4 id="RSS"><a href="#RSS" class="headerlink" title="RSS"></a>RSS</h4><p>KB, resident set size, 一般作为实际占用内存大小,<br>包括程序二进制映像(binary image), Heap/Stack实际使用(系统为进程分配的堆和栈, 不一定完全用掉), 共享区(shared Library, 也即Memory Mapping)实际使用的空间;</p>
-<h4 id="区分VSZ-RSS-SZ"><a href="#区分VSZ-RSS-SZ" class="headerlink" title="区分VSZ,RSS,SZ"></a>区分VSZ,RSS,SZ</h4><p><a href="http://stackoverflow.com/questions/7880784/what-is-rss-and-vsz-in-linux-memory-management" target="_blank" rel="noopener">http://stackoverflow.com/questions/7880784/what-is-rss-and-vsz-in-linux-memory-management</a></p>
-<h4 id="STAT"><a href="#STAT" class="headerlink" title="STAT"></a>STAT</h4><p>R/S/D/T/Z/X : <a href="http://askubuntu.com/questions/360252/what-do-the-stat-column-values-in-ps-mean" target="_blank" rel="noopener">http://askubuntu.com/questions/360252/what-do-the-stat-column-values-in-ps-mean</a></p>
-<h3 id="ps-el"><a href="#ps-el" class="headerlink" title="ps -el"></a>ps -el</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UID   PID  PPID        F CPU PRI NI       SZ    RSS WCHAN     S             ADDR TTY           TIME CMD</span><br><span class="line">  0     1     0     4004   0  37  0  2478772   7372 -      Ss                  0 ??         3:01.68 /sbin/launchd</span><br><span class="line">  0    44     1     4004   0   4  0  2474032   1228 -      Ss                  0 ??         0:32.87 /usr/sbin/syslogd</span><br><span class="line">501   424     1     4004   0   4  0  2506604   4952 -      R                   0 ??       1757:31.24 /System/Library/PrivateFrameworks/ParsecUI.framework/Versions/A/Support/SpotlightNetHelper.app/Contents/MacOS/SpotlightNetHelper</span><br></pre></td></tr></table></figure>
-
-<h4 id="SZ"><a href="#SZ" class="headerlink" title="SZ"></a>SZ</h4><p>size in physical pages of the core image of the process. This includes text, data, and stack space. Device mappings are currently excluded</p>
-<h4 id="PRI-优先级"><a href="#PRI-优先级" class="headerlink" title="PRI 优先级"></a>PRI 优先级</h4><p>PRI表示线程优先级(数值越小越先执行), 优先级的范围是[0, MAX_PRIO-1], <code>MAX_PRIO</code> 的值一般为140.</p>
-<h4 id="NI-修正优先级"><a href="#NI-修正优先级" class="headerlink" title="NI 修正优先级"></a>NI 修正优先级</h4><ul>
+<h3 id="ps-aux">ps aux</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">USER               PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND</span><br><span class="line">root                47   0.0  0.0  2502056   1700   ??  Ss   一09上午   0:11.65 /usr/libexec/kextd</span><br><span class="line">root                45   0.0  0.2  2503976   6576   ??  Ss   一09上午   0:29.45 /usr/libexec/UserEventAgent (System)</span><br><span class="line">root                44   0.0  0.0  2472460   1204   ??  Ss   一09上午   0:32.91 /usr/sbin/syslogd</span><br><span class="line">beefymiracle       424  98.7  0.1  2507128   4764   ??  R    一09上午 1762:56.80 /System/Library/PrivateFrameworks/ParsecUI.framework/Versions/A/Support/SpotlightNetHelper.app/Contents/MacOS/SpotlightNetHelper</span><br></pre></td></tr></table></figure>
+<h4 id="VSZ">VSZ</h4>
+<p>KB, virtual memory size, Device mappings are currently excluded;</p>
+<h4 id="RSS">RSS</h4>
+<p>KB, resident set size, 一般作为实际占用内存大小,<br>
+包括程序二进制映像(binary image), Heap/Stack实际使用(系统为进程分配的堆和栈, 不一定完全用掉), 共享区(shared Library, 也即Memory Mapping)实际使用的空间;</p>
+<h4 id="区分VSZ-RSS-SZ">区分VSZ,RSS,SZ</h4>
+<p><a href="http://stackoverflow.com/questions/7880784/what-is-rss-and-vsz-in-linux-memory-management" target="_blank" rel="noopener">http://stackoverflow.com/questions/7880784/what-is-rss-and-vsz-in-linux-memory-management</a></p>
+<h4 id="STAT">STAT</h4>
+<p>R/S/D/T/Z/X : <a href="http://askubuntu.com/questions/360252/what-do-the-stat-column-values-in-ps-mean" target="_blank" rel="noopener">http://askubuntu.com/questions/360252/what-do-the-stat-column-values-in-ps-mean</a></p>
+<h3 id="ps-el">ps -el</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UID   PID  PPID        F CPU PRI NI       SZ    RSS WCHAN     S             ADDR TTY           TIME CMD</span><br><span class="line">  0     1     0     4004   0  37  0  2478772   7372 -      Ss                  0 ??         3:01.68 /sbin/launchd</span><br><span class="line">  0    44     1     4004   0   4  0  2474032   1228 -      Ss                  0 ??         0:32.87 /usr/sbin/syslogd</span><br><span class="line">501   424     1     4004   0   4  0  2506604   4952 -      R                   0 ??       1757:31.24 /System/Library/PrivateFrameworks/ParsecUI.framework/Versions/A/Support/SpotlightNetHelper.app/Contents/MacOS/SpotlightNetHelper</span><br></pre></td></tr></table></figure>
+<h4 id="SZ">SZ</h4>
+<p>size in physical pages of the core image of the process. This includes text, data, and stack space. Device mappings are currently excluded</p>
+<h4 id="PRI-优先级">PRI 优先级</h4>
+<p>PRI表示线程优先级(数值越小越先执行), 优先级的范围是[0, MAX_PRIO-1], <code>MAX_PRIO</code> 的值一般为140.</p>
+<h4 id="NI-修正优先级">NI 修正优先级</h4>
+<ul>
 <li>NI=Nice, 值表示对优先级PRI的修正, 范围从-20~19, Nice越小表示优先级越高.</li>
 <li>以指定Nice启动任务: <code>nice -n -5 /usr/bin/mysqld &amp;</code>, 注意这里<code>-5</code>并不是表示负数, 而是正数5, 如果要以高优先级启动某进程(负的Nice值), 则应该为<code>nice -n --5 top</code>.</li>
 <li>使用nohup: <code>nohup -n 10 COMMANDS</code></li>
-<li>改变已存在进程的优先级: <code>renice -5 -p 1203</code>注意这里的”-5”表示负数.</li>
+<li>改变已存在进程的优先级: <code>renice -5 -p 1203</code>注意这里的&quot;-5&quot;表示负数.</li>
 </ul>
-<h2 id="pstree"><a href="#pstree" class="headerlink" title="pstree"></a>pstree</h2><ul>
+<h2 id="pstree">pstree</h2>
+<ul>
 <li>pstree -apu 显示进程树</li>
 <li>-a 显示进程的命令行</li>
 <li>-p 显示PID</li>
 <li>-u 显示UID, 如果子进程和父进程的UID不同, 比如Nginx启动worker线程用nobody</li>
 </ul>
-<h2 id="top"><a href="#top" class="headerlink" title="top"></a>top</h2><ul>
-<li>查看指定进程: <code>top -d 1 -p 1021</code>, 解释: -d 刷新间隔, -p 进程号, <a href="http://javawind.net/p131" target="_blank" rel="noopener">每列”VIRT”, “RES”, “SHR”的表示含义</a><ul>
+<h2 id="top">top</h2>
+<ul>
+<li>查看指定进程: <code>top -d 1 -p 1021</code>, 解释: -d 刷新间隔, -p 进程号, <a href="http://javawind.net/p131" target="_blank" rel="noopener">每列&quot;VIRT&quot;, “RES”, &quot;SHR&quot;的表示含义</a>
+<ul>
 <li>VIRT: 进程“需要的”虚拟内存大小, 包括库/代码/数据, <code>VIRT = SWP + RES</code></li>
 <li>RES:  常驻内存(Resident memory), 包括共享内存, <code>进程实际占用内存 = RES - SHR</code></li>
 <li>SHR:  共享内存(Shared memory), 比如动态库</li>
@@ -442,116 +463,140 @@
 <li>或者, 直接查看<code>/proc/PID/status</code>文件也可以得知进程占用RAM的情况.</li>
 <li>查看线程: <code>top -H</code>, 查看指定进程的线程: <code>top -H -p &lt;pid&gt;</code></li>
 </ul>
-<h2 id="free"><a href="#free" class="headerlink" title="free"></a>free</h2><ul>
-<li><a href="https://www.quora.com/What-is-the-difference-between-Buffers-and-Cached-columns-in-proc-meminfo-output" target="_blank" rel="noopener">What is the difference between Buffers and Cached columns in /proc/meminfo output?</a><ul>
+<h2 id="free">free</h2>
+<ul>
+<li><a href="https://www.quora.com/What-is-the-difference-between-Buffers-and-Cached-columns-in-proc-meminfo-output" target="_blank" rel="noopener">What is the difference between Buffers and Cached columns in /proc/meminfo output?</a>
+<ul>
 <li>Buffer 是准备写入块设备的数据, 存储了文件的目录/权限等metadata;</li>
 <li>Cache 频繁访问的文件都会被cache, 里面只有文件内容数据;</li>
 </ul>
 </li>
 </ul>
-<h2 id="vmstat"><a href="#vmstat" class="headerlink" title="vmstat"></a>vmstat</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@tc_157_46 ~]# vmstat 1</span><br><span class="line">procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu------</span><br><span class="line"> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st</span><br><span class="line"> 3 23   2840 3118492 110100 21213972    0    0    19   201    0    0  1  1 97  1  0</span><br></pre></td></tr></table></figure>
-
-<h3 id="vmstat每列解释"><a href="#vmstat每列解释" class="headerlink" title="vmstat每列解释"></a>vmstat每列解释</h3><h4 id="procs列"><a href="#procs列" class="headerlink" title="procs列"></a>procs列</h4><ul>
+<h2 id="vmstat">vmstat</h2>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@tc_157_46 ~]# vmstat 1</span><br><span class="line">procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu------</span><br><span class="line"> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st</span><br><span class="line"> 3 23   2840 3118492 110100 21213972    0    0    19   201    0    0  1  1 97  1  0</span><br></pre></td></tr></table></figure>
+<h3 id="vmstat每列解释">vmstat每列解释</h3>
+<h4 id="procs列">procs列</h4>
+<ul>
 <li>r 等待cpu时间片的进程数, 如果长期大于1, 说明cpu不足, 需要增加cpu.</li>
 <li>b (在等待资源的进程数, 比如正在等待I/O, 或者内存交换等).</li>
 </ul>
-<h4 id="memory列"><a href="#memory列" class="headerlink" title="memory列"></a>memory列</h4><ul>
+<h4 id="memory列">memory列</h4>
+<ul>
 <li>swpd 虚拟内存大小(交换区). 如果swpd的值不为0, 比如超过了100m, 只要si, so的值长期为0, 系统性能还是正常</li>
 <li>free 空闲内存大小</li>
 <li>buff 做为buffer的内存大小, 一般对块设备的读写才需要缓冲.</li>
 <li>cache: 做为page cache的内存大小, 一般做为文件系统的cache, 如果cache较大, 说明用到cache的文件较多, 如果此时IO中bi比较小, 说明文件系统效率比较好.</li>
 </ul>
-<h4 id="swap列"><a href="#swap列" class="headerlink" title="swap列"></a>swap列</h4><ul>
+<h4 id="swap列">swap列</h4>
+<ul>
 <li>si 每秒由内存进入内存交换区数量.</li>
 <li>so 每秒由内存交换区进入内存数量.</li>
 </ul>
-<h4 id="io列"><a href="#io列" class="headerlink" title="io列"></a>io列</h4><ul>
+<h4 id="io列">io列</h4>
+<ul>
 <li>bi 每秒从块设备读取数据的Blocks, 一个Block =1024byte</li>
-<li>bo 每秒块设备写入数据的总量<br>这里我们设置的bi+bo参考值为1000, 如果超过1000(1MB), 而且wa值较大应该考虑均衡磁盘负载, 可以结合<code>iostat</code>输出来分析.</li>
+<li>bo 每秒块设备写入数据的总量<br>
+这里我们设置的bi+bo参考值为1000, 如果超过1000(1MB), 而且wa值较大应该考虑均衡磁盘负载, 可以结合<code>iostat</code>输出来分析.</li>
 </ul>
-<h4 id="system列"><a href="#system列" class="headerlink" title="system列"></a>system列</h4><ul>
+<h4 id="system列">system列</h4>
+<ul>
 <li>in 每秒设备中断数.</li>
 <li>cs 每秒产生的上下文切换次数, 如当cs比磁盘I/O和网络信息包速率高得多, 都应进行进一步调查.</li>
 </ul>
-<h4 id="cpu列"><a href="#cpu列" class="headerlink" title="cpu列"></a>cpu列</h4><ul>
+<h4 id="cpu列">cpu列</h4>
+<ul>
 <li>us 用户进程所占时间的百分比. 如果长期大于50%, 需要考虑优化用户的程序, 比如加密解密等运算.</li>
 <li>sy 系统进程所占时间的百分比. 这里<code>us+sy</code>的参考值为80%, 如果<code>us+sy</code>大于80%说明可能存在CPU不足.</li>
 <li>wa IO等待所占用的CPU时间百分比. 这里wa的参考值为30%, 如果wa超过30%, 说明IO等待严重, 这可能是磁盘大量随机访问造成的, 也可能磁盘或者磁盘访问控制器的带宽瓶颈造成的(主要是块操作).</li>
 <li>id 空闲状态的CPU时间百分比</li>
 </ul>
-<h2 id="iostat"><a href="#iostat" class="headerlink" title="iostat"></a>iostat</h2><p>命令格式: <code>iostat [option] [间隔秒数] [统计次数]</code> , 比如<code>iostat -x 1 10</code>表示1秒打印一次, 共10次</p>
+<h2 id="iostat">iostat</h2>
+<p>命令格式: <code>iostat [option] [间隔秒数] [统计次数]</code> , 比如<code>iostat -x 1 10</code>表示1秒打印一次, 共10次</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@tc_157_46 ~]# iostat -x 1 1</span><br><span class="line">Linux 2.6.18-274.el5 (tc_157_46)        07/26/2016</span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %nice %system %iowait  %steal   %idle</span><br><span class="line">           1.18    0.00    1.01    1.06    0.00   96.75</span><br><span class="line"></span><br><span class="line">Device:         rrqm/s   wrqm/s   r/s   w/s   rsec/s   wsec/s avgrq-sz avgqu-sz   await  svctm  %util</span><br><span class="line">sda               1.34   747.37  4.12 55.96   600.54  6426.98   116.95     0.03    0.49   0.38   2.25</span><br><span class="line">sda1              0.00     1.56  0.01  0.66     0.25    17.76    26.94     0.03   38.49  11.73   0.78</span><br><span class="line">sda2              0.00     0.01  0.00  0.00     0.02     0.04   106.87     0.00   88.03   7.93   0.00</span><br><span class="line">sda3              0.01     1.31  0.04  1.94     1.34    26.02    13.83     0.02   11.81   8.91   1.76</span><br><span class="line">sda4              0.00     0.00  0.00  0.00     0.00     0.00     7.40     0.00  110.47 110.47   0.00</span><br><span class="line">sda5              0.01     0.36  0.02  0.25     0.59     4.84    20.14     0.01   41.69  17.49   0.47</span><br><span class="line">sda6              1.32   744.13  4.05 53.12   598.33  6378.33   122.03     0.03    0.52   0.18   1.00</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>%util: IO操作占用CPU时间的百分比: 如果%util长期接近100%, 说明产生的I/O请求太多, I/O系统已经满负荷, 该磁盘可能存在瓶颈.</li>
 <li>Idle如果长期大于70% IO压力就比较大了,这时一般读取速度有较多的wait.</li>
 </ul>
-<h2 id="sar"><a href="#sar" class="headerlink" title="sar"></a>sar</h2><p>查看系统的不同时间段的状况, CPU, load, 页面交换</p>
+<h2 id="sar">sar</h2>
+<p>查看系统的不同时间段的状况, CPU, load, 页面交换</p>
 <ul>
-<li>CPU<ul>
+<li>CPU
+<ul>
 <li>sar 或sar -u:  查看CPU占用状况</li>
 <li>sar -q 查看任务队列, 同load</li>
 </ul>
 </li>
-<li>内存<ul>
+<li>内存
+<ul>
 <li>sar -r 查看内存使用, 同free</li>
 <li>sar -W 查看Swap区的数据交换状况, 怀疑Swap频繁导致系统变慢可以使用</li>
 </ul>
 </li>
-<li>IO<ul>
+<li>IO
+<ul>
 <li>sar -b</li>
 <li>sar -d 1 5: 一秒每次, 共5次, 显示实时的信息</li>
 </ul>
 </li>
-<li>网卡<ul>
+<li>网卡
+<ul>
 <li>sar -n DEV 1 5:  一秒每次, 共5次, 显示实时的信息</li>
 </ul>
 </li>
 </ul>
-<h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><p>查看TCP的并发数/TCP连接的状态, 以一个Nginx服务器为例:</p>
+<h2 id="netstat">netstat</h2>
+<p>查看TCP的并发数/TCP连接的状态, 以一个Nginx服务器为例:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@zw_85_63 ~]# netstat -n | awk &apos;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a, S[a]&#125;&apos;</span><br><span class="line">TIME_WAIT 37968</span><br><span class="line">SYN_SENT 1</span><br><span class="line">FIN_WAIT1 5</span><br><span class="line">FIN_WAIT2 4</span><br><span class="line">ESTABLISHED 2725</span><br><span class="line">SYN_RECV 18</span><br><span class="line">LAST_ACK 4</span><br></pre></td></tr></table></figure>
-
-<h1 id="sysctl优化内核参数"><a href="#sysctl优化内核参数" class="headerlink" title="sysctl优化内核参数"></a>sysctl优化内核参数</h1><ul>
+<h1>sysctl优化内核参数</h1>
+<ul>
 <li>sysctl -a | grep vm</li>
 <li>sysctl -a | grep net.ipv4</li>
 </ul>
-<h2 id="调整"><a href="#调整" class="headerlink" title="调整"></a>调整</h2><ul>
+<h2 id="调整">调整</h2>
+<ul>
 <li>sysctl -w net.ipv4.tcp_syncookies=0</li>
 </ul>
 <p>并发相关的内核参数调整参考 : <a href="https://whatsdjgpp.github.io/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/%E5%90%8E%E7%AB%AF%E6%8A%80%E6%9C%AF/Arch-%E6%9E%B6%E6%9E%84-%E5%B9%B6%E5%8F%91/" target="_blank" rel="noopener">后端架构-并发(C10K/C100K) | 扔掉笔记</a> @Ref</p>
-<h1 id="附：Linux-Performance-Tools（图）"><a href="#附：Linux-Performance-Tools（图）" class="headerlink" title="附：Linux Performance Tools（图）"></a>附：Linux Performance Tools（图）</h1><p><img src="/images/Linux-Performance/linux-performance-benchmark-tools.png" alt="Linux-Performance-Benchmark-Tools"></p>
+<h1>附：Linux Performance Tools（图）</h1>
+<p><img src="/images/Linux-Performance/linux-performance-benchmark-tools.png" alt="Linux-Performance-Benchmark-Tools"></p>
 <p><img src="/images/Linux-Performance/linux-performance-tuning-tools.png" alt="Linux-Performance-Tuning-Tools"></p>
 <p><img src="/images/Linux-Performance/linux-performance-observability-sar.png" alt="Linux-Performance-Observability-Sar"></p>
 <blockquote>
 <p>来源: <a href="https://colobu.com/2014/09/18/Linux-Performance-Analysis-and-Tools/" target="_blank" rel="noopener">https://colobu.com/2014/09/18/Linux-Performance-Analysis-and-Tools/</a></p>
 </blockquote>
-<h1 id="附：线上服务器的数据"><a href="#附：线上服务器的数据" class="headerlink" title="附：线上服务器的数据"></a>附：线上服务器的数据</h1><p>平均值~峰值:</p>
+<h1>附：线上服务器的数据</h1>
+<p>平均值~峰值:</p>
 <ul>
-<li><strong>Nginx &amp; Memcache</strong>:<ul>
+<li><strong>Nginx &amp; Memcache</strong>:
+<ul>
 <li>load少于0.1, iowait少于0.1%,</li>
 <li>User:System时间大约10%:5%(峰值), 每秒上下文切换(用vmstat查看cs)20-50K,</li>
 <li>打开TCP连接4000, 带宽200Mbps （千兆网卡）</li>
 </ul>
 </li>
-<li><strong>Redis</strong>:<ul>
+<li><strong>Redis</strong>:
+<ul>
 <li>load少于0.1, iowait少于0.1%,</li>
 <li>User:System时间不到0.1%(峰值), 每秒上下文切换2-4K+,</li>
 <li>打开TCP连接数600, 带宽2.0Mbps</li>
 </ul>
 </li>
-<li><strong>Resin</strong>:<ul>
+<li><strong>Resin</strong>:
+<ul>
 <li>load少于0.2, iowait少于0.2%,</li>
 <li>User:System时间大约15%:2%(峰值), 每秒上下文切换30~60K,</li>
 <li>打开TCP连接数1500, 带宽40~80Mbps,</li>
 </ul>
 </li>
-<li><strong>Hadoop</strong>:<ul>
+<li><strong>Hadoop</strong>:
+<ul>
 <li>load大约0.5~1.5, iowait时间2%-20%, 峰值iowait能到35% ( 一般大于30%需要排查 )</li>
 <li>User:System时间大约15%:1%, 每秒上下文切换2-7K,</li>
 <li>打开TCP连接数, 带宽20-70Mbps</li>
 </ul>
 </li>
-<li><strong>Flume</strong>:<ul>
+<li><strong>Flume</strong>:
+<ul>
 <li>load少于0.1, iowait少于0.1%,</li>
 <li>User:System时间大约5%:1%, 每秒上下文切换30-60K,</li>
 <li>打开TCP连接数, 带宽5-25Mbps</li>
@@ -700,7 +745,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -711,7 +756,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -777,7 +822,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TLDR"><span class="nav-text">@TLDR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基础性能参数"><span class="nav-text">基础性能参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#load"><span class="nav-text">load</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat-proc-cpuinfo"><span class="nav-text">cat /proc/cpuinfo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uptime"><span class="nav-text">uptime</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps"><span class="nav-text">ps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ps-aux"><span class="nav-text">ps aux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VSZ"><span class="nav-text">VSZ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RSS"><span class="nav-text">RSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区分VSZ-RSS-SZ"><span class="nav-text">区分VSZ,RSS,SZ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STAT"><span class="nav-text">STAT</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps-el"><span class="nav-text">ps -el</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SZ"><span class="nav-text">SZ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PRI-优先级"><span class="nav-text">PRI 优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NI-修正优先级"><span class="nav-text">NI 修正优先级</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pstree"><span class="nav-text">pstree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top"><span class="nav-text">top</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#free"><span class="nav-text">free</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vmstat"><span class="nav-text">vmstat</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vmstat每列解释"><span class="nav-text">vmstat每列解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#procs列"><span class="nav-text">procs列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#memory列"><span class="nav-text">memory列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swap列"><span class="nav-text">swap列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#io列"><span class="nav-text">io列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#system列"><span class="nav-text">system列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cpu列"><span class="nav-text">cpu列</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iostat"><span class="nav-text">iostat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sar"><span class="nav-text">sar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netstat"><span class="nav-text">netstat</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sysctl优化内核参数"><span class="nav-text">sysctl优化内核参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#调整"><span class="nav-text">调整</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附：Linux-Performance-Tools（图）"><span class="nav-text">附：Linux Performance Tools（图）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附：线上服务器的数据"><span class="nav-text">附：线上服务器的数据</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">@TLDR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">基础性能参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#load"><span class="nav-text">load</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat-proc-cpuinfo"><span class="nav-text">cat /proc/cpuinfo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uptime"><span class="nav-text">uptime</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ps"><span class="nav-text">ps</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ps-aux"><span class="nav-text">ps aux</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#VSZ"><span class="nav-text">VSZ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RSS"><span class="nav-text">RSS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区分VSZ-RSS-SZ"><span class="nav-text">区分VSZ,RSS,SZ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#STAT"><span class="nav-text">STAT</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ps-el"><span class="nav-text">ps -el</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SZ"><span class="nav-text">SZ</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PRI-优先级"><span class="nav-text">PRI 优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NI-修正优先级"><span class="nav-text">NI 修正优先级</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pstree"><span class="nav-text">pstree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top"><span class="nav-text">top</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#free"><span class="nav-text">free</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vmstat"><span class="nav-text">vmstat</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vmstat每列解释"><span class="nav-text">vmstat每列解释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#procs列"><span class="nav-text">procs列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#memory列"><span class="nav-text">memory列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#swap列"><span class="nav-text">swap列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#io列"><span class="nav-text">io列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#system列"><span class="nav-text">system列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cpu列"><span class="nav-text">cpu列</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iostat"><span class="nav-text">iostat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sar"><span class="nav-text">sar</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netstat"><span class="nav-text">netstat</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">sysctl优化内核参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#调整"><span class="nav-text">调整</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">附：Linux Performance Tools（图）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">附：线上服务器的数据</span></a></li></ol></div>
             
 
           </div>

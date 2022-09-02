@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="安装surgeSurge for Mac并不提供公开下载, 只对已经在手机上购买过Surge for iPhone的用户提供beta版本,在Surge for iPhone的’More’标签找到Surge Mac, 下载链接会被发送到注册邮箱. 导出Surge iPhone的配置文件Surge iPhone的配置文件是通用的, 可以直接使用在Surge for Mac上.导出方法很多, 可以通过u">
+<meta name="description" content="安装surge Surge for Mac并不提供公开下载, 只对已经在手机上购买过Surge for iPhone的用户提供beta版本, 在Surge for iPhone的’More’标签找到Surge Mac, 下载链接会被发送到注册邮箱. 导出Surge iPhone的配置文件 Surge iPhone的配置文件是通用的, 可以直接使用在Surge for Mac上. 导出方法很多, 可">
 <meta name="keywords" content="OSX,macOS,Surge,Proxy,Shadowsocks">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Macbook上使用Surge">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/在Macbook上使用surge/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="安装surgeSurge for Mac并不提供公开下载, 只对已经在手机上购买过Surge for iPhone的用户提供beta版本,在Surge for iPhone的’More’标签找到Surge Mac, 下载链接会被发送到注册邮箱. 导出Surge iPhone的配置文件Surge iPhone的配置文件是通用的, 可以直接使用在Surge for Mac上.导出方法很多, 可以通过u">
+<meta property="og:description" content="安装surge Surge for Mac并不提供公开下载, 只对已经在手机上购买过Surge for iPhone的用户提供beta版本, 在Surge for iPhone的’More’标签找到Surge Mac, 下载链接会被发送到注册邮箱. 导出Surge iPhone的配置文件 Surge iPhone的配置文件是通用的, 可以直接使用在Surge for Mac上. 导出方法很多, 可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Macbook上使用Surge">
-<meta name="twitter:description" content="安装surgeSurge for Mac并不提供公开下载, 只对已经在手机上购买过Surge for iPhone的用户提供beta版本,在Surge for iPhone的’More’标签找到Surge Mac, 下载链接会被发送到注册邮箱. 导出Surge iPhone的配置文件Surge iPhone的配置文件是通用的, 可以直接使用在Surge for Mac上.导出方法很多, 可以通过u">
+<meta name="twitter:description" content="安装surge Surge for Mac并不提供公开下载, 只对已经在手机上购买过Surge for iPhone的用户提供beta版本, 在Surge for iPhone的’More’标签找到Surge Mac, 下载链接会被发送到注册邮箱. 导出Surge iPhone的配置文件 Surge iPhone的配置文件是通用的, 可以直接使用在Surge for Mac上. 导出方法很多, 可">
 
 
 
@@ -355,9 +355,15 @@
       
 
       
-        <h1 id="安装surge"><a href="#安装surge" class="headerlink" title="安装surge"></a>安装surge</h1><p>Surge for Mac并不提供公开下载, 只对已经在手机上购买过Surge for iPhone的用户提供beta版本,<br>在Surge for iPhone的’More’标签找到<code>Surge Mac</code>, 下载链接会被发送到注册邮箱.</p>
-<h1 id="导出Surge-iPhone的配置文件"><a href="#导出Surge-iPhone的配置文件" class="headerlink" title="导出Surge iPhone的配置文件"></a>导出Surge iPhone的配置文件</h1><p>Surge iPhone的配置文件是通用的, 可以直接使用在Surge for Mac上.<br>导出方法很多, 可以通过url共享, dropbox, 或者iTunes导出.</p>
-<h1 id="配置Surge"><a href="#配置Surge" class="headerlink" title="配置Surge"></a>配置Surge</h1><p>第一次启动Surge会询问配置文件保存在哪里, 我直接选择的”Documents”,<br>进入<code>~/Documents/Surge/</code>目录, 把配置文件覆盖为Default.conf.</p>
+        <h1>安装surge</h1>
+<p>Surge for Mac并不提供公开下载, 只对已经在手机上购买过Surge for iPhone的用户提供beta版本,<br>
+在Surge for iPhone的’More’标签找到<code>Surge Mac</code>, 下载链接会被发送到注册邮箱.</p>
+<h1>导出Surge iPhone的配置文件</h1>
+<p>Surge iPhone的配置文件是通用的, 可以直接使用在Surge for Mac上.<br>
+导出方法很多, 可以通过url共享, dropbox, 或者iTunes导出.</p>
+<h1>配置Surge</h1>
+<p>第一次启动Surge会询问配置文件保存在哪里, 我直接选择的&quot;Documents&quot;,<br>
+进入<code>~/Documents/Surge/</code>目录, 把配置文件覆盖为Default.conf.</p>
 <p>状态栏点击surge图标, 有下面几个选项 :</p>
 <ul>
 <li>Switch configuration: 可以重新选择surge配置的保存路径.</li>
@@ -366,9 +372,10 @@
 </ul>
 <p>surge在Macbook本地启动两个端口,6152和6153, 前者是http/https代理端口, 后者是socks5代理端口.</p>
 <p>可以通过命令 <code>lsof -i :6152</code>确认这两个端口有没有被打开.</p>
-<h1 id="第三方应用的设置"><a href="#第三方应用的设置" class="headerlink" title="第三方应用的设置"></a>第三方应用的设置</h1><ul>
+<h1>第三方应用的设置</h1>
+<ul>
 <li>Dropbox: 代理设置为socks, 127.0.0.1:6153</li>
-<li>Chrome SwitchyOmega: 设置为”系统代理”</li>
+<li>Chrome SwitchyOmega: 设置为&quot;系统代理&quot;</li>
 </ul>
 
       
@@ -511,7 +518,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -522,7 +529,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -588,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装surge"><span class="nav-text">安装surge</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导出Surge-iPhone的配置文件"><span class="nav-text">导出Surge iPhone的配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置Surge"><span class="nav-text">配置Surge</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三方应用的设置"><span class="nav-text">第三方应用的设置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">安装surge</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">导出Surge iPhone的配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">配置Surge</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">第三方应用的设置</span></a></li></ol></div>
             
 
           </div>

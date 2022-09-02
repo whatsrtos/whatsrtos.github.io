@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="关于SSH协议:Secure Shell（缩写为SSH）,SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。传统的网络服务程序，如rsh、FTP、POP和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒充真">
+<meta name="description" content="关于SSH协议: Secure Shell（缩写为SSH）,SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。 传统的网络服务程序，如rsh、FTP、POP和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒">
 <meta name="keywords" content="SSH,端口转发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSH 协议简介">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[协议] SSH协议简介/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="关于SSH协议:Secure Shell（缩写为SSH）,SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。传统的网络服务程序，如rsh、FTP、POP和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒充真">
+<meta property="og:description" content="关于SSH协议: Secure Shell（缩写为SSH）,SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。 传统的网络服务程序，如rsh、FTP、POP和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH 协议简介">
-<meta name="twitter:description" content="关于SSH协议:Secure Shell（缩写为SSH）,SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。传统的网络服务程序，如rsh、FTP、POP和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒充真">
+<meta name="twitter:description" content="关于SSH协议: Secure Shell（缩写为SSH）,SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。 传统的网络服务程序，如rsh、FTP、POP和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒">
 
 
 
@@ -355,29 +355,57 @@
       
 
       
-        <h1 id="关于SSH协议"><a href="#关于SSH协议" class="headerlink" title="关于SSH协议:"></a>关于SSH协议:</h1><p>Secure Shell（缩写为SSH）,SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。<br>传统的网络服务程序，如rsh、FTP、POP和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒充真正的服务器接收用户传给服务器的数据，然后再冒充用户把数据传给真正的服务器。<br>而SSH是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题。通过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。<br>SSH之另一项优点为其传输的数据可以是经过压缩的，所以可以加快传输的速度。SSH有很多功能，它既可以代替Telnet，又可以为FTP、POP、甚至为PPP提供一个安全的“通道”。</p>
+        <h1>关于SSH协议:</h1>
+<p>Secure Shell（缩写为SSH）,SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。<br>
+传统的网络服务程序，如rsh、FTP、POP和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒充真正的服务器接收用户传给服务器的数据，然后再冒充用户把数据传给真正的服务器。<br>
+而SSH是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题。通过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。<br>
+SSH之另一项优点为其传输的数据可以是经过压缩的，所以可以加快传输的速度。SSH有很多功能，它既可以代替Telnet，又可以为FTP、POP、甚至为PPP提供一个安全的“通道”。</p>
 <p>以上来自 <a href="http://zh.wikipedia.org/wiki/Secure_Shell" target="_blank" rel="noopener">维基百科:SSH</a></p>
-<h1 id="SSH的应用"><a href="#SSH的应用" class="headerlink" title="SSH的应用"></a>SSH的应用</h1><p>SSH最常见的就是远程登录了，替代了不安全的telnet方式，使用ssh远程登录的方式很简单，在终端输入<code>ssh user@host</code>就可以登录到远程主机了。<br>除了“远程登录”这个基本功能之外，SSH还有端口转发、口令登录、公钥登录等用途。</p>
-<h2 id="（一）SSH端口转发"><a href="#（一）SSH端口转发" class="headerlink" title="（一）SSH端口转发"></a>（一）SSH端口转发</h2><p>SSH 还同时提供了一个非常有用的功能，这就是端口转发。SSH 会自动加密和解密所有 SSH 客户端与服务端之间的网络数据。它能够将其他 TCP 端口的网络数据通过 SSH 链接来转发，并且自动提供了相应的加密及解密服务。这一过程有时也被叫做“隧道”（tunneling），这是因为 SSH 为其他 TCP 链接提供了一个安全的通道来进行传输而得名。例如，Telnet，SMTP，LDAP 这些 TCP 应用均能够从中得益，避免了用户名，密码以及隐私信息的明文传输。SSH 端口转发能够提供两大功能：</p>
+<h1>SSH的应用</h1>
+<p>SSH最常见的就是远程登录了，替代了不安全的telnet方式，使用ssh远程登录的方式很简单，在终端输入<code>ssh user@host</code>就可以登录到远程主机了。<br>
+除了“远程登录”这个基本功能之外，SSH还有端口转发、口令登录、公钥登录等用途。</p>
+<h2 id="（一）SSH端口转发">（一）SSH端口转发</h2>
+<p>SSH 还同时提供了一个非常有用的功能，这就是端口转发。SSH 会自动加密和解密所有 SSH 客户端与服务端之间的网络数据。它能够将其他 TCP 端口的网络数据通过 SSH 链接来转发，并且自动提供了相应的加密及解密服务。这一过程有时也被叫做“隧道”（tunneling），这是因为 SSH 为其他 TCP 链接提供了一个安全的通道来进行传输而得名。例如，Telnet，SMTP，LDAP 这些 TCP 应用均能够从中得益，避免了用户名，密码以及隐私信息的明文传输。SSH 端口转发能够提供两大功能：</p>
 <ol>
 <li>加密 SSH Client 端至 SSH Server 端之间的通讯数据。</li>
 <li>突破防火墙的限制完成一些之前无法建立的 TCP 连接。</li>
 </ol>
-<h3 id="1-1例：使用SSH端口转发翻越GFW"><a href="#1-1例：使用SSH端口转发翻越GFW" class="headerlink" title="1.1例：使用SSH端口转发翻越GFW"></a>1.1例：使用SSH端口转发翻越GFW</h3><p>首先， 你要现在互联网上申请一个免费的SSH, 我用的是<a href="http://shell.cjb.net/" target="_blank" rel="noopener">cjb</a> . 申请完成后会得到邮件发来的 <em>SSH主机地址</em> 和 <em>帐号密码</em> , 然后打开终端输入<code>ssh -D 9999 xxxxx@216.194.70.6</code>：</p>
-<blockquote>
-</blockquote>
-<p>$ ssh -D 9999 <a href="mailto:xxxxx@216.194.70.6" target="_blank" rel="noopener">xxxxx@216.194.70.6</a><br>The authenticity of host ‘216.194.70.6 (216.194.70.6)’ can’t be established.<br>Are you sure you want to continue connecting (yes/no)? yes<br>Warning: Permanently added ‘216.194.70.6’ (RSA) to the list of known hosts.<br><a href="mailto:xxxx@216.194.70.6" target="_blank" rel="noopener">xxxx@216.194.70.6</a>‘s password:</p>
-<p>参数<code>-D</code>的意思就是bind，端口绑定。上面<code>ssh -D 9999</code>即是指明将SSH数据转发到端口9999。<br>顺带一提，由于shell.cjb.net的域名被污染, 所以上面SSH登录时没有使用cjb.net的域名只能用ip地址。<br>浏览器以Firefox为例，在代理设置中新增一个SOCKS主机 127.0.0.1，端口9999，类型SOCKS v5。<br>此外开启Firefox的用隧道解析DNS开关：在FF地址栏输入<code>about:config</code>，搜索并设置参数<code>network.proxy.socks_remote_dns</code>的值为<code>true</code>(双击即可改变其值)。<br>现在打开<a href="twitter.com">Twitter</a>测试一下吧。</p>
+<h3 id="1-1例：使用SSH端口转发翻越GFW">1.1例：使用SSH端口转发翻越GFW</h3>
+<p>首先， 你要现在互联网上申请一个免费的SSH, 我用的是<a href="http://shell.cjb.net/" target="_blank" rel="noopener">cjb</a> . 申请完成后会得到邮件发来的 <em>SSH主机地址</em> 和 <em>帐号密码</em> , 然后打开终端输入<code>ssh -D 9999 xxxxx@216.194.70.6 </code>：</p>
+<blockquote></blockquote>
+<p>$ ssh -D 9999 <a href="mailto:xxxxx@216.194.70.6" target="_blank" rel="noopener">xxxxx@216.194.70.6</a><br>
+The authenticity of host ‘216.194.70.6 (216.194.70.6)’ can’t be established.<br>
+Are you sure you want to continue connecting (yes/no)? yes<br>
+Warning: Permanently added ‘216.194.70.6’ (RSA) to the list of known hosts.<br>
+<a href="mailto:xxxx@216.194.70.6" target="_blank" rel="noopener">xxxx@216.194.70.6</a>’s password:</p>
+<p>参数<code>-D</code>的意思就是bind，端口绑定。上面<code>ssh -D 9999</code>即是指明将SSH数据转发到端口9999。<br>
+顺带一提，由于shell.cjb.net的域名被污染, 所以上面SSH登录时没有使用cjb.net的域名只能用ip地址。<br>
+浏览器以Firefox为例，在代理设置中新增一个SOCKS主机 127.0.0.1，端口9999，类型SOCKS v5。<br>
+此外开启Firefox的用隧道解析DNS开关：在FF地址栏输入<code>about:config</code>，搜索并设置参数<code>network.proxy.socks_remote_dns</code>的值为<code>true</code>(双击即可改变其值)。<br>
+现在打开<a href="twitter.com">Twitter</a>测试一下吧。</p>
 <p>有关SSH端口转发的内容还可以IBM developerworks上的参考:<a href="http://www.ibm.com/developerworks/cn/linux/l-cn-sshforward/index.html" target="_blank" rel="noopener">实战 SSH 端口转发</a></p>
-<h2 id="（二）口令登录"><a href="#（二）口令登录" class="headerlink" title="（二）口令登录"></a>（二）口令登录</h2><p>整个过程简单描述如下：<br>（1）远程主机收到用户的登录请求，把自己的公钥发给用户。<br>（2）用户使用这个公钥，将登录密码加密后，发送回来。<br>（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
+<h2 id="（二）口令登录">（二）口令登录</h2>
+<p>整个过程简单描述如下：<br>
+（1）远程主机收到用户的登录请求，把自己的公钥发给用户。<br>
+（2）用户使用这个公钥，将登录密码加密后，发送回来。<br>
+（3）远程主机用自己的私钥，解密登录密码，如果密码正确，就同意用户登录。</p>
 <p>使用命令<code>ssh user@host</code> 或者<code>ssh -p 指定端口 user@host</code>命令登录, 如果是第一次登录, 会收到下面的警告:</p>
-<blockquote>
-</blockquote>
-<p>The authenticity of host ‘host (12.18.429.21)’ can’t be established.<br>RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.<br>Are you sure you want to continue connecting (yes/no)?</p>
-<p>上面一段话的意思是: 无法确认host主机的真实性，只知道它的公钥指纹，是否继续?<br>用户可以从host的网站或者其他公开信息的地方获取其公钥的指纹, 然后自己核对.</p>
-<p>当用户接受connect后, 就相当于远程主机host的公钥被接受了，远程主机的公钥就会被保存在本机文件$HOME/.ssh/known_hosts之中。下次再连接这台远程主机就会跳过上面的警告部分，直接提示输入密码。<br>每个SSH用户都有自己的known_hosts文件，此外系统也有一个这样的文件，通常是/etc/ssh/ssh_known_hosts，保存一些对所有用户都可信赖的远程主机的公钥。</p>
-<h2 id="（三）公钥登录"><a href="#（三）公钥登录" class="headerlink" title="（三）公钥登录"></a>（三）公钥登录</h2><p>过程如下:<br>(1)用户将自己的公钥储存在远程主机上。<br>(2)用户登录的时候，远程主机会向用户发送一段验证字符串，<br>(3)用户用自己的私钥加密后，再发回远程主机。远程主机用事先储存的用户的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。<br>公钥登录的使用也相当广泛，比如Github就使用“公钥登录”的方式, 使用户可以不用输入密码就可以<code>git push</code>代码</p>
-<p>参考：<br><a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">阮一峰的博客: SSH原理与运用（一）：远程登录</a></p>
+<blockquote></blockquote>
+<p>The authenticity of host ‘host (12.18.429.21)’ can’t be established.<br>
+RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.<br>
+Are you sure you want to continue connecting (yes/no)?</p>
+<p>上面一段话的意思是: 无法确认host主机的真实性，只知道它的公钥指纹，是否继续?<br>
+用户可以从host的网站或者其他公开信息的地方获取其公钥的指纹, 然后自己核对.</p>
+<p>当用户接受connect后, 就相当于远程主机host的公钥被接受了，远程主机的公钥就会被保存在本机文件$HOME/.ssh/known_hosts之中。下次再连接这台远程主机就会跳过上面的警告部分，直接提示输入密码。<br>
+每个SSH用户都有自己的known_hosts文件，此外系统也有一个这样的文件，通常是/etc/ssh/ssh_known_hosts，保存一些对所有用户都可信赖的远程主机的公钥。</p>
+<h2 id="（三）公钥登录">（三）公钥登录</h2>
+<p>过程如下:<br>
+(1)用户将自己的公钥储存在远程主机上。<br>
+(2)用户登录的时候，远程主机会向用户发送一段验证字符串，<br>
+(3)用户用自己的私钥加密后，再发回远程主机。远程主机用事先储存的用户的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。<br>
+公钥登录的使用也相当广泛，比如Github就使用“公钥登录”的方式, 使用户可以不用输入密码就可以<code>git push</code>代码</p>
+<p>参考：<br>
+<a href="http://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html" target="_blank" rel="noopener">阮一峰的博客: SSH原理与运用（一）：远程登录</a></p>
 
       
     </div>
@@ -513,7 +541,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -524,7 +552,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -590,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于SSH协议"><span class="nav-text">关于SSH协议:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SSH的应用"><span class="nav-text">SSH的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）SSH端口转发"><span class="nav-text">（一）SSH端口转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1例：使用SSH端口转发翻越GFW"><span class="nav-text">1.1例：使用SSH端口转发翻越GFW</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）口令登录"><span class="nav-text">（二）口令登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（三）公钥登录"><span class="nav-text">（三）公钥登录</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">关于SSH协议:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">SSH的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）SSH端口转发"><span class="nav-text">（一）SSH端口转发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1例：使用SSH端口转发翻越GFW"><span class="nav-text">1.1例：使用SSH端口转发翻越GFW</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）口令登录"><span class="nav-text">（二）口令登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（三）公钥登录"><span class="nav-text">（三）公钥登录</span></a></li></ol></li></ol></div>
             
 
           </div>

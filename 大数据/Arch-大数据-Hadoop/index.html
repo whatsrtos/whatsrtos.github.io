@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="后端技术,Apache,大数据,Hadoop,HDFS,批处理计算,MapReduce," />
+  <meta name="keywords" content="后端技术,大数据,Apache,Hadoop,HDFS,批处理计算,MapReduce," />
 
 
 
@@ -115,19 +115,19 @@
 
 
 
-<meta name="description" content="Hadoop 安装 &amp;amp; 配置Hadoop &amp;amp; Yarn安装步骤参考: Apache Hadoop 2.9.2 – Hadoop Cluster Setup  /etc/hosts, ssh登录 // 使slave可以ssh到master /etc/hosts: 所有slave可互相ping hostname authorized_keys : master可以ssh任意slave">
-<meta name="keywords" content="后端技术,Apache,大数据,Hadoop,HDFS,批处理计算,MapReduce">
+<meta name="description" content="Hadoop 安装 &amp;amp; 配置 Hadoop &amp;amp; Yarn安装步骤 参考: Apache Hadoop 2.9.2 – Hadoop Cluster Setup  /etc/hosts, ssh登录 // 使slave可以ssh到master  /etc/hosts: 所有slave可互相ping hostname authorized_keys : master可以ssh任意sl">
+<meta name="keywords" content="后端技术,大数据,Apache,Hadoop,HDFS,批处理计算,MapReduce">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop">
 <meta property="og:url" content="https://whatsrtos.github.io/大数据/Arch-大数据-Hadoop/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="Hadoop 安装 &amp;amp; 配置Hadoop &amp;amp; Yarn安装步骤参考: Apache Hadoop 2.9.2 – Hadoop Cluster Setup  /etc/hosts, ssh登录 // 使slave可以ssh到master /etc/hosts: 所有slave可互相ping hostname authorized_keys : master可以ssh任意slave">
+<meta property="og:description" content="Hadoop 安装 &amp;amp; 配置 Hadoop &amp;amp; Yarn安装步骤 参考: Apache Hadoop 2.9.2 – Hadoop Cluster Setup  /etc/hosts, ssh登录 // 使slave可以ssh到master  /etc/hosts: 所有slave可互相ping hostname authorized_keys : master可以ssh任意sl">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Hadoop_logo.svg/2000px-Hadoop_logo.svg.png">
 <meta property="og:updated_time" content="2020-06-26T14:08:32.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hadoop">
-<meta name="twitter:description" content="Hadoop 安装 &amp;amp; 配置Hadoop &amp;amp; Yarn安装步骤参考: Apache Hadoop 2.9.2 – Hadoop Cluster Setup  /etc/hosts, ssh登录 // 使slave可以ssh到master /etc/hosts: 所有slave可互相ping hostname authorized_keys : master可以ssh任意slave">
+<meta name="twitter:description" content="Hadoop 安装 &amp;amp; 配置 Hadoop &amp;amp; Yarn安装步骤 参考: Apache Hadoop 2.9.2 – Hadoop Cluster Setup  /etc/hosts, ssh登录 // 使slave可以ssh到master  /etc/hosts: 所有slave可互相ping hostname authorized_keys : master可以ssh任意sl">
 <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Hadoop_logo.svg/2000px-Hadoop_logo.svg.png">
 
 
@@ -358,22 +358,28 @@
 
       
         <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Hadoop_logo.svg/2000px-Hadoop_logo.svg.png" alt="Hadoop"></p>
-<h1 id="Hadoop-安装-amp-配置"><a href="#Hadoop-安装-amp-配置" class="headerlink" title="Hadoop 安装 &amp; 配置"></a>Hadoop 安装 &amp; 配置</h1><h2 id="Hadoop-amp-Yarn安装步骤"><a href="#Hadoop-amp-Yarn安装步骤" class="headerlink" title="Hadoop &amp; Yarn安装步骤"></a>Hadoop &amp; Yarn安装步骤</h2><p>参考: <a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html" target="_blank" rel="noopener">Apache Hadoop 2.9.2 – Hadoop Cluster Setup</a></p>
+<h1>Hadoop 安装 &amp; 配置</h1>
+<h2 id="Hadoop-Yarn安装步骤">Hadoop &amp; Yarn安装步骤</h2>
+<p>参考: <a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html" target="_blank" rel="noopener">Apache Hadoop 2.9.2 – Hadoop Cluster Setup</a></p>
 <ol>
-<li>/etc/hosts, ssh登录 // 使slave可以ssh到master<ul>
+<li>/etc/hosts, ssh登录 // 使slave可以ssh到master
+<ul>
 <li>/etc/hosts: 所有slave可互相ping hostname</li>
 <li>authorized_keys : master可以ssh任意slave</li>
 </ul>
 </li>
-<li>hadoop配置文件<ul>
-<li>hadoop-env.sh : <code>HADOOP_CONF_DIR</code> 指定加载哪个目录下的配置文件</li>
+<li>hadoop配置文件
+<ul>
+<li><a href="http://hadoop-env.sh" target="_blank" rel="noopener">hadoop-env.sh</a> : <code>HADOOP_CONF_DIR</code> 指定加载哪个目录下的配置文件</li>
 <li>slaves: 只有namenode需配置</li>
-<li>core-site.xml:(<a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/core-default.xml" target="_blank" rel="noopener">https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/core-default.xml</a>)<ul>
+<li>core-site.xml:(<a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/core-default.xml" target="_blank" rel="noopener">https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/core-default.xml</a>)
+<ul>
 <li>fs.defaultFS : hdfs://namenode:9000 ## hdfs文件端口</li>
 <li>hadoop.tmp.dir : /opt/data/hadoop/tmp 其它目录会基于此路径</li>
 </ul>
 </li>
-<li>hdfs-site.xml:(<a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml" target="_blank" rel="noopener">https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml</a>)<ul>
+<li>hdfs-site.xml:(<a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml" target="_blank" rel="noopener">https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml</a>)
+<ul>
 <li>dfs.namenode.secondary.http-address :  第二NameNode web管理端口</li>
 <li>dfs.replication : 3 ## 数据需要备份的数量, 默认是3, 如果此数大于集群的机器数会出错</li>
 <li>dfs.namenode.name.dir : /opt/data/hadoop/namenode ## NameNode持久存储名字空间及事务日志的本地文件系统路径</li>
@@ -382,13 +388,15 @@
 <li>dfs.webhdfs.enabled : 开启WebHDFS (REST API)功能</li>
 </ul>
 </li>
-<li>mapred-site.xml:<ul>
-<li>mapreduce.framework.name: yarn</li>
+<li>mapred-site.xml:
+<ul>
+<li><a href="http://mapreduce.framework.name" target="_blank" rel="noopener">mapreduce.framework.name</a>: yarn</li>
 <li>mapreduce.jobhistory.address: 10020</li>
 <li>mapreduce.jobhistory.webapp.address: 19888</li>
 </ul>
 </li>
-<li>yarn-site.xml<ul>
+<li>yarn-site.xml
+<ul>
 <li>yarn.resourcemanager.webapp.address: 8088 ## yarn框架中各个 task 的资源调度及运行状况通过通过该web界面访问</li>
 </ul>
 </li>
@@ -396,29 +404,36 @@
 </li>
 <li>格式化namenode: <code>hdfs namenode -format</code></li>
 <li>启动HDFS NameNode: <code>sbin/hadoop-daemon.sh start namenode</code></li>
-<li>启动HDFS DateNode: <code>sbin/hadoop-daemons.sh start datanode</code><ul>
+<li>启动HDFS DateNode: <code>sbin/hadoop-daemons.sh start datanode</code>
+<ul>
 <li><strong>或者在namenode上直接一个脚本启动: <code>sbin/start-dfs.sh</code> namenode和datanode的所有hdfs</strong></li>
 </ul>
 </li>
-<li>启动yarn: <code>sbin/start-yarn.sh</code>脚本一次启动ResourceManager和NodeManager, 如果要分别启动:<ul>
+<li>启动yarn: <code>sbin/start-yarn.sh</code>脚本一次启动ResourceManager和NodeManager, 如果要分别启动:
+<ul>
 <li><code>yarn-daemon.sh --config /opt/conf/hadoop start nodemanager</code></li>
 <li><code>yarn-daemon.sh --config /opt/conf/hadoop start resourcemanager</code></li>
 </ul>
 </li>
 <li>查看集群状态: <code>bin/hdfs dfsadmin -report</code></li>
 <li>测试hdfs写: <code>echo &quot;hello world&quot; | hadoop fs -put - /dir/hadoop/hello_world.txt &amp;&amp; hadoop fs -cat  /dir/hadoop/hello_world.txt</code></li>
-<li>一些web ui:<ul>
+<li>一些web ui:
+<ul>
 <li>查看nameNode: <a href="http://namenode:50070/" target="_blank" rel="noopener">http://namenode:50070/</a></li>
 <li>查看yarn resourcemanager: <a href="http://namenode:8088/" target="_blank" rel="noopener">http://namenode:8088/</a></li>
 <li>MapReduce JobHistory: <a href="http://namenode:19888" target="_blank" rel="noopener">http://namenode:19888</a></li>
 </ul>
 </li>
 </ol>
-<h2 id="一些重要参数"><a href="#一些重要参数" class="headerlink" title="一些重要参数"></a>一些重要参数</h2><p>@TODO</p>
-<h1 id="客户端-API-amp-命令行"><a href="#客户端-API-amp-命令行" class="headerlink" title="客户端 API &amp; 命令行"></a>客户端 API &amp; 命令行</h1><h2 id="Hadoop命令"><a href="#Hadoop命令" class="headerlink" title="Hadoop命令"></a>Hadoop命令</h2><ul>
+<h2 id="一些重要参数">一些重要参数</h2>
+<p>@TODO</p>
+<h1>客户端 API &amp; 命令行</h1>
+<h2 id="Hadoop命令">Hadoop命令</h2>
+<ul>
 <li>参考: <a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/CommandsManual.html" target="_blank" rel="noopener">Apache Hadoop 2.7.3 – Hadoop Commands Guide</a></li>
 <li>hadoop dfs: 针对dfs的命令, 已经Deprecated, 推荐使用<code>hdfs dfs</code></li>
-<li>hadoop fs: 本地与dfs交互的命令<ul>
+<li>hadoop fs: 本地与dfs交互的命令
+<ul>
 <li>hadoop fs -cat file:///file3 /user/hadoop/file4</li>
 <li>hadoop fs -cp /user/hadoop/file1 /user/hadoop/file2</li>
 <li>hadoop dfs -df /user/hadoop/dir1</li>
@@ -429,15 +444,20 @@
 <li>hadoop version</li>
 <li>hadoop jar <jar> [mainClass] arg</jar></li>
 </ul>
-<h2 id="HDFS命令"><a href="#HDFS命令" class="headerlink" title="HDFS命令"></a>HDFS命令</h2><ul>
+<h2 id="HDFS命令">HDFS命令</h2>
+<ul>
 <li>参考: <a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html" target="_blank" rel="noopener">Apache Hadoop 2.7.3 – HDFS Commands Guide</a></li>
 </ul>
-<h2 id="Yarn命令"><a href="#Yarn命令" class="headerlink" title="Yarn命令"></a>Yarn命令</h2><p>*　参考: <a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/YarnCommands.html" target="_blank" rel="noopener">Apache Hadoop 2.7.3 – YARN Commands</a></p>
-<h1 id="HDFS文件系统解析"><a href="#HDFS文件系统解析" class="headerlink" title="HDFS文件系统解析"></a>HDFS文件系统解析</h1><ul>
+<h2 id="Yarn命令">Yarn命令</h2>
+<p>*　参考: <a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/YarnCommands.html" target="_blank" rel="noopener">Apache Hadoop 2.7.3 – YARN Commands</a></p>
+<h1>HDFS文件系统解析</h1>
+<ul>
 <li><a href="http://flyingdutchman.iteye.com/blog/1874518" target="_blank" rel="noopener">Hadoop深入学习：HDFS分布式文件系统的体系结构</a></li>
 </ul>
 <blockquote>
-<p>NameNode的FSImage和Edit log工作方式: FSImage中保存着某一时刻的HDFS文件目录树、元数据和数据块索引等信息，而后续的对这信息系的修改则保存在Edit log中<br>Secondary NameNode和NameNode的区别在于他不接受或记录HDFS的任何实时变化，只是根据集群配置的时间间隔不停的获取HDFS的某一个时间节点的FSImage和编辑日志，合并得到一个新的命名空间镜像FSImage，然后该镜像会上传到NameNode，替换原有的镜像文件，并清空编辑日志。<br>DataNode: 客户端操作文件块Block时，先由NameNode节点告知客户端诗句块所在的节点的位置，然后客户端直接与DataNode节点通信，处理与数据块对应的Linux上的本地文件。</p>
+<p>NameNode的FSImage和Edit log工作方式: FSImage中保存着某一时刻的HDFS文件目录树、元数据和数据块索引等信息，而后续的对这信息系的修改则保存在Edit log中<br>
+Secondary NameNode和NameNode的区别在于他不接受或记录HDFS的任何实时变化，只是根据集群配置的时间间隔不停的获取HDFS的某一个时间节点的FSImage和编辑日志，合并得到一个新的命名空间镜像FSImage，然后该镜像会上传到NameNode，替换原有的镜像文件，并清空编辑日志。<br>
+DataNode: 客户端操作文件块Block时，先由NameNode节点告知客户端诗句块所在的节点的位置，然后客户端直接与DataNode节点通信，处理与数据块对应的Linux上的本地文件。</p>
 </blockquote>
 
       
@@ -458,9 +478,9 @@
           
             <a href="/tags/后端技术/" rel="tag"># 后端技术</a>
           
-            <a href="/tags/Apache/" rel="tag"># Apache</a>
-          
             <a href="/tags/大数据/" rel="tag"># 大数据</a>
+          
+            <a href="/tags/Apache/" rel="tag"># Apache</a>
           
             <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
           
@@ -481,8 +501,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/基础架构/Arch-NoSQL-Redis/" rel="next" title="Redis">
-                <i class="fa fa-chevron-left"></i> Redis
+              <a href="/机器学习/RecommenderSystem-推荐系统/" rel="next" title="推荐系统">
+                <i class="fa fa-chevron-left"></i> 推荐系统
               </a>
             
           </div>
@@ -584,7 +604,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -595,7 +615,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -661,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hadoop-安装-amp-配置"><span class="nav-text">Hadoop 安装 &amp; 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-amp-Yarn安装步骤"><span class="nav-text">Hadoop &amp; Yarn安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些重要参数"><span class="nav-text">一些重要参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#客户端-API-amp-命令行"><span class="nav-text">客户端 API &amp; 命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop命令"><span class="nav-text">Hadoop命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS命令"><span class="nav-text">HDFS命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yarn命令"><span class="nav-text">Yarn命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HDFS文件系统解析"><span class="nav-text">HDFS文件系统解析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Hadoop 安装 &amp; 配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop-Yarn安装步骤"><span class="nav-text">Hadoop &amp; Yarn安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些重要参数"><span class="nav-text">一些重要参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">客户端 API &amp; 命令行</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop命令"><span class="nav-text">Hadoop命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HDFS命令"><span class="nav-text">HDFS命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yarn命令"><span class="nav-text">Yarn命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">HDFS文件系统解析</span></a></li></ol></div>
             
 
           </div>

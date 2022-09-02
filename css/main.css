@@ -299,10 +299,9 @@ img {
 }
 hr {
   margin: 40px 0;
-  height: 3px;
+  height: 1px;
   border: none;
   background-color: #ddd;
-  background-image: repeating-linear-gradient(-45deg, #fff, #fff 4px, transparent 4px, transparent 8px);
 }
 blockquote {
   padding: 0 15px;
@@ -1814,7 +1813,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9a66dd;
+  background: #24dd5d;
 }
 .links-of-blogroll {
   font-size: 13px;

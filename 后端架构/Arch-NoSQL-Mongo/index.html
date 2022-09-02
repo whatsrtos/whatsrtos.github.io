@@ -115,19 +115,19 @@
 
 
 
-<meta name="description" content="MongoDB是高性能(得益于内存缓存)、无模式的文档型数据库，支持二级索引，类json格式存储(bson)，非常适合文档化格式的存储及查询。适合用来存放评论等半结构化数据;MongoDB的官方定位是通用数据库，与MySQ类似，但跟传统关系型数据库比较，Mongo在事务、join、复杂查询应用下仍旧无法取代关系型数据库。 mongo shellquery ObjectId: db.getColl">
+<meta name="description" content="MongoDB是高性能(得益于内存缓存)、无模式的文档型数据库，支持二级索引，类json格式存储(bson)，非常适合文档化格式的存储及查询。适合用来存放评论等半结构化数据; MongoDB的官方定位是通用数据库，与MySQ类似，但跟传统关系型数据库比较，Mongo在事务、join、复杂查询应用下仍旧无法取代关系型数据库。 mongo shell query  ObjectId: db.getC">
 <meta name="keywords" content="后端架构,数据库,NoSQL,Mongo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mongo">
 <meta property="og:url" content="https://whatsrtos.github.io/后端架构/Arch-NoSQL-Mongo/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="MongoDB是高性能(得益于内存缓存)、无模式的文档型数据库，支持二级索引，类json格式存储(bson)，非常适合文档化格式的存储及查询。适合用来存放评论等半结构化数据;MongoDB的官方定位是通用数据库，与MySQ类似，但跟传统关系型数据库比较，Mongo在事务、join、复杂查询应用下仍旧无法取代关系型数据库。 mongo shellquery ObjectId: db.getColl">
+<meta property="og:description" content="MongoDB是高性能(得益于内存缓存)、无模式的文档型数据库，支持二级索引，类json格式存储(bson)，非常适合文档化格式的存储及查询。适合用来存放评论等半结构化数据; MongoDB的官方定位是通用数据库，与MySQ类似，但跟传统关系型数据库比较，Mongo在事务、join、复杂查询应用下仍旧无法取代关系型数据库。 mongo shell query  ObjectId: db.getC">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://webassets.mongodb.com/_com_assets/cms/MongoDB-Logo-5c3a7405a85675366beb3a5ec4c032348c390b3f142f5e6dddf1d78e2df5cb5c.png">
 <meta property="og:updated_time" content="2020-07-16T13:08:27.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mongo">
-<meta name="twitter:description" content="MongoDB是高性能(得益于内存缓存)、无模式的文档型数据库，支持二级索引，类json格式存储(bson)，非常适合文档化格式的存储及查询。适合用来存放评论等半结构化数据;MongoDB的官方定位是通用数据库，与MySQ类似，但跟传统关系型数据库比较，Mongo在事务、join、复杂查询应用下仍旧无法取代关系型数据库。 mongo shellquery ObjectId: db.getColl">
+<meta name="twitter:description" content="MongoDB是高性能(得益于内存缓存)、无模式的文档型数据库，支持二级索引，类json格式存储(bson)，非常适合文档化格式的存储及查询。适合用来存放评论等半结构化数据; MongoDB的官方定位是通用数据库，与MySQ类似，但跟传统关系型数据库比较，Mongo在事务、join、复杂查询应用下仍旧无法取代关系型数据库。 mongo shell query  ObjectId: db.getC">
 <meta name="twitter:image" content="https://webassets.mongodb.com/_com_assets/cms/MongoDB-Logo-5c3a7405a85675366beb3a5ec4c032348c390b3f142f5e6dddf1d78e2df5cb5c.png">
 
 
@@ -358,87 +358,90 @@
 
       
         <p><img src="https://webassets.mongodb.com/_com_assets/cms/MongoDB-Logo-5c3a7405a85675366beb3a5ec4c032348c390b3f142f5e6dddf1d78e2df5cb5c.png" alt="MongoDB"></p>
-<p>MongoDB是高性能(得益于内存缓存)、无模式的文档型数据库，支持二级索引，类json格式存储(bson)，非常适合文档化格式的存储及查询。适合用来存放评论等半结构化数据;<br>MongoDB的官方定位是通用数据库，与MySQ类似，但跟传统关系型数据库比较，Mongo在事务、join、复杂查询应用下仍旧无法取代关系型数据库。</p>
-<h1 id="mongo-shell"><a href="#mongo-shell" class="headerlink" title="mongo shell"></a>mongo shell</h1><h2 id="query"><a href="#query" class="headerlink" title="query"></a>query</h2><ul>
-<li>ObjectId: <code>db.getCollection(&#39;activities&#39;).find(ObjectId(&#39;5a9f5e7137c65800015df8d0&#39;))</code></li>
-<li>AND: <code>db.collection.find({ &quot;key&quot; : &quot;value&quot;, &quot;key1&quot; : &quot;value1&quot;})</code> </li>
-<li>OR: </li>
+<p>MongoDB是高性能(得益于内存缓存)、无模式的文档型数据库，支持二级索引，类json格式存储(bson)，非常适合文档化格式的存储及查询。适合用来存放评论等半结构化数据;<br>
+MongoDB的官方定位是通用数据库，与MySQ类似，但跟传统关系型数据库比较，Mongo在事务、join、复杂查询应用下仍旧无法取代关系型数据库。</p>
+<h1>mongo shell</h1>
+<h2 id="query">query</h2>
+<ul>
+<li>ObjectId: <code>db.getCollection('activities').find(ObjectId('5a9f5e7137c65800015df8d0'))</code></li>
+<li>AND: <code>db.collection.find({ &quot;key&quot; : &quot;value&quot;, &quot;key1&quot; : &quot;value1&quot;})</code></li>
+<li>OR:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collection.find(&#123;    </span><br><span class="line">    $or : [</span><br><span class="line">        &#123;k1:v1&#125;,</span><br><span class="line">        &#123;k2:v2&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><ul>
-<li>lt, lte, gt, gte: </li>
+<h3 id="条件">条件</h3>
+<ul>
+<li>lt, lte, gt, gte:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collection.find(&#123;</span><br><span class="line">    &quot;key&quot; : &#123; $gte : 59&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>not null : <code>db.collection.find({&quot;key&quot;: {$exists:true}})</code></li>
 </ul>
-<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><ul>
+<h3 id="排序">排序</h3>
+<ul>
 <li>升序: <code>db.collection.find({}).sort({&quot;key&quot;: 1})</code></li>
 <li>降序: <code>db.collection.find({}).sort({&quot;key&quot;: -1})</code></li>
 </ul>
-<h2 id="update"><a href="#update" class="headerlink" title="update"></a>update</h2><p>格式:</p>
+<h2 id="update">update</h2>
+<p>格式:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.collection.update(</span><br><span class="line">   &#123;query&#125;,</span><br><span class="line">   &#123;update&#125;,</span><br><span class="line">   &#123;</span><br><span class="line">     upsert: &lt;boolean&gt;,</span><br><span class="line">     multi: &lt;boolean&gt;,</span><br><span class="line">     writeConcern: &lt;document&gt;</span><br><span class="line">   &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <p>例子:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.getCollection(&apos;activities&apos;).update(</span><br><span class="line">    &#123;&quot;dateStart&quot; : &#123;$gte:1514736000000&#125;&#125;, </span><br><span class="line">    &#123;$set : &#123;&apos;name&apos; : &apos;xxxx&apos;&#125;&#125;,</span><br><span class="line">    &#123;multi : true&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <p><strong>inc自增:</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.getCollection(&apos;activities&apos;).update(</span><br><span class="line">    &#123; &quot;_id&quot; : ObjectId(&quot;5aa86f063dd35a000113401f&quot;) &#125;,</span><br><span class="line">    &#123; $inc : &#123; &quot;score&quot; : 10 &#125;&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h3 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h3><ul>
+<h3 id="数组操作">数组操作</h3>
+<ul>
 <li>$push:向文档数组中添加元素，如果没有该数组，则自动添加数组</li>
-<li>$addToSet:功能与$push相同，区别在于，$addToSet把数组看作成一个Set,如果数组中存在相同的元素，不会插入。<code>$addToSet : {&#39;displayAttributes&#39; : &#39;totalPvShow&#39;}</code></li>
+<li>$addToSet:功能与$push相同，区别在于，$addToSet把数组看作成一个Set,如果数组中存在相同的元素，不会插入。<code>$addToSet : {'displayAttributes' : 'totalPvShow'}</code></li>
 </ul>
 <p>数组操作:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.getCollection(&apos;activities&apos;).update(</span><br><span class="line">    &#123;&quot;dateStart&quot; : &#123;$gte:1514736000000&#125;&#125;, </span><br><span class="line">    &#123;$addToSet : &#123;&apos;displayAttributes&apos; : &apos;totalPvShow&apos;&#125;&#125;,</span><br><span class="line">    &#123;multi : true&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h2 id="aggregate"><a href="#aggregate" class="headerlink" title="aggregate"></a>aggregate</h2><p>设每个数据包括 <code>{ &quot;icq&quot;: &quot;xxx&quot;, &quot;score1&quot; : 1, &quot;score2&quot; : 2 }</code>, 按<code>icq</code>聚合, 求<code>score1</code>和<code>score2</code>的和</p>
+<h2 id="aggregate">aggregate</h2>
+<p>设每个数据包括 <code>{ &quot;icq&quot;: &quot;xxx&quot;, &quot;score1&quot; : 1, &quot;score2&quot; : 2 }</code>, 按<code>icq</code>聚合, 求<code>score1</code>和<code>score2</code>的和</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">db.getCollection(&apos;item&apos;).aggregate([</span><br><span class="line">&#123;$match : &#123; &quot;icq&quot; : &quot;xxxx&quot;&#125; &#125;,  # 匹配条件</span><br><span class="line">&#123;$group : &#123; </span><br><span class="line">        _id : &quot;$icq&quot; ,  # `_id`是固定的语法, 按哪一属性聚合</span><br><span class="line">        score1_sum : &#123; $sum : &quot;$score1&quot; &#125;,  # 自定义结果名: &#123;$操作 : &quot;$属性名&quot;&#125;</span><br><span class="line">        score2_sum : &#123; $sum : &quot;$channel&quot; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
-
-<h1 id="mongo命令"><a href="#mongo命令" class="headerlink" title="mongo命令"></a>mongo命令</h1><p>启动数据库并开启权限: <code>/opt/apps/mongodb/bin/mongod --config /opt/conf/mongo/mongo.conf --auth</code></p>
+<h1>mongo命令</h1>
+<p>启动数据库并开启权限: <code>/opt/apps/mongodb/bin/mongod --config /opt/conf/mongo/mongo.conf --auth</code></p>
 <p>连接mongo并查询</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mongo 127.0.0.1 -u username -p pwd --port 28015 # 连接数据库</span><br><span class="line">mongo 127.0.0.1 -u username -p pwd --port 28015 --authenticationDatabase "admin" # 指定验证的db</span><br><span class="line">mongo 127.0.0.1:27017/admin -u mongouser -p pwd # 另一种登录格式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> show dbs <span class="comment"># 列出所有数据库</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> use db_name</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> show collections <span class="comment"># collection类似表</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> db.collection_name.find() <span class="comment"># 在xxx这个collection里查找</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> db.collection_name.find(&#123;appid: <span class="string">"total"</span>, time: <span class="string">"20170324"</span>&#125;) <span class="comment"># 在xxx里查找appid=total的项</span></span></span><br></pre></td></tr></table></figure>
-
 <p>关闭mongo服务:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; use admin</span><br><span class="line">&gt; db.shutdownServer();</span><br></pre></td></tr></table></figure>
-
-<h2 id="mongoexport"><a href="#mongoexport" class="headerlink" title="mongoexport"></a>mongoexport</h2><ul>
-<li><p>mongoexport参数说明:</p>
+<h2 id="mongoexport">mongoexport</h2>
+<ul>
+<li>
+<p>mongoexport参数说明:</p>
 <ul>
 <li>-d: database</li>
 <li>/c: collection</li>
 <li>/q: query filter, as a JSON string, e.g., ‘{x:{$gt:1}}’</li>
 <li>/sort: sort order, as a JSON string, e.g. ‘{x:1}’</li>
-<li>—-authenticationDatabase “admin” : 指定验证db</li>
+<li>----authenticationDatabase “admin” : 指定验证db</li>
 </ul>
 </li>
-<li><p>将info库中student的id,name信息以json格式导出到student_json.dat数据文件中，并且限定“行数”是1</p>
+<li>
+<p>将info库中student的id,name信息以json格式导出到student_json.dat数据文件中，并且限定“行数”是1</p>
 <ul>
 <li><code>mongoexport -h 127.0.0.1 -u root -p 12345 -d info -c student --type=json -f id,name --limit=1 -o E:\data\student_json.dat</code></li>
 </ul>
 </li>
-<li><p>将info库student collections的name=a的信息以cvs格式导出到student_cvs.dat数据文件中</p>
+<li>
+<p>将info库student collections的name=a的信息以cvs格式导出到student_cvs.dat数据文件中</p>
 <ul>
 <li><code>mongoexport -h 127.0.0.1 -u root -p 12345 -d info -c student --type=cvs -q{&quot;name&quot;:&quot;a&quot;} -o E:\data\student_cvs.dat</code></li>
 </ul>
 </li>
 </ul>
-<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><ul>
+<h2 id="权限">权限</h2>
+<ul>
 <li>在admin数据库里addUser创建的是管理员用户, 可以访问任何数据库 <code>db.addUser(&quot;admin&quot;,&quot;admin&quot;);</code></li>
 <li><code>use DATABASE_NAME</code> : 如果数据库不存在，则创建数据库，否则切换到指定数据库。</li>
-<li>在某个数据库里addUser创建的用户, 只有对这个数据库的权限 </li>
-<li>创建用户: db.addUser(“user”,”pwd”);</li>
+<li>在某个数据库里addUser创建的用户, 只有对这个数据库的权限</li>
+<li>创建用户: db.addUser(“user”,“pwd”);</li>
 <li>删除用户: db.removeUser(“xxx”);</li>
 <li>查找用户: db.system.users.find()</li>
 </ul>
 <p>创建具有admin权限的用户:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; use admin</span><br><span class="line">&gt; db.addUser(&quot;admin&quot;,&quot;password&quot;)</span><br><span class="line">&#123;</span><br><span class="line">    &quot;user&quot; : &quot;admin&quot;,</span><br><span class="line">    &quot;readOnly&quot; : false,</span><br><span class="line">    &quot;pwd&quot; : &quot;a254f094f02d3c96f4748175cb4b9403&quot;,</span><br><span class="line">    &quot;_id&quot; : ObjectId(&quot;595afee766c59f7c02021c99&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>如何使用创建的用户登录:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use admin # 授权admin必须切换到admin库</span><br><span class="line">db.auth(&quot;admin&quot;,&quot;password&quot;)</span><br><span class="line">use db_name  # 切换到要查询的库</span><br><span class="line">show collections</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -578,7 +581,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -589,7 +592,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -655,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mongo-shell"><span class="nav-text">mongo shell</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#query"><span class="nav-text">query</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#条件"><span class="nav-text">条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-text">排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#update"><span class="nav-text">update</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组操作"><span class="nav-text">数组操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aggregate"><span class="nav-text">aggregate</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mongo命令"><span class="nav-text">mongo命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoexport"><span class="nav-text">mongoexport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限"><span class="nav-text">权限</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">mongo shell</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#query"><span class="nav-text">query</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#条件"><span class="nav-text">条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-text">排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#update"><span class="nav-text">update</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组操作"><span class="nav-text">数组操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aggregate"><span class="nav-text">aggregate</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">mongo命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mongoexport"><span class="nav-text">mongoexport</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限"><span class="nav-text">权限</span></a></li></ol></li></ol></div>
             
 
           </div>

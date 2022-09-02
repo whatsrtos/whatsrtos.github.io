@@ -278,7 +278,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/使用fluentd,kafka,mongodb搭建日志处理系统/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[Raspberry] 在树莓派上安装无线网卡/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -297,7 +297,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/farbox_archive/使用fluentd,kafka,mongodb搭建日志处理系统/" itemprop="url">使用fluentd,kafka,mongodb搭建日志处理系统</a></h1>
+                <a class="post-title-link" href="/farbox_archive/[Raspberry] 在树莓派上安装无线网卡/" itemprop="url">在树莓派上安装无线网卡</a></h1>
         
 
         <div class="post-meta">
@@ -331,7 +331,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,811
+                  426
                 </span>
               
 
@@ -357,26 +357,327 @@
 
       
         
-          <h1 id="设计实现"><a href="#设计实现" class="headerlink" title="设计实现"></a>设计实现</h1><ul>
-<li>采集: 可选的有fluentd, td-agent(fluentd的稳定版本, 二者区别), Apache flume.</li>
-<li>消息持久化队列: <a href="http://kafka.apache.org/" target="_blank" rel="noopener">http://kafka.apache.org/</a> (分布式消息队列),<ul>
-<li>数据源进行topic分流，实现Category</li>
-<li>作为一层buffer来适配输入输出的消息速率，解除系统耦合度</li>
-<li>作用类似于缓存，即活跃的数据和离线处理系统之间的缓存</li>
-<li>kafka是显式分布式架构，producer、broker（Kafka）和consumer都可以有多个。Kafka的作用类似于缓存，即活跃的数据和离线处理系统之间的缓存。几个基本概念：<ol>
-<li>message（消息）是通信的基本单位，每个producer可以向一个topic（主题）发布一些消息。如果consumer订阅了这个主题，那么新发布的消息就会广播给这些consumer。</li>
-<li>Kafka是显式分布式的，多个producer、consumer和broker可以运行在一个大的集群上，作为一个逻辑整体对外提供服务。对于consumer，多个consumer可以组成一个group，这个message只能传输给某个group中的某一个consumer.</li>
-</ol>
+          <h2 id="测试驱动">测试驱动</h2>
+<p>为了省事，我买了EP-N8508GS无线网卡，因为能免去编译驱动的麻烦。<br>
+确认你的Kernel支持那些无线网卡:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ find /lib/modules/`uname -r`/kernel/drivers/net/wireless -name &quot;*.ko&quot;</span><br><span class="line">/lib/modules/3.12.35+/kernel/drivers/net/wireless/rtl8192cu/8192cu.ko</span><br><span class="line">/lib/modules/3.12.35+/kernel/drivers/net/wireless/rtl818x/rtl8187/rtl8187.ko</span><br></pre></td></tr></table></figure>
+<p>查看识别的usb设备:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pi@raspberrypi ~ $ lsusb</span><br><span class="line">Bus 001 Device 002: ID 0424:9512 Standard Microsystems Corp.</span><br><span class="line">Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span><br><span class="line">Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp.</span><br><span class="line">Bus 001 Device 004: ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/farbox_archive/[Raspberry] 在树莓派上安装无线网卡/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[PHP] 使用Xdebug调试PHP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/farbox_archive/[PHP] 使用Xdebug调试PHP/" itemprop="url">使用Xdebug调试PHP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  596
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>（一） Server端安装xdebug:</h1>
+<h2 id="Windows服务器">Windows服务器</h2>
+<p>For windows的xdebug都是预编译好的binary包, 根据PHP版本下载对应的xdebug: <a href="http://xdebug.org/download.php" target="_blank" rel="noopener">下载地址</a></p>
+<h2 id="Linux服务器">Linux服务器</h2>
+<p>(1) 安装<br>
+最简单的安装方法是通过PECL安装: <code>pecl install xdebug</code></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/farbox_archive/[PHP] 使用Xdebug调试PHP/#espandi" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/Hexo部署和使用指北/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/farbox_archive/Hexo部署和使用指北/" itemprop="url">Hexo部署和使用指北(Windows)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,781
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>静态博客对比</h1>
+<ul>
+<li>Hugo: 基于Golang <a href="https://gohugo.io/" target="_blank" rel="noopener">The world’s fastest framework for building websites | Hugo</a></li>
+<li>Jekyll: 基于Ruby / 支持 GitHub Pages 部署 <a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll • Simple, blog-aware, static sites | Transform your plain text into static websites and blogs</a></li>
+<li>Hexo: 基于Node.js / 支持 GitHub Pages 部署 <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li>
+</ul>
+<h1>安装 Step by Step</h1>
+<p>安装<a href="http://git-scm.com/downloads" target="_blank" rel="noopener">Git客户端</a>和<a href="http://nodejs.org/download/" target="_blank" rel="noopener">node.js</a>环境, 然后你还要有一个Github帐号.<br>
+安装完node.js之后, 不要忘记把<code>User/AppData/Roaming/npm</code>添加到PATH.</p>
+<ul>
+<li>
+<p>安装hexo: 打开Git CMD（因为），输入: <code>npm install -g hexo-cli</code></p>
+</li>
+<li>
+<p>初始化hexo: <code>hexo init BLOG</code>, 将在当前目录建立&quot;BLOG&quot;为名的目录并在此初始化, Hexo 即会自动在目标文件夹建立网站所需要的所有文件.</p>
+</li>
+<li>
+<p>安装依赖包: <code>cd BLOG &amp;&amp; npm install</code>,</p>
+<ul>
+<li>如果需要把Blog部署到Github上, 还需要安装hexo-git模块: <code>npm install hexo-deployer-git --save</code> (这一步可选);</li>
+<li>如果需要Blog主页不显示全文而是摘要, 需要安装<code>npm install --save hexo-excerpt</code> (这一步可选);</li>
+</ul>
+</li>
+<li>
+<p>本地启动测试: <code>hexo server</code>, 然后访问<a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">127.0.0.1:4000</a>查看.</p>
+</li>
+<li>
+<p>Github上新建一个repository, 名字为<code>yoursite.github.io</code></p>
+</li>
+<li>
+<p>修改本地的<code>_config.yml</code>文件, 找到<code>#site</code>一栏, 修改博客的title, 然后在最后的<code>deploy:</code>处增加下面几行:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type: github</span><br><span class="line">repository: https://github.com/Your_Github_Account/yoursite.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>添加评论系统: 国外比较常用的评论系统有disqus等, 这个在hexo中也是默认开启的, 如果我们要添加其他的评论系统, 还需要做一点修改.<br>
+在国内推荐使用搜狐畅言: <img src="http://changyan.sohu.com/platformstatic/images/pic/f02.jpg" alt="搜狐畅言-专业的社会化评论系统">.<br>
+首先需要在配置文件中禁用disqus, 编辑根目录的_config.yml文件: 查找并注释掉<code>disqus_shortname</code>一行.<br>
+然后编辑 <code>themes\landscape\layout\_partial\article.ejs</code>文件, 在文件最后找到<code>section id=&quot;comments&quot;</code>一段, 修改为:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% if (!index)&#123; %&gt;</span><br><span class="line">&lt;section id=&quot;comments&quot;&gt;</span><br><span class="line">    &lt;%- partial(&apos;comment&apos;) %&gt;</span><br><span class="line">&lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>编辑<code>themes\landscape\layout\_partial\comment.ejs</code> 并添加<a href="http://changyan.sohu.com/" target="_blank" rel="noopener">畅言</a>的Js代码:</p>
 </li>
 </ul>
-</li>
-<li>存储: mongo</li>
-</ul>
-<h1 id="Fluentd-td-agent"><a href="#Fluentd-td-agent" class="headerlink" title="Fluentd(td-agent)"></a>Fluentd(td-agent)</h1><p>Fluentd内置三种日志采集, file-tail, tcp, http-url, 通过插件可以支持更多的采集方式.</p>
-<h2 id="Install-fluentd-td-agent-by-RPM"><a href="#Install-fluentd-td-agent-by-RPM" class="headerlink" title="Install fluentd(td-agent) by RPM"></a>Install fluentd(td-agent) by RPM</h2>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/farbox_archive/使用fluentd,kafka,mongodb搭建日志处理系统/#more" rel="contents">
+            <a class="btn" href="/farbox_archive/Hexo部署和使用指北/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -427,7 +728,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[IDE]为Eclipse安装Remote System Explorer/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[Vim] EasyGrep使用介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -446,7 +747,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/farbox_archive/[IDE]为Eclipse安装Remote System Explorer/" itemprop="url">为Eclipse安装 Terminal</a></h1>
+                <a class="post-title-link" href="/farbox_archive/[Vim] EasyGrep使用介绍/" itemprop="url">EasyGrep使用简介</a></h1>
         
 
         <div class="post-meta">
@@ -480,7 +781,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  55
+                  611
                 </span>
               
 
@@ -506,151 +807,18 @@
 
       
         
-          
-            <p>IDEA的Terminal很方便, 但Eclipse没有.<br>还是比较习惯敲命令行.</p>
-<p>Eclipse工具栏 -&gt; Run -&gt; Extrnal Tools -&gt; Configurations , 新建一个:<br>Location填入<code>C:\Windows\System32\cmd.exe</code>, Working Directory : <code>${project_loc}</code></p>
+          <p>Linux上使用Vim进行文件搜一般使用grep命令+grep.vim插件完成, 但在Windows上使用grep就有些不方便了, <a href="http://gnuwin32.sourceforge.net/" target="_blank" rel="noopener">GnuWin32</a>和<a href="http://sourceforge.net/projects/unxutils/" target="_blank" rel="noopener">UnxUtils</a>虽然都提供了Windows移植版本的Grep.exe, 但都有bug, 比如:</p>
 <ul>
-<li>参考<a href="http://stackoverflow.com/questions/1562600/is-there-an-eclipse-plugin-to-run-system-shell-in-the-console" target="_blank" rel="noopener">Is there an Eclipse plugin to run system shell in the Console?</a></li>
+<li><a href="http://stackoverflow.com/questions/3995493/gnuwin32-find-exe-expands-wildcard-before-performing-search" target="_blank" rel="noopener">Gnuwin32 find.exe expands wildcard before performing search</a></li>
+<li><a href="http://sourceforge.net/p/unxutils/bugs/58/" target="_blank" rel="noopener">UnxUtils: #58 xargs: cannot fork</a></li>
 </ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[Vim] 在Windows下使用vim grep的正确姿势/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/farbox_archive/[Vim] 在Windows下使用vim grep的正确姿势/" itemprop="url">在 Windows 下使用 vim grep 的正确姿势</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,381
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>首先, 开发环境是Windows,<br>然后, 我又是一个信仰坚定的Vimer,<br>所以就出现了<code>Windows + Gvim</code>这个有些不太协调的组合, 想在盖茨叔叔的视窗OS上稍微正常的使用Gvim还是有些小麻烦, 可是这都难不倒一个有信仰的Vimer.</p>
-<p>PS 如果你使用Osx or Linux, 大可不必这样折腾, 直接使用<a href="https://github.com/mileszs/ack.vim" target="_blank" rel="noopener">ack.vim</a> 或 <a href="www.vim.org/script.php?script_id=311">grep.vim</a>吧, 简单的配置就可以搞定.</p>
-<h1 id="在Win上使用grep的可选方案"><a href="#在Win上使用grep的可选方案" class="headerlink" title="在Win上使用grep的可选方案"></a>在Win上使用grep的可选方案</h1><p>在Windows上使用grep搜索文本有以下几种方案:</p>
-<ol>
-<li>使用<code>grep</code>命令, 虽是GNU下的工具, 但也有Win移植版;</li>
-<li>使用vim内置的<code>vimgrep</code>命令, 速度最慢但是兼容性相对好;</li>
-<li>使用Win下的原生命令<code>findstr</code>;</li>
-<li>使用Win移植版的ack, 这种方法我没尝试过, 如果你用过了, 请一定告诉我:P</li>
-</ol>
+<p>在Windows上使用grep还有一个折衷的办法: 使用Cygwin环境, 不过今天这里不讨论Cygwin…<br>
+偶然在这个博客上发现了EasyGrep插件的介绍: <a href="http://zuyunfei.com/2013/08/25/vim-plugin-easy-grep/" target="_blank" rel="noopener">vim中的杀手级插件: EasyGrep</a>, 当时我是多么执着于在Windows上移植Grep和ack啊… 浪费了不少时间之后才发现还是使用现成的工具比较好-.-</p>
+<h2 id="EasyGrep的安装">EasyGrep的安装</h2>
+<p>如果你已经使用了Vundle管理Vim插件, 只需要在.vimrc里增加<code>Bundle 'EasyGrep'</code>然后使用<code>:BundleInstall</code>安装即可.</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/farbox_archive/[Vim] 在Windows下使用vim grep的正确姿势/#more" rel="contents">
+            <a class="btn" href="/farbox_archive/[Vim] EasyGrep使用介绍/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -701,7 +869,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/MarkEditor使用体验/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[工具] 还是告别Linux Desktop了/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -720,7 +888,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/farbox_archive/MarkEditor使用体验/" itemprop="url">MarkEditor使用体验</a></h1>
+                <a class="post-title-link" href="/farbox_archive/[工具] 还是告别Linux Desktop了/" itemprop="url">还是告别 Linux Desktop了</a></h1>
         
 
         <div class="post-meta">
@@ -754,7 +922,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  318
+                  804
                 </span>
               
 
@@ -780,19 +948,20 @@
 
       
         
-          <p><img src="/images/2016-07-28/sublime_dropbox2.jpg" alt="sublime+dropbox"></p>
-<p>一直用<code>Sublime + Dropbox</code>的组合来写Markdown笔记. 这个组合看起来有点怪异,<br><strong>Sublime</strong>是使用体验最好的编辑器(安装了MarkdownEditting和MarkdownPreview插件),<br><strong>Dropbox</strong>是使用体验最好的同步工具,<br>但”最佳编辑器”+”最佳同步工具”的组合并非那样无懈可击.<br>相比Evernote,有道云笔记, Sublime+Dropbox的组合在移动端阅读和检索略有不便, 但同步速度和编辑体验简直甩大象有道这两位”全职笔记”几条街.</p>
-<p>试用了farbox.com推出的markdown编辑器–<a href="http://markeditor.farbox.com/" target="_blank" rel="noopener">MarkEditor</a>使用体验非常棒, 几乎是我使用过的最好的markdown编辑器</p>
+          <p>用了几年Ubuntu,还有Fedora.曾经认为*nix的一切概念都比Windows更加合理. 但是… 折腾了这么久, 我还是决定换回Windows了.</p>
+<p>至于原因,简单的解释就是: 无论哪个桌面OS都只是工具而已,在&quot;折腾工具&quot;上花费太多时间本身已经违背了工具被设计出来的初衷, 无论那个Linux桌面发行版(作为日常使用OS)距离&quot;好用&quot;还是有相当的差距.</p>
 <ul>
-<li>支持工作目录和标签, 对于我这种经常要在多个Markdown笔记来回切换的人来说, 非常方便.</li>
-<li>漂亮的语法高亮.</li>
-<li>方便的TOC导航侧边栏</li>
-<li>图片管理</li>
+<li>比如Chrome for Linux版本播放flash的渣性能;</li>
+<li>功耗控制的不完善,就算装了Tlp/Powertop,仍旧比不上Windows上Thinkpad自带的PowerManager;</li>
+<li>双显卡虽然有Bumblebee,但性能还是比不上NVIDIA Optimus一半;</li>
+<li>多少开源的中文字体, 在Chrome上居然都不如微软的雅黑表现出色…</li>
+<li>此外,还有Thinkpad的指纹识别,APS硬盘保护(老朽的HDAPS已经不能支持新款的Tp了). 值得吐槽的地方还有很多很多, 没法一一举例.</li>
 </ul>
-<p>但也有一些Bug和功能上的不完备, 这也是让我最终决定暂不购买<a href="http://markeditor.farbox.com/" target="_blank" rel="noopener">MarkEditor</a>付费版的原因:</p>
+<p>当你在google,stackexchange上查了好多答案,折腾了许久,却发现只实现了Windows上同等功能(可能还不及),这是多么败兴的事情-.-</p>
+<p>上面提到的,或许有些人不赞同是Linux自身的原因,而是因为&quot;大多数硬件厂商对Linux支持不够&quot;. 唉,说直白一点, 桌面Linux败就败在了生态环境上. 无论Linux在服务器上表现如何, 都救不了Linux Desktop.</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/farbox_archive/MarkEditor使用体验/#more" rel="contents">
+            <a class="btn" href="/farbox_archive/[工具] 还是告别Linux Desktop了/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -843,7 +1012,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/摄影/关于闪光灯你应该知道的一些事/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[效率] Shell的进化 - Zsh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -862,7 +1031,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/摄影/关于闪光灯你应该知道的一些事/" itemprop="url">关于闪光灯你应该知道的一些事</a></h1>
+                <a class="post-title-link" href="/farbox_archive/[效率] Shell的进化 - Zsh/" itemprop="url">Shell 的进化 - Zsh</a></h1>
         
 
         <div class="post-meta">
@@ -896,7 +1065,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,783
+                  835
                 </span>
               
 
@@ -922,16 +1091,18 @@
 
       
         
-          <h2 id="一-快门的前帘与后帘"><a href="#一-快门的前帘与后帘" class="headerlink" title="(一) 快门的前帘与后帘"></a>(一) 快门的前帘与后帘</h2><p>单反上的快门都属于<code>焦平面快门</code>(区别镜间快门)，了解闪光同步速度之前，要先了解单反的快门的工作原理。<br>快门的机械部件最高可以在1/200秒内扫过整个感光元件 ，这个1/200s大概是目前单反的快门的极限，也叫<code>闪光同步速度</code>。<br>所以，<code>闪光同步速度</code>是<strong>单反机身的</strong>性能参数，而不是闪光灯的性能参数。<br>如果单反的同步速度只有1/200秒，那么如若需要更高速度的快门，比如1/4000或更高的快门速度，应该如何实现呢?</p>
-<p>如果把快门做成一条狭缝，这个狭缝扫过整个感光元件需要1/200秒，感光元件上每行像素点受到光照时间就可以做到小于1/200秒了，只要狭缝做的足够窄，也可以实现1/4000秒的高速快门。<br>焦平面快门有两个门帘，第一个门帘先移动，第二门帘立刻跟上，就相当于上面的”狭缝”了。</p>
-<p>假设机身的快门机械部分扫过整个CMOS的最短需要1/200秒，那么低于1/200的快门速度，我们称之为”低速快门”，高于1/200的快门就需要以前后帘以”狭缝”的方式实现，也叫”高速快门”。</p>
-<ul>
-<li><code>低速快门</code>：前帘落下，快门完全打卡，CMOS完全曝光，然后后帘落下。</li>
-<li><code>高速快门</code>：前帘落下，后帘立刻跟上，前后帘之间只有一条狭缝，相当于光线通过狭缝，从上至下扫描过CMOS，这整个扫描过程大约是1/200秒。这里的1/200秒就是单反机身的闪光同步速度。</li>
-</ul>
+          <h1>(1) Zsh和Oh-my-zsh的安装</h1>
+<h2 id="1-1-install-zsh">(1.1) install zsh</h2>
+<p>OSX自带了zsh，不必再安装. 对于Redhat系/Debian系的Linux，使用yum/apt-get工具安装: <code>sudo -c 'yum install zsh'</code>.</p>
+<h2 id="1-2-install-oh-my-zsh">(1.2) install oh-my-zsh</h2>
+<p>方式1 自动安装:<br>
+<code>wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh</code><br>
+方式2 手动安装:<br>
+<code>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</code><br>
+<code>cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</code></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/摄影/关于闪光灯你应该知道的一些事/#more" rel="contents">
+            <a class="btn" href="/farbox_archive/[效率] Shell的进化 - Zsh/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -982,7 +1153,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[工具] 在Windows和OSX之间同步Sublime配置文件/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[效率] 在Linux上安装BitTorrent Sync/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -1001,7 +1172,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/farbox_archive/[工具] 在Windows和OSX之间同步Sublime配置文件/" itemprop="url">在 Windows 和 macOS 之间同步 Sublime 配置文件</a></h1>
+                <a class="post-title-link" href="/farbox_archive/[效率] 在Linux上安装BitTorrent Sync/" itemprop="url">在 Linux 上安装 BitTorrent Sync</a></h1>
         
 
         <div class="post-meta">
@@ -1035,7 +1206,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  258
+                  253
                 </span>
               
 
@@ -1061,17 +1232,15 @@
 
       
         
-          <p>下面介绍如何把Windows上的Sublime设置同步到OSX</p>
-<h3 id="Windows设置"><a href="#Windows设置" class="headerlink" title="Windows设置"></a>Windows设置</h3><ul>
-<li>关闭Sublime;</li>
-<li>以administrator打开PowerShell, 输入以下命令:</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &quot;%appdata%\Sublime Text 3\Packages\&quot;</span><br><span class="line">mkdir &apos;X:\Dropbox\SublimeText3&apos;</span><br><span class="line">mv User &apos;X:\Dropbox\SublimeText3\&apos;</span><br><span class="line">cmd /c mklink /D User &quot;X:\Dropbox\SublimeText3\User&quot;</span><br></pre></td></tr></table></figure>
-
-<p>注意, 根据情况替换上面的<code>X:\Dropbox\SublimeText3</code>路径;<br>第三行<code>mv</code>命令只能在相同盘符的目录之间移动, 如果你的Dropbox同步目录不是在C盘, 手动打开<code>%AppData%\Sublime Text 3\Packages\\</code>, 把下面的User目录移动到Dropbox同步目录中.</p>
+          <p>BitTorrent Sync是一款同步工具，和Dropbox/Google Drive这些云存储的区别是，BitTorrent Sync不用连接服务器，而是基于P2P分布式进行设备和设备之间的文件同步，支持PC（Win/Linux/Mac），FreeBSD，Android，iOS设备。<br>
+用BitTorrent Sync可以方便的在同一局域网里的PC/智能设备之间同步文件。</p>
+<h2 id="1-下载-安装：">1.下载&amp;安装：</h2>
+<p>两种安装方式：通过PPA安装，或直接下载二进制文件。</p>
+<h3 id="1-1-方式1">1.1 方式1</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:tuxpoldo/btsync</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install btsync-user</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/farbox_archive/[工具] 在Windows和OSX之间同步Sublime配置文件/#more" rel="contents">
+            <a class="btn" href="/farbox_archive/[效率] 在Linux上安装BitTorrent Sync/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1122,7 +1291,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/摄影/摄影笔记/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/畅言测试页面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -1141,7 +1310,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/摄影/摄影笔记/" itemprop="url">摄影笔记</a></h1>
+                <a class="post-title-link" href="/farbox_archive/畅言测试页面/" itemprop="url">畅言测试页面</a></h1>
         
 
         <div class="post-meta">
@@ -1175,7 +1344,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,557
+                  0
                 </span>
               
 
@@ -1201,13 +1370,145 @@
 
       
         
-          <h1 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h1><h2 id="色调"><a href="#色调" class="headerlink" title="色调"></a>色调</h2><ul>
-<li><a href="http://vod.sjtu.edu.cn/help/Article_Show.asp?ArticleID=1622" target="_blank" rel="noopener">色彩系列教程(2)：色系和色调</a><br>色调指的是一幅画中画面色彩的总体倾向, 色调指的是一幅画中画面色彩的总体倾向.<br>比如这样的画面: 不同颜色的物体或被笼罩在一片金色的阳光之中, 或被笼罩在一片轻纱薄雾似的、淡蓝色的月色之中;或被秋天迷人的金黄色所笼罩; 或被统一在冬季银白色的世界之中.<br>这种在不同颜色的物体上, 笼罩着某一种色彩, 使不同颜色的物体都带有同一色彩倾向, 这样的色彩现象就是色调. </li>
-</ul>
-<h2 id="色温"><a href="#色温" class="headerlink" title="色温"></a>色温</h2><h3 id="自然界的色温"><a href="#自然界的色温" class="headerlink" title="自然界的色温"></a>自然界的色温</h3>
+          
+            <p><a href="http://changyan.sohu.com/" target="_blank" rel="noopener"><img src="http://changyan.sohu.com/platformstatic/images/header-logo.gif" alt="畅言"></a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[C] C语言的编译与链接/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/farbox_archive/[C] C语言的编译与链接/" itemprop="url">C语言的编译与链接 - gcc,ld,ar等工具的介绍</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,472
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇半成品已经在硬盘上放了好久了, 今天终于忍无可忍, 熬夜也要写完(▔皿▔)<br>
+起因是因为一个makefile引起的 <code>undefined reference</code> 问题, 下面贴出出错的makefile:</p>
+<h1>起因：Makefile错误</h1>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CC = gcc</span><br><span class="line">CXX = g++</span><br><span class="line">LD = ldd</span><br><span class="line"></span><br><span class="line">$(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp</span><br><span class="line">	$(CXX) $(CFLAGS) -o $@ $&lt; $(INCLUDE)</span><br><span class="line"></span><br><span class="line">$(OBJS): $(DIR_OBJ)/%.o: %.c</span><br><span class="line">	$(CC) -c $(CFLAGS) -o $@ $&lt; $(INCLUDE)</span><br><span class="line"></span><br><span class="line">$(APP): $(OBJS) $(CPP_OBJS)</span><br><span class="line">	$(CC) $^ -o $(APP) $(LDFLAGS) $(INCLUDE)</span><br></pre></td></tr></table></figure>
+<p>这个makefile很简单，g++将*.cpp文件编译为 *.o, gcc将 *.c 文件编译为 *.o, 最后 gcc链接所有的 *.o生成可执行程序.<br>
+但是上面这个简单的 makefile, 执行make时却报错了:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; gcc   -o _test_code.o _test_code.c -I.</span><br><span class="line">/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../lib64/crt1.o: In function &apos;_start&apos;:</span><br><span class="line">(.text+0x20): undefined reference to &apos;main&apos;</span><br><span class="line">collect2: error: ld returned 1 exit status</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/摄影/摄影笔记/#more" rel="contents">
+            <a class="btn" href="/farbox_archive/[C] C语言的编译与链接/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1258,7 +1559,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[CYGWIN] Cygwin食用指南/">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[效率] 终端复用软件 - tmux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="whatsrtos">
@@ -1277,7 +1578,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/farbox_archive/[CYGWIN] Cygwin食用指南/" itemprop="url">Cygwin食用指南</a></h1>
+                <a class="post-title-link" href="/farbox_archive/[效率] 终端复用软件 - tmux/" itemprop="url">终端复用软件 - tmux</a></h1>
         
 
         <div class="post-meta">
@@ -1311,7 +1612,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  175
+                  1,522
                 </span>
               
 
@@ -1337,311 +1638,18 @@
 
       
         
-          <h1 id="国内镜像"><a href="#国内镜像" class="headerlink" title="国内镜像"></a>国内镜像</h1><p>网易: <a href="http://mirrors.163.com/.help/cygwin.html" target="_blank" rel="noopener">http://mirrors.163.com/.help/cygwin.html</a></p>
-<h1 id="选择的包"><a href="#选择的包" class="headerlink" title="选择的包"></a>选择的包</h1><ul>
-<li>Archive: bzip2 p7zip zip</li>
-<li>Base: 全选</li>
-<li>Devel: autoconf automake cmake cvs cscope ctags git gdb make</li>
-<li>Editor: vim vim-common</li>
-<li>Interpreters: php php-devel python</li>
-<li>Net: curl openssl ping putty openssh</li>
-<li>Web: wget</li>
-</ul>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1>
+          <h2 id="（一）What‘s-tmux？">（一）What‘s tmux？</h2>
+<p>”tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再”浪费”多余的终端来连接这台远程主机；当然其功能远不止于此。”</p>
+<h2 id="（二）一些概念">（二）一些概念</h2>
+<p>tmux使用C/S模型构建，主要包括以下单元模块：<br>
+server服务：输入tmux命令时就开启了一个服务器。<br>
+session会话： 一个服务器可以包含多个会话。<br>
+window窗口：一个会话可以包含多个窗口。<br>
+pane面板：一个窗口可以包含多个面板。</p>
+<h2 id="（三）命令-快捷键">（三）命令&amp;快捷键</h2>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/farbox_archive/[CYGWIN] Cygwin食用指南/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[工具] Github Atom For Windows/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/farbox_archive/[工具] Github Atom For Windows/" itemprop="url">Github Atom For Windows</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  262
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="https://user-images.githubusercontent.com/378023/49132477-f4b77680-f31f-11e8-8357-ac6491761c6c.png" alt></p>
-<p>本文介绍用 Chocolatey 在 Windows上安装 Atom编辑器.</p>
-<blockquote>
-<p>Atom是由GitHub开发的自由及开放源代码的文字与代码编辑器，支持macOS、Windows和Linux操作系统，支持Node.js所写的插件，并内置由Github提供的Git版本控制系统。多数的延伸包皆为开放源代码授权，并由社群建置与维护。</p>
-</blockquote>
-<h1 id="Chocolatey-for-Windows"><a href="#Chocolatey-for-Windows" class="headerlink" title="Chocolatey for Windows"></a>Chocolatey for Windows</h1><p>简单的说, Chocolatey相当于Windows上的yum和apt-get, Chocolatey这套包管理系统目前已经包含了近500 多款常用软件.</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/farbox_archive/[工具] Github Atom For Windows/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[工具] Sublime Text 3 快捷键/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/farbox_archive/[工具] Sublime Text 3 快捷键/" itemprop="url">Sublime Text 3 扩展&快捷键</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  788
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h1><p>Sublime text 3安装<a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">Package Control</a>的方法:<br>View -&gt; Show Console, 输入:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;2deb499853c4371624f5a07e27c334aa&apos; + &apos;bf8c4e67d14fb0525ba4f89698a6d7e1&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure>
-
-<h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><ul>
-<li>SideBarEnhancements : 侧边栏右键增强, 配置参考<a href="https://github.com/titoBouzout/SideBarEnhancements/#f12-key-conflict" target="_blank" rel="noopener">这里</a></li>
-<li>Emmet: 前身是”Zen Coding”, 可以更高效地编写HTML和CSS, 比如输入<code>html:5</code>然后按 <code>Tab</code> 就能自动产生代码段, <a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">速查表在这里</a></li>
-<li><a href="https://github.com/SublimeLinter/SublimeLinter3" target="_blank" rel="noopener">SublimeLinter</a>: 语法错误检查, 安装完SublimeLinter后还要安装对应语言的扩展, 在Package Control搜索”SublimeLinter-“即可.<ol>
-<li><a href="https://github.com/SublimeLinter/SublimeLinter-php" target="_blank" rel="noopener">SublimeLinter-php</a>: 需要安装php</li>
-<li><a href="https://github.com/SublimeLinter/SublimeLinter-pep8" target="_blank" rel="noopener">SublimeLinter-pep8</a>:</li>
-<li><a href="https://github.com/SublimeLinter/SublimeLinter-jshint" target="_blank" rel="noopener">SublimeLinter-jshint</a>: 需要安装jshint: <code>npm install -g jshint</code></li>
-<li><a href="https://github.com/nirm03/SublimeLinter-clang" target="_blank" rel="noopener">SublimeLinter-clang</a>: 需要安装clang, Windows用户请安装”mingw with clang”</li>
-</ol>
-</li>
-<li><a href="https://github.com/SublimeCodeIntel/SublimeCodeIntel" target="_blank" rel="noopener">SublimeCodeIntel</a>: 函数定义跳转, 支持Js,Py,PHP等等, 但是不支持C/C++.</li>
-<li><a href="https://github.com/SublimeText/CTags" target="_blank" rel="noopener">Ctags</a>: 也是作为函数定义跳转, 快捷键<code>ctrl+t, ctrl+t</code>跳转到定义, <code>ctrl+t, ctrl+b</code>跳转回. 对于有多个相似定义的函数, sublime里默认列出所有的tags, 和vim的<code>g + ]</code>类似. 使用起来感觉Ctags比SublimeCodeIntel跳转的更快, 因为SublimeCodeIntel总是动态的更新索引导致, Ctags不会自动更新tags文件里的索引.</li>
-<li>Snippets:</li>
-<li><a href="https://github.com/jdc0589/JsFormat" target="_blank" rel="noopener">JsFormat</a>: js格式化, <code>ctrl+alt+f</code>, 或者<code>ctrl + shift + p</code>, 打开控制台输入<code>Format: Javascript</code></li>
-<li>phpfmt : php格式化, 在控制台输入<code>phpfmt: format now</code></li>
-<li>ConvertToUTF8:</li>
-<li>SublimeClang: C/C++的代码补全, 现在只支持ST2并且作者好久没更新了, 用ST3的洗洗睡吧. SublimeClang的static analyzer功能需clang的支持, 在Windows上安装clang又是喜闻乐见的困难, so~Windows用户也可以洗洗睡了.</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/farbox_archive/[工具] Sublime Text 3 快捷键/#more" rel="contents">
+            <a class="btn" href="/farbox_archive/[效率] 终端复用软件 - tmux/#espandi" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1683,7 +1691,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1733,7 +1741,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1744,7 +1752,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
