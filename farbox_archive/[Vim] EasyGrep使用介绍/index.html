@@ -362,25 +362,18 @@
 <li><a href="http://stackoverflow.com/questions/3995493/gnuwin32-find-exe-expands-wildcard-before-performing-search" target="_blank" rel="noopener">Gnuwin32 find.exe expands wildcard before performing search</a></li>
 <li><a href="http://sourceforge.net/p/unxutils/bugs/58/" target="_blank" rel="noopener">UnxUtils: #58 xargs: cannot fork</a></li>
 </ul>
-<p>在Windows上使用grep还有一个折衷的办法: 使用Cygwin环境, 不过今天这里不讨论Cygwin…<br>
-偶然在这个博客上发现了EasyGrep插件的介绍: <a href="http://zuyunfei.com/2013/08/25/vim-plugin-easy-grep/" target="_blank" rel="noopener">vim中的杀手级插件: EasyGrep</a>, 当时我是多么执着于在Windows上移植Grep和ack啊… 浪费了不少时间之后才发现还是使用现成的工具比较好-.-</p>
-<h2 id="EasyGrep的安装">EasyGrep的安装</h2>
-<p>如果你已经使用了Vundle管理Vim插件, 只需要在.vimrc里增加<code>Bundle 'EasyGrep'</code>然后使用<code>:BundleInstall</code>安装即可.</p>
-<h2 id="How-To-Use">How To Use</h2>
-<ul>
-<li><code>\vv</code> or <code>:Grep</code>: <code>\vv</code>命令将在文件中搜索当前光标下的单词, <code>:Grep word</code>将搜索&quot;word&quot;, 如果加叹号<code>:Grep !word</code>表示全词匹配的方式搜索, Grep也可以带参数, 比如<code>:Grep -ir word</code>, r表示递归目录. i表示不区分大小写.</li>
+<p>在Windows上使用grep还有一个折衷的办法: 使用Cygwin环境, 不过今天这里不讨论Cygwin…<br>偶然在这个博客上发现了EasyGrep插件的介绍: <a href="http://zuyunfei.com/2013/08/25/vim-plugin-easy-grep/" target="_blank" rel="noopener">vim中的杀手级插件: EasyGrep</a>, 当时我是多么执着于在Windows上移植Grep和ack啊… 浪费了不少时间之后才发现还是使用现成的工具比较好-.-</p>
+<h2 id="EasyGrep的安装"><a href="#EasyGrep的安装" class="headerlink" title="EasyGrep的安装"></a>EasyGrep的安装</h2><p>如果你已经使用了Vundle管理Vim插件, 只需要在.vimrc里增加<code>Bundle &#39;EasyGrep&#39;</code>然后使用<code>:BundleInstall</code>安装即可.</p>
+<h2 id="How-To-Use"><a href="#How-To-Use" class="headerlink" title="How To Use"></a>How To Use</h2><ul>
+<li><code>\vv</code> or <code>:Grep</code>: <code>\vv</code>命令将在文件中搜索当前光标下的单词, <code>:Grep word</code>将搜索”word”, 如果加叹号<code>:Grep !word</code>表示全词匹配的方式搜索, Grep也可以带参数, 比如<code>:Grep -ir word</code>, r表示递归目录. i表示不区分大小写.</li>
 <li><code>\vV</code> : 全词匹配搜索, 同<code>:Grep !word</code>;</li>
 <li><code>\va</code> : 与<code>vv</code>相似, 搜索结果append在上次搜索结果之后;</li>
 <li><code>\vA</code> : 与<code>vV</code>相似, 搜索结果append在上次搜索结果之后;</li>
 <li><code>\vr</code> or <code>:Replace</code> :替换;</li>
 <li><code>\vo</code> or <code>:GrepOptions</code>: 打开选项菜单;</li>
 </ul>
-<p>GrepOptions打开的界面:<br>
-<img src="/images/2014-10-24/EasyGrep.png" alt="图1: GrepOptions打开的界面"><br>
-上方红色的是快捷键help, 比如<code>q</code>是退出GrepOptions, <code>r</code>是开启递归搜索…<br>
-下方兰色的可以选择搜索范围(回车选择): All表示全部搜索, Buffer表示只搜索当前打开的buff, TrackExt几乎包括所有常见的文件类型, 比如C++, PHP, Lisp等源文件. User是自己制定文件类型.</p>
-<h2 id="Options-Details">Options Details</h2>
-<p>每个Option的解释可以参考Github上的<a href="https://github.com/vim-scripts/EasyGrep/blob/master/doc/EasyGrep.txt" target="_blank" rel="noopener">README</a></p>
+<p>GrepOptions打开的界面:<br><img src="/images/2014-10-24/EasyGrep.png" alt="图1: GrepOptions打开的界面"><br>上方红色的是快捷键help, 比如<code>q</code>是退出GrepOptions, <code>r</code>是开启递归搜索…<br>下方兰色的可以选择搜索范围(回车选择): All表示全部搜索, Buffer表示只搜索当前打开的buff, TrackExt几乎包括所有常见的文件类型, 比如C++, PHP, Lisp等源文件. User是自己制定文件类型.</p>
+<h2 id="Options-Details"><a href="#Options-Details" class="headerlink" title="Options Details"></a>Options Details</h2><p>每个Option的解释可以参考Github上的<a href="https://github.com/vim-scripts/EasyGrep/blob/master/doc/EasyGrep.txt" target="_blank" rel="noopener">README</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   &quot; plugin::EasyGrep &#123;</span><br><span class="line">   let g:EasyGrepCommand = 1    &quot; vimgrep:0, grep:1 #vimgrep搜索较慢, 在Win上无需安装grep.exe</span><br><span class="line">   let g:EasyGrepMode = 2       &quot; All:0, Open Buffers:1, TrackExt:2 # 1表示在已打开的buff中搜索, 2表示在当前文件相同扩展名的文件中搜索</span><br><span class="line">   let g:EasyGrepRecursive  = 1 &quot; Recursive searching 递归搜索</span><br><span class="line">let g:EasyGrepRoot = cwd &quot; 设置搜索根路径, cwd:current dir</span><br><span class="line">   let g:EasyGrepRoot = &quot;search:.git,.svn&quot; 设置搜索根路径为git/svn repos的根路径</span><br><span class="line">let g:EasyGrepRoot = &quot;search:.project&quot; 设置搜索根路径为包含.project文件的目录,这个文件需手动创建</span><br><span class="line">   let g:EasyGrepIgnoreCase = 1 &quot; Not ignore:0, ignore:1 大小写敏感</span><br><span class="line">   let g:EasyGrepFilesToExclude = &quot;tags, *.bak, *~, cscope.*, *.a, *.o, *.pyc, *.bak, *.swp&quot;</span><br><span class="line">   &quot; &#125;</span><br></pre></td></tr></table></figure>
 
       

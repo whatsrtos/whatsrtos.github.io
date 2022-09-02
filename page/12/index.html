@@ -357,15 +357,9 @@
 
       
         
-          <h2 id="（一）What‘s-tmux？">（一）What‘s tmux？</h2>
-<p>”tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再”浪费”多余的终端来连接这台远程主机；当然其功能远不止于此。”</p>
-<h2 id="（二）一些概念">（二）一些概念</h2>
-<p>tmux使用C/S模型构建，主要包括以下单元模块：<br>
-server服务：输入tmux命令时就开启了一个服务器。<br>
-session会话： 一个服务器可以包含多个会话。<br>
-window窗口：一个会话可以包含多个窗口。<br>
-pane面板：一个窗口可以包含多个面板。</p>
-<h2 id="（三）命令-快捷键">（三）命令&amp;快捷键</h2>
+          <h2 id="（一）What‘s-tmux？"><a href="#（一）What‘s-tmux？" class="headerlink" title="（一）What‘s tmux？"></a>（一）What‘s tmux？</h2><p>”tmux是一个优秀的终端复用软件，类似GNU Screen，但来自于OpenBSD，采用BSD授权。使用它最直观的好处就是，通过一个终端登录远程主机并运行tmux后，在其中可以开启多个控制台而无需再”浪费”多余的终端来连接这台远程主机；当然其功能远不止于此。”</p>
+<h2 id="（二）一些概念"><a href="#（二）一些概念" class="headerlink" title="（二）一些概念"></a>（二）一些概念</h2><p>tmux使用C/S模型构建，主要包括以下单元模块：<br>server服务：输入tmux命令时就开启了一个服务器。<br>session会话： 一个服务器可以包含多个会话。<br>window窗口：一个会话可以包含多个窗口。<br>pane面板：一个窗口可以包含多个面板。</p>
+<h2 id="（三）命令-amp-快捷键"><a href="#（三）命令-amp-快捷键" class="headerlink" title="（三）命令&amp;快捷键"></a>（三）命令&amp;快捷键</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/farbox_archive/[效率] 终端复用软件 - tmux/#more" rel="contents">
@@ -472,7 +466,7 @@ pane面板：一个窗口可以包含多个面板。</p>
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  798
+                  799
                 </span>
               
 
@@ -498,25 +492,20 @@ pane面板：一个窗口可以包含多个面板。</p>
 
       
         
-          <h3 id="生成SSH-Key">生成SSH Key</h3>
-<ul>
+          <h3 id="生成SSH-Key"><a href="#生成SSH-Key" class="headerlink" title="生成SSH Key"></a>生成SSH Key</h3><ul>
 <li>生成SSH KEY: <code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code> , 然后会提示输入公钥的名字，如果你需要多个SSH-KEY（比如有多个github帐号）就需要在命名的时候区分一下，这样在/用户HOME目录/.ssh/文件夹下生成两个文件：xxx_rsa.pub和 xxx_rsa，分别是你的公钥和私钥。</li>
 <li>生成SSH KEY的时候还要求输入私钥密码 “Enter passphrase (empty for no passphrase):”， 请记住私钥的密码，后面会用到。</li>
 <li>将SSH 私钥增加到ssh-agent: <code>ssh-add ~/.ssh/id_rsa</code>， 这里会提示输入一次私钥的密码;</li>
 <li>查看已经add的SSH KEY： <code>ssh-add -l</code>；</li>
 <li>如果提示 ssh agent没启动: eval <code>ssh-agent -s</code></li>
-<li>非必要步骤: <s>安装xclip(终端到剪切板的工具)</s>: <code>sudo yum install xclip</code> , <s>将公钥内容拷贝到剪切板</s>: <code>xclip -sel clip &lt; ~/.ssh/id_rsa.pub</code></li>
-<li>浏览器登录自己的github页面，进入&quot;Account Settings&quot;，再点击左边的&quot;SSH Key&quot;可以看到自己上传过的SSH公钥列表。再点击&quot;Add SSH Key&quot;新增一个公钥，把公钥(~/.ssh/id_rsa.pub) 文件内容粘贴过来。</li>
+<li>非必要步骤: <del>安装xclip(终端到剪切板的工具)</del>: <code>sudo yum install xclip</code> , <del>将公钥内容拷贝到剪切板</del>: <code>xclip -sel clip &lt; ~/.ssh/id_rsa.pub</code></li>
+<li>浏览器登录自己的github页面，进入”Account Settings”，再点击左边的”SSH Key”可以看到自己上传过的SSH公钥列表。再点击”Add SSH Key”新增一个公钥，把公钥(~/.ssh/id_rsa.pub) 文件内容粘贴过来。</li>
 </ul>
-<h3 id="测试SSH-Key登录">测试SSH Key登录</h3>
-<ul>
-<li>打开终端, 测试: <code>ssh -T git@github.com</code>;<br>
-你可能会看到下面的错误信息:</li>
+<h3 id="测试SSH-Key登录"><a href="#测试SSH-Key登录" class="headerlink" title="测试SSH Key登录"></a>测试SSH Key登录</h3><ul>
+<li>打开终端, 测试: <code>ssh -T git@github.com</code>;<br>你可能会看到下面的错误信息:</li>
 </ul>
 <blockquote>
-<p>Agent admitted failure to sign using the key.<br>
-debug1: No more authentication methods to try.<br>
-Permission denied (publickey).</p>
+<p>Agent admitted failure to sign using the key.<br>debug1: No more authentication methods to try.<br>Permission denied (publickey).</p>
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
@@ -650,15 +639,9 @@ Permission denied (publickey).</p>
 
       
         
-          <h1>关于SSH协议:</h1>
-<p>Secure Shell（缩写为SSH）,SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。<br>
-传统的网络服务程序，如rsh、FTP、POP和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒充真正的服务器接收用户传给服务器的数据，然后再冒充用户把数据传给真正的服务器。<br>
-而SSH是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题。通过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。<br>
-SSH之另一项优点为其传输的数据可以是经过压缩的，所以可以加快传输的速度。SSH有很多功能，它既可以代替Telnet，又可以为FTP、POP、甚至为PPP提供一个安全的“通道”。</p>
+          <h1 id="关于SSH协议"><a href="#关于SSH协议" class="headerlink" title="关于SSH协议:"></a>关于SSH协议:</h1><p>Secure Shell（缩写为SSH）,SSH为一项创建在应用层和传输层基础上的安全协议，为计算机上的Shell（壳层）提供安全的传输和使用环境。<br>传统的网络服务程序，如rsh、FTP、POP和Telnet其本质上都是不安全的；因为它们在网络上用明文传送数据、用户帐号和用户口令，很容易受到中间人（man-in-the-middle）攻击方式的攻击。就是存在另一个人或者一台机器冒充真正的服务器接收用户传给服务器的数据，然后再冒充用户把数据传给真正的服务器。<br>而SSH是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用SSH协议可以有效防止远程管理过程中的信息泄露问题。通过SSH可以对所有传输的数据进行加密，也能够防止DNS欺骗和IP欺骗。<br>SSH之另一项优点为其传输的数据可以是经过压缩的，所以可以加快传输的速度。SSH有很多功能，它既可以代替Telnet，又可以为FTP、POP、甚至为PPP提供一个安全的“通道”。</p>
 <p>以上来自 <a href="http://zh.wikipedia.org/wiki/Secure_Shell" target="_blank" rel="noopener">维基百科:SSH</a></p>
-<h1>SSH的应用</h1>
-<p>SSH最常见的就是远程登录了，替代了不安全的telnet方式，使用ssh远程登录的方式很简单，在终端输入<code>ssh user@host</code>就可以登录到远程主机了。<br>
-除了“远程登录”这个基本功能之外，SSH还有端口转发、口令登录、公钥登录等用途。</p>
+<h1 id="SSH的应用"><a href="#SSH的应用" class="headerlink" title="SSH的应用"></a>SSH的应用</h1><p>SSH最常见的就是远程登录了，替代了不安全的telnet方式，使用ssh远程登录的方式很简单，在终端输入<code>ssh user@host</code>就可以登录到远程主机了。<br>除了“远程登录”这个基本功能之外，SSH还有端口转发、口令登录、公钥登录等用途。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/farbox_archive/[协议] SSH协议简介/#more" rel="contents">
@@ -791,12 +774,10 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
 
       
         
-          <h1>非对称加密算法RSA简介</h1>
-<p>先来回顾一下&quot;非对称加密算法&quot;的概念, 以下引用自<a href="http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html" target="_blank" rel="noopener">阮一峰的博客</a>:</p>
-<blockquote></blockquote>
-<p>（1）乙方生成两把密钥（公钥和私钥）。公钥是公开的，任何人都可以获得，私钥则是保密的。<br>
-（2）甲方获取乙方的公钥，然后用它对信息加密。<br>
-（3）乙方得到加密后的信息，用私钥解密。</p>
+          <h1 id="非对称加密算法RSA简介"><a href="#非对称加密算法RSA简介" class="headerlink" title="非对称加密算法RSA简介"></a>非对称加密算法RSA简介</h1><p>先来回顾一下”非对称加密算法”的概念, 以下引用自<a href="http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html" target="_blank" rel="noopener">阮一峰的博客</a>:</p>
+<blockquote>
+</blockquote>
+<p>（1）乙方生成两把密钥（公钥和私钥）。公钥是公开的，任何人都可以获得，私钥则是保密的。<br>（2）甲方获取乙方的公钥，然后用它对信息加密。<br>（3）乙方得到加密后的信息，用私钥解密。</p>
 <p>如果公钥加密的信息只有私钥解得开，那么只要私钥不泄漏，通信就是安全的。</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -930,11 +911,8 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
 
       
         
-          <p>半年前败了一个树莓派，因为工作很忙所以没时间折腾一下。<br>
-最近换工作，确认了offer，赋闲在家，也终于有空摆弄一下树莓派。</p>
-<h1>（一）启用SSH</h1>
-<p>我的环境为：Thinkpad（Fedora）， TP-Link无线路由，树莓派（debian）一只。<br>
-树莓派通过网线连接到无线路由器和电脑处于同一网段，没有显示器的情况下如何确定树莓派的IP呢？ 这时候nmap登场：</p>
+          <p>半年前败了一个树莓派，因为工作很忙所以没时间折腾一下。<br>最近换工作，确认了offer，赋闲在家，也终于有空摆弄一下树莓派。</p>
+<h1 id="（一）启用SSH"><a href="#（一）启用SSH" class="headerlink" title="（一）启用SSH"></a>（一）启用SSH</h1><p>我的环境为：Thinkpad（Fedora）， TP-Link无线路由，树莓派（debian）一只。<br>树莓派通过网线连接到无线路由器和电脑处于同一网段，没有显示器的情况下如何确定树莓派的IP呢？ 这时候nmap登场：</p>
 <p><code>nmap -v -sP 192.168.1.1/10</code>稍等片刻，然后可以看到Raspberry Pi的设备。</p>
 <p>或者用手机上的一款应用<a href="https://play.google.com/store/apps/details?id=com.overlook.android.fing&amp;hl=zh_CN" target="_blank" rel="noopener">Fing</a>也可以扫描本网段的端口。</p>
           <!--noindex-->
@@ -1071,15 +1049,8 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
         
           <p>推荐先阅读一下在线版本<em>Git简明指南</em>  <a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="noopener">http://rogerdudler.github.io/git-guide/index.zh.html</a></p>
 <p>如果你的一台电脑上管理多个Github帐号的SSH Keys，请参照<a href="http://geeksafari.farbox.com/post/tools/sshxie-yi-de-ying-yong" target="_blank" rel="noopener">SSH协议的应用 &amp;为Github配置SSH Key</a></p>
-<p>Git工作流的概念<br>
-你的本地仓库由 git 维护的三棵“树”组成。<br>
-第一个是你的 工作目录，它持有实际文件；<br>
-第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；<br>
-最后是 HEAD，它指向你最后一次提交的结果。<br>
-盗用一下别人的图:<br>
-<img src="http://rogerdudler.github.io/git-guide/img/trees.png" alt></p>
-<h2 id="1-新建仓库">1.新建仓库</h2>
-<p>首先在github上创建一个新的repository，然后</p>
+<p>Git工作流的概念<br>你的本地仓库由 git 维护的三棵“树”组成。<br>第一个是你的 工作目录，它持有实际文件；<br>第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；<br>最后是 HEAD，它指向你最后一次提交的结果。<br>盗用一下别人的图:<br><img src="http://rogerdudler.github.io/git-guide/img/trees.png" alt></p>
+<h2 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1.新建仓库"></a>1.新建仓库</h2><p>首先在github上创建一个新的repository，然后<br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/farbox_archive/[版本控制] Git简易使用指北/#more" rel="contents">
@@ -1213,8 +1184,7 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
       
         
           <p>环境: Fedora &amp; Ubuntu</p>
-<h2 id="安装NFS服务">安装NFS服务</h2>
-<blockquote>
+<h2 id="安装NFS服务"><a href="#安装NFS服务" class="headerlink" title="安装NFS服务"></a>安装NFS服务</h2><blockquote>
 <p>yum -y install nfs-utils</p>
 </blockquote>
 <p>对于Ubuntu则是:</p>
@@ -1327,7 +1297,7 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,219
+                  1,220
                 </span>
               
 
@@ -1353,19 +1323,16 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
 
       
         
-          <h1>几种不同的Markdown语法标准</h1>
-<ul>
+          <h1 id="几种不同的Markdown语法标准"><a href="#几种不同的Markdown语法标准" class="headerlink" title="几种不同的Markdown语法标准"></a>几种不同的Markdown语法标准</h1><ul>
 <li>原生Markdown</li>
-<li>GFM（Github Flavored Markdown）:
-<ul>
+<li>GFM（Github Flavored Markdown）:<ul>
 <li>采用围栏式（Fenced式）区块代码：在代码的上下一行用3个反引号，可选择性定义代码语种，并支持代码高亮。</li>
 <li>列表嵌套方法：改为每次嵌套缩进两个空格。</li>
 <li>支持任务列表：在每个列表项目加入<code>[ ]</code>，完成任务用 <code>[x]</code></li>
 <li>支持简单表格</li>
 </ul>
 </li>
-<li>PFM（Pandoc Flavored Markdown）:
-<ul>
+<li>PFM（Pandoc Flavored Markdown）:<ul>
 <li>支持简单表格、多行表格、格框表格和管线表格四种表格样式</li>
 <li>支持文件标题区块（类似元数据）</li>
 <li>支持上标、下标</li>
@@ -1374,8 +1341,7 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
 <li>…</li>
 </ul>
 </li>
-<li>MultiMarkdown
-<ul>
+<li>MultiMarkdown<ul>
 <li>支持元数据：标题、作者、日期等信息，兼容部分YAML。</li>
 <li>支持添加链接和图片的属性。</li>
 <li>支持部分复杂表格：兼容PHP Markdown Extra的表格，同时可以——多行表头，单元格横向合并，表格分区，表格下行表格说明等。</li>
@@ -1390,7 +1356,7 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
 <li><a href="https://sspai.com/post/37270" target="_blank" rel="noopener">不同的Markdown语法 - 少数派</a></li>
 <li><a href="https://www.cnblogs.com/36bian/p/7568015.html" target="_blank" rel="noopener">GFM(GitHub Flavored Markdown)与标准Markdown的语法区别 - 三十六变 - 博客园</a></li>
 </ul>
-<h1>Markdown语法</h1>
+<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/farbox_archive/[效率] Markdown入门指北/#more" rel="contents">
@@ -1523,14 +1489,10 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
 
       
         
-          <p>C语言里面的陷阱非常多, 多到写了几年C之后还是会不断的踩, 首先, 本文没多少原创内容, 大部分都来自笔记整理.<br>
-我们先看几个有关Printf函数的坑：</p>
-<h1>坑: Printf（一）</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面一段代码的打印是什么？</span></span><br><span class="line">   <span class="keyword">int64_t</span> a = <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%d %d"</span>,a,b);</span><br></pre></td></tr></table></figure>
-<p>运行一下这段代码, 发现打印出来的结果并不是期望的“1 2”, 而是“1 0”, why？<br>
-这就涉及到 printf 的设计了, printf的第一个参数是字符串, 上面代码中第一个参数是“%d %d”, printf会解析每一个%d这样的结构, 然后将指针做偏移, 偏移的字节数与%后面的类型有关, 例如%d是4字节, %lld是8字节, %c是偏移1字节.<br>
-所以, 在上面代码中printf(&quot;%d, %d\n&quot;, a, b)实际两个%d分别取得是 a 的低4字节和高4字节, 从而分别是1和0（测试环境是小端, 所以低地址的是LSB）.</p>
-<h2 id="参考-Ref">参考 @Ref</h2>
+          <p>C语言里面的陷阱非常多, 多到写了几年C之后还是会不断的踩, 首先, 本文没多少原创内容, 大部分都来自笔记整理.<br>我们先看几个有关Printf函数的坑：</p>
+<h1 id="坑-Printf（一）"><a href="#坑-Printf（一）" class="headerlink" title="坑: Printf（一）"></a>坑: Printf（一）</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面一段代码的打印是什么？</span></span><br><span class="line">   <span class="keyword">int64_t</span> a = <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%d %d"</span>,a,b);</span><br></pre></td></tr></table></figure>
+<p>运行一下这段代码, 发现打印出来的结果并不是期望的“1 2”, 而是“1 0”, why？<br>这就涉及到 printf 的设计了, printf的第一个参数是字符串, 上面代码中第一个参数是“%d %d”, printf会解析每一个%d这样的结构, 然后将指针做偏移, 偏移的字节数与%后面的类型有关, 例如%d是4字节, %lld是8字节, %c是偏移1字节.<br>所以, 在上面代码中printf(“%d, %d\n”, a, b)实际两个%d分别取得是 a 的低4字节和高4字节, 从而分别是1和0（测试环境是小端, 所以低地址的是LSB）.</p>
+<h2 id="参考-Ref"><a href="#参考-Ref" class="headerlink" title="参考 @Ref"></a>参考 @Ref</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/farbox_archive/[C] C语言里面的一些陷阱/#more" rel="contents">
@@ -1637,7 +1599,7 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,862
+                  1,858
                 </span>
               
 
@@ -1664,16 +1626,14 @@ SSH之另一项优点为其传输的数据可以是经过压缩的，所以可�
       
         
           <p><img src="/images/vi-vim-cheat-sheet-sch1.gif" alt="vim cheat sheet"></p>
-<h1>plugin @2020</h1>
-<ul>
+<h1 id="plugin-2020"><a href="#plugin-2020" class="headerlink" title="plugin @2020"></a>plugin @2020</h1><ul>
 <li>C++补全: 仍然是YCM</li>
 <li>自动生成tag: vim-gutentags 或  gen_tags.vim</li>
 <li>动态检查: ale(替代syntastic)</li>
 <li>函数列表: LeaderF(替代 tagbar)</li>
 <li>快速打开文件: LeaderF</li>
 </ul>
-<h1>一些基本概念</h1>
-<ul>
+<h1 id="一些基本概念"><a href="#一些基本概念" class="headerlink" title="一些基本概念"></a>一些基本概念</h1><ul>
 <li>operator（操作符）: 例如命令<code>d</code>, <code>y</code>, <code>c</code>等;</li>
 <li>motion（移动）: 例如移动光标的命令<code>h j k l</code>, <code>w</code>, <code>e</code>, <code>b</code>等;</li>
 <li>text-objects（文本对象）: 例如<code>s</code>(表示句子sentence)， <code>w</code>表示单词，<code>p</code>表示段落（Paragraphs）等等。</li>

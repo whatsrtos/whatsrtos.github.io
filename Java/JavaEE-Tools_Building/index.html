@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="Maven setting.xml @Ref https://maven.apache.org/settings.html 默认配置文件在~/.m2/settings.xml, 命令mvn -X可以查看正在使用哪个Setting.xml, 以及xml文件中的配置参数. 国内的mirrors和repositories基本都不可用, 所以直接使用central repositories(http://">
+<meta name="description" content="Mavensetting.xml@Ref https://maven.apache.org/settings.html默认配置文件在~/.m2/settings.xml, 命令mvn -X可以查看正在使用哪个Setting.xml, 以及xml文件中的配置参数.国内的mirrors和repositories基本都不可用, 所以直接使用central repositories(http://repo">
 <meta name="keywords" content="Java,Maven,Gradle,构建工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java构建工具（Maven,Gradle）">
 <meta property="og:url" content="https://whatsrtos.github.io/Java/JavaEE-Tools_Building/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="Maven setting.xml @Ref https://maven.apache.org/settings.html 默认配置文件在~/.m2/settings.xml, 命令mvn -X可以查看正在使用哪个Setting.xml, 以及xml文件中的配置参数. 国内的mirrors和repositories基本都不可用, 所以直接使用central repositories(http://">
+<meta property="og:description" content="Mavensetting.xml@Ref https://maven.apache.org/settings.html默认配置文件在~/.m2/settings.xml, 命令mvn -X可以查看正在使用哪个Setting.xml, 以及xml文件中的配置参数.国内的mirrors和repositories基本都不可用, 所以直接使用central repositories(http://repo">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-06-26T14:08:32.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java构建工具（Maven,Gradle）">
-<meta name="twitter:description" content="Maven setting.xml @Ref https://maven.apache.org/settings.html 默认配置文件在~/.m2/settings.xml, 命令mvn -X可以查看正在使用哪个Setting.xml, 以及xml文件中的配置参数. 国内的mirrors和repositories基本都不可用, 所以直接使用central repositories(http://">
+<meta name="twitter:description" content="Mavensetting.xml@Ref https://maven.apache.org/settings.html默认配置文件在~/.m2/settings.xml, 命令mvn -X可以查看正在使用哪个Setting.xml, 以及xml文件中的配置参数.国内的mirrors和repositories基本都不可用, 所以直接使用central repositories(http://repo">
 
 
 
@@ -355,35 +355,23 @@
       
 
       
-        <h1>Maven</h1>
-<h2 id="setting-xml">setting.xml</h2>
-<p>@Ref <a href="https://maven.apache.org/settings.html" target="_blank" rel="noopener">https://maven.apache.org/settings.html</a><br>
-默认配置文件在<code>~/.m2/settings.xml</code>, <code>命令mvn -X</code>可以查看正在使用哪个Setting.xml, 以及xml文件中的配置参数.<br>
-国内的mirrors和repositories基本都不可用, 所以直接使用central repositories(<a href="http://repo1.maven.org/maven2" target="_blank" rel="noopener">http://repo1.maven.org/maven2</a>)并且设置proxy.</p>
-<h2 id="pom-xml">pom.xml</h2>
-<p>@Ref <a href="https://maven.apache.org/pom.html" target="_blank" rel="noopener">https://maven.apache.org/pom.html</a><br>
-见下面的 #一个POM</p>
-<h3 id="profiles">profiles</h3>
-<h2 id="Create-ypur-maven-projects">Create ypur maven projects</h2>
-<ul>
+        <h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><h2 id="setting-xml"><a href="#setting-xml" class="headerlink" title="setting.xml"></a>setting.xml</h2><p>@Ref <a href="https://maven.apache.org/settings.html" target="_blank" rel="noopener">https://maven.apache.org/settings.html</a><br>默认配置文件在<code>~/.m2/settings.xml</code>, <code>命令mvn -X</code>可以查看正在使用哪个Setting.xml, 以及xml文件中的配置参数.<br>国内的mirrors和repositories基本都不可用, 所以直接使用central repositories(<a href="http://repo1.maven.org/maven2)并且设置proxy" target="_blank" rel="noopener">http://repo1.maven.org/maven2)并且设置proxy</a>.</p>
+<h2 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h2><p>@Ref <a href="https://maven.apache.org/pom.html" target="_blank" rel="noopener">https://maven.apache.org/pom.html</a><br>见下面的 #一个POM</p>
+<h3 id="profiles"><a href="#profiles" class="headerlink" title="profiles"></a>profiles</h3><h2 id="Create-ypur-maven-projects"><a href="#Create-ypur-maven-projects" class="headerlink" title="Create ypur maven projects"></a>Create ypur maven projects</h2><ul>
 <li>命令: <code>mvn archetype:generate -DgroupId=org.kshan.toolbox -DartifactId=XXX -Dversion=1.0-SNAPSHOT -DarchetypeArtifactId=maven-archetype-quickstart</code>,</li>
 <li>如果创建web项目, 将最后一项参数修改为: <code>-DarchetypeArtifactId=maven-archetype-webapp</code></li>
 </ul>
-<h2 id="命令">命令</h2>
-<ol>
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ol>
 <li><code>mvn lifecycle</code>, 比如<code>mvn compile</code>, <code>mvn package</code>, <code>mvn install</code>, 如果插件的目标绑定到该生命周期, 则会执行这个插件的目标(goal).</li>
-<li><code>mvn goal</code>, 目标一般是由插件定义的, 例如<code>mvn archetype:generate</code> 就表示调用maven-archetype-plugin插件的generate目标，这种带冒号的调用方式与生命周期无关
-<ul>
+<li><code>mvn goal</code>, 目标一般是由插件定义的, 例如<code>mvn archetype:generate</code> 就表示调用maven-archetype-plugin插件的generate目标，这种带冒号的调用方式与生命周期无关<ul>
 <li>运行maven工程里的某个main方法: <code>mvn exec:java -Dexec.mainClass=&quot;org.xx.className</code>, 这里的goal是 maven-exec-plugin插件定义的.</li>
 </ul>
 </li>
 </ol>
-<h3 id="lifecycle">lifecycle</h3>
-<ul>
+<h3 id="lifecycle"><a href="#lifecycle" class="headerlink" title="lifecycle"></a>lifecycle</h3><ul>
 <li><code>mvn compile</code> : compile the source code of the project</li>
 <li><code>mvn test</code> : test the compiled source code using a suitable unit testing framework</li>
-<li><code>mvn package</code> : take the compiled code and package it in its distributable format, such as a JAR.
-<ul>
+<li><code>mvn package</code> : take the compiled code and package it in its distributable format, such as a JAR.<ul>
 <li><code>-Dmaven.test.skip=ture</code> :</li>
 <li><code>-Dmaven.compile.fork=true</code> : Runs the compiler in a separate process</li>
 <li><code>-o</code> : Work offline</li>
@@ -393,13 +381,9 @@
 <li><code>mvn deploy</code>: copies the final package to the remote repository</li>
 <li><code>mvn clean</code> : cleans up artifacts created by prior builds</li>
 </ul>
-<h4 id="snapshot快照库和release发布库的区别">snapshot快照库和release发布库的区别</h4>
-<p>maven中的仓库分为两种，snapshot快照仓库和release发布仓库。<br>
-snapshot快照仓库用于保存开发过程中的不稳定版本，release正式仓库则是用来保存稳定的发行版本。<br>
-定义一个组件/模块为快照版本，只需要在pom文件中在该模块的版本号后加上-SNAPSHOT即可(注意这里必须是大写)，如下：</p>
+<h4 id="snapshot快照库和release发布库的区别"><a href="#snapshot快照库和release发布库的区别" class="headerlink" title="snapshot快照库和release发布库的区别"></a>snapshot快照库和release发布库的区别</h4><p>maven中的仓库分为两种，snapshot快照仓库和release发布仓库。<br>snapshot快照仓库用于保存开发过程中的不稳定版本，release正式仓库则是用来保存稳定的发行版本。<br>定义一个组件/模块为快照版本，只需要在pom文件中在该模块的版本号后加上-SNAPSHOT即可(注意这里必须是大写)，如下：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.abc<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>myLib1<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="插件的Goal">插件的Goal</h3>
-<ul>
+<h3 id="插件的Goal"><a href="#插件的Goal" class="headerlink" title="插件的Goal"></a>插件的Goal</h3><ul>
 <li><code>mvn eclipse:eclipse</code> : 生成eclipse项目文件, 用于导入eclipse</li>
 <li><code>mvn idea:idea</code> : 同上</li>
 <li>将没有在maven官方repository中的jar包加入到本地的maven repository中: <code>mvn install:install-file  -Dfile=path-to-your-artifact-jar -DgroupId=your.groupId -DartifactId=your-artifactId  -Dversion=your-version -Dpackaging=jar</code></li>
@@ -407,60 +391,46 @@ snapshot快照仓库用于保存开发过程中的不稳定版本，release正�
 <li>下载source和doc : <code>mvn dependency:sources -DdownloadSources=true -DdownloadJavadocs=true</code></li>
 <li>运行指定Jar: <code>mvn exec:java -Dexec.mainClass=&quot;com.vineetmanohar.module.Main&quot; -Dexec.args=&quot;arg0 arg1 arg2&quot;</code></li>
 </ul>
-<h3 id="插件-plugins">插件(plugins)</h3>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pluginManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">pluginManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="maven-release-plugin">maven-release-plugin</h4>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn clean</span><br><span class="line">mvn release:prepare -Darguments=&quot;-DskipTests&quot;</span><br><span class="line">mvn release:perform</span><br></pre></td></tr></table></figure>
-<h4 id="maven-resources-plugin">maven-resources-plugin</h4>
-<p>为了使项目结构更为清晰，Maven区别对待Java代码文件和资源文件，maven-compiler-plugin用来编译Java代码，maven-resources-plugin则用来处理资源文件。默认的主资源文件目录是src/main/resources，很多用户会需要添加额外的资源文件目录，这个时候就可以通过配置maven-resources-plugin来实现。此外，资源文件过滤也是Maven的一大特性，你可以在资源文件中使用${propertyName}形式的Maven属性，然后配置maven-resources-plugin开启对资源文件的过滤，之后就可以针对不同环境通过命令行或者Profile传入属性的值，以实现更为灵活的构建。</p>
-<h4 id="Jetty-Plugin">Jetty Plugin</h4>
-<ul>
+<h3 id="插件-plugins"><a href="#插件-plugins" class="headerlink" title="插件(plugins)"></a>插件(plugins)</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pluginManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">pluginManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="maven-release-plugin"><a href="#maven-release-plugin" class="headerlink" title="maven-release-plugin"></a>maven-release-plugin</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn clean</span><br><span class="line">mvn release:prepare -Darguments=&quot;-DskipTests&quot;</span><br><span class="line">mvn release:perform</span><br></pre></td></tr></table></figure>
+<h4 id="maven-resources-plugin"><a href="#maven-resources-plugin" class="headerlink" title="maven-resources-plugin"></a>maven-resources-plugin</h4><p>为了使项目结构更为清晰，Maven区别对待Java代码文件和资源文件，maven-compiler-plugin用来编译Java代码，maven-resources-plugin则用来处理资源文件。默认的主资源文件目录是src/main/resources，很多用户会需要添加额外的资源文件目录，这个时候就可以通过配置maven-resources-plugin来实现。此外，资源文件过滤也是Maven的一大特性，你可以在资源文件中使用${propertyName}形式的Maven属性，然后配置maven-resources-plugin开启对资源文件的过滤，之后就可以针对不同环境通过命令行或者Profile传入属性的值，以实现更为灵活的构建。</p>
+<h4 id="Jetty-Plugin"><a href="#Jetty-Plugin" class="headerlink" title="Jetty Plugin"></a>Jetty Plugin</h4><ul>
 <li>mvn jetty:run</li>
 <li>mvn -Djetty.port=8888 jetty:run</li>
 </ul>
-<h4 id="Help-Plugin">Help Plugin</h4>
-<ul>
+<h4 id="Help-Plugin"><a href="#Help-Plugin" class="headerlink" title="Help Plugin"></a>Help Plugin</h4><ul>
 <li>获取插件帮助: <code>mvn help:describe -Dplugin=eclipse</code></li>
 <li>获取goal帮助: <code>mvn help:describe -Dplugin=archetype</code></li>
 <li>mvn help:active-profiles</li>
 <li>mvn help:effective-settings</li>
 <li>mvn help:system</li>
 </ul>
-<h2 id="依赖-dependencies">依赖(dependencies)</h2>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.thrift<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>libthrift<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.apache.thrift.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="查看依赖">查看依赖</h3>
-<p>查看各个子module和引入Jar的依赖关系:</p>
+<h2 id="依赖-dependencies"><a href="#依赖-dependencies" class="headerlink" title="依赖(dependencies)"></a>依赖(dependencies)</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.thrift<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>libthrift<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;org.apache.thrift.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">scope</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="查看依赖"><a href="#查看依赖" class="headerlink" title="查看依赖"></a>查看依赖</h3><p>查看各个子module和引入Jar的依赖关系:</p>
 <ul>
 <li>mvn dependency:list   可以看到当前项目已解析的依赖</li>
 <li>mvn dependency:tree  看到依赖树</li>
 <li>mvn dependency:analyse 查看依赖的工具</li>
 </ul>
-<h3 id="scope">scope</h3>
-<p>scope有5个缺省值:</p>
+<h3 id="scope"><a href="#scope" class="headerlink" title="scope"></a>scope</h3><p>scope有5个缺省值:</p>
 <ul>
-<li>compile: 缺省值, 表示该maven项目在 <em>编译</em> / <em>测试</em> / <em>运行</em> 阶段都需要依赖这个jar包,
-<ul>
+<li>compile: 缺省值, 表示该maven项目在 <em>编译</em> / <em>测试</em> / <em>运行</em> 阶段都需要依赖这个jar包,<ul>
 <li>compile方式依赖的库具有传递性: 如果项目依赖了A库, 同时A依赖B(scope=compile) , 那么该项目也会依赖B;</li>
 <li>compile方式依赖的库会被打包进项目Jar包的lib目录下;</li>
 </ul>
 </li>
-<li>provided: 表示该maven项目在 <em>编译</em> / <em>测试</em> 阶段都需要依赖这个jar包, 但在运行阶段是可以由容器(Container)来提供的, 而不必由该项目提供此Jar包;<br>
-provided相当于compile, 是在打包阶段做了exclude的动作;
-<ul>
+<li>provided: 表示该maven项目在 <em>编译</em> / <em>测试</em> 阶段都需要依赖这个jar包, 但在运行阶段是可以由容器(Container)来提供的, 而不必由该项目提供此Jar包;<br>provided相当于compile, 是在打包阶段做了exclude的动作;<ul>
 <li>例如一个Web应用, 在编译时可能需要 Servlet API来编译一个Servlet, 但是你不会想要在打包好的WAR中包含这个Servlet API, 这个Servlet API JAR 应该由应用服务器或者Servlet容器提供;</li>
 <li>provided方式依赖的库并不是传递性的;</li>
 <li>provided方式依赖的库也不会被打包进项目Jar包的lib目录下;</li>
 </ul>
 </li>
-<li>runtime: 在编译时不需要依赖此Jar包, 但在 <em>运行</em> / <em>测试</em> 的时候需要.<br>
-例如JDBC驱动可以使用runtime, 因为只有在真正运行的时候才会调用到JDBC驱动的代码;</li>
+<li>runtime: 在编译时不需要依赖此Jar包, 但在 <em>运行</em> / <em>测试</em> 的时候需要.<br>例如JDBC驱动可以使用runtime, 因为只有在真正运行的时候才会调用到JDBC驱动的代码;</li>
 <li>test: 表示该dependency的Jar包只在单元测试时会依赖到, 不会打包进项目, 不会在运行期被依赖到, 典型的比如junit;</li>
-<li>system: 类似provided, 不会被打包进项目, 在编译时maven不会从默认的repository寻找Jar包, 而是从本地目录加载依赖的Jar包.<br>
-使用system需要通过<code>&lt;systemPath&gt;</code>指定该依赖包在本地的路径;</li>
+<li>system: 类似provided, 不会被打包进项目, 在编译时maven不会从默认的repository寻找Jar包, 而是从本地目录加载依赖的Jar包.<br>使用system需要通过<code>&lt;systemPath&gt;</code>指定该依赖包在本地的路径;</li>
 <li>import: Maven 2.0.9 之后新增;</li>
 </ul>
-<h2 id="FAQ">FAQ</h2>
-<ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ul>
 <li><a href="http://stackoverflow.com/questions/16421454/why-maven-is-downloading-metadata-every-time" target="_blank" rel="noopener">Why maven is downloading metadata every time?</a></li>
 <li><a href="http://stackoverflow.com/questions/5780758/maven-always-download-sources-and-javadocs" target="_blank" rel="noopener">Maven – Always download sources and javadocs</a></li>
 <li><a href="http://stackoverflow.com/questions/25639336/whats-the-difference-between-dskiptests-and-dmaven-test-skip-true" target="_blank" rel="noopener">what’s the difference between -DskipTests and -Dmaven.test.skip=true</a></li>
@@ -681,7 +651,7 @@ provided相当于compile, 是在打包阶段做了exclude的动作;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#setting-xml"><span class="nav-text">setting.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pom-xml"><span class="nav-text">pom.xml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#profiles"><span class="nav-text">profiles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-ypur-maven-projects"><span class="nav-text">Create ypur maven projects</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令"><span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lifecycle"><span class="nav-text">lifecycle</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#snapshot快照库和release发布库的区别"><span class="nav-text">snapshot快照库和release发布库的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件的Goal"><span class="nav-text">插件的Goal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件-plugins"><span class="nav-text">插件(plugins)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#maven-release-plugin"><span class="nav-text">maven-release-plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven-resources-plugin"><span class="nav-text">maven-resources-plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jetty-Plugin"><span class="nav-text">Jetty Plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Help-Plugin"><span class="nav-text">Help Plugin</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖-dependencies"><span class="nav-text">依赖(dependencies)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看依赖"><span class="nav-text">查看依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scope"><span class="nav-text">scope</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FAQ"><span class="nav-text">FAQ</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Maven"><span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#setting-xml"><span class="nav-text">setting.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pom-xml"><span class="nav-text">pom.xml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#profiles"><span class="nav-text">profiles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-ypur-maven-projects"><span class="nav-text">Create ypur maven projects</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令"><span class="nav-text">命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lifecycle"><span class="nav-text">lifecycle</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#snapshot快照库和release发布库的区别"><span class="nav-text">snapshot快照库和release发布库的区别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件的Goal"><span class="nav-text">插件的Goal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件-plugins"><span class="nav-text">插件(plugins)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#maven-release-plugin"><span class="nav-text">maven-release-plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#maven-resources-plugin"><span class="nav-text">maven-resources-plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Jetty-Plugin"><span class="nav-text">Jetty Plugin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Help-Plugin"><span class="nav-text">Help Plugin</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖-dependencies"><span class="nav-text">依赖(dependencies)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看依赖"><span class="nav-text">查看依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scope"><span class="nav-text">scope</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FAQ"><span class="nav-text">FAQ</span></a></li></ol></li></ol></div>
             
 
           </div>

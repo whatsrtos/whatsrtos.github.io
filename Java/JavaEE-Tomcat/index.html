@@ -115,13 +115,13 @@
 
 
 
-<meta name="description" content="配置文件 server.xml 一个配置文件实例: &amp;lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina.startup.VersionLoggerListener&quot; /&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina">
+<meta name="description" content="配置文件 server.xml一个配置文件实例:&amp;lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina.startup.VersionLoggerListener&quot; /&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina.c">
 <meta name="keywords" content="Java,JavaEE,Tomcat">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tomcat">
 <meta property="og:url" content="https://whatsrtos.github.io/Java/JavaEE-Tomcat/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="配置文件 server.xml 一个配置文件实例: &amp;lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina.startup.VersionLoggerListener&quot; /&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina">
+<meta property="og:description" content="配置文件 server.xml一个配置文件实例:&amp;lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina.startup.VersionLoggerListener&quot; /&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina.c">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Tomcat-logo.svg/300px-Tomcat-logo.svg.png">
 <meta property="og:image" content="https://whatsrtos.github.io/images/JavaEE-Tomcat/tomcat_ajp_apache.png">
@@ -131,7 +131,7 @@
 <meta property="og:updated_time" content="2020-07-29T16:37:57.924Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat">
-<meta name="twitter:description" content="配置文件 server.xml 一个配置文件实例: &amp;lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina.startup.VersionLoggerListener&quot; /&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina">
+<meta name="twitter:description" content="配置文件 server.xml一个配置文件实例:&amp;lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina.startup.VersionLoggerListener&quot; /&amp;gt;  &amp;lt;Listener className=&quot;org.apache.catalina.c">
 <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Tomcat-logo.svg/300px-Tomcat-logo.svg.png">
 
 
@@ -362,16 +362,10 @@
 
       
         <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Tomcat-logo.svg/300px-Tomcat-logo.svg.png" alt="Tomcat"></p>
-<h1>配置文件 server.xml</h1>
-<p>一个配置文件实例:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">"8005"</span> <span class="attr">shutdown</span>=<span class="string">"SHUTDOWN"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.startup.VersionLoggerListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.AprLifecycleListener"</span> <span class="attr">SSLEngine</span>=<span class="string">"on"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.JasperListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.JreMemoryLeakPreventionListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.ThreadLocalLeakPreventionListener"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">GlobalNamingResources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Resource</span> <span class="attr">name</span>=<span class="string">"UserDatabase"</span> <span class="attr">auth</span>=<span class="string">"Container"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">type</span>=<span class="string">"org.apache.catalina.UserDatabase"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">description</span>=<span class="string">"User database that can be updated and saved"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">factory</span>=<span class="string">"org.apache.catalina.users.MemoryUserDatabaseFactory"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">pathname</span>=<span class="string">"conf/tomcat-users.xml"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">GlobalNamingResources</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Service</span> <span class="attr">name</span>=<span class="string">"Catalina"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8009"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Engine</span> <span class="attr">name</span>=<span class="string">"Catalina"</span> <span class="attr">defaultHost</span>=<span class="string">"localhost"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Realm</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.realm.LockOutRealm"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Realm</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.realm.UserDatabaseRealm"</span> <span class="attr">resourceName</span>=<span class="string">"UserDatabase"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">Realm</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span>  <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.valves.AccessLogValve"</span> <span class="attr">directory</span>=<span class="string">"logs"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">prefix</span>=<span class="string">"localhost_access_log."</span> <span class="attr">suffix</span>=<span class="string">".txt"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">pattern</span>=<span class="string">"%h %l %u %t &amp;quot;%r&amp;quot; %s %b"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Server</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="server-xml配置元素分类">server.xml配置元素分类</h2>
-<h3 id="整体结构">整体结构</h3>
-<p>server.xml的整体结构如下：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Service</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Connector</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Connector</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Engine</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Host</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Context</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Context</span> /&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 现在常常使用自动部署，不推荐配Context --&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- Context表示一个War应用 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Server</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="配置文件-server-xml"><a href="#配置文件-server-xml" class="headerlink" title="配置文件 server.xml"></a>配置文件 server.xml</h1><p>一个配置文件实例:<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">"8005"</span> <span class="attr">shutdown</span>=<span class="string">"SHUTDOWN"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.startup.VersionLoggerListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.AprLifecycleListener"</span> <span class="attr">SSLEngine</span>=<span class="string">"on"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.JasperListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.JreMemoryLeakPreventionListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.ThreadLocalLeakPreventionListener"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">GlobalNamingResources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Resource</span> <span class="attr">name</span>=<span class="string">"UserDatabase"</span> <span class="attr">auth</span>=<span class="string">"Container"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">type</span>=<span class="string">"org.apache.catalina.UserDatabase"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">description</span>=<span class="string">"User database that can be updated and saved"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">factory</span>=<span class="string">"org.apache.catalina.users.MemoryUserDatabaseFactory"</span></span></span><br><span class="line"><span class="tag">              <span class="attr">pathname</span>=<span class="string">"conf/tomcat-users.xml"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">GlobalNamingResources</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">Service</span> <span class="attr">name</span>=<span class="string">"Catalina"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8009"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Engine</span> <span class="attr">name</span>=<span class="string">"Catalina"</span> <span class="attr">defaultHost</span>=<span class="string">"localhost"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Realm</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.realm.LockOutRealm"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Realm</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.realm.UserDatabaseRealm"</span> <span class="attr">resourceName</span>=<span class="string">"UserDatabase"</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">Realm</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span>  <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.valves.AccessLogValve"</span> <span class="attr">directory</span>=<span class="string">"logs"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">prefix</span>=<span class="string">"localhost_access_log."</span> <span class="attr">suffix</span>=<span class="string">".txt"</span></span></span><br><span class="line"><span class="tag">               <span class="attr">pattern</span>=<span class="string">"%h %l %u %t &amp;quot;%r&amp;quot; %s %b"</span> /&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Server</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="server-xml配置元素分类"><a href="#server-xml配置元素分类" class="headerlink" title="server.xml配置元素分类"></a>server.xml配置元素分类</h2><h3 id="整体结构"><a href="#整体结构" class="headerlink" title="整体结构"></a>整体结构</h3><p>server.xml的整体结构如下：<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Server</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Service</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Connector</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Connector</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">Engine</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Host</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Context</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">Context</span> /&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 现在常常使用自动部署，不推荐配Context --&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- Context表示一个War应用 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Host</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">Engine</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Service</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Server</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>该结构中只给出了Tomcat的核心组件，除了核心组件外，Tomcat还有一些其他组件，下面介绍一下组件的分类。</p>
-<h3 id="元素分类">元素分类</h3>
-<p>server.xml文件中的元素可以分为以下4类：</p>
+<h3 id="元素分类"><a href="#元素分类" class="headerlink" title="元素分类"></a>元素分类</h3><p>server.xml文件中的元素可以分为以下4类：</p>
 <ul>
 <li>（1）顶层元素：<code>&lt;Server&gt;</code>和<code>&lt;Service&gt;</code></li>
 </ul>
@@ -396,17 +390,13 @@
 </ul>
 <p>可以内嵌到容器中的组件。实际上，Server、Service、Connector、Engine、Host和Context是最重要的最核心的Tomcat组件，其他组件都可以归为内嵌组件。</p>
 <p>下面将详细介绍Tomcat中各个核心组件的作用，以及相互之间的关系。</p>
-<h2 id="核心组件">核心组件</h2>
-<p>本部分将分别介绍各个核心组件的作用、特点以及配置方式等。</p>
-<h3 id="Server">Server</h3>
-<p>Server元素在最顶层，代表整个Tomcat容器，因此它必须是server.xml中唯一一个最外层的元素。一个Server元素中可以有一个或多个Service元素。</p>
+<h2 id="核心组件"><a href="#核心组件" class="headerlink" title="核心组件"></a>核心组件</h2><p>本部分将分别介绍各个核心组件的作用、特点以及配置方式等。</p>
+<h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><p>Server元素在最顶层，代表整个Tomcat容器，因此它必须是server.xml中唯一一个最外层的元素。一个Server元素中可以有一个或多个Service元素。</p>
 <p>在第一部分的例子中，在最外层有一个<server>元素，shutdown属性表示关闭Server的指令；port属性表示Server接收shutdown指令的端口号，设为-1可以禁掉该端口。</server></p>
 <p>Server的主要任务，就是提供一个接口让客户端能够访问到这个Service集合，同时维护它所包含的所有的Service的声明周期，包括如何初始化、如何结束服务、如何找到客户端要访问的Service。</p>
-<h3 id="Service">Service</h3>
-<p>Service的作用，是在Connector和Engine外面包了一层，把它们组装在一起，对外提供服务。一个Service可以包含多个Connector，但是只能包含一个Engine；其中Connector的作用是从客户端接收请求，Engine的作用是处理接收进来的请求。</p>
+<h3 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h3><p>Service的作用，是在Connector和Engine外面包了一层，把它们组装在一起，对外提供服务。一个Service可以包含多个Connector，但是只能包含一个Engine；其中Connector的作用是从客户端接收请求，Engine的作用是处理接收进来的请求。</p>
 <p>在第一部分的例子中，Server中包含一个名称为“Catalina”的Service。实际上，Tomcat可以提供多个Service，不同的Service监听不同的端口，后文会有介绍。</p>
-<h3 id="Connector">Connector</h3>
-<p>Connector的主要功能，是接收连接请求，创建Request和Response对象用于和请求端交换数据；然后分配线程让Engine来处理这个请求，并把产生的Request和Response对象传给Engine。</p>
+<h3 id="Connector"><a href="#Connector" class="headerlink" title="Connector"></a>Connector</h3><p>Connector的主要功能，是接收连接请求，创建Request和Response对象用于和请求端交换数据；然后分配线程让Engine来处理这个请求，并把产生的Request和Response对象传给Engine。</p>
 <p>通过配置Connector，可以控制请求Service的协议及端口号。在第一部分的例子中，Service包含两个Connector：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span> <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8009"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -414,55 +404,34 @@
 <li>（2）通过配置第2个Connector，客户端可以通过8009端口号使用AJP协议访问Tomcat。AJP协议负责和其他的HTTP服务器(如Apache)建立连接；在把Tomcat与其他HTTP服务器集成时，就需要用到这个连接器。之所以使用Tomcat和其他服务器集成，是因为Tomcat可以用作Servlet/JSP容器，但是对静态资源的处理速度较慢，不如Apache和IIS等HTTP服务器；因此常常将Tomcat与Apache等集成，前者作Servlet容器，后者处理静态资源，而AJP协议便负责Tomcat和Apache的连接。Tomcat与Apache等集成的原理如下图(图片来源)：</li>
 </ul>
 <p><img src="/images/JavaEE-Tomcat/tomcat_ajp_apache.png" alt="tomcat_ajp_apache"></p>
-<h3 id="Engine">Engine</h3>
-<p>Engine组件在Service组件中有且只有一个；Engine是Service组件中的请求处理组件。Engine组件从一个或多个Connector中接收请求并处理，并将完成的响应返回给Connector，最终传递给客户端。</p>
-<p>在第一部分的例子中，Engine的配置语句如下：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Engine</span> <span class="attr">name</span>=<span class="string">"Catalina"</span> <span class="attr">defaultHost</span>=<span class="string">"localhost"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Engine"><a href="#Engine" class="headerlink" title="Engine"></a>Engine</h3><p>Engine组件在Service组件中有且只有一个；Engine是Service组件中的请求处理组件。Engine组件从一个或多个Connector中接收请求并处理，并将完成的响应返回给Connector，最终传递给客户端。</p>
+<p>在第一部分的例子中，Engine的配置语句如下：<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Engine</span> <span class="attr">name</span>=<span class="string">"Catalina"</span> <span class="attr">defaultHost</span>=<span class="string">"localhost"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>其中，name属性用于日志和错误信息，在整个Server中应该唯一。defaultHost属性指定了默认的host名称，当发往本机的请求指定的host名称不存在时，一律使用defaultHost指定的host进行处理；因此，defaultHost的值，必须与Engine中的一个Host组件的name属性值匹配。</p>
-<h3 id="Host">Host</h3>
-<h4 id="Engine与Host">Engine与Host</h4>
-<p>Host是Engine的子容器。Engine组件中可以内嵌1个或多个Host组件，每个Host组件代表Engine中的一个虚拟主机。Host组件至少有一个，且其中一个的name必须与Engine组件的defaultHost属性相匹配。</p>
-<h4 id="Host的作用">Host的作用</h4>
-<p>Host虚拟主机的作用，是运行多个Web应用（一个Context代表一个Web应用），并负责安装、展开、启动和结束每个Web应用。</p>
-<p>Host组件代表的虚拟主机，对应了服务器中一个网络名实体(如”<a href="http://www.test.com" target="_blank" rel="noopener">www.test.com</a>”，或IP地址”116.25.25.25”)；为了使用户可以通过网络名连接Tomcat服务器，这个名字应该在DNS服务器上注册。</p>
-<h4 id="Host的配置">Host的配置</h4>
-<p>在第一部分的例子中，Host的配置如下：</p>
+<h3 id="Host"><a href="#Host" class="headerlink" title="Host"></a>Host</h3><h4 id="Engine与Host"><a href="#Engine与Host" class="headerlink" title="Engine与Host"></a>Engine与Host</h4><p>Host是Engine的子容器。Engine组件中可以内嵌1个或多个Host组件，每个Host组件代表Engine中的一个虚拟主机。Host组件至少有一个，且其中一个的name必须与Engine组件的defaultHost属性相匹配。</p>
+<h4 id="Host的作用"><a href="#Host的作用" class="headerlink" title="Host的作用"></a>Host的作用</h4><p>Host虚拟主机的作用，是运行多个Web应用（一个Context代表一个Web应用），并负责安装、展开、启动和结束每个Web应用。</p>
+<p>Host组件代表的虚拟主机，对应了服务器中一个网络名实体(如”<a href="http://www.test.com”，或IP地址”116.25.25.25”)；为了使用户可以通过网络名连接Tomcat服务器，这个名字应该在DNS服务器上注册。" target="_blank" rel="noopener">www.test.com”，或IP地址”116.25.25.25”)；为了使用户可以通过网络名连接Tomcat服务器，这个名字应该在DNS服务器上注册。</a></p>
+<h4 id="Host的配置"><a href="#Host的配置" class="headerlink" title="Host的配置"></a>Host的配置</h4><p>在第一部分的例子中，Host的配置如下：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span> <span class="attr">appBase</span>=<span class="string">"webapps"</span> <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>下面对其中配置的属性进行说明：</p>
 <p>name属性指定虚拟主机的主机名，一个Engine中有且仅有一个Host组件的name属性与Engine组件的defaultHost属性相匹配；一般情况下，主机名需要是在DNS服务器中注册的网络名，但是Engine指定的defaultHost不需要，原因在前面已经说明。</p>
 <p>unpackWARs指定了是否将代表Web应用的WAR文件解压；如果为true，通过解压后的文件结构运行该Web应用，如果为false，直接使用WAR文件运行Web应用。</p>
 <p>Host的autoDeploy和appBase属性，与Host内Web应用的自动部署有关；此外，本例中没有出现的xmlBase和deployOnStartup属性，也与Web应用的自动部署有关；将在下一节(Context)中介绍。</p>
-<h3 id="Context">Context</h3>
-<h4 id="Context的作用">Context的作用</h4>
-<p>Context元素代表在特定虚拟主机上运行的一个Web应用。每个Web应用基于WAR文件，或WAR文件解压后对应的目录（这里称为应用目录）。</p>
+<h3 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h3><h4 id="Context的作用"><a href="#Context的作用" class="headerlink" title="Context的作用"></a>Context的作用</h4><p>Context元素代表在特定虚拟主机上运行的一个Web应用。每个Web应用基于WAR文件，或WAR文件解压后对应的目录（这里称为应用目录）。</p>
 <p>Context是Host的子容器，每个Host中可以定义任意多的Context元素。</p>
 <p>在第一部分的例子中，可以看到server.xml配置文件中并没有出现Context元素的配置。这是因为，Tomcat开启了自动部署，Web应用没有在server.xml中配置静态部署，而是由Tomcat通过特定的规则自动部署。下面介绍一下Tomcat自动部署Web应用的机制。</p>
-<h4 id="Web应用自动部署">Web应用自动部署</h4>
-<p>如何开启自动部署War:</p>
+<h4 id="Web应用自动部署"><a href="#Web应用自动部署" class="headerlink" title="Web应用自动部署"></a>Web应用自动部署</h4><p>如何开启自动部署War:</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span>  <span class="attr">appBase</span>=<span class="string">"webapps"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>此外Context组件还有一个reloadable属性, <code>&lt;Context docBase=&quot;xxx&quot; path=&quot;/xxx&quot; reloadable=&quot;true&quot;/&gt; </code><br>
-替换WEB-INF/lib目录中的jar文件或WEB-INF/classes目录中的class文件时，reloadable=&quot;true&quot;会让修改生效（但代价不小），该选项适合调试。</p>
-<p>autoDeploy和reloadable的区别是, 前者是Host的属性后者是Context的属性,<br>
-前者监控的是webapps目录下War包的改动, 后者监控的是webapps下面文件夹内jar或者class文件的变化;</p>
+<p>此外Context组件还有一个reloadable属性, <code>&lt;Context docBase=&quot;xxx&quot; path=&quot;/xxx&quot; reloadable=&quot;true&quot;/&gt;</code><br>替换WEB-INF/lib目录中的jar文件或WEB-INF/classes目录中的class文件时，reloadable=”true”会让修改生效（但代价不小），该选项适合调试。</p>
+<p>autoDeploy和reloadable的区别是, 前者是Host的属性后者是Context的属性,<br>前者监控的是webapps目录下War包的改动, 后者监控的是webapps下面文件夹内jar或者class文件的变化;</p>
 <p>一般线上环境会关闭这两个参数, 开发阶段可以通过这两个参数无需重启tomcat预览改变;</p>
-<h5 id="自动部署的实现">自动部署的实现</h5>
-<blockquote>
+<h5 id="自动部署的实现"><a href="#自动部署的实现" class="headerlink" title="自动部署的实现"></a>自动部署的实现</h5><blockquote>
 <p>Tomcat的Engine会启动一个线程，该线程每10s会发送一个发送一个事件，监听到该事件的部署配置类, 会自动去扫描webapp文件夹下的war包，将其加载成一个Context，即启动一个web服务。</p>
 </blockquote>
-<p>Tomcat的<code>StandardEngine</code>会在<code>starInternal()</code>启动一个线程，该线程运行的是<code>ContainerBackgroundProcessor.run()</code>方法,<br>
-这个run每隔10s唤醒调用一次<code>processChildren()</code>, 继续跟踪该方法，会看到调用其子容器Engine、Host、Context、Wrapper各容器组件及与它们相关的其它组件的backgroundProcess方法。<br>
-<code>backgroundProcess()</code>发送一个事件<code>Lifecycle.PERIODIC_EVENT</code>,<br>
-StandardHost通server.xml配置了HostConfig监听器，对该事件的响应方法是<code>HostConfig.lifecycleEvent()</code>,<br>
-<code>lifecycleEvent()</code>会检查<code>autoDeploy=&quot;true&quot;</code>的配置, 如果开启了, 则调用<code>deployApps()</code>扫描webapp文件夹下的war包，将其加载成一个Context，即启动一个web服务。</p>
-<h2 id="核心组件的关联">核心组件的关联</h2>
-<h3 id="整体关系">整体关系</h3>
-<p>核心组件之间的整体关系，在上一部分有所介绍，这里总结一下：</p>
-<p>Server元素在最顶层，代表整个Tomcat容器；一个Server元素中可以有一个或多个Service元素。<br>
-Service在Connector和Engine外面包了一层，把它们组装在一起，对外提供服务。<strong>一个Service可以包含多个Connector，但是只能包含一个Engine；</strong>  Connector接收请求，Engine处理请求。<br>
-Engine、Host和Context都是容器，且 Engine包含Host，Host包含Context。每个Host组件代表Engine中的一个虚拟主机；每个Context组件代表在特定Host上运行的一个Web应用。</p>
+<p>Tomcat的<code>StandardEngine</code>会在<code>starInternal()</code>启动一个线程，该线程运行的是<code>ContainerBackgroundProcessor.run()</code>方法,<br>这个run每隔10s唤醒调用一次<code>processChildren()</code>, 继续跟踪该方法，会看到调用其子容器Engine、Host、Context、Wrapper各容器组件及与它们相关的其它组件的backgroundProcess方法。<br><code>backgroundProcess()</code>发送一个事件<code>Lifecycle.PERIODIC_EVENT</code>,<br>StandardHost通server.xml配置了HostConfig监听器，对该事件的响应方法是<code>HostConfig.lifecycleEvent()</code>,<br><code>lifecycleEvent()</code>会检查<code>autoDeploy=&quot;true&quot;</code>的配置, 如果开启了, 则调用<code>deployApps()</code>扫描webapp文件夹下的war包，将其加载成一个Context，即启动一个web服务。</p>
+<h2 id="核心组件的关联"><a href="#核心组件的关联" class="headerlink" title="核心组件的关联"></a>核心组件的关联</h2><h3 id="整体关系"><a href="#整体关系" class="headerlink" title="整体关系"></a>整体关系</h3><p>核心组件之间的整体关系，在上一部分有所介绍，这里总结一下：</p>
+<p>Server元素在最顶层，代表整个Tomcat容器；一个Server元素中可以有一个或多个Service元素。<br>Service在Connector和Engine外面包了一层，把它们组装在一起，对外提供服务。<strong>一个Service可以包含多个Connector，但是只能包含一个Engine；</strong>  Connector接收请求，Engine处理请求。<br>Engine、Host和Context都是容器，且 Engine包含Host，Host包含Context。每个Host组件代表Engine中的一个虚拟主机；每个Context组件代表在特定Host上运行的一个Web应用。</p>
 <p><img src="/images/JavaEE-Tomcat/tomcat_architecture.png" alt=""></p>
-<h3 id="如何确定请求由谁处理？">如何确定请求由谁处理？</h3>
-<p>当请求被发送到Tomcat所在的主机时，如何确定最终哪个Web应用来处理该请求呢？</p>
+<h3 id="如何确定请求由谁处理？"><a href="#如何确定请求由谁处理？" class="headerlink" title="如何确定请求由谁处理？"></a>如何确定请求由谁处理？</h3><p>当请求被发送到Tomcat所在的主机时，如何确定最终哪个Web应用来处理该请求呢？</p>
 <ul>
 <li>（1）根据协议和端口号选定Service和Engine</li>
 </ul>
@@ -478,89 +447,52 @@ Engine、Host和Context都是容器，且 Engine包含Host，Host包含Context�
 <ul>
 <li>（4）举例</li>
 </ul>
-<p>以请求http://localhost:8080/app1/index.html为例，首先通过协议和端口号（http和8080）选定Service；然后通过主机名（localhost）选定Host；然后通过uri（/app1/index.html）选定Web应用。</p>
-<h3 id="如何部署多个war包项目">如何部署多个war包项目</h3>
-<p>@TODO</p>
-<h2 id="其他组件">其他组件</h2>
-<h3 id="Listener">Listener</h3>
-<p>Listener(即监听器)定义的组件，可以在特定事件发生时执行特定的操作；被监听的事件通常是Tomcat的启动和停止。<br>
-监听器可以在Server、Engine、Host或Context中，本例中的监听器都是在Server中。实际上，本例中定义的6个监听器，都只能存在于Server组件中。监听器不允许内嵌其他组件。<br>
-监听器需要配置的最重要的属性是className，该属性规定了监听器的具体实现类，该类必须实现了<code>org.apache.catalina.LifecycleListener</code>接口。</p>
-<h3 id="GlobalNamingResources与Realm">GlobalNamingResources与Realm</h3>
-<p>@TODO</p>
-<h3 id="Valve">Valve</h3>
-<p>在第一部分的例子中，Host元素内定义了Valve组件：</p>
+<p>以请求<a href="http://localhost:8080/app1/index.html为例，首先通过协议和端口号（http和8080）选定Service；然后通过主机名（localhost）选定Host；然后通过uri（/app1/index.html）选定Web应用。" target="_blank" rel="noopener">http://localhost:8080/app1/index.html为例，首先通过协议和端口号（http和8080）选定Service；然后通过主机名（localhost）选定Host；然后通过uri（/app1/index.html）选定Web应用。</a></p>
+<h3 id="如何部署多个war包项目"><a href="#如何部署多个war包项目" class="headerlink" title="如何部署多个war包项目"></a>如何部署多个war包项目</h3><p>@TODO</p>
+<h2 id="其他组件"><a href="#其他组件" class="headerlink" title="其他组件"></a>其他组件</h2><h3 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h3><p>Listener(即监听器)定义的组件，可以在特定事件发生时执行特定的操作；被监听的事件通常是Tomcat的启动和停止。<br>监听器可以在Server、Engine、Host或Context中，本例中的监听器都是在Server中。实际上，本例中定义的6个监听器，都只能存在于Server组件中。监听器不允许内嵌其他组件。<br>监听器需要配置的最重要的属性是className，该属性规定了监听器的具体实现类，该类必须实现了<code>org.apache.catalina.LifecycleListener</code>接口。</p>
+<h3 id="GlobalNamingResources与Realm"><a href="#GlobalNamingResources与Realm" class="headerlink" title="GlobalNamingResources与Realm"></a>GlobalNamingResources与Realm</h3><p>@TODO</p>
+<h3 id="Valve"><a href="#Valve" class="headerlink" title="Valve"></a>Valve</h3><p>在第一部分的例子中，Host元素内定义了Valve组件：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Valve</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.valves.AccessLogValve"</span> <span class="attr">directory</span>=<span class="string">"logs"</span> <span class="attr">prefix</span>=<span class="string">"localhost_access_log."</span> <span class="attr">suffix</span>=<span class="string">".txt"</span> <span class="attr">pattern</span>=<span class="string">"%h %l %u %t &amp;quot;%r&amp;quot; %s %b"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p>单词Valve的意思是“阀门”，在Tomcat中代表了请求处理流水线上的一个组件；Valve可以与Tomcat的容器(Engine、Host或Context)关联。<br>
-不同的Valve有不同的特性，下面介绍一下本例中出现的AccessLogValve。<br>
-AccessLogValve的作用是通过日志记录其所在的容器中处理的所有请求，在本例中，Valve放在Host下，便可以记录该Host处理的所有请求。AccessLogValve记录的日志就是访问日志，每天的请求会写到一个日志文件里。AccessLogValve可以与Engine、Host或Context关联；在本例中，只有一个Engine，Engine下只有一个Host，Host下只有一个Context，因此AccessLogValve放在三个容器下的作用其实是类似的。</p>
-<h1>性能优化</h1>
-<h2 id="bin-catalina-sh">bin/catalina.sh</h2>
-<p>修改Xms, Xmx, PermSize</p>
+<p>单词Valve的意思是“阀门”，在Tomcat中代表了请求处理流水线上的一个组件；Valve可以与Tomcat的容器(Engine、Host或Context)关联。<br>不同的Valve有不同的特性，下面介绍一下本例中出现的AccessLogValve。<br>AccessLogValve的作用是通过日志记录其所在的容器中处理的所有请求，在本例中，Valve放在Host下，便可以记录该Host处理的所有请求。AccessLogValve记录的日志就是访问日志，每天的请求会写到一个日志文件里。AccessLogValve可以与Engine、Host或Context关联；在本例中，只有一个Engine，Engine下只有一个Host，Host下只有一个Context，因此AccessLogValve放在三个容器下的作用其实是类似的。</p>
+<h1 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h1><h2 id="bin-catalina-sh"><a href="#bin-catalina-sh" class="headerlink" title="bin/catalina.sh"></a>bin/catalina.sh</h2><p>修改Xms, Xmx, PermSize</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">JAVA_OPTS="-Xms8g -Xmx8g -Xmn2g -server -DServer=mblog -XX:PermSize=128m -XX:MaxPermSize=128m -XX:MaxTenuringThreshold=4 -XX:+UseConcMarkSweepGC -XX:SurvivorRatio=8 -XX:CMSInitiatingOccupancyFraction=70 -XX:+ExplicitGCInvokesConcurrent -XX:+PrintFlagsFinal -XX:+PrintCommandLineFlags -XX:+PrintGCDateStamps -XX:+PrintTenuringDistribution -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCApplicationConcurrentTime -Xloggc:../gclogs/gc.log.$nowday"</span><br></pre></td></tr></table></figure>
-<h2 id="conf-server-xml">conf/server.xml</h2>
-<p>Tomcat 采用 Request Per Thread 策略, 每个用户请求由一个线程处理, <code>&lt;Executor&gt;</code> 部分定义了该线程池, 该线程池被 多个<code>&lt;Connector&gt;</code> 共享, server.xml里的优化主要在<code>&lt;Connector&gt;</code>:</p>
+<h2 id="conf-server-xml"><a href="#conf-server-xml" class="headerlink" title="conf/server.xml"></a>conf/server.xml</h2><p>Tomcat 采用 Request Per Thread 策略, 每个用户请求由一个线程处理, <code>&lt;Executor&gt;</code> 部分定义了该线程池, 该线程池被 多个<code>&lt;Connector&gt;</code> 共享, server.xml里的优化主要在<code>&lt;Connector&gt;</code>:</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Executor</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.core.StandardThreadExecutor"</span> <span class="attr">name</span>=<span class="string">"tomcatThreadPool"</span> <span class="attr">namePrefix</span>=<span class="string">"catalina-exec"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">maxThreads</span>=<span class="string">"300"</span> <span class="attr">minSpareThreads</span>=<span class="string">"50"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 指定使用上面的线程池 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">executor</span>=<span class="string">"tomcatThreadPool"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">port</span>=<span class="string">"8080"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">connectionTimeout</span>=<span class="string">"8000"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">enableLookups</span>=<span class="string">"false"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">acceptCount</span>=<span class="string">"300"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">maxThreads</span>=<span class="string">"300"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">acceptorThreadCount</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">URIEncoding</span>=<span class="string">"utf-8"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">redirectPort</span>=<span class="string">"443"</span></span></span><br><span class="line"><span class="tag">           <span class="attr">compression</span>=<span class="string">"on"</span> <span class="attr">compressionMinSize</span>=<span class="string">"1024"</span> <span class="attr">compressableMimeType</span>=<span class="string">"text/html,text/xml,text/javascript,text/css,text/plain,application/json,application/xml"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>Executor参数
-<ul>
+<li>Executor参数<ul>
 <li><strong>maxThreads</strong>:  线程池最大线程数</li>
 <li><strong>minSpareThreads</strong>: 线程池最小线程数(线程池初始化时), 默认25</li>
 </ul>
 </li>
-<li>Connector 参数:
+<li><p>Connector 参数:</p>
 <ul>
-<li>
-<p><strong>executor</strong>: 指明使用哪一个 Executor, 如果指定了,那么 Connector中所有关于线程的设定会被忽略, 如果没有指定 一个线程池, Connector将会创建一个私有的线程池.</p>
-</li>
-<li>
-<p><strong>maxThreads</strong>: 用于处理客户端请求的最大线程数, 设置为多少视CPU处理能力而定, 一般单个应用不应该超过300, 如果超过300应考虑多个Tomcat组成集群方式</p>
-</li>
-<li>
-<p>enableLookups: 是否开启域名反查，一般设置为false来提高处理能力，它的取值还有true，一般很少使用。若设为true, 则支持域名解析，可把 ip 地址解析为主机名</p>
-</li>
-<li>
-<p>connectionTimeout: 网络连接超时，单位：毫秒。设置为 0 表示永不超时</p>
-</li>
-<li>
-<p><strong>acceptorThreadCount</strong>: 默认为1，表示用于accept新socket连接的线程个数。建议设置为 cpu核数</p>
-</li>
-<li>
-<p><strong>acceptCount</strong>: 当全部线程都在忙(意味着客户端并发数超过 maxThreads个线程), 新的请求会放入accept队列, 该值是队列的size, 默认100 (如果要增加Tomcat并发处理能力, 需要同时增加 acceptCount 和 maxThreads)</p>
-</li>
-<li>
-<p><strong>maxConnections</strong>: Tomcat能 accept并 process的最大连接数, 超过这个数 tomcat仍然 能accept新的连接, 但不会process</p>
-</li>
-<li>
-<p>compressionMinSize: 大于这个数值讲开启压缩, 默认为2K</p>
-</li>
-<li>
-<p>compressableMimeType: 压缩哪些类型</p>
-</li>
-<li>
-<p><strong>protocol</strong>：协议类型，可选类型有四种，分别为 BIO（阻塞型IO），NIO，NIO2和APR。</p>
+<li><strong>executor</strong>: 指明使用哪一个 Executor, 如果指定了,那么 Connector中所有关于线程的设定会被忽略, 如果没有指定 一个线程池, Connector将会创建一个私有的线程池.</li>
+<li><strong>maxThreads</strong>: 用于处理客户端请求的最大线程数, 设置为多少视CPU处理能力而定, 一般单个应用不应该超过300, 如果超过300应考虑多个Tomcat组成集群方式</li>
+<li>enableLookups: 是否开启域名反查，一般设置为false来提高处理能力，它的取值还有true，一般很少使用。若设为true, 则支持域名解析，可把 ip 地址解析为主机名</li>
+<li>connectionTimeout: 网络连接超时，单位：毫秒。设置为 0 表示永不超时</li>
+<li><strong>acceptorThreadCount</strong>: 默认为1，表示用于accept新socket连接的线程个数。建议设置为 cpu核数</li>
+<li><strong>acceptCount</strong>: 当全部线程都在忙(意味着客户端并发数超过 maxThreads个线程), 新的请求会放入accept队列, 该值是队列的size, 默认100 (如果要增加Tomcat并发处理能力, 需要同时增加 acceptCount 和 maxThreads)</li>
+<li><strong>maxConnections</strong>: Tomcat能 accept并 process的最大连接数, 超过这个数 tomcat仍然 能accept新的连接, 但不会process</li>
+<li>compressionMinSize: 大于这个数值讲开启压缩, 默认为2K</li>
+<li>compressableMimeType: 压缩哪些类型</li>
+<li><p><strong>protocol</strong>：协议类型，可选类型有四种，分别为 BIO（阻塞型IO），NIO，NIO2和APR。</p>
 <ul>
 <li>BIO：BIO(Blocking I/O)，顾名思义，即阻塞式I/O操作，表示Tomcat使用的是传统的Java I/O操作(即java.io包及其子包)。Tomcat在默认情况下，是以bio模式运行的。遗憾的是，就一般而言，bio模式是三种运行模式中性能最低的一种。BIO配置采用默认即可。</li>
-<li>NIO：NIO(New I/O)，是Java SE 1.4及后续版本提供的一种新的I/O操作方式(即java.nio包及其子包)。Java nio是一个基于缓冲区、并能提供非阻塞I/O操作的Java API，因此nio也被看成是non-blocking I/O的缩写。它拥有比传统I/O操作(bio)更好的并发运行性能。要让Tomcat以nio模式来运行也比较简单，我们只需要protocol类型修改为：<code>protocol=&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</code><br>
-对于互联网应用，我们应该在NIO、NIO2之间做选择，因为它能够有效的提升性能（主要是并发能力），其中NIO2即为AIO，需要JDK 1.7+、Linux 2.6+才能支持。
-<ul>
+<li>NIO：NIO(New I/O)，是Java SE 1.4及后续版本提供的一种新的I/O操作方式(即java.nio包及其子包)。Java nio是一个基于缓冲区、并能提供非阻塞I/O操作的Java API，因此nio也被看成是non-blocking I/O的缩写。它拥有比传统I/O操作(bio)更好的并发运行性能。要让Tomcat以nio模式来运行也比较简单，我们只需要protocol类型修改为：<code>protocol=&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</code><br>对于互联网应用，我们应该在NIO、NIO2之间做选择，因为它能够有效的提升性能（主要是并发能力），其中NIO2即为AIO，需要JDK 1.7+、Linux 2.6+才能支持。<ul>
 <li>NIO：JDK 1.6+，tomcat 6.x+</li>
 <li>NIO2：JDK 1.7+，tomcat 7.x+</li>
 </ul>
 </li>
-<li>APR: 通过Native实现的I/O库, Tomcat通过JNI调用;</li>
-</ul>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// Tomcat 支持的几种protocol:</span><br><span class="line">//NIO</span><br><span class="line">protocol=&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</span><br><span class="line">//NIO2</span><br><span class="line">protocol=&quot;org.apache.coyote.http11.Http11Nio2Protocol&quot;</span><br><span class="line">//ARP</span><br><span class="line">protocol=&quot;org.apache.coyote.http11.Http11AprProtocol&quot;</span><br></pre></td></tr></table></figure>
+<li><p>APR: 通过Native实现的I/O库, Tomcat通过JNI调用;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// Tomcat 支持的几种protocol:</span><br><span class="line">//NIO</span><br><span class="line">protocol=&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</span><br><span class="line">//NIO2</span><br><span class="line">protocol=&quot;org.apache.coyote.http11.Http11Nio2Protocol&quot;</span><br><span class="line">//ARP</span><br><span class="line">protocol=&quot;org.apache.coyote.http11.Http11AprProtocol&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<p>总结:<br>
-增加 acceptCount, maxConnections, maxThreads,<br>
-Tomcat 能 accept 的连接数量 = maxConnections + acceptCount;<br>
-Tomcat 能 accept 并process的连接数量 = maxConnections;</p>
-<h3 id="NIO线程模型">NIO线程模型</h3>
-<p>Tomcat使用 Connector 完成整个 HTTP Request的处理流程, 包括 accept socket → NIO Selector处理 socket读事件 → 把可读Socket分发给 Work线程 → 从socket读取数据并解析为Http请求 → Http请求交给CoyoteAdaper处理, CoyoteAdaper 通过Mapper找到对应的Servlet.</p>
+</li>
+</ul>
+<p>总结:<br>增加 acceptCount, maxConnections, maxThreads,<br>Tomcat 能 accept 的连接数量 = maxConnections + acceptCount;<br>Tomcat 能 accept 并process的连接数量 = maxConnections;</p>
+<h3 id="NIO线程模型"><a href="#NIO线程模型" class="headerlink" title="NIO线程模型"></a>NIO线程模型</h3><p>Tomcat使用 Connector 完成整个 HTTP Request的处理流程, 包括 accept socket → NIO Selector处理 socket读事件 → 把可读Socket分发给 Work线程 → 从socket读取数据并解析为Http请求 → Http请求交给CoyoteAdaper处理, CoyoteAdaper 通过Mapper找到对应的Servlet.</p>
 <p><img src="/images/JavaEE-Tomcat/tomcat-nio-connector-process.png" alt="Tomcat-NIO-Connector-Process"></p>
 <p>在NIO实现的Connector中，处理请求的主要实体是NIoEndpoint对象。NIoEndpoint中除了包含Acceptor和Worker外，还是用了Poller，处理流程如下图所示:</p>
 <p><img src="/images/JavaEE-Tomcat/tomcat-nioendpoint-poler-worker.png" alt="Tomcat-NioEndpoint-Poler-Worker"></p>
@@ -570,13 +502,9 @@ Tomcat 能 accept 并process的连接数量 = maxConnections;</p>
 <li>Poller 通过 <code>Selector.select()</code> 遍历可读的 socketChannel, 从Worker线程池中拿到可用的Worker线程,将socket传递给Worker处理</li>
 <li>Worker 线程将socket封装在SocketProcessor对象中。然后从Http11ConnectionHandler中取出Http11NioProcessor对象，从Http11NioProcessor中调用CoyoteAdapter的逻辑</li>
 </ul>
-<p>本节参考:<br>
-<a href="https://my.oschina.net/weiweiblog/blog/1830173" target="_blank" rel="noopener">https://my.oschina.net/weiweiblog/blog/1830173</a><br>
-<a href="https://www.jianshu.com/p/f91f99610b9e" target="_blank" rel="noopener">https://www.jianshu.com/p/f91f99610b9e</a></p>
-<h3 id="附-Connector和线程池参数解析">附: Connector和线程池参数解析</h3>
-<ol>
-<li><code>&lt;Executor&gt;</code> 部分, 参数说明: <a href="https://tomcat.apache.org/tomcat-8.5-doc/config/executor.html" target="_blank" rel="noopener">https://tomcat.apache.org/tomcat-8.5-doc/config/executor.html</a>
-<ul>
+<p>本节参考:<br><a href="https://my.oschina.net/weiweiblog/blog/1830173" target="_blank" rel="noopener">https://my.oschina.net/weiweiblog/blog/1830173</a><br><a href="https://www.jianshu.com/p/f91f99610b9e" target="_blank" rel="noopener">https://www.jianshu.com/p/f91f99610b9e</a></p>
+<h3 id="附-Connector和线程池参数解析"><a href="#附-Connector和线程池参数解析" class="headerlink" title="附: Connector和线程池参数解析"></a>附: Connector和线程池参数解析</h3><ol>
+<li><code>&lt;Executor&gt;</code> 部分, 参数说明: <a href="https://tomcat.apache.org/tomcat-8.5-doc/config/executor.html" target="_blank" rel="noopener">https://tomcat.apache.org/tomcat-8.5-doc/config/executor.html</a><ul>
 <li><strong>namePrefix</strong>: The name prefix for each thread created by the executor</li>
 <li><strong>maxThreads</strong>: The max number of active threads in this pool, default is 200</li>
 <li><strong>minSpareThreads</strong>: The minimum number of threads (idle and active) always kept alive, default is 25</li>
@@ -584,22 +512,17 @@ Tomcat 能 accept 并process的连接数量 = maxConnections;</p>
 <li><strong>maxQueueSize</strong>: The maximum number of runnable tasks that can queue up awaiting execution before we reject them. Default value is Integer.MAX_VALUE</li>
 </ul>
 </li>
-<li><code>&lt;Connector&gt;</code> 部分, <a href="https://tomcat.apache.org/tomcat-8.5-doc/config/http.html" target="_blank" rel="noopener">https://tomcat.apache.org/tomcat-8.5-doc/config/http.html</a>
-<ul>
+<li><code>&lt;Connector&gt;</code> 部分, <a href="https://tomcat.apache.org/tomcat-8.5-doc/config/http.html" target="_blank" rel="noopener">https://tomcat.apache.org/tomcat-8.5-doc/config/http.html</a><ul>
 <li><strong>executor</strong>: A reference to the name in an Executor element. If this attribute is set, and the named executor exists, the connector will use the executor, and all the other thread attributes will be ignored. Note that if a shared executor is not specified for a connector then the connector will use a private, internal executor to provide the thread pool.</li>
 <li><strong>acceptCount</strong>: The maximum queue length for incoming connection requests when all possible request processing threads are in use. Any requests received when the queue is full will be refused. The default value is 100.</li>
 <li><strong>connectionTimeout</strong>: The number of milliseconds this Connector will wait, after accepting a connection, for the request URI line to be presented. Use a value of -1 to indicate no (i.e. infinite) timeout. The default value is 60000 (i.e. 60 seconds) but note that the standard server.xml that ships with Tomcat sets this to 20000 (i.e. 20 seconds). Unless disableUploadTimeout is set to false, this timeout will also be used when reading the request body (if any).</li>
 <li><strong>maxThreads</strong>: The maximum number of request processing threads to be created by this Connector, which therefore determines the maximum number of simultaneous requests that can be handled. If not specified, this attribute is set to 200. If an executor is associated with this connector, this attribute is ignored as the connector will execute tasks using the executor rather than an internal thread pool. Note that if an executor is configured any value set for this attribute will be recorded correctly but it will be reported (e.g. via JMX) as -1 to make clear that it is not used.</li>
 <li><strong>acceptorThreadCount</strong>: The number of threads to be used to accept connections. Increase this value on a multi CPU machine, although you would never really need more than 2. Also, with a lot of non keep alive connections, you might want to increase this value as well. Default value is 1.</li>
-<li><strong>maxConnections</strong>: The maximum number of connections that the server will accept and process at any given time. When this number has been reached, the server will accept, but not process, one further connection. This additional connection be blocked until the number of connections being processed falls below maxConnections at which point the server will start accepting and processing new connections again. Note that once the limit has been reached, the operating system may still accept connections based on the acceptCount setting. The default value varies by connector type. For NIO and NIO2 the default is 10000. For APR/native, the default is 8192.<br>
-Note that for APR/native on Windows, the configured value will be reduced to the highest multiple of 1024 that is less than or equal to maxConnections. This is done for performance reasons.</li>
+<li><strong>maxConnections</strong>: The maximum number of connections that the server will accept and process at any given time. When this number has been reached, the server will accept, but not process, one further connection. This additional connection be blocked until the number of connections being processed falls below maxConnections at which point the server will start accepting and processing new connections again. Note that once the limit has been reached, the operating system may still accept connections based on the acceptCount setting. The default value varies by connector type. For NIO and NIO2 the default is 10000. For APR/native, the default is 8192.<br>Note that for APR/native on Windows, the configured value will be reduced to the highest multiple of 1024 that is less than or equal to maxConnections. This is done for performance reasons.</li>
 </ul>
 </li>
 </ol>
-<h2 id="APR支持">APR支持</h2>
-<p>APR(Apache Portable Runtime)可移植运行库，它是Apache HTTP Server 2.x的核心。APR有很多用途，包括访问高级IO功能(例如sendfile,<br>
-epoll和OpenSSL)，OS级别功能(随机数生成，系统状态等等)，本地进程管理(共享内存，NT管道和UNIX sockets)。<br>
-这些功能可以使Tomcat作为一个通常的前台WEB服务器，能更好地和其它本地web技术集成，总体上让Java更有效率作为一个高性能web服务器平台而不是简单作为后台容器。</p>
+<h2 id="APR支持"><a href="#APR支持" class="headerlink" title="APR支持"></a>APR支持</h2><p>APR(Apache Portable Runtime)可移植运行库，它是Apache HTTP Server 2.x的核心。APR有很多用途，包括访问高级IO功能(例如sendfile,<br>epoll和OpenSSL)，OS级别功能(随机数生成，系统状态等等)，本地进程管理(共享内存，NT管道和UNIX sockets)。<br>这些功能可以使Tomcat作为一个通常的前台WEB服务器，能更好地和其它本地web技术集成，总体上让Java更有效率作为一个高性能web服务器平台而不是简单作为后台容器。</p>
 <p>可以简单地理解为: Tomcat将以JNI的形式调用 APR库中的Native Method处理文件读取或网络传输操作，提升Tomcat对静态文件的处理性能</p>
 <p>安装步骤:</p>
 <ul>
@@ -607,8 +530,7 @@ epoll和OpenSSL)，OS级别功能(随机数生成，系统状态等等)，本地
 <li>安装Tomcat Native到Tomcat的安装目录下</li>
 <li>修改conf/server.xml, 修改<code>&lt;Connector&gt;</code>的protocol</li>
 </ul>
-<h1>日志</h1>
-<p>参考: <a href="http://wiki.jikexueyuan.com/project/tomcat/logging.html" target="_blank" rel="noopener">日志机制 - Tomcat 8 权威指南 - 极客学院Wiki</a></p>
+<h1 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h1><p>参考: <a href="http://wiki.jikexueyuan.com/project/tomcat/logging.html" target="_blank" rel="noopener">日志机制 - Tomcat 8 权威指南 - 极客学院Wiki</a></p>
 <p>在 Apache Tomcat 上运行的 Web 应用可以使用以下日志：</p>
 <ul>
 <li>任何自选的日志框架，如<code>log4j</code>；</li>
@@ -616,77 +538,47 @@ epoll和OpenSSL)，OS级别功能(随机数生成，系统状态等等)，本地
 <li>Java Servlets 规范所提供的日志 API，如<code>javax.servlet.ServletContext.log(...)</code>；</li>
 </ul>
 <blockquote>
-<p>当tomcat启动时会为每个app分配了一个WebappClassLoader ，这样来避免多个app会加载相同jar包的问题，<br>
-不同Web应用程序下使用的Servlet日志（或者日志框架提供的日志，如log4j等）是相互独立的（这与Tomcat的class loader有关，参考<a href="http://tomcat.apache.org/tomcat-6.0-doc/class-loader-howto.html" target="_blank" rel="noopener">Class Loader HOW-TO</a> ）。<br>
-如果Web应用程序使用的是java.util.logging日志，那么它们并不相互独立，这是因为java.util.logging是由JAVA系统中的Bootstrap ClassLoader来加载的，因此它在各Web应用程序之间是共享的。</p>
+<p>当tomcat启动时会为每个app分配了一个WebappClassLoader ，这样来避免多个app会加载相同jar包的问题，<br>不同Web应用程序下使用的Servlet日志（或者日志框架提供的日志，如log4j等）是相互独立的（这与Tomcat的class loader有关，参考<a href="http://tomcat.apache.org/tomcat-6.0-doc/class-loader-howto.html" target="_blank" rel="noopener">Class Loader HOW-TO</a> ）。<br>如果Web应用程序使用的是java.util.logging日志，那么它们并不相互独立，这是因为java.util.logging是由JAVA系统中的Bootstrap ClassLoader来加载的，因此它在各Web应用程序之间是共享的。</p>
 </blockquote>
-<h2 id="JULI-vs-JUL">JULI vs JUL</h2>
-<p>JUL API（<code>java.util.logging</code>）的默认实现功能有限，因此tomcat的默认配置中，新增了另一种日志实现 JULI API（<code>org.apache.juli</code>），</p>
+<h2 id="JULI-vs-JUL"><a href="#JULI-vs-JUL" class="headerlink" title="JULI vs JUL"></a>JULI vs JUL</h2><p>JUL API（<code>java.util.logging</code>）的默认实现功能有限，因此tomcat的默认配置中，新增了另一种日志实现 JULI API（<code>org.apache.juli</code>），</p>
 <blockquote>
-<p>可以在Tomcat的 logging.properties 里看到定义了两种日志:<br>
-java.util.logging 的 <code>java.util.logging.ConsoleHandler</code> ;<br>
-JULI的 <code>org.apache.juli.FileHandler</code> ;</p>
+<p>可以在Tomcat的 logging.properties 里看到定义了两种日志:<br>java.util.logging 的 <code>java.util.logging.ConsoleHandler</code> ;<br>JULI的 <code>org.apache.juli.FileHandler</code> ;</p>
 </blockquote>
-<p><strong>JULI</strong> 同样支持标准JDK java.util.logging的配置机制（都默认使用logging.properties作为配置文件），不同的是JULI的每一个类加载属性文件都可以被设置，并可以在其中定义处理器，这样就给了开发者更大的自由度。<br>
-JULI 的日志配置分为 全局配置 和 WebApp项目配置。<br>
-全局配置位于tomcat的配置目录<code>${catalina.base}/conf/logging.properties</code>文件,<br>
-如果该文件未配置或不可读，那么tomcat将会使用JRE中的默认日志配置，可以在<code>${java.home}/lib/logging.properties</code>查看配置文件的内容；<br>
-项目配置则是针对不同的项目，配置文件位于<code>WEB-INFO/classes/logging.properties</code>.</p>
+<p><strong>JULI</strong> 同样支持标准JDK java.util.logging的配置机制（都默认使用logging.properties作为配置文件），不同的是JULI的每一个类加载属性文件都可以被设置，并可以在其中定义处理器，这样就给了开发者更大的自由度。<br>JULI 的日志配置分为 全局配置 和 WebApp项目配置。<br>全局配置位于tomcat的配置目录<code>${catalina.base}/conf/logging.properties</code>文件,<br>如果该文件未配置或不可读，那么tomcat将会使用JRE中的默认日志配置，可以在<code>${java.home}/lib/logging.properties</code>查看配置文件的内容；<br>项目配置则是针对不同的项目，配置文件位于<code>WEB-INFO/classes/logging.properties</code>.</p>
 <p>JUL 和 JULI使用相同的日志级别：SEVERE (最高级别) &gt; WARNING &gt; INFO &gt; CONFIG &gt; FINE &gt; FINER &gt; FINEST (所有内容,最低级别)</p>
 <p>JULI 所使用的配置与 java.util.logging 所支持的配置基本相同，只不过使用了一些扩展，以便更灵活地配置 logger 和 handler。主要的差别在于：</p>
 <ul>
 <li>JULI 的 handler 名称前可以加上前缀，所以同一类可以实例化出多个 handler。前缀是一个以数字开头的字符串，并以 . 结尾。比如 22foobar. 就是个有效的前缀。</li>
 <li>JULI 的 handler 支持额外的属性, 比如<code>bufferSize</code></li>
 </ul>
-<h2 id="Tomcat日志配置解析">Tomcat日志配置解析</h2>
-<p>以下是一个 <code>$CATALINA_BASE/conf</code> 中的默认 logging.properties 文件：</p>
+<h2 id="Tomcat日志配置解析"><a href="#Tomcat日志配置解析" class="headerlink" title="Tomcat日志配置解析"></a>Tomcat日志配置解析</h2><p>以下是一个 <code>$CATALINA_BASE/conf</code> 中的默认 logging.properties 文件：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 声明所有的handlers</span></span></span><br><span class="line">handlers = 1catalina.org.apache.juli.FileHandler, 2localhost.org.apache.juli.FileHandler, 3manager.org.apache.juli.FileHandler, 4host-manager.org.apache.juli.FileHandler, java.util.logging.ConsoleHandler</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># RootLogger使用的handlers</span></span></span><br><span class="line">.handlers = 1catalina.org.apache.juli.FileHandler, java.util.logging.ConsoleHandler</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 定义了4个 org.apache.juli.FileHandler : 1catalina, 2localhost, 3manager, 4host-manager</span></span></span><br><span class="line">1catalina.org.apache.juli.FileHandler.level = FINE</span><br><span class="line">1catalina.org.apache.juli.FileHandler.directory = $&#123;catalina.base&#125;/logs</span><br><span class="line">1catalina.org.apache.juli.FileHandler.prefix = catalina.</span><br><span class="line">1catalina.org.apache.juli.AsyncFileHandler.encoding = UTF-8</span><br><span class="line"></span><br><span class="line">2localhost.org.apache.juli.FileHandler.level = FINE</span><br><span class="line">2localhost.org.apache.juli.FileHandler.directory = $&#123;catalina.base&#125;/logs</span><br><span class="line">2localhost.org.apache.juli.FileHandler.prefix = localhost.</span><br><span class="line">2localhost.org.apache.juli.AsyncFileHandler.encoding = UTF-8</span><br><span class="line"></span><br><span class="line">3manager.org.apache.juli.FileHandler.level = FINE</span><br><span class="line">3manager.org.apache.juli.FileHandler.directory = $&#123;catalina.base&#125;/logs</span><br><span class="line">3manager.org.apache.juli.FileHandler.prefix = manager.</span><br><span class="line">3manager.org.apache.juli.FileHandler.bufferSize = 16384</span><br><span class="line">3manager.org.apache.juli.AsyncFileHandler.encoding = UTF-8</span><br><span class="line"></span><br><span class="line">4host-manager.org.apache.juli.FileHandler.level = FINE</span><br><span class="line">4host-manager.org.apache.juli.FileHandler.directory = $&#123;catalina.base&#125;/logs</span><br><span class="line">4host-manager.org.apache.juli.FileHandler.prefix = host-manager.</span><br><span class="line">4host-manager.org.apache.juli.AsyncFileHandler.encoding = UTF-8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 定义 ava.util.logging.ConsoleHandler :</span></span></span><br><span class="line">java.util.logging.ConsoleHandler.level = FINE</span><br><span class="line">java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter</span><br><span class="line">java.util.logging.ConsoleHandler.encoding = UTF-8</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 定义handlers, 使用上面定义的 FileHandler</span></span></span><br><span class="line">org.apache.catalina.core.ContainerBase.[Catalina].[localhost].level = INFO</span><br><span class="line">org.apache.catalina.core.ContainerBase.[Catalina].[localhost].handlers = 2localhost.org.apache.juli.FileHandler</span><br><span class="line"></span><br><span class="line">org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager].level = INFO</span><br><span class="line">org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager].handlers = 3manager.org.apache.juli.FileHandler</span><br><span class="line"></span><br><span class="line">org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager].level = INFO</span><br><span class="line">org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager].handlers = 4host-manager.org.apache.juli.FileHandler</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> For example, <span class="built_in">set</span> the org.apache.catalina.util.LifecycleBase logger to <span class="built_in">log</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> each component that extends LifecycleBase changing state:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">org.apache.catalina.util.LifecycleBase.level = FINE</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> To see debug messages <span class="keyword">in</span> TldLocationsCache, uncomment the following line:</span></span><br><span class="line"><span class="meta">#</span><span class="bash">org.apache.jasper.compiler.TldLocationsCache.level = FINE</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>java.util.logging.ConsoleHandler</code>:<br>
-When running Tomcat on unixes, the console output is usually redirected to the file named catalina.out.<br>
-The name is configurable using an environment variable. (See the startup scripts).<br>
-Whatever is written to System.err/out will be caught into that file. That may include:
-<ul>
-<li>Uncaught exceptions printed by java.lang.ThreadGroup.uncaughtException(…)</li>
+<li><code>java.util.logging.ConsoleHandler</code>:<br>When running Tomcat on unixes, the console output is usually redirected to the file named catalina.out.<br>The name is configurable using an environment variable. (See the startup scripts).<br>Whatever is written to System.err/out will be caught into that file. That may include:<ul>
+<li>Uncaught exceptions printed by java.lang.ThreadGroup.uncaughtException(..)</li>
 <li>Thread dumps, if you requested them via a system signal</li>
 </ul>
 </li>
 </ul>
 <blockquote>
-<p>java.util.logging.ConsoleHandler 是java自带的日志处理系统（JUL）的控制台日志Handler,<br>
-Tomcat通过<code>System.err.println()</code>/<code>System.out.println()</code>打出的日志会通过 java.util.logging.ConsoleHandler 写入Tomcat进程的stdout/stderr,<br>
-并最终输出到文件&quot;catalina.out&quot;中, 这个文件名是在Tomcat启动脚本里定义的:</p>
+<p>java.util.logging.ConsoleHandler 是java自带的日志处理系统（JUL）的控制台日志Handler,<br>Tomcat通过<code>System.err.println()</code>/<code>System.out.println()</code>打出的日志会通过 java.util.logging.ConsoleHandler 写入Tomcat进程的stdout/stderr,<br>并最终输出到文件”catalina.out”中, 这个文件名是在Tomcat启动脚本里定义的:</p>
 </blockquote>
 <ul>
-<li><code>org.apache.juli.FileHandler</code>:<br>
-org.apache.juli.FileHandler supports buffering of the logs.<br>
-The buffering is not enabled by default. To configure it, use the bufferSize property of a handler.<br>
-The value of 0 uses system default buffering (typically an 8K buffer will be used).<br>
-A value of &lt; 0 forces a writer flush upon each log write.<br>
-A value &gt; 0 uses a BufferedOutputStream with the defined value but note that the system default buffering will also be applied.</li>
+<li><code>org.apache.juli.FileHandler</code>:<br>org.apache.juli.FileHandler supports buffering of the logs.<br>The buffering is not enabled by default. To configure it, use the bufferSize property of a handler.<br>The value of 0 uses system default buffering (typically an 8K buffer will be used).<br>A value of &lt; 0 forces a writer flush upon each log write.<br>A value &gt; 0 uses a BufferedOutputStream with the defined value but note that the system default buffering will also be applied.</li>
 </ul>
 <blockquote>
-<p>org.apache.支持日志缓存。日志缓存默认是没有启用的。使用 handler 的 bufferSize 属性可以配置它：<br>
-属性值为 0 时，代表使用系统默认的缓存（通常使用 8k 缓存）；<br>
-属性值小于 0 时，将在每个日志写入上强制使用 writer flush（将缓存区中的数据强制写出到系统输出）功能；<br>
-属性值大于 0 时，则使用带有定义值的 BufferedOutputStream 类——但要注意的是，这也将应用于系统默认的缓存。</p>
+<p>org.apache.支持日志缓存。日志缓存默认是没有启用的。使用 handler 的 bufferSize 属性可以配置它：<br>属性值为 0 时，代表使用系统默认的缓存（通常使用 8k 缓存）；<br>属性值小于 0 时，将在每个日志写入上强制使用 writer flush（将缓存区中的数据强制写出到系统输出）功能；<br>属性值大于 0 时，则使用带有定义值的 BufferedOutputStream 类——但要注意的是，这也将应用于系统默认的缓存。</p>
 </blockquote>
-<h2 id="WebApp的日志配置解析">WebApp的日志配置解析</h2>
-<p>下例是一个用于 servlet-examples 应用的 WEB-INF/classes 中的 logging.properties 文件</p>
+<h2 id="WebApp的日志配置解析"><a href="#WebApp的日志配置解析" class="headerlink" title="WebApp的日志配置解析"></a>WebApp的日志配置解析</h2><p>下例是一个用于 servlet-examples 应用的 WEB-INF/classes 中的 logging.properties 文件</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">handlers = org.apache.juli.FileHandler</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">###########################################################</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Handler specific properties.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> Describes specific configuration info <span class="keyword">for</span> Handlers.</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">###########################################################</span></span></span><br><span class="line"></span><br><span class="line">org.apache.juli.FileHandler.level = FINE</span><br><span class="line">org.apache.juli.FileHandler.directory =  $&#123;catalina.base&#125;/logs</span><br><span class="line">org.apache.juli.FileHandler.prefix = $&#123;classloader.webappName&#125;.</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Tomcat启动时报错 “SEVERE: Error listenerStart” 或者 “SEVERE: Error filterStart” 等, 但没有具体的错误日志:<br>
-这种一般是因为 Tomcat WebAppClassLoader 加载的<code>org.springframework</code>类的日志没有关联一个Handler,<br>
-可以修改 webapps/xxx/WEB-INF/classes/logging.properties, Tomcat就会在打印 org.springframework 类的详细的报错信息了.<br>
-注意, 老的应用可能还在使用 System.out 或 System.err，这种情况下还需要在web应用的classes/logging.properties 里增加 java.util.logging.ConsoleHandler:</p>
+<p>Tomcat启动时报错 “SEVERE: Error listenerStart” 或者 “SEVERE: Error filterStart” 等, 但没有具体的错误日志:<br>这种一般是因为 Tomcat WebAppClassLoader 加载的<code>org.springframework</code>类的日志没有关联一个Handler,<br>可以修改 webapps/xxx/WEB-INF/classes/logging.properties, Tomcat就会在打印 org.springframework 类的详细的报错信息了.<br>注意, 老的应用可能还在使用 System.out 或 System.err，这种情况下还需要在web应用的classes/logging.properties 里增加 java.util.logging.ConsoleHandler:</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">handlers = org.apache.juli.FileHandler, java.util.logging.ConsoleHandler</span><br><span class="line"></span><br><span class="line">## JULI.FileHandler 的设置</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">## JUL.ConsoleHandler 的设置</span><br><span class="line">java.util.logging.ConsoleHandler.level = FINE</span><br><span class="line">java.util.logging.ConsoleHandler.formatter = java.util.logging.SimpleFormatter</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>对于还在使用 System.out 或 System.err的应用:<br>
-可以通过在 Context 元素上设置 swallowOutput 属性来调整。如该属性设为 true，那么在请求阶段对 System.out/err 的调用就会被拦截，它们的输出也会通过 <code>javax.servlet.ServletContext.log(...)</code> 调用反馈给日志系统。</p>
+<p>对于还在使用 System.out 或 System.err的应用:<br>可以通过在 Context 元素上设置 swallowOutput 属性来调整。如该属性设为 true，那么在请求阶段对 System.out/err 的调用就会被拦截，它们的输出也会通过 <code>javax.servlet.ServletContext.log(...)</code> 调用反馈给日志系统。</p>
 </blockquote>
-<h2 id="日志文件">日志文件</h2>
-<ul>
+<h2 id="日志文件"><a href="#日志文件" class="headerlink" title="日志文件"></a>日志文件</h2><ul>
 <li>catalina.2017-08-29.log            #Cataline引擎的日志文件</li>
 <li>localhost.2017-08-29.log          #Tomcat下内部代码抛出的日志jsp页面内部错误的异常</li>
 <li>manager.2017-08-29.log          #Tomcat下默认 manager应用日志</li>
@@ -694,26 +586,21 @@ A value &gt; 0 uses a BufferedOutputStream with the defined value but note that 
 <li>localhost_access_log.2017-08-29.txt       #访问日志记录</li>
 <li>catalina.out                            #控制台输出的日志,Linux下默认重定向到catalina.out</li>
 </ul>
-<p><a href="http://xn--catalina-lq8q252j.sh" target="_blank" rel="noopener">查看catalina.sh</a>, 最终启动tomcat执行的命令行是 java ${JAVA_OPTS} org.apache.catalina.startup.Bootstrap start</p>
-<h2 id="生产环境中的日志">生产环境中的日志</h2>
-<p>可能需要注意以下方面：</p>
+<p>查看catalina.sh, 最终启动tomcat执行的命令行是 java ${JAVA_OPTS} org.apache.catalina.startup.Bootstrap start</p>
+<h2 id="生产环境中的日志"><a href="#生产环境中的日志" class="headerlink" title="生产环境中的日志"></a>生产环境中的日志</h2><p>可能需要注意以下方面：</p>
 <ul>
-<li>将 ConsoleHandler 从配置中移除。默认（ .handlers 设置）日志会使用 FileHandler 和 ConsoleHandler。<br>
-后者的输出经常会被捕获到一个文件中，比如 catalina.out。从而导致同一消息可能生成了两个副本。</li>
+<li>将 ConsoleHandler 从配置中移除。默认（ .handlers 设置）日志会使用 FileHandler 和 ConsoleHandler。<br>后者的输出经常会被捕获到一个文件中，比如 catalina.out。从而导致同一消息可能生成了两个副本。</li>
 <li>对于不使用的应用(比如 host-manager)，可以考虑将 FileHandlers 移除。</li>
 <li>handler 默认使用系统缺省编码来写入日志文件，通过 encoding 属性可以修改设置，详情查看相关的 javadoc 文档。</li>
 <li>增加Access访问日志。</li>
 </ul>
-<h2 id="使用log4j">使用log4j</h2>
-<p>参考 <a href="http://wiki.jikexueyuan.com/project/tomcat/logging.html#usingLog4j" target="_blank" rel="noopener">使用 Log4j</a> @Ref</p>
+<h2 id="使用log4j"><a href="#使用log4j" class="headerlink" title="使用log4j"></a>使用log4j</h2><p>参考 <a href="http://wiki.jikexueyuan.com/project/tomcat/logging.html#usingLog4j" target="_blank" rel="noopener">使用 Log4j</a> @Ref</p>
 <ul>
-<li>如果只是想在自己的 Web 应用上使用 log4j 时
-<ul>
+<li>如果只是想在自己的 Web 应用上使用 log4j 时<ul>
 <li>只需将 log4j.jar 和 log4j.properties 放到 Web 应用的 WEB-INF/lib 和 WEB-INF/classes 中即可</li>
 </ul>
 </li>
-<li>如果想配置 Tomcat 以便利用 log4j 来进行自身日志记录时，下面的步骤都是必需的:
-<ul>
+<li>如果想配置 Tomcat 以便利用 log4j 来进行自身日志记录时，下面的步骤都是必需的:<ul>
 <li>创建一个包含下列配置的 log4j.properties 文件，将其保存到 $CATALINA_BASE/lib。<strong>Important!</strong></li>
 <li>下载 log4j</li>
 <li>下载或构建 tomcat-juli.jar 和 tomcat-juli-adapters.jar，以便作为 Tomcat 的额外组件使用。</li>
@@ -723,64 +610,44 @@ A value &gt; 0 uses a BufferedOutputStream with the defined value but note that 
 </ul>
 </li>
 </ul>
-<h1>高级IO</h1>
-<h2 id="推送-Comet-支持">推送: Comet 支持</h2>
-<p>施工中</p>
-<h2 id="发送大型静态文件-sendfile">发送大型静态文件: sendfile</h2>
-<p>施工中</p>
-<h1>How to deploy war</h1>
-<p>有3中方式部署war包:</p>
+<h1 id="高级IO"><a href="#高级IO" class="headerlink" title="高级IO"></a>高级IO</h1><h2 id="推送-Comet-支持"><a href="#推送-Comet-支持" class="headerlink" title="推送: Comet 支持"></a>推送: Comet 支持</h2><p>施工中</p>
+<h2 id="发送大型静态文件-sendfile"><a href="#发送大型静态文件-sendfile" class="headerlink" title="发送大型静态文件: sendfile"></a>发送大型静态文件: sendfile</h2><p>施工中</p>
+<h1 id="How-to-deploy-war"><a href="#How-to-deploy-war" class="headerlink" title="How to deploy war"></a>How to deploy war</h1><p>有3中方式部署war包:</p>
 <ol>
 <li>在server.xml的<code>&lt;Host&gt;</code>标签中声明<code>&lt;Context&gt;</code>标签</li>
 <li>在server.xml的<code>&lt;Host&gt;</code>标签中开启autoDeploy, 将war包放入webapps中会自动部署</li>
 <li>context.xml配置方式</li>
 </ol>
-<h2 id="Using-the-UI-manager">Using the UI manager</h2>
-<p>Tomcat提供了一个网页版的Manager App, 默认位置在webapps/manager, 也是一个web项目, 使用方式参考: <a href="http://tomcat.apache.org/tomcat-6.0-doc/manager-howto.html#Configuring_Manager_Application_Access" target="_blank" rel="noopener">Apache Tomcat 6.0 (6.0.53) - Manager App HOW-TO</a> @Ref</p>
-<p>Go to <code>[&lt;protocol&gt;://]localhost:&lt;port&gt;/manager/html/</code> (usually <code>localhost:8080/manager/html/</code>),<br>
-If you get:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">403 Access Denied</span><br></pre></td></tr></table></figure>
-<p>go to <code>%CATALINA_HOME%\conf\tomcat-users.xml</code> and check that you have enabled a line like this:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;user username=&quot;tomcat&quot; password=&quot;tomcat&quot; roles=&quot;tomcat,role1,manager-gui&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="Using-maven">Using maven</h2>
-<p>待补充…</p>
-<h1>ClassLoader</h1>
-<blockquote>
+<h2 id="Using-the-UI-manager"><a href="#Using-the-UI-manager" class="headerlink" title="Using the UI manager"></a>Using the UI manager</h2><p>Tomcat提供了一个网页版的Manager App, 默认位置在webapps/manager, 也是一个web项目, 使用方式参考: <a href="http://tomcat.apache.org/tomcat-6.0-doc/manager-howto.html#Configuring_Manager_Application_Access" target="_blank" rel="noopener">Apache Tomcat 6.0 (6.0.53) - Manager App HOW-TO</a> @Ref</p>
+<p>Go to <code>[&lt;protocol&gt;://]localhost:&lt;port&gt;/manager/html/</code> (usually <code>localhost:8080/manager/html/</code>),<br>If you get:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">403 Access Denied</span><br></pre></td></tr></table></figure></p>
+<p>go to <code>%CATALINA_HOME%\conf\tomcat-users.xml</code> and check that you have enabled a line like this:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;user username=&quot;tomcat&quot; password=&quot;tomcat&quot; roles=&quot;tomcat,role1,manager-gui&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Using-maven"><a href="#Using-maven" class="headerlink" title="Using maven"></a>Using maven</h2><p>待补充…</p>
+<h1 id="ClassLoader"><a href="#ClassLoader" class="headerlink" title="ClassLoader"></a>ClassLoader</h1><blockquote>
 <p>@Ref 参考: <a href="https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html" target="_blank" rel="noopener">Apache Tomcat 7 (7.0.93) - Class Loader HOW-TO</a></p>
 </blockquote>
-<p>与很多服务器应用一样，Tomcat 也安装了各种类加载器。借助类加载器，容器的不同部分以及运行在容器里的 Web Apps 就可以访问不同的仓库（保存着可使用的类和资源）。<br>
-// 这里英文原文是&quot;different repositories of available classes and resources.&quot; 不知道该怎么翻译这里的&quot;repositories&quot; ?</p>
+<p>与很多服务器应用一样，Tomcat 也安装了各种类加载器。借助类加载器，容器的不同部分以及运行在容器里的 Web Apps 就可以访问不同的仓库（保存着可使用的类和资源）。<br>// 这里英文原文是”different repositories of available classes and resources.” 不知道该怎么翻译这里的”repositories” ?</p>
 <blockquote>
 <p>在 Java 环境中，类加载器的布局结构是一种父子树的形式。通常，类加载器被请求加载一个特定的类或资源时，它会先把这一请求委托给它的父类加载器，只有（一个或多个）父类加载器无法找到请求的类或资源时，它才开始查看自身的仓库。</p>
 </blockquote>
-<p>注意，Web 应用的类加载器模式跟这个稍有不同，下文将详细介绍，但基本原理是一样。<br>
-当 Tomcat 启动后，它就会创建一组类加载器，这些类加载器被布局成如下图所示这种父子关系，父类加载器在子类加载器之上：</p>
+<p>注意，Web 应用的类加载器模式跟这个稍有不同，下文将详细介绍，但基本原理是一样。<br>当 Tomcat 启动后，它就会创建一组类加载器，这些类加载器被布局成如下图所示这种父子关系，父类加载器在子类加载器之上：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    Bootstrap</span><br><span class="line">        |</span><br><span class="line">     System</span><br><span class="line">        |</span><br><span class="line">     Common</span><br><span class="line">     /     \</span><br><span class="line">Webapp1   Webapp2 ..</span><br></pre></td></tr></table></figure>
 <p>如上图所示，Tomcat 在初始化时会创建如下这些类加载器：</p>
 <ul>
-<li><strong>Bootstrap</strong> 这种类加载器包含 JVM 所提供的基本的运行时类，以及来自系统扩展目录（<code>$JAVA_HOME/jre/lib/ext</code>）里 JAR 文件中的类。<br>
-注意：在有些 JVM 的实现中，它的作用不仅仅是类加载器，或者它可能根本不可见（作为类加载器）。</li>
-<li><strong>System</strong> 这种类加载器通常是根据 CLASSPATH 环境变量内容进行初始化的。所有的这些类对于 Tomcat 内部类以及 Web 应用来说都是可见的。<br>
-不过，标准的 Tomcat 启动脚本（<code>$CATALINA_HOME/bin/catalina.sh</code> 或 <code>%CATALINA_HOME%\bin\catalina.bat</code>）完全忽略了 CLASSPATH 环境变量自身的内容，相反从下列仓库来构建系统类加载器：
-<ul>
+<li><strong>Bootstrap</strong> 这种类加载器包含 JVM 所提供的基本的运行时类，以及来自系统扩展目录（<code>$JAVA_HOME/jre/lib/ext</code>）里 JAR 文件中的类。<br>注意：在有些 JVM 的实现中，它的作用不仅仅是类加载器，或者它可能根本不可见（作为类加载器）。</li>
+<li><strong>System</strong> 这种类加载器通常是根据 CLASSPATH 环境变量内容进行初始化的。所有的这些类对于 Tomcat 内部类以及 Web 应用来说都是可见的。<br>不过，标准的 Tomcat 启动脚本（<code>$CATALINA_HOME/bin/catalina.sh</code> 或 <code>%CATALINA_HOME%\bin\catalina.bat</code>）完全忽略了 CLASSPATH 环境变量自身的内容，相反从下列仓库来构建系统类加载器：<ul>
 <li><code>$CATALINA_HOME/bin/bootstrap.jar</code> 包含用来初始化 Tomcat 服务器的 <code>main()</code> 方法，以及它所依赖的类加载器实现类。</li>
-<li><code>$CATALINA_BASE/bin/tomcat-juli.jar</code> 或 <code>$CATALINA_HOME/bin/tomcat-juli.jar</code> 日志实现类。其中包括了对 <code>java.util.logging</code> API 的功能增强类（Tomcat JULI），以及对 Tomcat 内部使用的 Apache Commons 日志库的包重命名副本。详情参看 Tomcat 日志文档。</li>
-</ul>
-<blockquote>
+<li><code>$CATALINA_BASE/bin/tomcat-juli.jar</code> 或 <code>$CATALINA_HOME/bin/tomcat-juli.jar</code> 日志实现类。其中包括了对 <code>java.util.logging</code> API 的功能增强类（Tomcat JULI），以及对 Tomcat 内部使用的 Apache Commons 日志库的包重命名副本。详情参看 Tomcat 日志文档。<blockquote>
 <p>如果 <code>*$CATALINA_BASE/bin*</code> 中存在 <code>tomcat-juli.jar</code>，就不会使用 <em>$CATALINA_HOME/bin</em> 中的那一个。它有助于日志的特定配置。</p>
 </blockquote>
-<ul>
-<li><code>$CATALINA_HOME/bin/commons-daemon.jar</code> Apache Commons Daemon 项目的类。该 JAR 文件并不存在于由 catalina.bat 或 <a href="http://catalina.sh" target="_blank" rel="noopener">catalina.sh</a> 脚本所创建的 CLASSPATH 中，而是引用自 bootstrap.jar 的清单文件。</li>
+</li>
+<li><code>$CATALINA_HOME/bin/commons-daemon.jar</code> Apache Commons Daemon 项目的类。该 JAR 文件并不存在于由 catalina.bat 或 catalina.sh 脚本所创建的 CLASSPATH 中，而是引用自 bootstrap.jar 的清单文件。</li>
 </ul>
 </li>
-<li><strong>Common</strong> 这种类加载器包含更多的额外类，它们对于Tomcat 内部类以及所有 Web 应用都是可见的。<br>
-通常，应用类不会放在这里。该类加载器所搜索的位置定义在 <code>$CATALINA_BASE/conf/catalina.properties</code> 的 common.loader 属性中。默认的设置会搜索下列位置（按照列表中的上下顺序）。
-<ul>
+<li><strong>Common</strong> 这种类加载器包含更多的额外类，它们对于Tomcat 内部类以及所有 Web 应用都是可见的。<br>通常，应用类不会放在这里。该类加载器所搜索的位置定义在 <code>$CATALINA_BASE/conf/catalina.properties</code> 的 common.loader 属性中。默认的设置会搜索下列位置（按照列表中的上下顺序）。<ul>
 <li><code>$CATALINA_BASE/lib</code> 中的解包的类和资源。</li>
 <li><code>$CATALINA_BASE/lib</code> 中的 JAR 文件。</li>
 <li><code>$CATALINA_HOME/lib</code> 中的解包类和资源。</li>
-<li><code>$CATALINA_HOME/lib</code> 中的 JAR 文件。<br>
-默认，它包含以下这些内容：</li>
+<li><code>$CATALINA_HOME/lib</code> 中的 JAR 文件。<br>默认，它包含以下这些内容：</li>
 <li><em>annotations-api.jar</em> JavaEE 注释类。</li>
 <li><em>catalina.jar</em> Tomcat 的 Catalina servlet 容器部分的实现。</li>
 <li><em>jsp-api.jar</em> JSP 2.3 API</li>
@@ -791,11 +658,7 @@ If you get:</p>
 <li>…</li>
 </ul>
 </li>
-<li><strong>WebappX</strong> 为每个部署在单个 Tomcat 实例中的 Web 应用创建的类加载器。你的 Web 应用的 /WEB-INF/classes 目录中所有的解包类及资源，以及 /WEB-INF/lib 目录下 JAR 文件中的所有类及资源，对于该应用而言都是可见的，但对于其他应用来说则不可见。<br>
-如上所述，Web 应用类加载器背离了默认的 Java 委托模式（根据 Servlet 规范 2.4 版的 9.7.2 Web Application Classloader一节中提供的建议）。<br>
-当某个请求想从 Web 应用的 WebappX 类加载器中加载类时，该类加载器会先查看自己的仓库，而不是预先进行委托处理。<br>
-JRE 基类的部分类不能被重写。对于一些类（比如 J2SE 1.4+ 的 XML 解析器组件），可以使用 J2SE 1.4 支持的特性。<br>
-最后，类加载器会显式地忽略所有包含 Servlet API 类的 JAR 文件，所以不要在 Web 应用包含任何这样的 JAR 文件。Tomcat 其他的类加载器则遵循常用的委托模式。</li>
+<li><strong>WebappX</strong> 为每个部署在单个 Tomcat 实例中的 Web 应用创建的类加载器。你的 Web 应用的 /WEB-INF/classes 目录中所有的解包类及资源，以及 /WEB-INF/lib 目录下 JAR 文件中的所有类及资源，对于该应用而言都是可见的，但对于其他应用来说则不可见。<br>如上所述，Web 应用类加载器背离了默认的 Java 委托模式（根据 Servlet 规范 2.4 版的 9.7.2 Web Application Classloader一节中提供的建议）。<br>当某个请求想从 Web 应用的 WebappX 类加载器中加载类时，该类加载器会先查看自己的仓库，而不是预先进行委托处理。<br>JRE 基类的部分类不能被重写。对于一些类（比如 J2SE 1.4+ 的 XML 解析器组件），可以使用 J2SE 1.4 支持的特性。<br>最后，类加载器会显式地忽略所有包含 Servlet API 类的 JAR 文件，所以不要在 Web 应用包含任何这样的 JAR 文件。Tomcat 其他的类加载器则遵循常用的委托模式。</li>
 </ul>
 <p>因此，从 Web 应用的角度来看，加载类或资源时，要查看的仓库及其顺序如下：</p>
 <ol>
@@ -813,25 +676,18 @@ JRE 基类的部分类不能被重写。对于一些类（比如 J2SE 1.4+ 的 X
 <li>Web 应用的 /WEB-INF/classes 类</li>
 <li>Web 应用的 /WEB-INF/lib/*.jar 类</li>
 </ol>
-<h1>源码导读 (Tomcat 8.5)</h1>
-<h2 id="编译">编译</h2>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ant clean</span><br><span class="line">ant</span><br></pre></td></tr></table></figure>
-<h2 id="启动">启动</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">java -cp ./output/classes -Dcatalina.home=./output/build org.apache.catalina.startup.Bootstrap</span><br></pre></td></tr></table></figure>
-<h2 id="启动过程源码调用时序">启动过程源码调用时序</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Bootstrap.main // 入口方法</span><br><span class="line">  Bootstrap.init()</span><br><span class="line">    initClassLoaders()  // 初始化commonLoader, catalinaLoader, sharedLoader</span><br><span class="line">      commonLoader = createClassLoader(<span class="string">"common"</span>, null);</span><br><span class="line">        ClassLoaderFactory.createClassLoader(repositories, parent); // 该方法通过AccessController.doPrivileged创建了URLClassLoader, 并返回</span><br><span class="line">    catalinaLoader.loadClass(<span class="string">"org.apache.catalina.startup.Catalina"</span>)` // 创建Catalina对象</span><br><span class="line">  Bootstrap.load(args)</span><br><span class="line">    Catalina.load()</span><br><span class="line">      Digester digester = createStartDigester() // 为digester 添加 Rule</span><br><span class="line">      Digester.parse(inputSource) // 解析 server.xml !!</span><br><span class="line">        Digester.startElement()</span><br><span class="line">          Rule.begin()</span><br><span class="line">            ObjectCreateRule.begin() // 这里通过反射调用了 Server &amp; Connector &amp; Context等类的构造方法</span><br><span class="line">              org.apache.catalina.core.StandardServer.StandardServer() // Server构造</span><br><span class="line">              org.apache.catalina.core.StandardService.StandardService() // Service构造</span><br><span class="line">            ConnectorCreateRule.begin</span><br><span class="line">              org.apache.catalina.connector.Connector.Connector()</span><br><span class="line">                // Connector构造, 根据配置中的 <span class="string">"protocol"</span> 设置创建不同的创建 ProtocolHandler:</span><br><span class="line">                Http11NioProtocol() // 默认的 ProtocolHandler</span><br><span class="line">                  AbstractHttp11Protocol(new NioEndpoint())</span><br><span class="line">                    NioEndpoint()</span><br><span class="line">                        AbstractEndpoint()  // 创建 worker 线程池</span><br><span class="line">  Bootstrap.start()</span><br><span class="line">    Catalina.start()</span><br><span class="line">      StandardServer.start() =&gt; LifecycleBase.start()</span><br><span class="line">        StandardServer.startInternal()</span><br><span class="line">          StandardService.start() =&gt; LifecycleBase.start()</span><br><span class="line">            StandardService.startInternal()</span><br><span class="line">              Engine.start() =&gt; LifecycleBase.start()   // 启动 Engine</span><br><span class="line">                StandardEngine.startInternal()</span><br><span class="line">                  ContainerBase.startInternal()</span><br><span class="line">                    StartChild.call()  // 多线程启动, 线程数=Host数量</span><br><span class="line">                      StandardHost.start() =&gt; LifecycleBase.start()</span><br><span class="line">                        StandardHost.startInternal()</span><br><span class="line">                          ContainerBase.startInternal() =&gt; LifecycleBase.setStateInternal()</span><br><span class="line">                            ContainerBase.setState(LifecycleState.STARTING)</span><br><span class="line">                              LifecycleBase.fireLifecycleEvent(lifecycleEvent, data)</span><br><span class="line">                                  HostConfig.start()</span><br><span class="line">                                    HostConfig.deployApps()</span><br><span class="line">                                      HostConfig.deployWARs() // 解析 web.xml !!</span><br><span class="line">              MapperListener.start() =&gt; LifecycleBase.start()  // 启动 MapperListener</span><br><span class="line">                MapperListener.startInternal()</span><br><span class="line">              Connector.start() =&gt; LifecycleBase.start()     // 启动(多个) Connector</span><br><span class="line">                Connector.startInternal()</span><br><span class="line">                  Http11NioProtocol.start() =&gt; AbstractProtocol.start()</span><br><span class="line">                    AbstractEndpoint.start() =&gt; NioEndpoint.startInternal()</span><br><span class="line">                      // 创建三个cache: processorCache, eventCache, nioChannels</span><br><span class="line">                      startAcceptorThreads()</span><br><span class="line">                    new AsyncTimeout(); // Start <span class="keyword">async</span> timeout thread</span><br><span class="line">      StandardServer.<span class="keyword">await</span>() // 创建一个在<span class="number">8005</span>监听的ServerSocket, 用于监听关闭</span><br><span class="line">        ServerSocket.accept // 阻塞在这里</span><br></pre></td></tr></table></figure>
-<h2 id="源码分析">源码分析</h2>
-<blockquote>
-<p>参考 <a href="https://blog.csdn.net/tjiyu/article/details/54590259" target="_blank" rel="noopener">Tomcat实现：源码分析Tomcat实现细节 </a> @Archived<br>
-* Connect.start()—创建并发线程模型: Work线程, Poller线程, Acceptor线程, AsyncTimeout线程<br>
-* 请求处理: Acceptor线程, Poller线程, Selector</p>
-</blockquote>
-<h3 id="如何解析server-xml">如何解析server.xml</h3>
-<ul>
+<h1 id="源码导读-Tomcat-8-5"><a href="#源码导读-Tomcat-8-5" class="headerlink" title="源码导读 (Tomcat 8.5)"></a>源码导读 (Tomcat 8.5)</h1><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ant clean</span><br><span class="line">ant</span><br></pre></td></tr></table></figure>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">java -cp ./output/classes -Dcatalina.home=./output/build org.apache.catalina.startup.Bootstrap</span><br></pre></td></tr></table></figure>
+<h2 id="启动过程源码调用时序"><a href="#启动过程源码调用时序" class="headerlink" title="启动过程源码调用时序"></a>启动过程源码调用时序</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Bootstrap.main // 入口方法</span><br><span class="line">  Bootstrap.init()</span><br><span class="line">    initClassLoaders()  // 初始化commonLoader, catalinaLoader, sharedLoader</span><br><span class="line">      commonLoader = createClassLoader(<span class="string">"common"</span>, null);</span><br><span class="line">        ClassLoaderFactory.createClassLoader(repositories, parent); // 该方法通过AccessController.doPrivileged创建了URLClassLoader, 并返回</span><br><span class="line">    catalinaLoader.loadClass(<span class="string">"org.apache.catalina.startup.Catalina"</span>)` // 创建Catalina对象</span><br><span class="line">  Bootstrap.load(args)</span><br><span class="line">    Catalina.load()</span><br><span class="line">      Digester digester = createStartDigester() // 为digester 添加 Rule</span><br><span class="line">      Digester.parse(inputSource) // 解析 server.xml !!</span><br><span class="line">        Digester.startElement()</span><br><span class="line">          Rule.begin()</span><br><span class="line">            ObjectCreateRule.begin() // 这里通过反射调用了 Server &amp; Connector &amp; Context等类的构造方法</span><br><span class="line">              org.apache.catalina.core.StandardServer.StandardServer() // Server构造</span><br><span class="line">              org.apache.catalina.core.StandardService.StandardService() // Service构造</span><br><span class="line">            ConnectorCreateRule.begin</span><br><span class="line">              org.apache.catalina.connector.Connector.Connector()</span><br><span class="line">                // Connector构造, 根据配置中的 <span class="string">"protocol"</span> 设置创建不同的创建 ProtocolHandler:</span><br><span class="line">                Http11NioProtocol() // 默认的 ProtocolHandler</span><br><span class="line">                  AbstractHttp11Protocol(new NioEndpoint())</span><br><span class="line">                    NioEndpoint()</span><br><span class="line">                        AbstractEndpoint()  // 创建 worker 线程池</span><br><span class="line">  Bootstrap.start()</span><br><span class="line">    Catalina.start()</span><br><span class="line">      StandardServer.start() =&gt; LifecycleBase.start()</span><br><span class="line">        StandardServer.startInternal()</span><br><span class="line">          StandardService.start() =&gt; LifecycleBase.start()</span><br><span class="line">            StandardService.startInternal()</span><br><span class="line">              Engine.start() =&gt; LifecycleBase.start()   // 启动 Engine</span><br><span class="line">                StandardEngine.startInternal()</span><br><span class="line">                  ContainerBase.startInternal()</span><br><span class="line">                    StartChild.call()  // 多线程启动, 线程数=Host数量</span><br><span class="line">                      StandardHost.start() =&gt; LifecycleBase.start()</span><br><span class="line">                        StandardHost.startInternal()</span><br><span class="line">                          ContainerBase.startInternal() =&gt; LifecycleBase.setStateInternal()</span><br><span class="line">                            ContainerBase.setState(LifecycleState.STARTING)</span><br><span class="line">                              LifecycleBase.fireLifecycleEvent(lifecycleEvent, data)</span><br><span class="line">                                  HostConfig.start()</span><br><span class="line">                                    HostConfig.deployApps()</span><br><span class="line">                                      HostConfig.deployWARs() // 解析 web.xml !!</span><br><span class="line">              MapperListener.start() =&gt; LifecycleBase.start()  // 启动 MapperListener</span><br><span class="line">                MapperListener.startInternal()</span><br><span class="line">              Connector.start() =&gt; LifecycleBase.start()     // 启动(多个) Connector</span><br><span class="line">                Connector.startInternal()</span><br><span class="line">                  Http11NioProtocol.start() =&gt; AbstractProtocol.start()</span><br><span class="line">                    AbstractEndpoint.start() =&gt; NioEndpoint.startInternal()</span><br><span class="line">                      // 创建三个cache: processorCache, eventCache, nioChannels</span><br><span class="line">                      startAcceptorThreads()</span><br><span class="line">                    new AsyncTimeout(); // Start <span class="keyword">async</span> timeout thread</span><br><span class="line">      StandardServer.<span class="keyword">await</span>() // 创建一个在<span class="number">8005</span>监听的ServerSocket, 用于监听关闭</span><br><span class="line">        ServerSocket.accept // 阻塞在这里</span><br></pre></td></tr></table></figure>
+<h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><blockquote>
+<p>参考 <a href="https://blog.csdn.net/tjiyu/article/details/54590259" target="_blank" rel="noopener">Tomcat实现：源码分析Tomcat实现细节 </a> @Archived</p>
+<pre><code>* Connect.start()—创建并发线程模型: Work线程, Poller线程, Acceptor线程, AsyncTimeout线程
+* 请求处理: Acceptor线程, Poller线程, Selector
+</code></pre></blockquote>
+<h3 id="如何解析server-xml"><a href="#如何解析server-xml" class="headerlink" title="如何解析server.xml"></a>如何解析server.xml</h3><ul>
 <li>在Catalina.load() 创建digester: <code>Digester digester = createStartDigester()</code></li>
 <li><code>createStartDigester</code>方法创建了digester对象, 并给digester对象添加多种Rule, 每种Rule都对应server.xml里的一个节点类型, 比如<code>&lt;Server&gt;</code>, <code>&lt;Connector&gt;</code>;</li>
-<li>digester对server.xml设置的标签动作有5种调用：
-<ul>
+<li>digester对server.xml设置的标签动作有5种调用：<ul>
 <li>addObjectCreate：遇到起始标签的元素，初始化一个实例对象入栈</li>
 <li>addSetProperties：遇到某个属性名，使用setter来赋值</li>
 <li>addSetNext：遇到结束标签的元素，调用相应的方法</li>
@@ -841,53 +697,39 @@ JRE 基类的部分类不能被重写。对于一些类（比如 J2SE 1.4+ 的 X
 </li>
 <li>从这些规则和xml中可以看到，Calatina的Server对象是StandardServer。 StandardService包含了多个Connector（xml中有2个connector）和一个StandardEngine Container。 StandardEngine包含了一个Host Container</li>
 </ul>
-<h3 id="初始化Connector">初始化Connector</h3>
-<p>根据配置文件 protocol = “HTTP/1.1”,“AJP/1.3” 创建对应 protocol, 默认是 Http11NioProtocol,<br>
-再由Http11NioProtocol 创建 NioEndpoint:</p>
+<h3 id="初始化Connector"><a href="#初始化Connector" class="headerlink" title="初始化Connector"></a>初始化Connector</h3><p>根据配置文件 protocol = “HTTP/1.1”,”AJP/1.3” 创建对应 protocol, 默认是 Http11NioProtocol,<br>再由Http11NioProtocol 创建 NioEndpoint:</p>
 <p>代码流程</p>
 <ul>
 <li>调用<code>Connector(String protocol)</code>, 构造函数<code>Connector</code>中默认创建<code>org.apache.coyote.http11.Http11NioProtocol</code></li>
 <li>以<code>Http11NioProtocol</code>为例, <code>Http11NioProtocol.init()</code>最终调用到<code>NioEndpoint.bind()</code> =&gt; <code>NioEndpoint.initServerSocket()</code>  =&gt; <code>serverSock.socket().bind(addr,getAcceptCount())</code> 完成了对端口的绑定</li>
 <li>bind()的最后调用了<code>NioSelectorPool.open()</code>, 这是一个存放Selector的池子,</li>
 </ul>
-<h3 id="启动Connector">启动Connector</h3>
-<p>Connector 主要功能实现都是在 <strong>NioEndpoint</strong>, NioEndpoint 包括x个Acceptor线程, x个 Poller线程;<br>
-Acceptor线程(默认一个)用于 accept 客户端请求, 并把 客户端请求socket 封装进event, 放入 events queue;<br>
-Poller线程池用于消费 events queue, 每个Poller 都有自己的 Selector对象, 不断取出event, 并从中解析出sockt, 并把socket 的 READ事件注册到自己的 Selector.</p>
+<h3 id="启动Connector"><a href="#启动Connector" class="headerlink" title="启动Connector"></a>启动Connector</h3><p>Connector 主要功能实现都是在 <strong>NioEndpoint</strong>, NioEndpoint 包括x个Acceptor线程, x个 Poller线程;<br>Acceptor线程(默认一个)用于 accept 客户端请求, 并把 客户端请求socket 封装进event, 放入 events queue;<br>Poller线程池用于消费 events queue, 每个Poller 都有自己的 Selector对象, 不断取出event, 并从中解析出sockt, 并把socket 的 READ事件注册到自己的 Selector.</p>
 <p>代码调用流程:</p>
 <ul>
 <li>Connector的启动会调用<code>start</code>方法, =&gt; <code>Connector.startInternal</code>方法 =&gt; <code>Http11NioProtocol.start()</code> =&gt; <code>AbstractProtocol.start()</code> =&gt; <code>NioEndpoint.start()</code> =&gt; <code>NioEndpoint.startInternal()</code></li>
-<li>在<code>NioEndpoint.startInternal()</code>中,
-<ul>
-<li>如果Worker线程池是空, 则自己创建: 调用了父类<code>AbstractEndpoint#createExecutor()</code>, 创建work线程池, 名称前缀 “-exec-”;</li>
-<li>创建<code>NioEndpoint$Poller[]</code>数组, Poller是Runnable的实现, 然后所有的Poller线程都start起来, 线程名前缀是 “-ClientPoller-”, 数组的大小也就是Poller的数量是<code>Math.min(2,Runtime.getRuntime().availableProcessors())</code>, 可见 Poller数量 是 min(2, cpu的process数量)</li>
-<li>调用<code>startAcceptorThreads()</code>,  创建 <code>Acceptor</code>线程, 默认一个(线程数是server.xml里的<code>acceptCount</code>), , 线程名前缀是&quot;-Acceptor-&quot;</li>
+<li>在<code>NioEndpoint.startInternal()</code>中,<ul>
+<li>如果Worker线程池是空, 则自己创建: 调用了父类<code>AbstractEndpoint#createExecutor()</code>, 创建work线程池, 名称前缀 “-exec-“;</li>
+<li>创建<code>NioEndpoint$Poller[]</code>数组, Poller是Runnable的实现, 然后所有的Poller线程都start起来, 线程名前缀是 “-ClientPoller-“, 数组的大小也就是Poller的数量是<code>Math.min(2,Runtime.getRuntime().availableProcessors())</code>, 可见 Poller数量 是 min(2, cpu的process数量)</li>
+<li>调用<code>startAcceptorThreads()</code>,  创建 <code>Acceptor</code>线程, 默认一个(线程数是server.xml里的<code>acceptCount</code>), , 线程名前缀是”-Acceptor-“</li>
 </ul>
 </li>
 </ul>
-<h3 id="accept请求">accept请求</h3>
-<p>Acceptor 线程 accept , 并把 客户端请求socket 封装进event, 放入 events queue, 调用流程:</p>
+<h3 id="accept请求"><a href="#accept请求" class="headerlink" title="accept请求"></a>accept请求</h3><p>Acceptor 线程 accept , 并把 客户端请求socket 封装进event, 放入 events queue, 调用流程:</p>
 <ul>
-<li>
-<p><code>Acceptor.run()</code>:</p>
+<li><p><code>Acceptor.run()</code>:</p>
   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">while (endpoint.isRunning()) &#123;</span><br><span class="line">    socket = endpoint.serverSocketAccept();</span><br><span class="line">    endpoint.setSocketOptions(socket) // 调用了 NioEndpoint.setSocketOptions()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>再看 <code>NioEndpoint.setSocketOptions()</code>里做了什么:  把客户端请求的socket 封装进 NioChannel,<br>
-调用 Poller.register(NioChannel): 把 NioChannel 封装进PollerEvent,  每个 Poller都有一个 PollerEvent队列(events queue), 把PollerEvent放入这个队列 // Poller 有多个, 这里会轮询的方式选择出其中一个, <code>AtomicInteger.incrementAndGet()) % pollers.length</code></p>
+<li><p>再看 <code>NioEndpoint.setSocketOptions()</code>里做了什么:  把客户端请求的socket 封装进 NioChannel,<br>调用 Poller.register(NioChannel): 把 NioChannel 封装进PollerEvent,  每个 Poller都有一个 PollerEvent队列(events queue), 把PollerEvent放入这个队列 // Poller 有多个, 这里会轮询的方式选择出其中一个, <code>AtomicInteger.incrementAndGet()) % pollers.length</code></p>
 </li>
 </ul>
-<h3 id="处理一次Req请求">处理一次Req请求</h3>
-<p>Poller线程用于消费 events queue, 代码调用流程:</p>
+<h3 id="处理一次Req请求"><a href="#处理一次Req请求" class="headerlink" title="处理一次Req请求"></a>处理一次Req请求</h3><p>Poller线程用于消费 events queue, 代码调用流程:</p>
 <ul>
-<li><code>Poller.run()</code> while循环从 event queue取出 PollerEvent, 然后调用 <code>PollerEvent.run()</code>
-<ul>
+<li><code>Poller.run()</code> while循环从 event queue取出 PollerEvent, 然后调用 <code>PollerEvent.run()</code><ul>
 <li><code>PollerEvent.run()</code> // 主要是 在 Poller自己的Selector上注册 READ事件</li>
-<li><code>Poller.processKey(SelectionKey , NioSocketWrapper)</code> 调用-&gt; <code>Poller.processSocket</code> // 处理 OPEN_READ/OPEN_WRITE等事件
-<ul>
+<li><code>Poller.processKey(SelectionKey , NioSocketWrapper)</code> 调用-&gt; <code>Poller.processSocket</code> // 处理 OPEN_READ/OPEN_WRITE等事件<ul>
 <li>创建一个 SocketProcessorBase的实例, 把 socket 和 Event 封装进去, SocketProcessorBase 继承自Runnable</li>
-<li>executor.execute(SocketProcessorBase) // 用Worker线程池运行这个 SocketProcessorBase
-<ul>
+<li>executor.execute(SocketProcessorBase) // 用Worker线程池运行这个 SocketProcessorBase<ul>
 <li><code>SocketProcessorBase.run()</code> -&gt; <code>SocketProcessor.doRun()</code></li>
 </ul>
 </li>
@@ -898,14 +740,10 @@ Poller线程池用于消费 events queue, 每个Poller 都有自己的 Selector�
 </ul>
 <p>再看SocketProcessor 调用流程:</p>
 <ul>
-<li><code>SocketProcessor.doRun()</code> :  // 调用SocketChannel.keyFor()
-<ul>
-<li><code>AbstractProtocol$ConnectionHandler.process()</code>
-<ul>
-<li><code>NioEndpoint$SocketProcessor.doRun()</code>
-<ul>
-<li><code>Http11Processor.service()</code> : 处理Socket IO流, 解析为Http Request
-<ul>
+<li><code>SocketProcessor.doRun()</code> :  // 调用SocketChannel.keyFor()<ul>
+<li><code>AbstractProtocol$ConnectionHandler.process()</code><ul>
+<li><code>NioEndpoint$SocketProcessor.doRun()</code><ul>
+<li><code>Http11Processor.service()</code> : 处理Socket IO流, 解析为Http Request<ul>
 <li><code>ApplicationFilterChain.internalDoFilter()</code>: 调用<code>Filter.doFilter()</code> ,以及<code>Servlet.service()</code>;</li>
 </ul>
 </li>
@@ -916,16 +754,13 @@ Poller线程池用于消费 events queue, 每个Poller 都有自己的 Selector�
 </ul>
 </li>
 </ul>
-<h3 id="如何SHUTDOWN">如何SHUTDOWN</h3>
-<ul>
+<h3 id="如何SHUTDOWN"><a href="#如何SHUTDOWN" class="headerlink" title="如何SHUTDOWN"></a>如何SHUTDOWN</h3><ul>
 <li>StandardServer.await() 创建一个在8005监听的ServerSocket, 是用来监听关闭Tomcat命令的, 当执行shutdown.sh关闭tomcat时就是连接8005端口执行“SHUTDOWN”命令;</li>
-<li>关闭请求发给Tomcat, 由StandardServer.await处理, await方法验证关闭请求是否有效, 如果有效则退出await方法, 进入Catalina.stop(), 调用<br>
-StandardServer.stop, StandardServer.destroy,  然后关闭Connector, Service</li>
+<li>关闭请求发给Tomcat, 由StandardServer.await处理, await方法验证关闭请求是否有效, 如果有效则退出await方法, 进入Catalina.stop(), 调用<br>StandardServer.stop, StandardServer.destroy,  然后关闭Connector, Service</li>
 </ul>
 <p>从日志可以看到:</p>
 <ul>
-<li>WebappLoader.stopInternal -&gt; WebappClassLoaderBase.stop -&gt; WebappClassLoaderBase.clearReferences
-<ul>
+<li>WebappLoader.stopInternal -&gt; WebappClassLoaderBase.stop -&gt; WebappClassLoaderBase.clearReferences<ul>
 <li>WebappClassLoaderBase.clearReferencesJdbc</li>
 <li>WebappClassLoaderBase.clearReferencesThreads</li>
 </ul>
@@ -934,37 +769,30 @@ StandardServer.stop, StandardServer.destroy,  然后关闭Connector, Service</li
 <li>AbstractProtocol.pause Pausing ProtocolHandler [“ajp-nio-8009”]</li>
 <li>StandardService.stopInternal</li>
 </ul>
-<h3 id=""></h3>
+<p>### </p>
 <p><a href="https://www.zhihu.com/question/53498767" target="_blank" rel="noopener">https://www.zhihu.com/question/53498767</a></p>
-<h2 id="Useful-Java-API-usage">Useful Java API usage</h2>
-<ul>
-<li>AsyncChannelWrapperSecure:
-<ul>
+<h2 id="Useful-Java-API-usage"><a href="#Useful-Java-API-usage" class="headerlink" title="Useful Java API usage"></a>Useful Java API usage</h2><ul>
+<li>AsyncChannelWrapperSecure:<ul>
 <li>Executors.newFixedThreadPool , shutdownNow</li>
 <li>AsynchronousSocketChannel</li>
 <li>ByteBuffer, flip, hasRemaining,</li>
 <li>AtomicBoolean</li>
 </ul>
 </li>
-<li>WsWebSocketContainer
-<ul>
+<li>WsWebSocketContainer<ul>
 <li>AsynchronousSocketChannel</li>
 </ul>
 </li>
 </ul>
-<h3 id="并发的处理代码">并发的处理代码</h3>
-<ul>
-<li>
-<p>用线程池启动容器内组件</p>
+<h3 id="并发的处理代码"><a href="#并发的处理代码" class="headerlink" title="并发的处理代码"></a>并发的处理代码</h3><ul>
+<li><p>用线程池启动容器内组件</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">  // Start our child containers, if any</span><br><span class="line">Container children[] = findChildren();</span><br><span class="line">List&lt;Future&lt;Void&gt;&gt; results = new ArrayList&lt;&gt;();</span><br><span class="line">for (int i = 0; i &lt; children.length; i++) &#123;</span><br><span class="line">    results.add(startStopExecutor.submit(new StartChild(children[i])));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">boolean fail = false;</span><br><span class="line">for (Future&lt;Void&gt; result : results) &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        result.get();</span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line"> &#125;&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>
-<p>通过Callable封装带返回值的任务</p>
+<li><p>通过Callable封装带返回值的任务</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">private static class StartChild implements Callable&lt;Void&gt; &#123;</span><br><span class="line"></span><br><span class="line">    private Container child;</span><br><span class="line"></span><br><span class="line">    public StartChild(Container child) &#123;</span><br><span class="line"></span><br><span class="line">        this.child = child;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Void call() throws LifecycleException &#123;</span><br><span class="line"></span><br><span class="line">        child.start();</span><br><span class="line"></span><br><span class="line">        return null;</span><br><span class="line"></span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1>参考</h1>
-<ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="https://toutiao.io/u/176492?page=4" target="_blank" rel="noopener">Tomcat那些事儿的热门分享 - 开发者头条</a> @Ref</li>
 </ul>
 
@@ -1181,7 +1009,7 @@ StandardServer.stop, StandardServer.destroy,  然后关闭Connector, Service</li
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">配置文件 server.xml</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#server-xml配置元素分类"><span class="nav-text">server.xml配置元素分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整体结构"><span class="nav-text">整体结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素分类"><span class="nav-text">元素分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心组件"><span class="nav-text">核心组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Server"><span class="nav-text">Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service"><span class="nav-text">Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connector"><span class="nav-text">Connector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Engine"><span class="nav-text">Engine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Host"><span class="nav-text">Host</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Engine与Host"><span class="nav-text">Engine与Host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Host的作用"><span class="nav-text">Host的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Host的配置"><span class="nav-text">Host的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Context"><span class="nav-text">Context</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Context的作用"><span class="nav-text">Context的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web应用自动部署"><span class="nav-text">Web应用自动部署</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自动部署的实现"><span class="nav-text">自动部署的实现</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心组件的关联"><span class="nav-text">核心组件的关联</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整体关系"><span class="nav-text">整体关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何确定请求由谁处理？"><span class="nav-text">如何确定请求由谁处理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何部署多个war包项目"><span class="nav-text">如何部署多个war包项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他组件"><span class="nav-text">其他组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Listener"><span class="nav-text">Listener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GlobalNamingResources与Realm"><span class="nav-text">GlobalNamingResources与Realm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Valve"><span class="nav-text">Valve</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bin-catalina-sh"><span class="nav-text">bin/catalina.sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conf-server-xml"><span class="nav-text">conf/server.xml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NIO线程模型"><span class="nav-text">NIO线程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附-Connector和线程池参数解析"><span class="nav-text">附: Connector和线程池参数解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APR支持"><span class="nav-text">APR支持</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JULI-vs-JUL"><span class="nav-text">JULI vs JUL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat日志配置解析"><span class="nav-text">Tomcat日志配置解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebApp的日志配置解析"><span class="nav-text">WebApp的日志配置解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志文件"><span class="nav-text">日志文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生产环境中的日志"><span class="nav-text">生产环境中的日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用log4j"><span class="nav-text">使用log4j</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">高级IO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#推送-Comet-支持"><span class="nav-text">推送: Comet 支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发送大型静态文件-sendfile"><span class="nav-text">发送大型静态文件: sendfile</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">How to deploy war</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-the-UI-manager"><span class="nav-text">Using the UI manager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-maven"><span class="nav-text">Using maven</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">ClassLoader</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">源码导读 (Tomcat 8.5)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-text">启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动过程源码调用时序"><span class="nav-text">启动过程源码调用时序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码分析"><span class="nav-text">源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解析server-xml"><span class="nav-text">如何解析server.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化Connector"><span class="nav-text">初始化Connector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Connector"><span class="nav-text">启动Connector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#accept请求"><span class="nav-text">accept请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理一次Req请求"><span class="nav-text">处理一次Req请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何SHUTDOWN"><span class="nav-text">如何SHUTDOWN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Useful-Java-API-usage"><span class="nav-text">Useful Java API usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#并发的处理代码"><span class="nav-text">并发的处理代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#配置文件-server-xml"><span class="nav-text">配置文件 server.xml</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#server-xml配置元素分类"><span class="nav-text">server.xml配置元素分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整体结构"><span class="nav-text">整体结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素分类"><span class="nav-text">元素分类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心组件"><span class="nav-text">核心组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Server"><span class="nav-text">Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service"><span class="nav-text">Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Connector"><span class="nav-text">Connector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Engine"><span class="nav-text">Engine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Host"><span class="nav-text">Host</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Engine与Host"><span class="nav-text">Engine与Host</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Host的作用"><span class="nav-text">Host的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Host的配置"><span class="nav-text">Host的配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Context"><span class="nav-text">Context</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Context的作用"><span class="nav-text">Context的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Web应用自动部署"><span class="nav-text">Web应用自动部署</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自动部署的实现"><span class="nav-text">自动部署的实现</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心组件的关联"><span class="nav-text">核心组件的关联</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整体关系"><span class="nav-text">整体关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何确定请求由谁处理？"><span class="nav-text">如何确定请求由谁处理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何部署多个war包项目"><span class="nav-text">如何部署多个war包项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他组件"><span class="nav-text">其他组件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Listener"><span class="nav-text">Listener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GlobalNamingResources与Realm"><span class="nav-text">GlobalNamingResources与Realm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Valve"><span class="nav-text">Valve</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#性能优化"><span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bin-catalina-sh"><span class="nav-text">bin/catalina.sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#conf-server-xml"><span class="nav-text">conf/server.xml</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NIO线程模型"><span class="nav-text">NIO线程模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附-Connector和线程池参数解析"><span class="nav-text">附: Connector和线程池参数解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APR支持"><span class="nav-text">APR支持</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日志"><span class="nav-text">日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JULI-vs-JUL"><span class="nav-text">JULI vs JUL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat日志配置解析"><span class="nav-text">Tomcat日志配置解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebApp的日志配置解析"><span class="nav-text">WebApp的日志配置解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志文件"><span class="nav-text">日志文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生产环境中的日志"><span class="nav-text">生产环境中的日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用log4j"><span class="nav-text">使用log4j</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级IO"><span class="nav-text">高级IO</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#推送-Comet-支持"><span class="nav-text">推送: Comet 支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发送大型静态文件-sendfile"><span class="nav-text">发送大型静态文件: sendfile</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#How-to-deploy-war"><span class="nav-text">How to deploy war</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-the-UI-manager"><span class="nav-text">Using the UI manager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-maven"><span class="nav-text">Using maven</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ClassLoader"><span class="nav-text">ClassLoader</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#源码导读-Tomcat-8-5"><span class="nav-text">源码导读 (Tomcat 8.5)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动"><span class="nav-text">启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动过程源码调用时序"><span class="nav-text">启动过程源码调用时序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码分析"><span class="nav-text">源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解析server-xml"><span class="nav-text">如何解析server.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化Connector"><span class="nav-text">初始化Connector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Connector"><span class="nav-text">启动Connector</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#accept请求"><span class="nav-text">accept请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理一次Req请求"><span class="nav-text">处理一次Req请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何SHUTDOWN"><span class="nav-text">如何SHUTDOWN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Useful-Java-API-usage"><span class="nav-text">Useful Java API usage</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#并发的处理代码"><span class="nav-text">并发的处理代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

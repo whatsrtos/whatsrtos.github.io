@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="环境: Fedora &amp;amp; Ubuntu 安装NFS服务  yum -y install nfs-utils  对于Ubuntu则是:  apt-get install nfs-kernel-server nfs-common">
+<meta name="description" content="环境: Fedora &amp;amp; Ubuntu 安装NFS服务 yum -y install nfs-utils  对于Ubuntu则是:  apt-get install nfs-kernel-server nfs-common">
 <meta name="keywords" content="Linux,NFS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 下配置 NFS 服务">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[工具] Linux下配置NFS服务/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="环境: Fedora &amp;amp; Ubuntu 安装NFS服务  yum -y install nfs-utils  对于Ubuntu则是:  apt-get install nfs-kernel-server nfs-common">
+<meta property="og:description" content="环境: Fedora &amp;amp; Ubuntu 安装NFS服务 yum -y install nfs-utils  对于Ubuntu则是:  apt-get install nfs-kernel-server nfs-common">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 下配置 NFS 服务">
-<meta name="twitter:description" content="环境: Fedora &amp;amp; Ubuntu 安装NFS服务  yum -y install nfs-utils  对于Ubuntu则是:  apt-get install nfs-kernel-server nfs-common">
+<meta name="twitter:description" content="环境: Fedora &amp;amp; Ubuntu 安装NFS服务 yum -y install nfs-utils  对于Ubuntu则是:  apt-get install nfs-kernel-server nfs-common">
 
 
 
@@ -356,8 +356,7 @@
 
       
         <p>环境: Fedora &amp; Ubuntu</p>
-<h2 id="安装NFS服务">安装NFS服务</h2>
-<blockquote>
+<h2 id="安装NFS服务"><a href="#安装NFS服务" class="headerlink" title="安装NFS服务"></a>安装NFS服务</h2><blockquote>
 <p>yum -y install nfs-utils</p>
 </blockquote>
 <p>对于Ubuntu则是:</p>
@@ -365,42 +364,34 @@
 <p>apt-get install nfs-kernel-server nfs-common</p>
 </blockquote>
 <p>以上都需要root权限.</p>
-<h2 id="配置NFS">配置NFS</h2>
-<p>编辑 /etc/exports, 添加如下内容:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/home/steffan/nfs *(insecure,rw,sync,no_root_squash)</span><br></pre></td></tr></table></figure>
+<h2 id="配置NFS"><a href="#配置NFS" class="headerlink" title="配置NFS"></a>配置NFS</h2><p>编辑 /etc/exports, 添加如下内容:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/home/steffan/nfs *(insecure,rw,sync,no_root_squash)</span><br></pre></td></tr></table></figure></p>
 <p>注意星号<code>*</code>表示允许所有ip访问, 可以改为自己的ip. 且<code>*</code>后不能有空格, 带空格的话mount的时候会有错误提示<code>mount.nfs: access denied by server while mounting</code></p>
-<p>编辑 /etc/idmapd.conf<br>
-搜索并修改为Domain为自己的主机名.</p>
-<h2 id="启动NFS">启动NFS</h2>
-<p>为了方便做了一个启动NFS的脚本xNFS(适用于Fedora):</p>
-<blockquote></blockquote>
-<p>touch /usr/local/xNFS<br>
-chmod a+x /usr/local/xNFS</p>
+<p>编辑 /etc/idmapd.conf<br>搜索并修改为Domain为自己的主机名.</p>
+<h2 id="启动NFS"><a href="#启动NFS" class="headerlink" title="启动NFS"></a>启动NFS</h2><p>为了方便做了一个启动NFS的脚本xNFS(适用于Fedora):</p>
+<blockquote>
+</blockquote>
+<p>touch /usr/local/xNFS<br>chmod a+x /usr/local/xNFS</p>
 <p>在xNFS脚本增加以下内容:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">echo &quot;start service...&quot;</span><br><span class="line">systemctl start rpcbind.service</span><br><span class="line">systemctl start nfs-server.service</span><br><span class="line">systemctl start nfs-lock.service</span><br><span class="line">systemctl start nfs-idmap.service</span><br><span class="line"></span><br><span class="line">echo &quot;enable service...&quot;</span><br><span class="line">systemctl enable rpcbind.service</span><br><span class="line">systemctl enable nfs-server.service</span><br><span class="line">systemctl enable nfs-lock.service</span><br><span class="line">systemctl enable nfs-idmap.service</span><br><span class="line"></span><br><span class="line">echo &quot;check service status&quot;</span><br><span class="line">systemctl status rpcbind.service</span><br><span class="line">systemctl status nfs-server.service</span><br><span class="line">systemctl status nfs-lock.service</span><br><span class="line">systemctl status nfs-idmap.service</span><br></pre></td></tr></table></figure>
 <p>对于Ubuntu,用下面的命令启动NFS服务:</p>
-<blockquote></blockquote>
-<p>sudo /etc/init.d/portmap start<br>
-sudo /etc/init.d/nfs-kernel-server start</p>
-<h2 id="测试NFS">测试NFS</h2>
-<p>以NFS将本地目录挂载到/mnt:</p>
-<blockquote></blockquote>
+<blockquote>
+</blockquote>
+<p>sudo /etc/init.d/portmap start<br>sudo /etc/init.d/nfs-kernel-server start</p>
+<h2 id="测试NFS"><a href="#测试NFS" class="headerlink" title="测试NFS"></a>测试NFS</h2><p>以NFS将本地目录挂载到/mnt:</p>
+<blockquote>
+</blockquote>
 <p>mount -t nfs localhost:/home/steffan/nfs /mnt/nfs</p>
 <p>测试下/mnt/nfs是否能正常读写.</p>
 <p>如果在树莓派等开发板上挂载NFS目录:</p>
-<blockquote></blockquote>
+<blockquote>
+</blockquote>
 <p>mount x.x.x.x:/home/steffan/nfs /mnt/nfs</p>
-<h2 id="其他内容">其他内容</h2>
-<p>Fedora上可以安装图形化NFS配置工具:</p>
-<blockquote></blockquote>
+<h2 id="其他内容"><a href="#其他内容" class="headerlink" title="其他内容"></a>其他内容</h2><p>Fedora上可以安装图形化NFS配置工具:</p>
+<blockquote>
+</blockquote>
 <p>yum search system-config-nfs</p>
-<p>如果mount失败, 可以考虑暂时关闭防火墙:<br>
-开启： <code>service iptables start </code><br>
-关闭： <code>service iptables stop </code><br>
-或者这样关闭: <code>/etc/init.d/iptables stop</code></p>
-<p>参考:<br>
-<a href="http://www.server-world.info/en/note?os=Fedora_17&amp;p=nfs" target="_blank" rel="noopener">http://www.server-world.info/en/note?os=Fedora_17&amp;p=nfs</a><br>
-<a href="http://blog.csdn.net/dos5gw/article/details/5787914" target="_blank" rel="noopener">http://blog.csdn.net/dos5gw/article/details/5787914</a></p>
+<p>如果mount失败, 可以考虑暂时关闭防火墙:<br>开启： <code>service iptables start</code><br>关闭： <code>service iptables stop</code><br>或者这样关闭: <code>/etc/init.d/iptables stop</code></p>
+<p>参考:<br><a href="http://www.server-world.info/en/note?os=Fedora_17&amp;p=nfs" target="_blank" rel="noopener">http://www.server-world.info/en/note?os=Fedora_17&amp;p=nfs</a><br><a href="http://blog.csdn.net/dos5gw/article/details/5787914" target="_blank" rel="noopener">http://blog.csdn.net/dos5gw/article/details/5787914</a></p>
 
       
     </div>

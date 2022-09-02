@@ -115,19 +115,19 @@
 
 
 
-<meta name="description" content="Spring Boot vs Spring  内置了嵌入式的Tomcat、Jetty等Servlet容器，应用可以不用打包成War格式，而是可以直接以Jar格式运行 Spring Boot提倡无XML配置文件的理念，使用Spring Boot生成的应用完全不会生成任何配置代码与XML配置文件。 提供了多个可选择的「starter」:  spring-boot-starter-data-redis">
+<meta name="description" content="Spring Boot vs Spring 内置了嵌入式的Tomcat、Jetty等Servlet容器，应用可以不用打包成War格式，而是可以直接以Jar格式运行 Spring Boot提倡无XML配置文件的理念，使用Spring Boot生成的应用完全不会生成任何配置代码与XML配置文件。 提供了多个可选择的「starter」: spring-boot-starter-data-redis:">
 <meta name="keywords" content="Java,JavaEE,Spring Boot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot">
 <meta property="og:url" content="https://whatsrtos.github.io/Java/JavaEE-Spring Boot/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="Spring Boot vs Spring  内置了嵌入式的Tomcat、Jetty等Servlet容器，应用可以不用打包成War格式，而是可以直接以Jar格式运行 Spring Boot提倡无XML配置文件的理念，使用Spring Boot生成的应用完全不会生成任何配置代码与XML配置文件。 提供了多个可选择的「starter」:  spring-boot-starter-data-redis">
+<meta property="og:description" content="Spring Boot vs Spring 内置了嵌入式的Tomcat、Jetty等Servlet容器，应用可以不用打包成War格式，而是可以直接以Jar格式运行 Spring Boot提倡无XML配置文件的理念，使用Spring Boot生成的应用完全不会生成任何配置代码与XML配置文件。 提供了多个可选择的「starter」: spring-boot-starter-data-redis:">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://sdtimes.com/wp-content/uploads/2018/03/spring-boot-490x257.png">
 <meta property="og:updated_time" content="2020-07-29T16:37:57.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot">
-<meta name="twitter:description" content="Spring Boot vs Spring  内置了嵌入式的Tomcat、Jetty等Servlet容器，应用可以不用打包成War格式，而是可以直接以Jar格式运行 Spring Boot提倡无XML配置文件的理念，使用Spring Boot生成的应用完全不会生成任何配置代码与XML配置文件。 提供了多个可选择的「starter」:  spring-boot-starter-data-redis">
+<meta name="twitter:description" content="Spring Boot vs Spring 内置了嵌入式的Tomcat、Jetty等Servlet容器，应用可以不用打包成War格式，而是可以直接以Jar格式运行 Spring Boot提倡无XML配置文件的理念，使用Spring Boot生成的应用完全不会生成任何配置代码与XML配置文件。 提供了多个可选择的「starter」: spring-boot-starter-data-redis:">
 <meta name="twitter:image" content="https://sdtimes.com/wp-content/uploads/2018/03/spring-boot-490x257.png">
 
 
@@ -358,12 +358,10 @@
 
       
         <p><img src="https://sdtimes.com/wp-content/uploads/2018/03/spring-boot-490x257.png" alt="Spring Boot"></p>
-<h1>Spring Boot vs Spring</h1>
-<ul>
+<h1 id="Spring-Boot-vs-Spring"><a href="#Spring-Boot-vs-Spring" class="headerlink" title="Spring Boot vs Spring"></a>Spring Boot vs Spring</h1><ul>
 <li>内置了嵌入式的Tomcat、Jetty等Servlet容器，应用可以不用打包成War格式，而是可以直接以Jar格式运行</li>
 <li>Spring Boot提倡无XML配置文件的理念，使用Spring Boot生成的应用完全不会生成任何配置代码与XML配置文件。</li>
-<li>提供了多个可选择的「starter」:
-<ul>
+<li>提供了多个可选择的「starter」:<ul>
 <li>spring-boot-starter-data-redis:</li>
 <li>spring-boot-starter-activemq:</li>
 <li>spring-boot-starter-jdbc:</li>
@@ -372,12 +370,9 @@
 </ul>
 </li>
 </ul>
-<h1>Spring Boot 全家桶(简介)</h1>
-<p>@TODO</p>
-<h1>Spring Boot 的新注解</h1>
-<ul>
-<li><code>@SpringBootApplication</code>: 相当于 <code>@Configuration + @EnableAutoConfiguration + @ComponentScan</code>
-<ul>
+<h1 id="Spring-Boot-全家桶-简介"><a href="#Spring-Boot-全家桶-简介" class="headerlink" title="Spring Boot 全家桶(简介)"></a>Spring Boot 全家桶(简介)</h1><p>@TODO</p>
+<h1 id="Spring-Boot-的新注解"><a href="#Spring-Boot-的新注解" class="headerlink" title="Spring Boot 的新注解"></a>Spring Boot 的新注解</h1><ul>
+<li><code>@SpringBootApplication</code>: 相当于 <code>@Configuration + @EnableAutoConfiguration + @ComponentScan</code><ul>
 <li><code>@Configuration</code> : 指明是IOC容器的配置类, 被标注的类等于在spring的XML配置文件中(applicationContext.xml)，装配所有bean事务，提供了一个spring的上下文环境。</li>
 <li><code>@EnableAutoConfiguration</code>  : SpringBoot根据应用所声明的依赖来对Spring框架进行自动配置。</li>
 <li><code>@ComponentScan</code> : 组件扫描，可自动发现和装配Bean，默认扫描SpringApplication的run方法里的Booter.class所在的包路径下文件，所以最好将该启动类放到根包路径下。</li>
@@ -386,8 +381,7 @@
 <li><code>@RestController</code>: 作用是将controller的方法返回的对象通过适当的转换器转换为指定的格式之后，写入到response对象的body区，通常用来返回JSON或者是XML。使用此注解之后不会再走视图处理器，而是直接将数据写入到输入流中，效果等同于通过向<code>response.getOutputStream()</code>写入数据</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ImportResource</span>(locations = &#123;<span class="string">"classpath:spring/spring-main.xml"</span>&#125;)</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApiApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(MyApiApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>Spring Cloud &amp; 微服务</h1>
-<p>@TODO</p>
+<h1 id="Spring-Cloud-amp-微服务"><a href="#Spring-Cloud-amp-微服务" class="headerlink" title="Spring Cloud &amp; 微服务"></a>Spring Cloud &amp; 微服务</h1><p>@TODO</p>
 
       
     </div>
@@ -602,7 +596,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Spring Boot vs Spring</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Spring Boot 全家桶(简介)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Spring Boot 的新注解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Spring Cloud &amp; 微服务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot-vs-Spring"><span class="nav-text">Spring Boot vs Spring</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot-全家桶-简介"><span class="nav-text">Spring Boot 全家桶(简介)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Boot-的新注解"><span class="nav-text">Spring Boot 的新注解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring-Cloud-amp-微服务"><span class="nav-text">Spring Cloud &amp; 微服务</span></a></li></ol></div>
             
 
           </div>

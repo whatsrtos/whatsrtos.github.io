@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="这篇半成品已经在硬盘上放了好久了, 今天终于忍无可忍, 熬夜也要写完(▔皿▔) 起因是因为一个makefile引起的 undefined reference 问题, 下面贴出出错的makefile: 起因：Makefile错误 CC = gccCXX = g++LD = ldd$(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp	$(CXX) $(CFLAGS) -o $@ $&amp;l">
+<meta name="description" content="这篇半成品已经在硬盘上放了好久了, 今天终于忍无可忍, 熬夜也要写完(▔皿▔)起因是因为一个makefile引起的 undefined reference 问题, 下面贴出出错的makefile: 起因：Makefile错误CC = gccCXX = g++LD = ldd$(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp	$(CXX) $(CFLAGS) -o $@ $&amp;lt;">
 <meta name="keywords" content="C&#x2F;C++,gcc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语言的编译与链接 - gcc,ld,ar等工具的介绍">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[C] C语言的编译与链接/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="这篇半成品已经在硬盘上放了好久了, 今天终于忍无可忍, 熬夜也要写完(▔皿▔) 起因是因为一个makefile引起的 undefined reference 问题, 下面贴出出错的makefile: 起因：Makefile错误 CC = gccCXX = g++LD = ldd$(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp	$(CXX) $(CFLAGS) -o $@ $&amp;l">
+<meta property="og:description" content="这篇半成品已经在硬盘上放了好久了, 今天终于忍无可忍, 熬夜也要写完(▔皿▔)起因是因为一个makefile引起的 undefined reference 问题, 下面贴出出错的makefile: 起因：Makefile错误CC = gccCXX = g++LD = ldd$(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp	$(CXX) $(CFLAGS) -o $@ $&amp;lt;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.586Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言的编译与链接 - gcc,ld,ar等工具的介绍">
-<meta name="twitter:description" content="这篇半成品已经在硬盘上放了好久了, 今天终于忍无可忍, 熬夜也要写完(▔皿▔) 起因是因为一个makefile引起的 undefined reference 问题, 下面贴出出错的makefile: 起因：Makefile错误 CC = gccCXX = g++LD = ldd$(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp	$(CXX) $(CFLAGS) -o $@ $&amp;l">
+<meta name="twitter:description" content="这篇半成品已经在硬盘上放了好久了, 今天终于忍无可忍, 熬夜也要写完(▔皿▔)起因是因为一个makefile引起的 undefined reference 问题, 下面贴出出错的makefile: 起因：Makefile错误CC = gccCXX = g++LD = ldd$(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp	$(CXX) $(CFLAGS) -o $@ $&amp;lt;">
 
 
 
@@ -355,73 +355,44 @@
       
 
       
-        <p>这篇半成品已经在硬盘上放了好久了, 今天终于忍无可忍, 熬夜也要写完(▔皿▔)<br>
-起因是因为一个makefile引起的 <code>undefined reference</code> 问题, 下面贴出出错的makefile:</p>
-<h1>起因：Makefile错误</h1>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CC = gcc</span><br><span class="line">CXX = g++</span><br><span class="line">LD = ldd</span><br><span class="line"></span><br><span class="line">$(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp</span><br><span class="line">	$(CXX) $(CFLAGS) -o $@ $&lt; $(INCLUDE)</span><br><span class="line"></span><br><span class="line">$(OBJS): $(DIR_OBJ)/%.o: %.c</span><br><span class="line">	$(CC) -c $(CFLAGS) -o $@ $&lt; $(INCLUDE)</span><br><span class="line"></span><br><span class="line">$(APP): $(OBJS) $(CPP_OBJS)</span><br><span class="line">	$(CC) $^ -o $(APP) $(LDFLAGS) $(INCLUDE)</span><br></pre></td></tr></table></figure>
-<p>这个makefile很简单，g++将*.cpp文件编译为 *.o, gcc将 *.c 文件编译为 *.o, 最后 gcc链接所有的 *.o生成可执行程序.<br>
-但是上面这个简单的 makefile, 执行make时却报错了:</p>
+        <p>这篇半成品已经在硬盘上放了好久了, 今天终于忍无可忍, 熬夜也要写完(▔皿▔)<br>起因是因为一个makefile引起的 <code>undefined reference</code> 问题, 下面贴出出错的makefile:</p>
+<h1 id="起因：Makefile错误"><a href="#起因：Makefile错误" class="headerlink" title="起因：Makefile错误"></a>起因：Makefile错误</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CC = gcc</span><br><span class="line">CXX = g++</span><br><span class="line">LD = ldd</span><br><span class="line"></span><br><span class="line">$(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp</span><br><span class="line">	$(CXX) $(CFLAGS) -o $@ $&lt; $(INCLUDE)</span><br><span class="line"></span><br><span class="line">$(OBJS): $(DIR_OBJ)/%.o: %.c</span><br><span class="line">	$(CC) -c $(CFLAGS) -o $@ $&lt; $(INCLUDE)</span><br><span class="line"></span><br><span class="line">$(APP): $(OBJS) $(CPP_OBJS)</span><br><span class="line">	$(CC) $^ -o $(APP) $(LDFLAGS) $(INCLUDE)</span><br></pre></td></tr></table></figure>
+<p>这个makefile很简单，g++将<em>.cpp文件编译为 \</em>.o, gcc将 *.c 文件编译为 *.o, 最后 gcc链接所有的 *.o生成可执行程序.<br>但是上面这个简单的 makefile, 执行make时却报错了:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; gcc   -o _test_code.o _test_code.c -I.</span><br><span class="line">/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../lib64/crt1.o: In function &apos;_start&apos;:</span><br><span class="line">(.text+0x20): undefined reference to &apos;main&apos;</span><br><span class="line">collect2: error: ld returned 1 exit status</span><br></pre></td></tr></table></figure>
-<h1>错误分析 &amp; 解决</h1>
-<p>要解释上面的问题, 先来回顾下gcc是如何将*.c编译为可执行程序的, 共4个步骤:</p>
+<h1 id="错误分析-amp-解决"><a href="#错误分析-amp-解决" class="headerlink" title="错误分析 &amp; 解决"></a>错误分析 &amp; 解决</h1><p>要解释上面的问题, 先来回顾下gcc是如何将*.c编译为可执行程序的, 共4个步骤:</p>
 <ol>
 <li>预编译: <code>gcc -E test.c -o test.i</code></li>
 <li>生成汇编代码: <code>gcc -S test.i -o test.s</code></li>
 <li>编译 x.s为 x.o:  <code>gcc -c test.s -o test.o</code> 当然 x.c也可以用 <code>-c</code>参数一步编译为 x.o</li>
 <li>链接为可执行文件: <code>gcc test.o -o test</code></li>
 </ol>
-<p>报错很明确的告诉我: lib64/crt1.o 里的<code>_start</code>函数调用了<code>main()</code>函数, 但<code>main()</code>函数缺少定义.<br>
-工程中<code>main()</code>函数的定义放在源文件 main.cpp中, 为什么还报 undefined reference to 'main’呢?<br>
-看仔细了, 是在将 test_code.cpp编译为 test_code.o的时候报错, test_code.cpp里没有<code>main()</code>的定义,<br>
-这个 makefile的&quot;本意&quot;是这样的: 第一步 g<ins>将 x.cpp文件编译为 x.o, 第二步 gcc将 x.c文件编译为 x.o, 最后 gcc链接所有的 x.o生成可执行程序.<br>
-按道理说, 第一步编译只是进行语法分析并生成中间文件, 并不会去找函数有没有定义, 只有在三步链接所有 x.o的时候才可能报出 undefined reference func的错误.<br>
-再仔细看看上面的 makefile: <code>$(CXX) $(CFLAGS) -o $@ $&lt; $(INCLUDE)</code><br>
-是没有加 <code>-c</code>参数的, 相当于让 g</ins>一步编译出最终文件(可执行文件), 当然会报 undefined reference 的错误了.<br>
-原来是一个笔误🙃</p>
+<p>报错很明确的告诉我: lib64/crt1.o 里的<code>_start</code>函数调用了<code>main()</code>函数, 但<code>main()</code>函数缺少定义.<br>工程中<code>main()</code>函数的定义放在源文件 main.cpp中, 为什么还报 undefined reference to ‘main’呢?<br>看仔细了, 是在将 test_code.cpp编译为 test_code.o的时候报错, test_code.cpp里没有<code>main()</code>的定义,<br>这个 makefile的”本意”是这样的: 第一步 g++将 x.cpp文件编译为 x.o, 第二步 gcc将 x.c文件编译为 x.o, 最后 gcc链接所有的 x.o生成可执行程序.<br>按道理说, 第一步编译只是进行语法分析并生成中间文件, 并不会去找函数有没有定义, 只有在三步链接所有 x.o的时候才可能报出 undefined reference func的错误.<br>再仔细看看上面的 makefile: <code>$(CXX) $(CFLAGS) -o $@ $&lt; $(INCLUDE)</code><br>是没有加 <code>-c</code>参数的, 相当于让 g++一步编译出最终文件(可执行文件), 当然会报 undefined reference 的错误了.<br>原来是一个笔误🙃</p>
 <p>修改也很简单, x.c/x.cpp编译为x.o的过程加上 <code>-c</code>参数就可以了, 正确的 makefile如下:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp</span></span><br><span class="line"><span class="meta">	$</span><span class="bash">(CXX) -c $(CFLAGS) -o <span class="variable">$@</span> $&lt; $(INCLUDE)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash">(OBJS): $(DIR_OBJ)/%.o: %.c</span></span><br><span class="line"><span class="meta">	$</span><span class="bash">(CC) -c $(CFLAGS) -o <span class="variable">$@</span> $&lt; $(INCLUDE)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash">(APP): $(OBJS) $(CPP_OBJS)</span></span><br><span class="line"><span class="meta">	$</span><span class="bash">(CC) $^ -o $(APP) $(LDFLAGS) $(INCLUDE)</span></span><br></pre></td></tr></table></figure>
-<h1>错误日志里的新发现</h1>
-<p>再回头看看上面的报错里有一句:</p>
+<h1 id="错误日志里的新发现"><a href="#错误日志里的新发现" class="headerlink" title="错误日志里的新发现"></a>错误日志里的新发现</h1><p>再回头看看上面的报错里有一句:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lib64/crt1.o: In function &apos;_start&apos;:</span><br><span class="line">(.text+0x20): undefined reference to &apos;main&apos;</span><br></pre></td></tr></table></figure>
 <p>这个 crt1.o是什么? 这个function <code>_start</code> 又是什么🤔?</p>
-<p>从上面的打印信息可以知道, gcc先编译出 xxx.o然后再做 Link, 这时候 gcc会对 /usr/lib/crt1.o和我们的 main.o做链接 (因为 crt1.o里的<code>_start</code>函数调用了我们的 <code>main()</code>函数).<br>
-由此可见, 可自行文件真正的&quot;入口&quot;并不是 <code>main()</code>, 而是 ctr1.o里的<code>_start</code>, 事实上这个库的名字里 &quot;crt&quot;就是 &quot;startup routine&quot;的意思.<br>
-所以, gcc在链接所有的 x.o时, 还会把 /usr/lib/crt1.o也链接进来.<br>
-此外gcc有一个默认参数<code>-lc</code>, 表示动态链接 libc库.</p>
+<p>从上面的打印信息可以知道, gcc先编译出 xxx.o然后再做 Link, 这时候 gcc会对 /usr/lib/crt1.o和我们的 main.o做链接 (因为 crt1.o里的<code>_start</code>函数调用了我们的 <code>main()</code>函数).<br>由此可见, 可自行文件真正的”入口”并不是 <code>main()</code>, 而是 ctr1.o里的<code>_start</code>, 事实上这个库的名字里 “crt”就是 “startup routine”的意思.<br>所以, gcc在链接所有的 x.o时, 还会把 /usr/lib/crt1.o也链接进来.<br>此外gcc有一个默认参数<code>-lc</code>, 表示动态链接 libc库.</p>
 <blockquote>
 <p>扩展阅读: <a href="https://blog.csdn.net/farmwang/article/details/73477276" target="_blank" rel="noopener">crt1.o,crti.o,crtbegin.o,crtend.o ,crtn.o 与libc.so 的关系 - farmwang的专栏 - CSDN博客</a></p>
 </blockquote>
-<h1>编译过程中的链接: ld</h1>
-<p>下面是一个分三步编译出 a.out的例子</p>
+<h1 id="编译过程中的链接-ld"><a href="#编译过程中的链接-ld" class="headerlink" title="编译过程中的链接: ld"></a>编译过程中的链接: ld</h1><p>下面是一个分三步编译出 a.out的例子</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gcc -S main.c -o main.s</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gcc -c main.s -o main.o</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gcc main.o -o a.out</span></span><br></pre></td></tr></table></figure>
 <p>我们知道在编译汇编程序时, 也是分compile,link两个步骤:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">as hello.s -o hello.o</span><br><span class="line">ld hello.o -o hello</span><br></pre></td></tr></table></figure>
-<p>c程序用 gcc链接, 汇编程序用 ld来做链接, 那么这个 ld能不能直接用于 c程序的链接呢?<br>
-我们可以试一下, 用 ld去链接所有的 x.o : <code> $(LD) $^ -o $(APP) $(LDFLAGS) $(INCLUDE)</code><br>
-然后<code>make clean &amp;&amp; make all</code>, 会报错:<br>
-ld: cannot find -lstdc++</p>
+<p>c程序用 gcc链接, 汇编程序用 ld来做链接, 那么这个 ld能不能直接用于 c程序的链接呢?<br>我们可以试一下, 用 ld去链接所有的 x.o : <code>$(LD) $^ -o $(APP) $(LDFLAGS) $(INCLUDE)</code><br>然后<code>make clean &amp;&amp; make all</code>, 会报错:<br>ld: cannot find -lstdc++</p>
 <p>@Ref (<a href="http://sp1.wikidot.com/gnulinker" target="_blank" rel="noopener">http://sp1.wikidot.com/gnulinker</a>)</p>
-<h1>附录 I</h1>
-<h2 id="编译">编译</h2>
-<p>&quot;编译&quot;的概念： 1、利用编译程序从源语言编写的源程序产生目标程序的过程。 2、用编译程序产生目标程序的动作，编译就是把高级语言变成计算机可以识别的2进制语言。</p>
+<h1 id="附录-I"><a href="#附录-I" class="headerlink" title="附录 I"></a>附录 I</h1><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>“编译”的概念： 1、利用编译程序从源语言编写的源程序产生目标程序的过程。 2、用编译程序产生目标程序的动作，编译就是把高级语言变成计算机可以识别的2进制语言。</p>
 <p>编译程序把一个源程序翻译成目标程序的工作分为5个阶段：词法分析、语法分析、语义检查和中间代码生成、代码优化、目标代码生成。主要是进行词法分析和语法分析。</p>
-<h2 id="链接">链接</h2>
-<p>链接就是对.o文件进行符号解析和重定位的过程，链接器就是用来完成不同模块之间的链接问题。</p>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>链接就是对.o文件进行符号解析和重定位的过程，链接器就是用来完成不同模块之间的链接问题。</p>
 <ul>
-<li>
-<p>符号解析：<br>
-当一个模块使用了在该模块中没有没有定义过的函数或者全局变量时，编译器生成的符号表会标记出所有这样的函数或者全局变量。而连接器的责任就是要到别的模块中去查找它们的定义，如果没有找到适合的定义或者找到的合适定义不唯一，符号解析就无法正常完成。</p>
+<li><p>符号解析：<br>当一个模块使用了在该模块中没有没有定义过的函数或者全局变量时，编译器生成的符号表会标记出所有这样的函数或者全局变量。而连接器的责任就是要到别的模块中去查找它们的定义，如果没有找到适合的定义或者找到的合适定义不唯一，符号解析就无法正常完成。</p>
 </li>
-<li>
-<p>重定位：<br>
-编译器在编译生成目标文件时，通常都使用从零开始的相对地址。然而，在链接过程中，连接器将从一个指定的地址开始，根据输入的目标文件的顺序以段为单位将它们一个接一个拼接起来。除了目标文件的拼装之外，在重定位的过程中还完成了两个任务：一是生成最终的符号表；二是对代码段的某些位置进行修改，所有需要修改的位置都由编译器生成的重定位表指出。</p>
+<li><p>重定位：<br>编译器在编译生成目标文件时，通常都使用从零开始的相对地址。然而，在链接过程中，连接器将从一个指定的地址开始，根据输入的目标文件的顺序以段为单位将它们一个接一个拼接起来。除了目标文件的拼装之外，在重定位的过程中还完成了两个任务：一是生成最终的符号表；二是对代码段的某些位置进行修改，所有需要修改的位置都由编译器生成的重定位表指出。</p>
 </li>
 </ul>
-<h1>附录 II</h1>
-<hr>
-<h2 id="GNU-GCC简介：">GNU GCC简介：</h2>
-<p>GNU GCC是一套面向嵌入式领域的交叉编译工具，支持多种编程语言、多种优化选项并且能够支持分步编译、支持多种反汇编方式、支持多种调试信息格式，目前支持X86、ARM7、StrongARM、PPC4XX、MPC8XX、MIPS R3000等多种CPU。<br>
-GNU GCC的基本功能包括：</p>
+<h1 id="附录-II"><a href="#附录-II" class="headerlink" title="附录 II"></a>附录 II</h1><hr>
+<h2 id="GNU-GCC简介："><a href="#GNU-GCC简介：" class="headerlink" title="GNU GCC简介："></a>GNU GCC简介：</h2><p>GNU GCC是一套面向嵌入式领域的交叉编译工具，支持多种编程语言、多种优化选项并且能够支持分步编译、支持多种反汇编方式、支持多种调试信息格式，目前支持X86、ARM7、StrongARM、PPC4XX、MPC8XX、MIPS R3000等多种CPU。<br>GNU GCC的基本功能包括：</p>
 <ol>
 <li>输出预处理后的C/C++源程序（展开头文件和替换宏）</li>
 <li>输出C/C++源程序的汇编代码</li>
@@ -430,38 +401,22 @@ GNU GCC的基本功能包括：</p>
 <li>生成可执行程序</li>
 <li>转换文件格式</li>
 </ol>
-<h2 id="GCC-组成：">GCC 组成：</h2>
-<ul>
-<li>
-<p>(1) C/C++交叉编译器gcc<br>
-gcc是编译的前端程序，它通过调用其他程序来实现将程序源文件编译成目标文件的功能。<br>
-编译时，它首先调用预处理程序(cpp)对输入的源程序进行处理，然后调用 cc1 将预处理后的程序编译成汇编代码，最后由as将汇编代码编译成目标代码。gcc具有丰富的命令选项，可以控制编译的各个阶段，满足用户的各种编译需求。</p>
+<h2 id="GCC-组成："><a href="#GCC-组成：" class="headerlink" title="GCC 组成："></a>GCC 组成：</h2><ul>
+<li><p>(1) C/C++交叉编译器gcc<br>gcc是编译的前端程序，它通过调用其他程序来实现将程序源文件编译成目标文件的功能。<br>编译时，它首先调用预处理程序(cpp)对输入的源程序进行处理，然后调用 cc1 将预处理后的程序编译成汇编代码，最后由as将汇编代码编译成目标代码。gcc具有丰富的命令选项，可以控制编译的各个阶段，满足用户的各种编译需求。</p>
 </li>
-<li>
-<p>(2) 汇编器 as<br>
-as将汇编语言程序转换为ELF (Executable and Linking Format，执行时链接文件格式)格式的可重定位目标代码，这些目标代码同其它目标模块或函数库易于定位和链接。<br>
-as产生一个交叉参考表和一个标准的符号表，产生的代码和数据能够放在多个区 (Section)中。</p>
+<li><p>(2) 汇编器 as<br>as将汇编语言程序转换为ELF (Executable and Linking Format，执行时链接文件格式)格式的可重定位目标代码，这些目标代码同其它目标模块或函数库易于定位和链接。<br>as产生一个交叉参考表和一个标准的符号表，产生的代码和数据能够放在多个区 (Section)中。</p>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">as hello.s -o hello.o  #这一步将汇编源码*.s编译为*.o</span><br><span class="line">ld hello.o -o hello    #这一步将*.o链接, 生成ELF</span><br></pre></td></tr></table></figure>
 <ul>
-<li>
-<p>(3) 连接器ld<br>
-ld根据链接定位文件Linkcmds中的代码区、数据区、BSS区和栈区等定位信息，将可重定位的目标模块链接成一个单一的、绝对定位的目标程序。该目标程序是ELF格式，并且可以包含调试信息。<br>
-ld会产生一个内存映象文件Map.txt,该文件显示所有目标模块、区和符号的绝对定位地址。它也产生交叉参考列表，显示参考每个全局符号的目标模块。<br>
-ld支持将多个目标模块链接成一个单一的、绝对定位的目标程序，也能够依此对目标模块进行链接，这个特性称为增量链接(Incremental Linking)。<br>
-假如输入文件是一个函数库，ld会自动从函数库装载被其它目标模块参考的函数模块。ld与其它链接程序相比，能提供更有帮助的诊断信息。许多链接器遇到第一个错误即放弃链接，而ld只要有可能都继续执行，帮助用户识别其它错误，有时甚至能获得输出代码。</p>
+<li><p>(3) 连接器ld<br>ld根据链接定位文件Linkcmds中的代码区、数据区、BSS区和栈区等定位信息，将可重定位的目标模块链接成一个单一的、绝对定位的目标程序。该目标程序是ELF格式，并且可以包含调试信息。<br>ld会产生一个内存映象文件Map.txt,该文件显示所有目标模块、区和符号的绝对定位地址。它也产生交叉参考列表，显示参考每个全局符号的目标模块。<br>ld支持将多个目标模块链接成一个单一的、绝对定位的目标程序，也能够依此对目标模块进行链接，这个特性称为增量链接(Incremental Linking)。<br>假如输入文件是一个函数库，ld会自动从函数库装载被其它目标模块参考的函数模块。ld与其它链接程序相比，能提供更有帮助的诊断信息。许多链接器遇到第一个错误即放弃链接，而ld只要有可能都继续执行，帮助用户识别其它错误，有时甚至能获得输出代码。</p>
 </li>
-<li>
-<p>(4) 库管理器ar<br>
-ar将多个可重定位的目标模块归档为一个函数库文件。采用函数库文件，应用程序能够从该文件中自动装载要参考的函数模块，同时将应用程序中频繁调用的函数放入函数库文件中，易于应用程序的开发管理。ar支持ELF格式的函数库文件.</p>
+<li><p>(4) 库管理器ar<br>ar将多个可重定位的目标模块归档为一个函数库文件。采用函数库文件，应用程序能够从该文件中自动装载要参考的函数模块，同时将应用程序中频繁调用的函数放入函数库文件中，易于应用程序的开发管理。ar支持ELF格式的函数库文件.</p>
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gcc -c 1.c 2.c 3.c   # 生成1.o, 2.o, 3.o</span><br><span class="line">$ ar rs lib123.a 1.o 2.o 3.o # 将所有*.o打包成lib123.a:</span><br></pre></td></tr></table></figure>
 <ul>
-<li>(5) 工程管理器MAKE<br>
-Make是用于自动编译、链接程序的实用工具,使用make后就不需要手工的编译每个程序文件。要使用make,首先要编写makefile。<br>
-Makefile描述程序文件之间的依赖关系，并提供更新文件的命令。在一个程序中，可执行文件依赖于目标文件,而目标文件依赖于源文件。如果makefile文件存在,每次修改完源程序后，用户通常所需要做的事情就是在命令行敲入“make”,然后所有的事情都由make来完成。</li>
+<li>(5) 工程管理器MAKE<br>Make是用于自动编译、链接程序的实用工具,使用make后就不需要手工的编译每个程序文件。要使用make,首先要编写makefile。<br>Makefile描述程序文件之间的依赖关系，并提供更新文件的命令。在一个程序中，可执行文件依赖于目标文件,而目标文件依赖于源文件。如果makefile文件存在,每次修改完源程序后，用户通常所需要做的事情就是在命令行敲入“make”,然后所有的事情都由make来完成。</li>
 </ul>
 
       
@@ -675,7 +630,7 @@ Makefile描述程序文件之间的依赖关系，并提供更新文件的命令
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">起因：Makefile错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">错误分析 &amp; 解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">错误日志里的新发现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">编译过程中的链接: ld</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">附录 I</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-text">链接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">附录 II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GNU-GCC简介："><span class="nav-text">GNU GCC简介：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCC-组成："><span class="nav-text">GCC 组成：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#起因：Makefile错误"><span class="nav-text">起因：Makefile错误</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误分析-amp-解决"><span class="nav-text">错误分析 &amp; 解决</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#错误日志里的新发现"><span class="nav-text">错误日志里的新发现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译过程中的链接-ld"><span class="nav-text">编译过程中的链接: ld</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录-I"><span class="nav-text">附录 I</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链接"><span class="nav-text">链接</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附录-II"><span class="nav-text">附录 II</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#GNU-GCC简介："><span class="nav-text">GNU GCC简介：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GCC-组成："><span class="nav-text">GCC 组成：</span></a></li></ol></li></ol></div>
             
 
           </div>

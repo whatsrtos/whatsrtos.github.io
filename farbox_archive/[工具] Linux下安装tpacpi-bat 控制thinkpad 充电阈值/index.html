@@ -358,43 +358,23 @@
         <p><a href="http://www.thinkwiki.org/wiki/Tp_smapi" target="_blank" rel="noopener">tp_smapi</a> 是一套适用于ThinkPad的驱动程序集, 包括了电池阈值设置, 风扇转速控制, 以及HDAPS(类似APS硬盘保护)几个功能.  但是 2013新出的几款Ivy Bridge 平台的thinkpad(X230,T430,T530)上已经无法使用tp_smapi了. 在github上可以看到tp_smapi 项目也有两年多没有更新: <a href="https://github.com/evgeni/tp_smapi" target="_blank" rel="noopener">tp_smapi地址</a></p>
 <p>所以对于T430等Ivy平台的Thinkpad, 推荐使用<a href="https://github.com/teleshoes/tpacpi-bat" target="_blank" rel="noopener">tpacpi-bat</a>调整电池充电阈值.</p>
 <p>安装过程:</p>
-<h3 id="1-安装acpidump-iasl工具">(1) 安装acpidump , iasl工具</h3>
-<blockquote>
+<h3 id="1-安装acpidump-iasl工具"><a href="#1-安装acpidump-iasl工具" class="headerlink" title="(1) 安装acpidump , iasl工具"></a>(1) 安装acpidump , iasl工具</h3><blockquote>
 <p>sudo yum install pmtools iasl</p>
 </blockquote>
-<h3 id="2-acpidump">(2) acpidump</h3>
-<blockquote>
-<p>sudo acpidump -b -t DSDT -o /tmp/dsdt.aml<br>
-可能会返回Wrong checksum for FADT!错误, 忽略.<br>
-iasl -d /tmp/dsdt.aml<br>
-cat /tmp/dsdt.dsl | grep \\_SB.PCI.*HKEY -amlo | uniq<br>
-记住输出的字符串, 我的T430输出是&quot;_SB.PCI0.LPC.EC.HKEY&quot;</p>
+<h3 id="2-acpidump"><a href="#2-acpidump" class="headerlink" title="(2) acpidump"></a>(2) acpidump</h3><blockquote>
+<p>sudo acpidump -b -t DSDT -o /tmp/dsdt.aml<br>可能会返回Wrong checksum for FADT!错误, 忽略.<br>iasl -d /tmp/dsdt.aml<br>cat /tmp/dsdt.dsl | grep \\_SB.PCI.*HKEY -amlo | uniq<br>记住输出的字符串, 我的T430输出是”_SB.PCI0.LPC.EC.HKEY”</p>
 </blockquote>
-<h3 id="3-编译acpi-call">(3) 编译acpi_call</h3>
-<p>下载代码并编译: <a href="https://github.com/mkottman/acpi_call" target="_blank" rel="noopener">https://github.com/mkottman/acpi_call</a></p>
+<h3 id="3-编译acpi-call"><a href="#3-编译acpi-call" class="headerlink" title="(3) 编译acpi_call"></a>(3) 编译acpi_call</h3><p>下载代码并编译: <a href="https://github.com/mkottman/acpi_call" target="_blank" rel="noopener">https://github.com/mkottman/acpi_call</a></p>
 <blockquote>
-<p>sudo make<br>
-sudo make install<br>
-sudo depmod -a<br>
-sudo modprobe acpi_call</p>
+<p>sudo make<br>sudo make install<br>sudo depmod -a<br>sudo modprobe acpi_call</p>
 </blockquote>
 <p>最后一步载入acpi_call.ko之后,会多出一个 /proc/acpi/call “文件”, 通过写入参数到这个文件, 实现与acpi_call的交互.tpacpi-bat就是通过这种方式控制电池阈值. 当然也可以通过acpi_call控制独立显卡的关闭(双显卡的机型).</p>
-<h3 id="4-安装tpacpi-call">(4) 安装tpacpi_call</h3>
-<p>下载代码并编译: <a href="https://github.com/teleshoes/tpacpi-bat" target="_blank" rel="noopener">https://github.com/teleshoes/tpacpi-bat</a><br>
-需要手动编辑一下 vim  tpacpi-bat<br>
-找到 “my $aslBases = …” 并改为自己的配置, 例如我的T430改为:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">my $aslBases = &#123;</span><br><span class="line">  &apos;default&apos;              =&gt; &apos;\_SB.PCI0.LPC.EC.HKEY&apos;,</span><br><span class="line">  &apos;ThinkPad W520&apos;        =&gt; &apos;\_SB.PCI0.LPC.EC.HKEY&apos;,</span><br><span class="line">  &apos;ThinkPad T430&apos;        =&gt; &apos;\_SB.PCI0.LPC.EC.HKEY&apos;,</span><br><span class="line">  &apos;ThinkPad T430u&apos;       =&gt; &apos;\_SB.PCI0.LPCB.EC.HKEY&apos;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="4-安装tpacpi-call"><a href="#4-安装tpacpi-call" class="headerlink" title="(4) 安装tpacpi_call"></a>(4) 安装tpacpi_call</h3><p>下载代码并编译: <a href="https://github.com/teleshoes/tpacpi-bat" target="_blank" rel="noopener">https://github.com/teleshoes/tpacpi-bat</a><br>需要手动编辑一下 vim  tpacpi-bat<br>找到 “my $aslBases = …” 并改为自己的配置, 例如我的T430改为:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">my $aslBases = &#123;</span><br><span class="line">  &apos;default&apos;              =&gt; &apos;\_SB.PCI0.LPC.EC.HKEY&apos;,</span><br><span class="line">  &apos;ThinkPad W520&apos;        =&gt; &apos;\_SB.PCI0.LPC.EC.HKEY&apos;,</span><br><span class="line">  &apos;ThinkPad T430&apos;        =&gt; &apos;\_SB.PCI0.LPC.EC.HKEY&apos;,</span><br><span class="line">  &apos;ThinkPad T430u&apos;       =&gt; &apos;\_SB.PCI0.LPCB.EC.HKEY&apos;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>然后把tpacpi-bat 移动到/usr/local/bin .</p>
-<h3 id="5-增加到开机脚本中">(5) 增加到开机脚本中</h3>
-<p>编辑/etc/rc.local, 增加两行:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/usr/local/bin/tpacpi-bat -s ST 0 70</span><br><span class="line">/usr/local/bin/tpacpi-bat -s SP 0 90</span><br></pre></td></tr></table></figure>
+<h3 id="5-增加到开机脚本中"><a href="#5-增加到开机脚本中" class="headerlink" title="(5) 增加到开机脚本中"></a>(5) 增加到开机脚本中</h3><p>编辑/etc/rc.local, 增加两行:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/usr/local/bin/tpacpi-bat -s ST 0 70</span><br><span class="line">/usr/local/bin/tpacpi-bat -s SP 0 90</span><br></pre></td></tr></table></figure></p>
 <p>上面两行分别将<em>开始充电</em>和<em>停止充电</em>设置为70%和90%.</p>
-<h3 id="6-查询充电阈值">(6) 查询充电阈值</h3>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tpacpi-bat -v -g ST 1</span><br><span class="line">tpacpi-bat -v -g SP 1</span><br></pre></td></tr></table></figure>
-<p>参考:<br>
-<a href="http://ubuntuforums.org/showthread.php?t=2148044" target="_blank" rel="noopener">http://ubuntuforums.org/showthread.php?t=2148044</a><br>
-<a href="http://smitran.com/centos-6-thinkpad-t530-prolong-battery-life-with-tpacpi-bat/" target="_blank" rel="noopener">http://smitran.com/centos-6-thinkpad-t530-prolong-battery-life-with-tpacpi-bat/</a><br>
-<a href="http://blog.thekondor.net/2012/09/make-new-thinkpads-charge-thresholds.html" target="_blank" rel="noopener">http://blog.thekondor.net/2012/09/make-new-thinkpads-charge-thresholds.html</a></p>
+<h3 id="6-查询充电阈值"><a href="#6-查询充电阈值" class="headerlink" title="(6) 查询充电阈值"></a>(6) 查询充电阈值</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tpacpi-bat -v -g ST 1</span><br><span class="line">tpacpi-bat -v -g SP 1</span><br></pre></td></tr></table></figure>
+<p>参考:<br><a href="http://ubuntuforums.org/showthread.php?t=2148044" target="_blank" rel="noopener">http://ubuntuforums.org/showthread.php?t=2148044</a><br><a href="http://smitran.com/centos-6-thinkpad-t530-prolong-battery-life-with-tpacpi-bat/" target="_blank" rel="noopener">http://smitran.com/centos-6-thinkpad-t530-prolong-battery-life-with-tpacpi-bat/</a><br><a href="http://blog.thekondor.net/2012/09/make-new-thinkpads-charge-thresholds.html" target="_blank" rel="noopener">http://blog.thekondor.net/2012/09/make-new-thinkpads-charge-thresholds.html</a></p>
 
       
     </div>

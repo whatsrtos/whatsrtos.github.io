@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="参考列表:  @Ref Sed简明教程 @Ref Awk简明教程  sed 参数解析  -i : 表示将改变直接写入原文件, sed默认只修改输出到终端上的内容 -f : -f file1 表示将sed 的操作都输出到file1 -n : slient模式, 默认情况下sed所有来自STDIN的数据都会输出到终端,-n只会将&amp;quot;来自sed的操作&amp;quot;输出到终端, 一般和p一起用; -">
+<meta name="description" content="参考列表:  @Ref Sed简明教程 @Ref Awk简明教程  sed参数解析 -i : 表示将改变直接写入原文件, sed默认只修改输出到终端上的内容 -f : -f file1 表示将sed 的操作都输出到file1 -n : slient模式, 默认情况下sed所有来自STDIN的数据都会输出到终端,-n只会将”来自sed的操作”输出到终端, 一般和p一起用; -e : 表示使用正则匹配">
 <meta name="keywords" content="Linux,命令行,sed,awk,grep">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sed &amp; awk &amp; grep">
 <meta property="og:url" content="https://whatsrtos.github.io/Linux/Linux-Sed_Awk_Grep/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="参考列表:  @Ref Sed简明教程 @Ref Awk简明教程  sed 参数解析  -i : 表示将改变直接写入原文件, sed默认只修改输出到终端上的内容 -f : -f file1 表示将sed 的操作都输出到file1 -n : slient模式, 默认情况下sed所有来自STDIN的数据都会输出到终端,-n只会将&amp;quot;来自sed的操作&amp;quot;输出到终端, 一般和p一起用; -">
+<meta property="og:description" content="参考列表:  @Ref Sed简明教程 @Ref Awk简明教程  sed参数解析 -i : 表示将改变直接写入原文件, sed默认只修改输出到终端上的内容 -f : -f file1 表示将sed 的操作都输出到file1 -n : slient模式, 默认情况下sed所有来自STDIN的数据都会输出到终端,-n只会将”来自sed的操作”输出到终端, 一般和p一起用; -e : 表示使用正则匹配">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-06-26T14:08:32.383Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sed &amp; awk &amp; grep">
-<meta name="twitter:description" content="参考列表:  @Ref Sed简明教程 @Ref Awk简明教程  sed 参数解析  -i : 表示将改变直接写入原文件, sed默认只修改输出到终端上的内容 -f : -f file1 表示将sed 的操作都输出到file1 -n : slient模式, 默认情况下sed所有来自STDIN的数据都会输出到终端,-n只会将&amp;quot;来自sed的操作&amp;quot;输出到终端, 一般和p一起用; -">
+<meta name="twitter:description" content="参考列表:  @Ref Sed简明教程 @Ref Awk简明教程  sed参数解析 -i : 表示将改变直接写入原文件, sed默认只修改输出到终端上的内容 -f : -f file1 表示将sed 的操作都输出到file1 -n : slient模式, 默认情况下sed所有来自STDIN的数据都会输出到终端,-n只会将”来自sed的操作”输出到终端, 一般和p一起用; -e : 表示使用正则匹配">
 
 
 
@@ -360,71 +360,54 @@
 <li>@Ref <a href="https://www.evernote.com/shard/s120/sh/352388f6-979b-4bfb-902e-e9b02759fe6a/c5fc9c39e0fc308439d8145dbe3b9c39" target="_blank" rel="noopener">Sed简明教程</a></li>
 <li>@Ref <a href="https://www.evernote.com/shard/s120/sh/28f2e3ea-b7e1-43f0-ab34-a61c55298bfe/b3230c8d52a002f70dca475a8c94f375" target="_blank" rel="noopener">Awk简明教程</a></li>
 </ul>
-<h1>sed</h1>
-<h2 id="参数解析">参数解析</h2>
-<ul>
+<h1 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h1><h2 id="参数解析"><a href="#参数解析" class="headerlink" title="参数解析"></a>参数解析</h2><ul>
 <li>-i : 表示将改变直接写入原文件, sed默认只修改输出到终端上的内容</li>
 <li>-f : -f file1 表示将sed 的操作都输出到file1</li>
-<li>-n : slient模式, 默认情况下sed所有来自STDIN的数据都会输出到终端,-n只会将&quot;来自sed的操作&quot;输出到终端, 一般和p一起用;</li>
+<li>-n : slient模式, 默认情况下sed所有来自STDIN的数据都会输出到终端,-n只会将”来自sed的操作”输出到终端, 一般和p一起用;</li>
 <li>-e : 表示使用正则匹配</li>
 </ul>
-<h2 id="example">example</h2>
-<ul>
+<h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><ul>
 <li>替换全部: sed “s/aaa/bbb/g” -i file</li>
 <li>每行开头插入#号: sed “s/^/#/g” -i file</li>
 <li>只在3-6行替换: sed “3,6s/aaa/bbb/g” -i file</li>
 <li>只替换每行的第1处aaa: sed “s/aaa/bbb/1” -i file</li>
 <li>只替换每行的第2处aaa: sed “s/aaa/bbb/2” -i file</li>
 <li>替换每行第3-最后一处aaa: sed “s/aaa/bbb/3,g” -i file</li>
-<li>正则: <code>sed -e 's/^#\s*\(.*[0-9].*\)$/\1/g' filename</code></li>
+<li>正则: <code>sed -e &#39;s/^#\s*\(.*[0-9].*\)$/\1/g&#39; filename</code></li>
 </ul>
-<h1>awk</h1>
-<h2 id="参数解析-2">参数解析</h2>
-<ul>
-<li>命令格式:
-<ul>
-<li><code>awk [options] 'script' file_name</code> :</li>
+<h1 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h1><h2 id="参数解析-1"><a href="#参数解析-1" class="headerlink" title="参数解析"></a>参数解析</h2><ul>
+<li>命令格式:<ul>
+<li><code>awk [options] &#39;script&#39; file_name</code> :</li>
 <li><code>awk [options] -f scriptfile file_name</code></li>
 </ul>
 </li>
-<li>[options]选项有:
-<ul>
+<li>[options]选项有:<ul>
 <li><code>-F</code> : 指定分隔符. 分隔符默认是空格, <code>awk -F&quot;[@ /t]&quot;</code> 告诉awk “@符号, 空格和Tab” 都是字段分隔符. <code>awk -F:</code> 则表示冒号作为分隔;</li>
 <li><code>-v</code> : 赋值一个用户定义变量, 传递给scripts, 例 <code>-v var=value</code></li>
 <li><code>-f</code> : 从指定文件中读取 awk scripts, 例 <code>-f scripfile</code></li>
 </ul>
 </li>
 </ul>
-<h2 id="awk脚本">awk脚本</h2>
-<h3 id="基本语法">基本语法</h3>
-<p>TODO</p>
-<h3 id="内建变量">内建变量</h3>
-<ul>
-<li><code>NF</code>:  表示目前的记录被分割的字段的数目，NF可以理解为 Number of Field。<code>awk '{print FNR}' data.txt</code> 会打印出字段个数 (默认是任何数量的空格);</li>
+<h2 id="awk脚本"><a href="#awk脚本" class="headerlink" title="awk脚本"></a>awk脚本</h2><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><p>TODO</p>
+<h3 id="内建变量"><a href="#内建变量" class="headerlink" title="内建变量"></a>内建变量</h3><ul>
+<li><code>NF</code>:  表示目前的记录被分割的字段的数目，NF可以理解为 Number of Field。<code>awk &#39;{print FNR}&#39; data.txt</code> 会打印出字段个数 (默认是任何数量的空格);</li>
 <li><code>$NF</code>: 表示的最后一个Field（列）即输出最后一个字段的内容;</li>
 <li><code>NR</code> : 已经读出的记录数，即行号，从1开始;</li>
 <li><code>$n</code> : 表示目前的记录被分割后, 第n个字段的内容;</li>
 </ul>
-<h2 id="example-1">example 1</h2>
-<ul>
-<li><code>lsof | awk '{process[$1]++;} END{for(key in process) printf(&quot;%s:%d\n&quot;, key, process[key])}' </code> #每个进程打开的文件数</li>
-<li><code>lsof | awk '{if($8 == &quot;TCP&quot;) opened_tcp++} END{print opened_tcp }' </code> #打开TCP连接数量</li>
-<li><code>lsof | awk '{opened_type[$5]++} END{ for(key in opened_type) printf(&quot;%s : %d\n&quot;, key, opened_type[key])}' </code> #打开文件按TYPE统计</li>
+<h2 id="example-1"><a href="#example-1" class="headerlink" title="example 1"></a>example 1</h2><ul>
+<li><code>lsof | awk &#39;{process[$1]++;} END{for(key in process) printf(&quot;%s:%d\n&quot;, key, process[key])}&#39;</code> #每个进程打开的文件数</li>
+<li><code>lsof | awk &#39;{if($8 == &quot;TCP&quot;) opened_tcp++} END{print opened_tcp }&#39;</code> #打开TCP连接数量</li>
+<li><code>lsof | awk &#39;{opened_type[$5]++} END{ for(key in opened_type) printf(&quot;%s : %d\n&quot;, key, opened_type[key])}&#39;</code> #打开文件按TYPE统计</li>
 </ul>
-<h2 id="example-2">example 2</h2>
-<ul>
-<li>awk多维数组在本质上是一维数组, 因awk在存储上并不支持多维数组, awk提供了逻辑上模拟二维数组的访问方式. 例如, array[2,3] = 1这样的访问是允许的.<br>
-awk使用一个特殊的字符串SUBSEP (\034)作为分割字段, 在上面的例子 array[2,3] = 1 中, 关联数组array存储的键值实际上是2\0343, 2和3分别为下标（2, 3）, \034为SUBSEP分隔符</li>
-<li>类似一维数组的循环访问, 多维数组使用 <code>for ( item in array )</code> 语法遍历数组. 与一维数组不同的是, 多维数组必须使用<code>split()</code>函数来访问单独的下标分量, 格式： <code>split ( item, subscr, SUBSEP)</code>.<br>
-例如： <code>split (item, array2, SUBSEP);</code> 后, array2[1]为下标“2”,  array2[2]为下标“3”</li>
+<h2 id="example-2"><a href="#example-2" class="headerlink" title="example 2"></a>example 2</h2><ul>
+<li>awk多维数组在本质上是一维数组, 因awk在存储上并不支持多维数组, awk提供了逻辑上模拟二维数组的访问方式. 例如, array[2,3] = 1这样的访问是允许的.<br>awk使用一个特殊的字符串SUBSEP (\034)作为分割字段, 在上面的例子 array[2,3] = 1 中, 关联数组array存储的键值实际上是2\0343, 2和3分别为下标（2, 3）, \034为SUBSEP分隔符</li>
+<li>类似一维数组的循环访问, 多维数组使用 <code>for ( item in array )</code> 语法遍历数组. 与一维数组不同的是, 多维数组必须使用<code>split()</code>函数来访问单独的下标分量, 格式： <code>split ( item, subscr, SUBSEP)</code>.<br>例如： <code>split (item, array2, SUBSEP);</code> 后, array2[1]为下标“2”,  array2[2]为下标“3”</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -Fb表示分隔符</span></span><br><span class="line">awk -F <span class="string">'&amp;'</span> <span class="string">'BEGIN&#123;</span></span><br><span class="line"><span class="string">        # 初始化代码块</span></span><br><span class="line"><span class="string">    &#125;&#123;</span></span><br><span class="line"><span class="string">        # awk二维数组, 和awk外的数组变量不是一个</span></span><br><span class="line"><span class="string">        # 数组直接使用, 不需初始化</span></span><br><span class="line"><span class="string">         comment[$5, $3]++</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    END&#123;</span></span><br><span class="line"><span class="string">       printf("%d", length(comment)) # awk内置数组长度</span></span><br><span class="line"><span class="string">       # 循环awk数组</span></span><br><span class="line"><span class="string">       for(ii in comment)&#123;</span></span><br><span class="line"><span class="string">          # 这里的ii是key, value是comment[ii]</span></span><br><span class="line"><span class="string">           split(ii, strs, SUBSEP) # 对多维数组的key做split操作, 得到的数组strs[1]~strs[n]是数组下标</span></span><br><span class="line"><span class="string">           appid = strs[1] # strs从下标1开始</span></span><br><span class="line"><span class="string">           user =  strs[2]</span></span><br><span class="line"><span class="string">           printf("%d,%d\n", strs[1], strs[2], comment[ii]) &gt;&gt; "'</span><span class="variable">$sqlLoadFile</span><span class="string">'" # 类似C的printf</span></span><br><span class="line"><span class="string">       &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &#125;'</span> <span class="variable">$tmpDir</span>/<span class="built_in">stat</span>-log*.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-<h1>grep</h1>
-<h2 id="参数解析-3">参数解析</h2>
-<ul>
+<h1 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h1><h2 id="参数解析-2"><a href="#参数解析-2" class="headerlink" title="参数解析"></a>参数解析</h2><ul>
 <li>用法: grep [参数] [查找字符串] [文件名]</li>
-<li>常用参数:
-<ul>
+<li>常用参数:<ul>
 <li>-n：显示匹配行及行号.</li>
 <li>-c：只输出匹配行的计数.</li>
 <li>-I：不区分大小写(只适用于单字符).</li>
@@ -432,19 +415,17 @@ awk使用一个特殊的字符串SUBSEP (\034)作为分割字段, 在上面的�
 <li>-r：子目录递归查找.</li>
 <li>-A n：a指after匹配指定行的后n行数据.</li>
 <li>-B n：b 指before 匹配指定行的前N行数据.</li>
-<li>-C n：显示匹配行的前后N行, 助记&quot;center&quot;.</li>
-<li>-w xxx: 全词匹配, 比如 grep -w RUNNING, 参数w保证&quot;RUN&quot;不会被搜出来.</li>
+<li>-C n：显示匹配行的前后N行, 助记”center”.</li>
+<li>-w xxx: 全词匹配, 比如 grep -w RUNNING, 参数w保证”RUN”不会被搜出来.</li>
 </ul>
 </li>
 </ul>
-<h2 id="example-2">example</h2>
-<ul>
+<h2 id="example-1"><a href="#example-1" class="headerlink" title="example"></a>example</h2><ul>
 <li>在指定文件查找字符串: <code>grep &quot;XYZ&quot; /etc/passwd</code></li>
 <li>在指定文件查找多个:  <code>grep -e &quot;XYZ&quot; -e &quot;root&quot; /etc/passwd</code></li>
 <li>在指定目录递归查找: <code>grep -r XYZ /etc/</code></li>
-<li>在指定类型的文件查找字符串:
-<ul>
-<li><code>find . -name '*.c' -exec grep -irn &quot;keyword&quot; {} \;</code></li>
+<li>在指定类型的文件查找字符串:<ul>
+<li><code>find . -name &#39;*.c&#39; -exec grep -irn &quot;keyword&quot; {} \;</code></li>
 <li><code>find -name *.c | xargs grep -irwn &quot;keyword&quot;</code></li>
 </ul>
 </li>
@@ -667,7 +648,7 @@ awk使用一个特殊的字符串SUBSEP (\034)作为分割字段, 在上面的�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">sed</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数解析"><span class="nav-text">参数解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-text">example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">awk</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数解析-2"><span class="nav-text">参数解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk脚本"><span class="nav-text">awk脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内建变量"><span class="nav-text">内建变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-1"><span class="nav-text">example 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-2"><span class="nav-text">example 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">grep</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数解析-3"><span class="nav-text">参数解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-2"><span class="nav-text">example</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sed"><span class="nav-text">sed</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数解析"><span class="nav-text">参数解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example"><span class="nav-text">example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#awk"><span class="nav-text">awk</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数解析-1"><span class="nav-text">参数解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#awk脚本"><span class="nav-text">awk脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本语法"><span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内建变量"><span class="nav-text">内建变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-1"><span class="nav-text">example 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-2"><span class="nav-text">example 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#grep"><span class="nav-text">grep</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数解析-2"><span class="nav-text">参数解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#example-1"><span class="nav-text">example</span></a></li></ol></li></ol></div>
             
 
           </div>

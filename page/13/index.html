@@ -357,16 +357,13 @@
 
       
         
-          <h1>插件:</h1>
-<h2 id="UI">UI</h2>
-<ul>
+          <h1 id="插件"><a href="#插件" class="headerlink" title="插件:"></a>插件:</h1><h2 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h2><ul>
 <li>color: solarized/molokai/phd</li>
 <li>vim-airline : 状态栏</li>
 <li>Nerd_tree : 文件浏览</li>
 <li>vim-startify : vim的起始页</li>
 </ul>
-<h2 id="编辑">编辑</h2>
-<ul>
+<h2 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h2><ul>
 <li>EasyMotion : 快速在代码中移动光标</li>
 <li>The-NERD-Commenter : 注释</li>
 <li>vim-markdown</li>
@@ -503,14 +500,9 @@
 
       
         
-          <h3 id="1-安装win版本的gvim">(1)安装win版本的gvim:</h3>
-<p>下载地址 <a href="http://www.vim.org/download.php" target="_blank" rel="noopener">http://www.vim.org/download.php</a><br>
-比如安装目录是F:\Program Files (x86)\Vim,  并在此目录下新建&quot;bundle\vundle&quot;目录.</p>
-<h3 id="2-安装git">(2)安装git</h3>
-<p>安装git命令行: <a href="http://git-scm.com/" target="_blank" rel="noopener">http://git-scm.com/</a> (已被长城)<br>
-或者github带GUI的版本: <a href="http://windows.github.com/" target="_blank" rel="noopener">http://windows.github.com/</a><br>
-并且把git所在的目录加进环境变量PATH中.</p>
-<h3 id="3-安装vundle">(3) 安装vundle</h3>
+          <h3 id="1-安装win版本的gvim"><a href="#1-安装win版本的gvim" class="headerlink" title="(1)安装win版本的gvim:"></a>(1)安装win版本的gvim:</h3><p>下载地址 <a href="http://www.vim.org/download.php" target="_blank" rel="noopener">http://www.vim.org/download.php</a><br>比如安装目录是F:\Program Files (x86)\Vim,  并在此目录下新建”bundle\vundle”目录.</p>
+<h3 id="2-安装git"><a href="#2-安装git" class="headerlink" title="(2)安装git"></a>(2)安装git</h3><p>安装git命令行: <a href="http://git-scm.com/" target="_blank" rel="noopener">http://git-scm.com/</a> (已被长城)<br>或者github带GUI的版本: <a href="http://windows.github.com/" target="_blank" rel="noopener">http://windows.github.com/</a><br>并且把git所在的目录加进环境变量PATH中.</p>
+<h3 id="3-安装vundle"><a href="#3-安装vundle" class="headerlink" title="(3) 安装vundle"></a>(3) 安装vundle</h3>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/farbox_archive/[Vim] 使用vundle管理vim插件/#more" rel="contents">
@@ -617,7 +609,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,761
+                  2,760
                 </span>
               
 
@@ -649,9 +641,7 @@
 <li><code>readelf</code>用来分析elf文件；</li>
 <li><code>ldd</code>用来分析程序运行时需要依赖的动态库。</li>
 </ul>
-<p>先来回顾一下Linux进程内存布局：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">----高地址----</span><br><span class="line">&lt;栈stack&gt;</span><br><span class="line">  |</span><br><span class="line">&lt;堆heap&gt;</span><br><span class="line">&lt;.bss&gt;  未初始化的全局变量</span><br><span class="line">&lt;.data&gt; 已初始化的全局变量,static变量</span><br><span class="line">  &lt;.rodata&gt; 属于.data, 存放const, char*字符串</span><br><span class="line">&lt;.txt&gt;  代码段</span><br><span class="line">----低地址----</span><br></pre></td></tr></table></figure>
-<p>本文中使用的示例代码:</p>
+<p>先来回顾一下Linux进程内存布局：<br></p><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">----高地址----</span><br><span class="line">&lt;栈stack&gt;</span><br><span class="line">  |</span><br><span class="line">&lt;堆heap&gt;</span><br><span class="line">&lt;.bss&gt;  未初始化的全局变量</span><br><span class="line">&lt;.data&gt; 已初始化的全局变量,static变量</span><br><span class="line">  &lt;.rodata&gt; 属于.data, 存放const, char*字符串</span><br><span class="line">&lt;.txt&gt;  代码段</span><br><span class="line">----低地址----</span><br></pre></td></tr></table></figure><p></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/farbox_archive/[C] GNU的obj分析工具的使用/#more" rel="contents">
@@ -787,8 +777,7 @@
           <p><a href="http://www.thinkwiki.org/wiki/Tp_smapi" target="_blank" rel="noopener">tp_smapi</a> 是一套适用于ThinkPad的驱动程序集, 包括了电池阈值设置, 风扇转速控制, 以及HDAPS(类似APS硬盘保护)几个功能.  但是 2013新出的几款Ivy Bridge 平台的thinkpad(X230,T430,T530)上已经无法使用tp_smapi了. 在github上可以看到tp_smapi 项目也有两年多没有更新: <a href="https://github.com/evgeni/tp_smapi" target="_blank" rel="noopener">tp_smapi地址</a></p>
 <p>所以对于T430等Ivy平台的Thinkpad, 推荐使用<a href="https://github.com/teleshoes/tpacpi-bat" target="_blank" rel="noopener">tpacpi-bat</a>调整电池充电阈值.</p>
 <p>安装过程:</p>
-<h3 id="1-安装acpidump-iasl工具">(1) 安装acpidump , iasl工具</h3>
-<blockquote>
+<h3 id="1-安装acpidump-iasl工具"><a href="#1-安装acpidump-iasl工具" class="headerlink" title="(1) 安装acpidump , iasl工具"></a>(1) 安装acpidump , iasl工具</h3><blockquote>
 <p>sudo yum install pmtools iasl</p>
 </blockquote>
           <!--noindex-->

@@ -358,36 +358,30 @@
       
         
           <p><img src="/images/Linux-Performance/Linux-Series-Title.png" alt></p>
-<h1>@TLDR</h1>
-<ul>
-<li><strong>cpu</strong>:
-<ul>
+<h1 id="TLDR"><a href="#TLDR" class="headerlink" title="@TLDR"></a>@TLDR</h1><ul>
+<li><strong>cpu</strong>:<ul>
 <li>uptime 查看load值, 不高于core数, <code>sar -q</code>也可以查看load值</li>
 <li>vmstat: 关注r(同load), 和b(等待资源的进程数), 以及cpu占用(用户进程和内核进程)时间百分比: us%不超过50%, us% + sy%不超过80%</li>
 <li>sar也可以查看us% sy%占用CPU时间百分比</li>
 </ul>
 </li>
-<li><strong>内存</strong>:
-<ul>
+<li><strong>内存</strong>:<ul>
 <li>free: 可用内存小于20%需要关注, <code>sar -r</code>类似</li>
 <li>vmstat的si和so: 一般不应该大于0, <code>sar -W</code>也可以查看交换区</li>
 </ul>
 </li>
-<li><strong>I/O</strong>:
-<ul>
+<li><strong>I/O</strong>:<ul>
 <li>vmstat: 需关注wa(IO等待占用CPU百分比): 大于30%时需关注, bi/bo也需要关注(阈值?)</li>
 <li>iowait: sar也可以查看iowait%</li>
 </ul>
 </li>
-<li><strong>网络</strong>:
-<ul>
+<li><strong>网络</strong>:<ul>
 <li>netstat -antp : 查看所有tcp连接</li>
 <li>iperf: 吞吐量(Throughput) , 大约为网卡最大速率的一半</li>
 </ul>
 </li>
 </ul>
-<h1>基础性能参数</h1>
-<h2 id="load">load</h2>
+<h1 id="基础性能参数"><a href="#基础性能参数" class="headerlink" title="基础性能参数"></a>基础性能参数</h1><h2 id="load"><a href="#load" class="headerlink" title="load"></a>load</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/Linux/Linux-Performance/#more" rel="contents">
@@ -525,12 +519,10 @@
 <li>@Ref <a href="https://www.evernote.com/shard/s120/sh/352388f6-979b-4bfb-902e-e9b02759fe6a/c5fc9c39e0fc308439d8145dbe3b9c39" target="_blank" rel="noopener">Sed简明教程</a></li>
 <li>@Ref <a href="https://www.evernote.com/shard/s120/sh/28f2e3ea-b7e1-43f0-ab34-a61c55298bfe/b3230c8d52a002f70dca475a8c94f375" target="_blank" rel="noopener">Awk简明教程</a></li>
 </ul>
-<h1>sed</h1>
-<h2 id="参数解析">参数解析</h2>
-<ul>
+<h1 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h1><h2 id="参数解析"><a href="#参数解析" class="headerlink" title="参数解析"></a>参数解析</h2><ul>
 <li>-i : 表示将改变直接写入原文件, sed默认只修改输出到终端上的内容</li>
 <li>-f : -f file1 表示将sed 的操作都输出到file1</li>
-<li>-n : slient模式, 默认情况下sed所有来自STDIN的数据都会输出到终端,-n只会将&quot;来自sed的操作&quot;输出到终端, 一般和p一起用;</li>
+<li>-n : slient模式, 默认情况下sed所有来自STDIN的数据都会输出到终端,-n只会将”来自sed的操作”输出到终端, 一般和p一起用;</li>
 <li>-e : 表示使用正则匹配</li>
 </ul>
           <!--noindex-->
@@ -666,30 +658,14 @@
       
         
           <p><img src="http://storm.apache.org/images/logo.png" alt="Storm"></p>
-<h1>概述</h1>
-<p>Storm是一个开源的分布式实时计算系统，可以简单、可靠的处理大量的数据流。被称作“实时的hadoop”。<br>
-Storm有很多使用场景：如实时分析，在线机器学习，持续计算， 分布式RPC，ETL等等。<br>
-Storm支持水平扩展，具有高容错性，保证每个消息都会得到处理，而且处理速度很快。<br>
-Storm的部署和运维都很便捷，而且更为重要的是可以使用任意编程语言来开发应用。</p>
-<h2 id="Storm的特点">Storm的特点</h2>
-<ul>
-<li>简单的编程模型:<br>
-在大数据处理方面相信大家对hadoop已经耳熟能详，基于Google Map/Reduce来实现的Hadoop为开发者提供了map、reduce原语，使并行批处理程序变得非常地简单。<br>
-同样，Storm也为大数据 的实时计算提供了一些简单优美的原语，这大大降低了开发并行实时处理的任务的复杂性，帮助你快速、高效的开发应用。</li>
-<li>水平扩展:<br>
-在Storm集群中真正运行topology的主要有三个实体：工作进程、线程和任务。Storm集群中的每台机器上都可以运行多个工作进程，每个工作进程又可创建多个线程，每个线程可以执行多个任务，任务是真正进行数据处理的实体，我们开发的spout、bolt就是作为一个或者多个任务的方式执行的。<br>
-计算任务在多个线程、进程和服务器之间并行进行，支持灵活的水平扩展。</li>
-<li>支持多种编程语言:<br>
-你可以在Storm之上使用各种编程语言。默认支持Clojure、Java、Ruby和Python。要增加对其他语言的支持，只需实现一个简单的Storm通信协议即可。</li>
-<li>高可靠性:<br>
-Storm保证每个消息至少能得到一次完整处理。任务失败时，它会负责从消息源重试消息。<br>
-spout发出的消息后续可能会触发产生成千上万条消息，可以形象的理解为一棵消息树，其中spout发出的消息为树根，Storm会跟踪这棵消息树的处理情况，只有当这棵消息树中的所有消息都被处理了，Storm才会认为spout发出的这个消息已经被“完全处理”。如果这棵消息树中的任何一个消息处理失败了，或者整棵消息树在限定的时间内没有“完全处理”，那么spout发出的消息就会重发。</li>
-<li>高容错性:<br>
-Storm会管理工作进程和节点的故障。<br>
-如果在消息处理过程中出了一些异常，Storm会重新安排这个出问题的处理单元。Storm保证一个处理单元永远运行（除非你显式杀掉这个处理单元）。<br>
-当然，如果处理单元中存储了中间状态，那么当处理单元重新被Storm启动的时候，需要应用自己处理中间状态的恢复。</li>
-<li>本地模式:<br>
-Storm有一个“本地模式”，可以在处理过程中完全模拟Storm集群。这让你可以快速进行开发和单元测试。</li>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>  Storm是一个开源的分布式实时计算系统，可以简单、可靠的处理大量的数据流。被称作“实时的hadoop”。<br>  Storm有很多使用场景：如实时分析，在线机器学习，持续计算， 分布式RPC，ETL等等。<br>  Storm支持水平扩展，具有高容错性，保证每个消息都会得到处理，而且处理速度很快。<br>  Storm的部署和运维都很便捷，而且更为重要的是可以使用任意编程语言来开发应用。</p>
+<h2 id="Storm的特点"><a href="#Storm的特点" class="headerlink" title="Storm的特点"></a>Storm的特点</h2><ul>
+<li>简单的编程模型:<br>在大数据处理方面相信大家对hadoop已经耳熟能详，基于Google Map/Reduce来实现的Hadoop为开发者提供了map、reduce原语，使并行批处理程序变得非常地简单。<br>同样，Storm也为大数据 的实时计算提供了一些简单优美的原语，这大大降低了开发并行实时处理的任务的复杂性，帮助你快速、高效的开发应用。</li>
+<li>水平扩展:<br>在Storm集群中真正运行topology的主要有三个实体：工作进程、线程和任务。Storm集群中的每台机器上都可以运行多个工作进程，每个工作进程又可创建多个线程，每个线程可以执行多个任务，任务是真正进行数据处理的实体，我们开发的spout、bolt就是作为一个或者多个任务的方式执行的。<br>计算任务在多个线程、进程和服务器之间并行进行，支持灵活的水平扩展。</li>
+<li>支持多种编程语言:<br>你可以在Storm之上使用各种编程语言。默认支持Clojure、Java、Ruby和Python。要增加对其他语言的支持，只需实现一个简单的Storm通信协议即可。</li>
+<li>高可靠性:<br>Storm保证每个消息至少能得到一次完整处理。任务失败时，它会负责从消息源重试消息。<br>spout发出的消息后续可能会触发产生成千上万条消息，可以形象的理解为一棵消息树，其中spout发出的消息为树根，Storm会跟踪这棵消息树的处理情况，只有当这棵消息树中的所有消息都被处理了，Storm才会认为spout发出的这个消息已经被“完全处理”。如果这棵消息树中的任何一个消息处理失败了，或者整棵消息树在限定的时间内没有“完全处理”，那么spout发出的消息就会重发。</li>
+<li>高容错性:<br>Storm会管理工作进程和节点的故障。<br>如果在消息处理过程中出了一些异常，Storm会重新安排这个出问题的处理单元。Storm保证一个处理单元永远运行（除非你显式杀掉这个处理单元）。<br>当然，如果处理单元中存储了中间状态，那么当处理单元重新被Storm启动的时候，需要应用自己处理中间状态的恢复。</li>
+<li>本地模式:<br>Storm有一个“本地模式”，可以在处理过程中完全模拟Storm集群。这让你可以快速进行开发和单元测试。</li>
 </ul>
           <!--noindex-->
           <div class="post-button text-center">
@@ -824,28 +800,22 @@ Storm有一个“本地模式”，可以在处理过程中完全模拟Storm集�
       
         
           <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Hadoop_logo.svg/2000px-Hadoop_logo.svg.png" alt="Hadoop"></p>
-<h1>Hadoop 安装 &amp; 配置</h1>
-<h2 id="Hadoop-Yarn安装步骤">Hadoop &amp; Yarn安装步骤</h2>
-<p>参考: <a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html" target="_blank" rel="noopener">Apache Hadoop 2.9.2 – Hadoop Cluster Setup</a></p>
+<h1 id="Hadoop-安装-amp-配置"><a href="#Hadoop-安装-amp-配置" class="headerlink" title="Hadoop 安装 &amp; 配置"></a>Hadoop 安装 &amp; 配置</h1><h2 id="Hadoop-amp-Yarn安装步骤"><a href="#Hadoop-amp-Yarn安装步骤" class="headerlink" title="Hadoop &amp; Yarn安装步骤"></a>Hadoop &amp; Yarn安装步骤</h2><p>参考: <a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html" target="_blank" rel="noopener">Apache Hadoop 2.9.2 – Hadoop Cluster Setup</a></p>
 <ol>
-<li>/etc/hosts, ssh登录 // 使slave可以ssh到master
-<ul>
+<li>/etc/hosts, ssh登录 // 使slave可以ssh到master<ul>
 <li>/etc/hosts: 所有slave可互相ping hostname</li>
 <li>authorized_keys : master可以ssh任意slave</li>
 </ul>
 </li>
-<li>hadoop配置文件
-<ul>
-<li><a href="http://hadoop-env.sh" target="_blank" rel="noopener">hadoop-env.sh</a> : <code>HADOOP_CONF_DIR</code> 指定加载哪个目录下的配置文件</li>
+<li>hadoop配置文件<ul>
+<li>hadoop-env.sh : <code>HADOOP_CONF_DIR</code> 指定加载哪个目录下的配置文件</li>
 <li>slaves: 只有namenode需配置</li>
-<li>core-site.xml:(<a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/core-default.xml" target="_blank" rel="noopener">https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/core-default.xml</a>)
-<ul>
+<li>core-site.xml:(<a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/core-default.xml" target="_blank" rel="noopener">https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-common/core-default.xml</a>)<ul>
 <li>fs.defaultFS : hdfs://namenode:9000 ## hdfs文件端口</li>
 <li>hadoop.tmp.dir : /opt/data/hadoop/tmp 其它目录会基于此路径</li>
 </ul>
 </li>
-<li>hdfs-site.xml:(<a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml" target="_blank" rel="noopener">https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml</a>)
-<ul>
+<li>hdfs-site.xml:(<a href="https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml" target="_blank" rel="noopener">https://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml</a>)<ul>
 <li>dfs.namenode.secondary.http-address :  第二NameNode web管理端口</li>
 <li>dfs.replication : 3 ## 数据需要备份的数量, 默认是3, 如果此数大于集群的机器数会出错</li>
 <li>dfs.namenode.name.dir : /opt/data/hadoop/namenode ## NameNode持久存储名字空间及事务日志的本地文件系统路径</li>
@@ -854,15 +824,13 @@ Storm有一个“本地模式”，可以在处理过程中完全模拟Storm集�
 <li>dfs.webhdfs.enabled : 开启WebHDFS (REST API)功能</li>
 </ul>
 </li>
-<li>mapred-site.xml:
-<ul>
-<li><a href="http://mapreduce.framework.name" target="_blank" rel="noopener">mapreduce.framework.name</a>: yarn</li>
+<li>mapred-site.xml:<ul>
+<li>mapreduce.framework.name: yarn</li>
 <li>mapreduce.jobhistory.address: 10020</li>
 <li>mapreduce.jobhistory.webapp.address: 19888</li>
 </ul>
 </li>
-<li>yarn-site.xml
-<ul>
+<li>yarn-site.xml<ul>
 <li>yarn.resourcemanager.webapp.address: 8088 ## yarn框架中各个 task 的资源调度及运行状况通过通过该web界面访问</li>
 </ul>
 </li>
@@ -870,21 +838,18 @@ Storm有一个“本地模式”，可以在处理过程中完全模拟Storm集�
 </li>
 <li>格式化namenode: <code>hdfs namenode -format</code></li>
 <li>启动HDFS NameNode: <code>sbin/hadoop-daemon.sh start namenode</code></li>
-<li>启动HDFS DateNode: <code>sbin/hadoop-daemons.sh start datanode</code>
-<ul>
+<li>启动HDFS DateNode: <code>sbin/hadoop-daemons.sh start datanode</code><ul>
 <li><strong>或者在namenode上直接一个脚本启动: <code>sbin/start-dfs.sh</code> namenode和datanode的所有hdfs</strong></li>
 </ul>
 </li>
-<li>启动yarn: <code>sbin/start-yarn.sh</code>脚本一次启动ResourceManager和NodeManager, 如果要分别启动:
-<ul>
+<li>启动yarn: <code>sbin/start-yarn.sh</code>脚本一次启动ResourceManager和NodeManager, 如果要分别启动:<ul>
 <li><code>yarn-daemon.sh --config /opt/conf/hadoop start nodemanager</code></li>
 <li><code>yarn-daemon.sh --config /opt/conf/hadoop start resourcemanager</code></li>
 </ul>
 </li>
 <li>查看集群状态: <code>bin/hdfs dfsadmin -report</code></li>
 <li>测试hdfs写: <code>echo &quot;hello world&quot; | hadoop fs -put - /dir/hadoop/hello_world.txt &amp;&amp; hadoop fs -cat  /dir/hadoop/hello_world.txt</code></li>
-<li>一些web ui:
-<ul>
+<li>一些web ui:<ul>
 <li>查看nameNode: <a href="http://namenode:50070/" target="_blank" rel="noopener">http://namenode:50070/</a></li>
 <li>查看yarn resourcemanager: <a href="http://namenode:8088/" target="_blank" rel="noopener">http://namenode:8088/</a></li>
 <li>MapReduce JobHistory: <a href="http://namenode:19888" target="_blank" rel="noopener">http://namenode:19888</a></li>
@@ -1023,12 +988,9 @@ Storm有一个“本地模式”，可以在处理过程中完全模拟Storm集�
 
       
         
-          <h1>系统架构</h1>
-<p><img src="/images/RecommenderSystem-%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/Recom-System-Arch.png" alt></p>
-<h1>效果评估</h1>
-<p>先了解一个概念: <strong>混淆矩阵</strong></p>
-<p>混淆矩阵是用来总结一个分类器结果的矩阵。对于k元分类，其实它就是一个k x k的表格，用来记录分类器的预测结果。<br>
-对于最常见的二元分类来说，它的混淆矩阵是2乘2的，如下</p>
+          <h1 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h1><p><img src="/images/RecommenderSystem-推荐系统/Recom-System-Arch.png" alt></p>
+<h1 id="效果评估"><a href="#效果评估" class="headerlink" title="效果评估"></a>效果评估</h1><p>先了解一个概念: <strong>混淆矩阵</strong></p>
+<p>混淆矩阵是用来总结一个分类器结果的矩阵。对于k元分类，其实它就是一个k x k的表格，用来记录分类器的预测结果。<br>对于最常见的二元分类来说，它的混淆矩阵是2乘2的，如下</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/机器学习/RecommenderSystem-推荐系统/#more" rel="contents">
@@ -1161,15 +1123,13 @@ Storm有一个“本地模式”，可以在处理过程中完全模拟Storm集�
 
       
         
-          <p><img src="/images/MachineLearning-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/Machine-Learning-Title.png" alt></p>
-<h1>机器学习入门</h1>
-<ul>
+          <p><img src="/images/MachineLearning-机器学习/Machine-Learning-Title.png" alt></p>
+<h1 id="机器学习入门"><a href="#机器学习入门" class="headerlink" title="机器学习入门"></a>机器学习入门</h1><ul>
 <li><a href="https://developers.google.com/machine-learning/crash-course/prereqs-and-prework?hl=zh-cn" target="_blank" rel="noopener">Google机器学习速成课程</a></li>
 <li><a href="https://github.com/MLEveryday/100-Days-Of-ML-Code" target="_blank" rel="noopener">机器学习100天</a></li>
 </ul>
-<h2 id="概念">概念</h2>
-<blockquote>
-<p>参考: <a href="https://developers.google.com/machine-learning/glossary/?hl=zh-cn#f" target="_blank" rel="noopener">机器学习术语表  |  Google Developers</a> @Ref</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>参考: <a href="https://developers.google.com/machine-learning/glossary/?hl=zh-cn#f" target="_blank" rel="noopener">机器学习术语表  |  Google Developers</a> @Ref</p>
 </blockquote>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1303,12 +1263,9 @@ Storm有一个“本地模式”，可以在处理过程中完全模拟Storm集�
 
       
         
-          <p><img src="/images/DeepLearning-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/Deep-Learning-Title.png" alt></p>
-<h1>深度学习入门</h1>
-<h2 id="机器学习-vs-深度学习">机器学习 vs 深度学习</h2>
-<p><strong>机器学习</strong> 通过算法分析数据，从结果中进行学习，然后将「学习后的算法」用来做出决策或进行预测，例子有我们熟悉的聚类、贝叶斯网络和视觉数据映射等等。</p>
-<p><strong>深度学习</strong>，深度学习是机器学习的一个子集，和其它所有机器学习一样都是基于算法。然而它并非像「数据分类」一样根据任务选择的算法，而是模仿人类大脑结构与运算过程——识别非结构化输入的数据，输出精确地行为和决策。<br>
-机器学习可以是监督的也可以是非监督的，这意味着大型神经网络可以接受「标签化输入」，但并不需要。</p>
+          <p><img src="/images/DeepLearning-深度学习/Deep-Learning-Title.png" alt></p>
+<h1 id="深度学习入门"><a href="#深度学习入门" class="headerlink" title="深度学习入门"></a>深度学习入门</h1><h2 id="机器学习-vs-深度学习"><a href="#机器学习-vs-深度学习" class="headerlink" title="机器学习 vs 深度学习"></a>机器学习 vs 深度学习</h2><p><strong>机器学习</strong> 通过算法分析数据，从结果中进行学习，然后将「学习后的算法」用来做出决策或进行预测，例子有我们熟悉的聚类、贝叶斯网络和视觉数据映射等等。</p>
+<p><strong>深度学习</strong>，深度学习是机器学习的一个子集，和其它所有机器学习一样都是基于算法。然而它并非像「数据分类」一样根据任务选择的算法，而是模仿人类大脑结构与运算过程——识别非结构化输入的数据，输出精确地行为和决策。<br>机器学习可以是监督的也可以是非监督的，这意味着大型神经网络可以接受「标签化输入」，但并不需要。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/机器学习/DeepLearning-深度学习/#more" rel="contents">
@@ -1415,7 +1372,7 @@ Storm有一个“本地模式”，可以在处理过程中完全模拟Storm集�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,515
+                  1,482
                 </span>
               
 
@@ -1441,15 +1398,11 @@ Storm有一个“本地模式”，可以在处理过程中完全模拟Storm集�
 
       
         
-          <h1>URL</h1>
-<p>HTTP由URL(统一资源定位符)访问资源，一个完整的URL组成如下:</p>
+          <h1 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h1><p>HTTP由URL(统一资源定位符)访问资源，一个完整的URL组成如下:</p>
 <blockquote>
-<p><a href="http://user:passwd@www.x.com:80/index.htm?var1=1&amp;var2=2#frag" target="_blank" rel="noopener">http://user:passwd@www.x.com:80/index.htm?var1=1&amp;var2=2#frag</a><br>
-这个真没什么好解释的… 更多有关URL的信息请参考RFC1808</p>
+<p><a href="http://user:passwd@www.x.com:80/index.htm?var1=1&amp;var2=2#frag" target="_blank" rel="noopener">http://user:passwd@www.x.com:80/index.htm?var1=1&amp;var2=2#frag</a><br>这个真没什么好解释的… 更多有关URL的信息请参考RFC1808</p>
 </blockquote>
-<h2 id="URL编码-解码">URL编码 &amp; 解码</h2>
-<p>URL中的GET参数和POST内容，除字母数字。  常用编程符号(不含双引)之外，都要Encode处理，空格被转换为<code>+</code>号，<code>+</code>号被转换为<code>%2b</code><br>
-Encode处理过的POST内容，Http头会增加<code>content-type: application/x-www-form-urlencoded</code>，参考Content-Type一节。</p>
+<h2 id="URL编码-amp-解码"><a href="#URL编码-amp-解码" class="headerlink" title="URL编码 &amp; 解码"></a>URL编码 &amp; 解码</h2><p>URL中的GET参数和POST内容，除字母数字。  常用编程符号(不含双引)之外，都要Encode处理，空格被转换为<code>+</code>号，<code>+</code>号被转换为<code>%2b</code><br>Encode处理过的POST内容，Http头会增加<code>content-type: application/x-www-form-urlencoded</code>，参考Content-Type一节。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/网络协议/网络协议-HTTP/#more" rel="contents">
@@ -1592,8 +1545,7 @@ Encode处理过的POST内容，Http头会增加<code>content-type: application/x
 <li>补充: 线段树</li>
 </ul>
 <hr>
-<h1>树</h1>
-<h2 id="概念">概念</h2>
+<h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/数据结构与算法/Algorithm-数据结构/#more" rel="contents">
@@ -1700,7 +1652,7 @@ Encode处理过的POST内容，Http头会增加<code>content-type: application/x
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,461
+                  5,446
                 </span>
               
 
@@ -1726,8 +1678,7 @@ Encode处理过的POST内容，Http头会增加<code>content-type: application/x
 
       
         
-          <h1>索引</h1>
-<ul>
+          <h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><ul>
 <li>交换排序: 冒泡, 快排</li>
 <li>插入排序: 简单插入排序, 希尔排序</li>
 <li>选择排序: 简单选择排序, 堆排序</li>
@@ -1735,8 +1686,7 @@ Encode处理过的POST内容，Http头会增加<code>content-type: application/x
 <li>基数排序:</li>
 </ul>
 <p>选择排序、快速排序、希尔排序、堆排序不是稳定的排序算法，泡排序、插入排序、归并排序和基数排序是稳定的排序算法。</p>
-<h1>交换排序</h1>
-<h2 id="冒泡排序-Bubble-Sort">冒泡排序(Bubble Sort)</h2>
+<h1 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h1><h2 id="冒泡排序-Bubble-Sort"><a href="#冒泡排序-Bubble-Sort" class="headerlink" title="冒泡排序(Bubble Sort)"></a>冒泡排序(Bubble Sort)</h2>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/数据结构与算法/Algorithm-排序/#more" rel="contents">

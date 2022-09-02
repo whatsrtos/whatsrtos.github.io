@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="什么是响应式编程 响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。 例如，在命令式编程环境中， a:=b+c表示将表达式的结果赋给 a，而之后改变 b或 c的值不会影响 a。 但在响应式编程中， a的值会随着 b或 c的更新而更新">
+<meta name="description" content="什么是响应式编程响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。例如，在命令式编程环境中， a:=b+c表示将表达式的结果赋给 a，而之后改变 b或 c的值不会影响 a。但在响应式编程中， a的值会随着 b或 c的更新而更新。 响">
 <meta name="keywords" content="编程语言快速入门,响应式编程,Reactive,Actor,RxJava,Akka">
 <meta property="og:type" content="article">
 <meta property="og:title" content="响应式编程">
 <meta property="og:url" content="https://whatsrtos.github.io/30MinsTutorial/响应式编程/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="什么是响应式编程 响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。 例如，在命令式编程环境中， a:=b+c表示将表达式的结果赋给 a，而之后改变 b或 c的值不会影响 a。 但在响应式编程中， a的值会随着 b或 c的更新而更新">
+<meta property="og:description" content="什么是响应式编程响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。例如，在命令式编程环境中， a:=b+c表示将表达式的结果赋给 a，而之后改变 b或 c的值不会影响 a。但在响应式编程中， a的值会随着 b或 c的更新而更新。 响">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-06-26T14:08:32.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="响应式编程">
-<meta name="twitter:description" content="什么是响应式编程 响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。 例如，在命令式编程环境中， a:=b+c表示将表达式的结果赋给 a，而之后改变 b或 c的值不会影响 a。 但在响应式编程中， a的值会随着 b或 c的更新而更新">
+<meta name="twitter:description" content="什么是响应式编程响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。例如，在命令式编程环境中， a:=b+c表示将表达式的结果赋给 a，而之后改变 b或 c的值不会影响 a。但在响应式编程中， a的值会随着 b或 c的更新而更新。 响">
 
 
 
@@ -355,20 +355,15 @@
       
 
       
-        <h1>什么是响应式编程</h1>
-<p>响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。<br>
-例如，在命令式编程环境中， <code>a:=b+c</code>表示将表达式的结果赋给 a，而之后改变 b或 c的值不会影响 a。<br>
-但在响应式编程中， a的值会随着 b或 c的更新而更新。</p>
+        <h1 id="什么是响应式编程"><a href="#什么是响应式编程" class="headerlink" title="什么是响应式编程"></a>什么是响应式编程</h1><p>响应式编程或反应式编程（英语：Reactive programming）是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。<br>例如，在命令式编程环境中， <code>a:=b+c</code>表示将表达式的结果赋给 a，而之后改变 b或 c的值不会影响 a。<br>但在响应式编程中， a的值会随着 b或 c的更新而更新。</p>
 <p>响应式编程最初是为了简化交互式用户界面的创建和实时系统动画的绘制而提出来的一种方法，但它本质上是一种通用的编程范式。例如，在MVC软件架构中，响应式编程允许将相关模型的变化自动反映到视图上，反之亦然。</p>
 <p>响应式编程的三种模型:</p>
 <ol>
-<li>Actor模型, 实现类库:
-<ul>
+<li>Actor模型, 实现类库:<ul>
 <li>AKKA Actor: Actor模型为编写并发和分布式系统提供了一种更高的抽象级别。它将开发人员从显式地处理锁和线程管理的工作中解脱出来，使编写并发和并行系统更加容易。</li>
 </ul>
 </li>
-<li>响应式扩展(reactive extensions, Rx)模型, 实现类库:
-<ul>
+<li>响应式扩展(reactive extensions, Rx)模型, 实现类库:<ul>
 <li>RxJava: Reactive Extensions for Java</li>
 <li>Reactor: Reactor是Pivotal发布的第四代响应式框架，跟RxJava 2有些相似。 Spring WebFlux 以Reactor为基础，实现Web领域的反应式编程框架。</li>
 </ul>
@@ -380,71 +375,51 @@
 </blockquote>
 <p>附: 常用编程范式</p>
 <ul>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%A3%B0%E6%98%8E%E5%BC%8F%E7%BC%96%E7%A8%8B" target="_blank" rel="noopener">声明式</a>:
-<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%A3%B0%E6%98%8E%E5%BC%8F%E7%BC%96%E7%A8%8B" target="_blank" rel="noopener">声明式</a>:<ul>
 <li><a href="https://zh.wikipedia.org/wiki/%E5%93%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B" target="_blank" rel="noopener">响应式</a></li>
 <li><a href="https://zh.wikipedia.org/wiki/%E5%87%BD%E6%95%B8%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80" target="_blank" rel="noopener">函数式</a></li>
 </ul>
 </li>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BC%96%E7%A8%8B" target="_blank" rel="noopener">命令式</a>:
-<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E5%BC%8F%E7%BC%96%E7%A8%8B" target="_blank" rel="noopener">命令式</a>:<ul>
 <li><a href="https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BA%8F%E7%B7%A8%E7%A8%8B" target="_blank" rel="noopener">过程式</a></li>
 <li><a href="https://zh.wikipedia.org/wiki/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" target="_blank" rel="noopener">面向对象</a></li>
 </ul>
 </li>
 <li><a href="https://zh.wikipedia.org/wiki/%E5%85%83%E7%BC%96%E7%A8%8B" target="_blank" rel="noopener">元编程</a></li>
 </ul>
-<h1>响应式系统模型</h1>
-<h2 id="Actor模型">Actor模型</h2>
-<p>Actor模型=数据+行为+消息。Actor模型内部的状态由自己的行为维护，外部线程不能直接调用对象的行为，必须通过消息才能激发行为，这样就保证Actor内部数据只有被自己修改。<br>
-Actor是一个个独立的实体，他们之间是毫无关联的。但是，他们可以通过消息来通信。一个Actor收到其他Actor的信息后，它可以根据需要作出各种相应。Actor的常见应用模式是处理大规模并发输入流：将具体工作分类给异步的工作节点，之后返回工作节点计算的结果。<br>
-Actor模型实际上并不是纯正的函数式编程模型。Receive方法返回Unit类型，这意味着在该方法中，所有事情都是通过副作用完成的。再者，只要需要，Actor模型便会允许使用可变状态，但这里要遵守一个规则，将状态封装在某个actor中，并确保所有状态的响应操作是线程安全的。<br>
-综上，Actor模型是处理大规模、高度可用、事件驱动应用程序的更为通用的方法。</p>
-<h2 id="函数响应式编程（functional-reactive-programming，FRP）">函数响应式编程（functional reactive programming，FRP）</h2>
-<p>在函数响应式编程模型中，基于时间的状态需要通过某一系统传播到需要使用这些状态的代码中。当FRP模型中的某一状态发生变化时，你并不需要手动地对依赖这些变化的变量进行更新，与之相反，FRP会使用声明的方式描述数据元素之间的依赖关系，而FRP运行时则会负责状态的传播。因此，用户使用函数式声明语句和组合语法编写代码。</p>
+<h1 id="响应式系统模型"><a href="#响应式系统模型" class="headerlink" title="响应式系统模型"></a>响应式系统模型</h1><h2 id="Actor模型"><a href="#Actor模型" class="headerlink" title="Actor模型"></a>Actor模型</h2><p>Actor模型=数据+行为+消息。Actor模型内部的状态由自己的行为维护，外部线程不能直接调用对象的行为，必须通过消息才能激发行为，这样就保证Actor内部数据只有被自己修改。<br>Actor是一个个独立的实体，他们之间是毫无关联的。但是，他们可以通过消息来通信。一个Actor收到其他Actor的信息后，它可以根据需要作出各种相应。Actor的常见应用模式是处理大规模并发输入流：将具体工作分类给异步的工作节点，之后返回工作节点计算的结果。<br>Actor模型实际上并不是纯正的函数式编程模型。Receive方法返回Unit类型，这意味着在该方法中，所有事情都是通过副作用完成的。再者，只要需要，Actor模型便会允许使用可变状态，但这里要遵守一个规则，将状态封装在某个actor中，并确保所有状态的响应操作是线程安全的。<br>综上，Actor模型是处理大规模、高度可用、事件驱动应用程序的更为通用的方法。</p>
+<h2 id="函数响应式编程（functional-reactive-programming，FRP）"><a href="#函数响应式编程（functional-reactive-programming，FRP）" class="headerlink" title="函数响应式编程（functional reactive programming，FRP）"></a>函数响应式编程（functional reactive programming，FRP）</h2><p>在函数响应式编程模型中，基于时间的状态需要通过某一系统传播到需要使用这些状态的代码中。当FRP模型中的某一状态发生变化时，你并不需要手动地对依赖这些变化的变量进行更新，与之相反，FRP会使用声明的方式描述数据元素之间的依赖关系，而FRP运行时则会负责状态的传播。因此，用户使用函数式声明语句和组合语法编写代码。</p>
 <p>FRP基本上就是面向异步事件流的编程了，这个异步事件流（Stream）是一个按时间排序的事件序列。Stream是不可变的，任何操作都返回新的Stream，且它是一个Monad。</p>
-<h2 id="响应式扩展（reactive-extensions，Rx）">响应式扩展（reactive extensions，Rx）</h2>
-<p>Reactive Extension <a href="http://xn--ciqu6gxxfp1kzoh2ubm4h1uzt31d.xn--netRx-vz7h212srte.net" target="_blank" rel="noopener">这个概念最早出现在.net社区的Rx.net</a>，一个提供处理异步事件的程序库，其核心概念是Observable，表示有限或者无限多个现在或者将来到达的事件。Observable提供了onNext，onError，onCompleted供开发者定制新元素到达，出现错误，或者流结束时的程序的行为。并提供了List上类似的操作，如map，filter，reduce，大大降低了异步事件编程的复杂度。<br>
-因为这些概念是如此的强大，以至于很多编程语言，如java，ruby，javascript很快就有了各自的reactvie extension。</p>
+<h2 id="响应式扩展（reactive-extensions，Rx）"><a href="#响应式扩展（reactive-extensions，Rx）" class="headerlink" title="响应式扩展（reactive extensions，Rx）"></a>响应式扩展（reactive extensions，Rx）</h2><p>Reactive Extension 这个概念最早出现在.net社区的Rx.net，一个提供处理异步事件的程序库，其核心概念是Observable，表示有限或者无限多个现在或者将来到达的事件。Observable提供了onNext，onError，onCompleted供开发者定制新元素到达，出现错误，或者流结束时的程序的行为。并提供了List上类似的操作，如map，filter，reduce，大大降低了异步事件编程的复杂度。<br>因为这些概念是如此的强大，以至于很多编程语言，如java，ruby，javascript很快就有了各自的reactvie extension。</p>
 <p>Rx模型中的可观察序列代表事件流或其他数据源。通过将可观察序列与LINQ（language-integrated query，语言集成查询）库提供的查询操作符（组合器）拼接起来，Rx组成了异步程序。</p>
-<p>RxJava ( Reactive Extension for Java ) ，Reactive可以翻译为响应式、反应式。<br>
-ReactiveX是Reactive Extensions的缩写，一般简写为Rx，最初是LINQ的一个扩展，由微软的架构师Erik Meijer领导的团队开发，在2012年11月开源，<br>
-Rx是一个编程模型，目标是提供一致的编程接口，帮助开发者更方便的处理异步数据流，<br>
-<a href="http://xn--Rx-l82d25ny5c.NET" target="_blank" rel="noopener">Rx库支持.NET</a>、JavaScript和C++，现在已经支持几乎全部的流行编程语言，<br>
-Rx的大部分语言库由ReactiveX这个组织负责维护，比较流行的有RxJava/RxJS/Rx.NET，社区网站是<a href="http://reactivex.io/" target="_blank" rel="noopener">reactivex.io</a>。<br>
-RxJava是由Netflix主导做出的提供在JVM上实现Reactive Programming 的一种方式。同类的库还有Project Reactor, Akka 和Google 的 Agera等等。</p>
-<h1>Reactive Streams</h1>
-<blockquote>
+<p>RxJava ( Reactive Extension for Java ) ，Reactive可以翻译为响应式、反应式。<br>ReactiveX是Reactive Extensions的缩写，一般简写为Rx，最初是LINQ的一个扩展，由微软的架构师Erik Meijer领导的团队开发，在2012年11月开源，<br>Rx是一个编程模型，目标是提供一致的编程接口，帮助开发者更方便的处理异步数据流，<br>Rx库支持.NET、JavaScript和C++，现在已经支持几乎全部的流行编程语言，<br>Rx的大部分语言库由ReactiveX这个组织负责维护，比较流行的有RxJava/RxJS/Rx.NET，社区网站是<a href="http://reactivex.io/" target="_blank" rel="noopener">reactivex.io</a>。<br>RxJava是由Netflix主导做出的提供在JVM上实现Reactive Programming 的一种方式。同类的库还有Project Reactor, Akka 和Google 的 Agera等等。</p>
+<h1 id="Reactive-Streams"><a href="#Reactive-Streams" class="headerlink" title="Reactive Streams"></a>Reactive Streams</h1><blockquote>
 <p>Java 9 新特性：Reactive Streams（响应式流）是一个使用非阻塞back pressure（背压机制）的异步流处理标准。在<code>java.util.concurrent</code>包中提供</p>
 </blockquote>
 <ul>
 <li><a href="https://www.cnblogs.com/IcanFixIt/p/7245377.html" target="_blank" rel="noopener">Java 9 揭秘（17. Reactive Streams）</a></li>
 </ul>
-<h1>Reactor</h1>
-<blockquote>
+<h1 id="Reactor"><a href="#Reactor" class="headerlink" title="Reactor"></a>Reactor</h1><blockquote>
 <p>Reactor是Pivotal发布的第四代响应式框架，跟RxJava 2有些相似。 Spring WebFlux 以Reactor为基础，实现Web领域的反应式编程框架。</p>
 </blockquote>
 <ul>
 <li><a href="https://www.ibm.com/developerworks/cn/java/j-cn-with-reactor-response-encode/index.html" target="_blank" rel="noopener">使用 Reactor 进行反应式编程</a></li>
 </ul>
-<h1>RxJava</h1>
-<blockquote>
+<h1 id="RxJava"><a href="#RxJava" class="headerlink" title="RxJava"></a>RxJava</h1><blockquote>
 <p>Reactive Extensions for Java</p>
 </blockquote>
 <ul>
 <li><a href="http://www.infoq.com/cn/articles/rxjava-by-example" target="_blank" rel="noopener">RXJava实例解析</a></li>
 <li><a href="http://www.infoq.com/cn/news/2016/12/rxjava-2-with-reactive-streams" target="_blank" rel="noopener">RxJava 2.0发布：支持响应式流规范</a></li>
 </ul>
-<h1>Akka</h1>
-<blockquote>
+<h1 id="Akka"><a href="#Akka" class="headerlink" title="Akka"></a>Akka</h1><blockquote>
 <p>Actor模型为编写并发和分布式系统提供了一种更高的抽象级别。它将开发人员从显式地处理锁和线程管理的工作中解脱出来，使编写并发和并行系统更加容易。</p>
 </blockquote>
 <ul>
 <li><a href="https://www.jianshu.com/p/db04cab86ab9" target="_blank" rel="noopener">漫谈并发编程：Actor模型 - 简书</a></li>
 <li><a href="https://www.cnblogs.com/MOBIN/p/7236893.html" target="_blank" rel="noopener">Actor模型原理 - MOBIN - 博客园</a></li>
 </ul>
-<h1>Vert.x</h1>
-<blockquote>
+<h1 id="Vert-x"><a href="#Vert-x" class="headerlink" title="Vert.x"></a>Vert.x</h1><blockquote>
 <p>Java 异步非阻塞编程框架，底层基于Netty异步通信。Vert.x本身是事件驱动、非阻塞纯异步IO模型，这意味着可以使用很少的线程处理大量并发请求。</p>
 </blockquote>
 <ul>
@@ -670,7 +645,7 @@ RxJava是由Netflix主导做出的提供在JVM上实现Reactive Programming 的�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">什么是响应式编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">响应式系统模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Actor模型"><span class="nav-text">Actor模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数响应式编程（functional-reactive-programming，FRP）"><span class="nav-text">函数响应式编程（functional reactive programming，FRP）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式扩展（reactive-extensions，Rx）"><span class="nav-text">响应式扩展（reactive extensions，Rx）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Reactive Streams</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Reactor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">RxJava</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Akka</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Vert.x</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是响应式编程"><span class="nav-text">什么是响应式编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#响应式系统模型"><span class="nav-text">响应式系统模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Actor模型"><span class="nav-text">Actor模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数响应式编程（functional-reactive-programming，FRP）"><span class="nav-text">函数响应式编程（functional reactive programming，FRP）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#响应式扩展（reactive-extensions，Rx）"><span class="nav-text">响应式扩展（reactive extensions，Rx）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reactive-Streams"><span class="nav-text">Reactive Streams</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reactor"><span class="nav-text">Reactor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RxJava"><span class="nav-text">RxJava</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Akka"><span class="nav-text">Akka</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vert-x"><span class="nav-text">Vert.x</span></a></li></ol></div>
             
 
           </div>

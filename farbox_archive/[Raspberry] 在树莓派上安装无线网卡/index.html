@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="测试驱动 为了省事，我买了EP-N8508GS无线网卡，因为能免去编译驱动的麻烦。 确认你的Kernel支持那些无线网卡: $ find /lib/modules/`uname -r`/kernel/drivers/net/wireless -name &amp;quot;*.ko&amp;quot;/lib/modules/3.12.35+/kernel/drivers/net/wireless/rtl8192">
+<meta name="description" content="测试驱动为了省事，我买了EP-N8508GS无线网卡，因为能免去编译驱动的麻烦。确认你的Kernel支持那些无线网卡: $ find /lib/modules/`uname -r`/kernel/drivers/net/wireless -name &amp;quot;*.ko&amp;quot;/lib/modules/3.12.35+/kernel/drivers/net/wireless/rtl8192cu">
 <meta name="keywords" content="树莓派,无线网卡">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在树莓派上安装无线网卡">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[Raspberry] 在树莓派上安装无线网卡/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="测试驱动 为了省事，我买了EP-N8508GS无线网卡，因为能免去编译驱动的麻烦。 确认你的Kernel支持那些无线网卡: $ find /lib/modules/`uname -r`/kernel/drivers/net/wireless -name &amp;quot;*.ko&amp;quot;/lib/modules/3.12.35+/kernel/drivers/net/wireless/rtl8192">
+<meta property="og:description" content="测试驱动为了省事，我买了EP-N8508GS无线网卡，因为能免去编译驱动的麻烦。确认你的Kernel支持那些无线网卡: $ find /lib/modules/`uname -r`/kernel/drivers/net/wireless -name &amp;quot;*.ko&amp;quot;/lib/modules/3.12.35+/kernel/drivers/net/wireless/rtl8192cu">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在树莓派上安装无线网卡">
-<meta name="twitter:description" content="测试驱动 为了省事，我买了EP-N8508GS无线网卡，因为能免去编译驱动的麻烦。 确认你的Kernel支持那些无线网卡: $ find /lib/modules/`uname -r`/kernel/drivers/net/wireless -name &amp;quot;*.ko&amp;quot;/lib/modules/3.12.35+/kernel/drivers/net/wireless/rtl8192">
+<meta name="twitter:description" content="测试驱动为了省事，我买了EP-N8508GS无线网卡，因为能免去编译驱动的麻烦。确认你的Kernel支持那些无线网卡: $ find /lib/modules/`uname -r`/kernel/drivers/net/wireless -name &amp;quot;*.ko&amp;quot;/lib/modules/3.12.35+/kernel/drivers/net/wireless/rtl8192cu">
 
 
 
@@ -355,29 +355,23 @@
       
 
       
-        <h2 id="测试驱动">测试驱动</h2>
-<p>为了省事，我买了EP-N8508GS无线网卡，因为能免去编译驱动的麻烦。<br>
-确认你的Kernel支持那些无线网卡:</p>
+        <h2 id="测试驱动"><a href="#测试驱动" class="headerlink" title="测试驱动"></a>测试驱动</h2><p>为了省事，我买了EP-N8508GS无线网卡，因为能免去编译驱动的麻烦。<br>确认你的Kernel支持那些无线网卡:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ find /lib/modules/`uname -r`/kernel/drivers/net/wireless -name &quot;*.ko&quot;</span><br><span class="line">/lib/modules/3.12.35+/kernel/drivers/net/wireless/rtl8192cu/8192cu.ko</span><br><span class="line">/lib/modules/3.12.35+/kernel/drivers/net/wireless/rtl818x/rtl8187/rtl8187.ko</span><br></pre></td></tr></table></figure>
 <p>查看识别的usb设备:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pi@raspberrypi ~ $ lsusb</span><br><span class="line">Bus 001 Device 002: ID 0424:9512 Standard Microsystems Corp.</span><br><span class="line">Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</span><br><span class="line">Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp.</span><br><span class="line">Bus 001 Device 004: ID 0bda:8176 Realtek Semiconductor Corp. RTL8188CUS 802.11n WLAN Adapter</span><br></pre></td></tr></table></figure>
 <p>注意最后一行的Realtek设备就是无线网卡.</p>
-<p>查看Kernel载入的模块:</p>
+<p>查看Kernel载入的模块: </p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ lsmod</span><br><span class="line">8192cu                550797  0</span><br><span class="line">leds_gpio               2079  0</span><br><span class="line">led_class               4118  1 leds_gpio</span><br></pre></td></tr></table></figure>
 <p>上面的8192cu就是我的无线网卡的芯片型号.</p>
 <p>执行命令: <code>sudo iwlist wlan0 scan</code> , 看看能否手动扫描周围的ESSID.</p>
-<h2 id="无线配置">无线配置</h2>
-<p>修改配置文件: <code>sudo vim /etc/network/interfaces</code>, 如果需要自动IP, 增加如下:</p>
+<h2 id="无线配置"><a href="#无线配置" class="headerlink" title="无线配置"></a>无线配置</h2><p>修改配置文件: <code>sudo vim /etc/network/interfaces</code>, 如果需要自动IP, 增加如下:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># wifi (dhcp config) :</span><br><span class="line">auto wlan0</span><br><span class="line">allow-hotplug wlan0</span><br><span class="line">iface wlan0 inet dhcp</span><br><span class="line">wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></td></tr></table></figure>
 <p>如果需要固定IP, 增加的内容如下:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">auto wlan0</span><br><span class="line">iface wlan0 inet static</span><br><span class="line">wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</span><br><span class="line">address 192.168.1.12</span><br><span class="line">netmask 255.255.255.0</span><br><span class="line">gateway 192.168.1.1</span><br></pre></td></tr></table></figure>
 <p>编辑<code>/etc/wpa_supplicant/wpa_supplicant.conf</code>, 增加如下几行:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">network=&#123;</span><br><span class="line">    ssid=&quot;ssid1&quot;</span><br><span class="line">    psk=&quot;密码&quot;</span><br><span class="line">&#125;</span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=&quot;ssid2&quot;</span><br><span class="line">    psk=&quot;密码&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里存的是明文密码, 如果需要存储加密后的密码, 执行命令<code>wpa_passphrase ssid password</code>, 替换上面的psk密码.<br>
-wpa_supplicant.conf里面更多参数详情, 请参考man手册<a href="http://linux.die.net/man/5/wpa_supplicant.conf" target="_blank" rel="noopener">链接</a>, 上面的配置能应付大多数路由器了.</p>
-<h2 id="重启wlam0">重启wlam0</h2>
-<p>重启无线网卡: <code>sudo ifdown wlan0</code> and then  <code>sudo ifup wlan0</code><br>
-然后运行<code>ifconfig wlan0</code> 查看无线网卡是否获能够取到了IP.</p>
+<p>这里存的是明文密码, 如果需要存储加密后的密码, 执行命令<code>wpa_passphrase ssid password</code>, 替换上面的psk密码.<br>wpa_supplicant.conf里面更多参数详情, 请参考man手册<a href="http://linux.die.net/man/5/wpa_supplicant.conf" target="_blank" rel="noopener">链接</a>, 上面的配置能应付大多数路由器了. </p>
+<h2 id="重启wlam0"><a href="#重启wlam0" class="headerlink" title="重启wlam0"></a>重启wlam0</h2><p>重启无线网卡: <code>sudo ifdown wlan0</code> and then  <code>sudo ifup wlan0</code><br>然后运行<code>ifconfig wlan0</code> 查看无线网卡是否获能够取到了IP.</p>
 <p>DONE.</p>
 
       

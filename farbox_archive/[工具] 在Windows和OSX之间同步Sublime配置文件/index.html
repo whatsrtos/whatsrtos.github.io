@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="Windows,OSX,macOS,Dropbox,Sublime," />
+  <meta name="keywords" content="Windows,OSX,macOS,Sublime,Dropbox," />
 
 
 
@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="下面介绍如何把Windows上的Sublime设置同步到OSX Windows设置  关闭Sublime; 以administrator打开PowerShell, 输入以下命令:  cd &amp;quot;%appdata%\Sublime Text 3\Packages\&amp;quot;mkdir &amp;apos;X:\Dropbox\SublimeText3&amp;apos;mv User &amp;apos;X:\Dr">
-<meta name="keywords" content="Windows,OSX,macOS,Dropbox,Sublime">
+<meta name="description" content="下面介绍如何把Windows上的Sublime设置同步到OSX Windows设置 关闭Sublime; 以administrator打开PowerShell, 输入以下命令:  cd &amp;quot;%appdata%\Sublime Text 3\Packages\&amp;quot;mkdir &amp;apos;X:\Dropbox\SublimeText3&amp;apos;mv User &amp;apos;X:\Dro">
+<meta name="keywords" content="Windows,OSX,macOS,Sublime,Dropbox">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 Windows 和 macOS 之间同步 Sublime 配置文件">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[工具] 在Windows和OSX之间同步Sublime配置文件/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="下面介绍如何把Windows上的Sublime设置同步到OSX Windows设置  关闭Sublime; 以administrator打开PowerShell, 输入以下命令:  cd &amp;quot;%appdata%\Sublime Text 3\Packages\&amp;quot;mkdir &amp;apos;X:\Dropbox\SublimeText3&amp;apos;mv User &amp;apos;X:\Dr">
+<meta property="og:description" content="下面介绍如何把Windows上的Sublime设置同步到OSX Windows设置 关闭Sublime; 以administrator打开PowerShell, 输入以下命令:  cd &amp;quot;%appdata%\Sublime Text 3\Packages\&amp;quot;mkdir &amp;apos;X:\Dropbox\SublimeText3&amp;apos;mv User &amp;apos;X:\Dro">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在 Windows 和 macOS 之间同步 Sublime 配置文件">
-<meta name="twitter:description" content="下面介绍如何把Windows上的Sublime设置同步到OSX Windows设置  关闭Sublime; 以administrator打开PowerShell, 输入以下命令:  cd &amp;quot;%appdata%\Sublime Text 3\Packages\&amp;quot;mkdir &amp;apos;X:\Dropbox\SublimeText3&amp;apos;mv User &amp;apos;X:\Dr">
+<meta name="twitter:description" content="下面介绍如何把Windows上的Sublime设置同步到OSX Windows设置 关闭Sublime; 以administrator打开PowerShell, 输入以下命令:  cd &amp;quot;%appdata%\Sublime Text 3\Packages\&amp;quot;mkdir &amp;apos;X:\Dropbox\SublimeText3&amp;apos;mv User &amp;apos;X:\Dro">
 
 
 
@@ -356,30 +356,25 @@
 
       
         <p>下面介绍如何把Windows上的Sublime设置同步到OSX</p>
-<h3 id="Windows设置">Windows设置</h3>
-<ul>
+<h3 id="Windows设置"><a href="#Windows设置" class="headerlink" title="Windows设置"></a>Windows设置</h3><ul>
 <li>关闭Sublime;</li>
 <li>以administrator打开PowerShell, 输入以下命令:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &quot;%appdata%\Sublime Text 3\Packages\&quot;</span><br><span class="line">mkdir &apos;X:\Dropbox\SublimeText3&apos;</span><br><span class="line">mv User &apos;X:\Dropbox\SublimeText3\&apos;</span><br><span class="line">cmd /c mklink /D User &quot;X:\Dropbox\SublimeText3\User&quot;</span><br></pre></td></tr></table></figure>
-<p>注意, 根据情况替换上面的<code>X:\Dropbox\SublimeText3</code>路径;<br>
-第三行<code>mv</code>命令只能在相同盘符的目录之间移动, 如果你的Dropbox同步目录不是在C盘, 手动打开<code>%AppData%\Sublime Text 3\Packages\\</code>, 把下面的User目录移动到Dropbox同步目录中.</p>
-<h3 id="OSX设置">OSX设置</h3>
-<ul>
+<p>注意, 根据情况替换上面的<code>X:\Dropbox\SublimeText3</code>路径;<br>第三行<code>mv</code>命令只能在相同盘符的目录之间移动, 如果你的Dropbox同步目录不是在C盘, 手动打开<code>%AppData%\Sublime Text 3\Packages\\</code>, 把下面的User目录移动到Dropbox同步目录中.</p>
+<h3 id="OSX设置"><a href="#OSX设置" class="headerlink" title="OSX设置"></a>OSX设置</h3><ul>
 <li>关闭Sublime;</li>
 <li>打开终端, 输入以下命令:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/</span><br><span class="line">mv User User.deprecated</span><br><span class="line">ln -s ~/Dropbox/SublimeText3/User User</span><br></pre></td></tr></table></figure>
 <p>根据情况替换上面的<code>~/Dropbox/SublimeText3</code>路径.</p>
 <p>请确保OSX上也安装了Sublime设置中引用的字体.</p>
-<h3 id="关于User目录下的文件">关于User目录下的文件</h3>
-<ul>
+<h3 id="关于User目录下的文件"><a href="#关于User目录下的文件" class="headerlink" title="关于User目录下的文件"></a>关于User目录下的文件</h3><ul>
 <li><code>User/Package Control.sublime-settings</code>: Package Control的配置文件, 安装的所有插件列表;</li>
 <li><code>User/Preferences.sublime-settings</code>: Sublime text的一般配置;</li>
 </ul>
-<h3 id="一些bug的解决方法">一些bug的解决方法</h3>
-<ul>
-<li><a href="https://github.com/wbond/package_control/issues/1075" target="_blank" rel="noopener">每次打开sublime弹出提示&quot;the following incompatible dependency was found installed: user&quot;</a></li>
+<h3 id="一些bug的解决方法"><a href="#一些bug的解决方法" class="headerlink" title="一些bug的解决方法"></a>一些bug的解决方法</h3><ul>
+<li><a href="https://github.com/wbond/package_control/issues/1075" target="_blank" rel="noopener">每次打开sublime弹出提示”the following incompatible dependency was found installed: user”</a></li>
 </ul>
 
       
@@ -404,9 +399,9 @@
           
             <a href="/tags/macOS/" rel="tag"># macOS</a>
           
-            <a href="/tags/Dropbox/" rel="tag"># Dropbox</a>
-          
             <a href="/tags/Sublime/" rel="tag"># Sublime</a>
+          
+            <a href="/tags/Dropbox/" rel="tag"># Dropbox</a>
           
         </div>
       

@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="本文参考自: Jaison - 阅读开源项目源码的建议姿势 @Ref  先选择合适的源码版本 需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”  如果是前者，那完全可以选择最新发布或待发布的稳定版本。 如果是后者，则需要选择自己业务系统中正在使用的版本。  快速了解架构和关键特性">
+<meta name="description" content="本文参考自: Jaison - 阅读开源项目源码的建议姿势 @Ref  先选择合适的源码版本需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”  如果是前者，那完全可以选择最新发布或待发布的稳定版本。 如果是后者，则需要选择自己业务系统中正在使用的版本。  快速了解架构和关键特性">
 <meta name="keywords" content="开源,如何阅读源码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开源项目源代码阅读指北">
 <meta property="og:url" content="https://whatsrtos.github.io/其他笔记(技术类)/开源项目源代码阅读指北/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="本文参考自: Jaison - 阅读开源项目源码的建议姿势 @Ref  先选择合适的源码版本 需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”  如果是前者，那完全可以选择最新发布或待发布的稳定版本。 如果是后者，则需要选择自己业务系统中正在使用的版本。  快速了解架构和关键特性">
+<meta property="og:description" content="本文参考自: Jaison - 阅读开源项目源码的建议姿势 @Ref  先选择合适的源码版本需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”  如果是前者，那完全可以选择最新发布或待发布的稳定版本。 如果是后者，则需要选择自己业务系统中正在使用的版本。  快速了解架构和关键特性">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-19T16:12:48.306Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开源项目源代码阅读指北">
-<meta name="twitter:description" content="本文参考自: Jaison - 阅读开源项目源码的建议姿势 @Ref  先选择合适的源码版本 需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”  如果是前者，那完全可以选择最新发布或待发布的稳定版本。 如果是后者，则需要选择自己业务系统中正在使用的版本。  快速了解架构和关键特性">
+<meta name="twitter:description" content="本文参考自: Jaison - 阅读开源项目源码的建议姿势 @Ref  先选择合适的源码版本需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”  如果是前者，那完全可以选择最新发布或待发布的稳定版本。 如果是后者，则需要选择自己业务系统中正在使用的版本。  快速了解架构和关键特性">
 
 
 
@@ -358,24 +358,15 @@
         <blockquote>
 <p>本文参考自: <a href="http://www.nosqlnotes.com/techpoints/how-to-read-opensource-code/" target="_blank" rel="noopener">Jaison - 阅读开源项目源码的建议姿势</a> @Ref</p>
 </blockquote>
-<h1>先选择合适的源码版本</h1>
-<p>需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”</p>
+<h1 id="先选择合适的源码版本"><a href="#先选择合适的源码版本" class="headerlink" title="先选择合适的源码版本"></a>先选择合适的源码版本</h1><p>需要先审视自己的需求：“我阅读源码，是单纯的为了学习？还是希望在业务系统中更好的用好它？”</p>
 <ul>
 <li>如果是前者，那完全可以选择最新发布或待发布的稳定版本。</li>
 <li>如果是后者，则需要选择自己业务系统中正在使用的版本。</li>
 </ul>
-<h1>快速了解架构和关键特性</h1>
-<p>如果有介绍原理的书籍，可以先快速浏览一遍，粗略了解整体架构、关键特性，同类、相似产品性能比较。<br>
-这些信息也可以从官方资料中一探究竟，尤其是架构介绍相关的章节。</p>
-<h1>快速试用</h1>
-<p>官方资料中的“Quick Start”章节，先学习如何使用，加强自己对于整体项目的感性认识。<br>
-基本能摸清楚利用该项目“<strong>能做什么</strong>”，以及“<strong>如何做</strong>”。当然，这里仅仅涉及了最基础的功能。<br>
-学习一个特性要从了解配置和如何使用着手，同时建议阅读相关特性的设计文档或网上已有的源码解析文章，这样可以在阅读源码时避免分散精力去看无关紧要的部分。</p>
-<h1>开始阅读</h1>
-<h2 id="简单了解代码模块结构">简单了解代码模块结构</h2>
-<p>快速了解源码的模块组成结构，以及每一个模块的主要作用。这样有助于从源码结构上把握整体项目的结构，而后选择最基本的流程入手。</p>
-<h2 id="避免过早陷入旁枝末节">避免过早陷入旁枝末节</h2>
-<p>摸清主线，避免过早陷入一些旁枝末节，我们在刚开始阅读源码时，会遇到很多&quot;好奇点&quot;：</p>
+<h1 id="快速了解架构和关键特性"><a href="#快速了解架构和关键特性" class="headerlink" title="快速了解架构和关键特性"></a>快速了解架构和关键特性</h1><p>如果有介绍原理的书籍，可以先快速浏览一遍，粗略了解整体架构、关键特性，同类、相似产品性能比较。<br>这些信息也可以从官方资料中一探究竟，尤其是架构介绍相关的章节。</p>
+<h1 id="快速试用"><a href="#快速试用" class="headerlink" title="快速试用"></a>快速试用</h1><p>官方资料中的“Quick Start”章节，先学习如何使用，加强自己对于整体项目的感性认识。<br>基本能摸清楚利用该项目“<strong>能做什么</strong>”，以及“<strong>如何做</strong>”。当然，这里仅仅涉及了最基础的功能。<br>学习一个特性要从了解配置和如何使用着手，同时建议阅读相关特性的设计文档或网上已有的源码解析文章，这样可以在阅读源码时避免分散精力去看无关紧要的部分。</p>
+<h1 id="开始阅读"><a href="#开始阅读" class="headerlink" title="开始阅读"></a>开始阅读</h1><h2 id="简单了解代码模块结构"><a href="#简单了解代码模块结构" class="headerlink" title="简单了解代码模块结构"></a>简单了解代码模块结构</h2><p>快速了解源码的模块组成结构，以及每一个模块的主要作用。这样有助于从源码结构上把握整体项目的结构，而后选择最基本的流程入手。</p>
+<h2 id="避免过早陷入旁枝末节"><a href="#避免过早陷入旁枝末节" class="headerlink" title="避免过早陷入旁枝末节"></a>避免过早陷入旁枝末节</h2><p>摸清主线，避免过早陷入一些旁枝末节，我们在刚开始阅读源码时，会遇到很多”好奇点”：</p>
 <blockquote>
 <ul>
 <li>这个算法居然实现的如此神奇？</li>
@@ -383,12 +374,9 @@
 <li>这个参数是干嘛的？</li>
 </ul>
 </blockquote>
-<p>我自己也时常经不起这些”诱惑”，陷于对这些细节的考究中，常常”离题”半天以后，才被拉回到主线中。<br>
-在阅读源码的时候，能遇到一些感兴趣的细节是好事，但建议先将这些细节点记录下来，等过完整体流程以后再回头看这些细节，避免过早陷入。</p>
-<h2 id="工具、时序图、日志和Debug">工具、时序图、日志和Debug</h2>
-<ol>
-<li>借助合理工具。阅读源码过程中，通常需要动手做一些测试，此时，可以借助<code>jstack</code>工具(针对Java项目)，它能为你提供如下有价值的信息：
-<ul>
+<p>我自己也时常经不起这些”诱惑”，陷于对这些细节的考究中，常常”离题”半天以后，才被拉回到主线中。<br>在阅读源码的时候，能遇到一些感兴趣的细节是好事，但建议先将这些细节点记录下来，等过完整体流程以后再回头看这些细节，避免过早陷入。</p>
+<h2 id="工具、时序图、日志和Debug"><a href="#工具、时序图、日志和Debug" class="headerlink" title="工具、时序图、日志和Debug"></a>工具、时序图、日志和Debug</h2><ol>
+<li>借助合理工具。阅读源码过程中，通常需要动手做一些测试，此时，可以借助<code>jstack</code>工具(针对Java项目)，它能为你提供如下有价值的信息：<ul>
 <li>线程模型</li>
 <li>调用栈: 调用栈信息可以帮你理清整体调用流程(另外，在定位问题时，jstack打印出的信息也时常可以发挥重要作用)。</li>
 </ul>
@@ -399,8 +387,7 @@
 <li>对于一些”莫名其妙“或”匪夷所思“的设计，请一定要对照参考社区问题单中的描述信息、设计文档或Comments信息。比如JDK源码里<code>HashMap</code>的默认负载因子为什么是0.75的注释。</li>
 <li>阅读源码过程中，遇到晦涩难懂的细节，如何应对？此时，建议开启Debug模式，详细跟踪每一步的调用流程，</li>
 <li>重视阅读测试用例源码，很多人并不习惯于阅读HBase的测试用例源码，其实，阅读测试用例的源码，可以帮你理解一些正确的行为应该是怎样的。</li>
-<li>能力进阶：开始关注社区动态，或尝试为社区贡献Patch。关注社区动态，可以及时获知一些重要的Bugs或社区正在开发的大的Features。关注的方式包括但不限于：
-<ul>
+<li>能力进阶：开始关注社区动态，或尝试为社区贡献Patch。关注社区动态，可以及时获知一些重要的Bugs或社区正在开发的大的Features。关注的方式包括但不限于：<ul>
 <li>订阅社区的Mail List</li>
 <li>关注社区的问题单</li>
 </ul>
@@ -618,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">先选择合适的源码版本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">快速了解架构和关键特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">快速试用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">开始阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单了解代码模块结构"><span class="nav-text">简单了解代码模块结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免过早陷入旁枝末节"><span class="nav-text">避免过早陷入旁枝末节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具、时序图、日志和Debug"><span class="nav-text">工具、时序图、日志和Debug</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先选择合适的源码版本"><span class="nav-text">先选择合适的源码版本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快速了解架构和关键特性"><span class="nav-text">快速了解架构和关键特性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快速试用"><span class="nav-text">快速试用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始阅读"><span class="nav-text">开始阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单了解代码模块结构"><span class="nav-text">简单了解代码模块结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免过早陷入旁枝末节"><span class="nav-text">避免过早陷入旁枝末节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工具、时序图、日志和Debug"><span class="nav-text">工具、时序图、日志和Debug</span></a></li></ol></li></ol></div>
             
 
           </div>

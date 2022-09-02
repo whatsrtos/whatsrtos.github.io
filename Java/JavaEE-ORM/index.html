@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="一些概念 ORM :对象关系映射（Object Relational Mapping，简称ORM）是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。 简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将java程序中的对象自动持久化到关系数据库中。 JDBC (Java Database Connectivity) API，即Java数据库编程接口，是一组标准的Java语言中">
+<meta name="description" content="一些概念ORM :对象关系映射（Object Relational Mapping，简称ORM）是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。 简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将java程序中的对象自动持久化到关系数据库中。 JDBC (Java Database Connectivity) API，即Java数据库编程接口，是一组标准的Java语言中的">
 <meta name="keywords" content="Java,JavaEE,ORM,MyBatis,Hibernate">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java ORM框架">
 <meta property="og:url" content="https://whatsrtos.github.io/Java/JavaEE-ORM/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="一些概念 ORM :对象关系映射（Object Relational Mapping，简称ORM）是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。 简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将java程序中的对象自动持久化到关系数据库中。 JDBC (Java Database Connectivity) API，即Java数据库编程接口，是一组标准的Java语言中">
+<meta property="og:description" content="一些概念ORM :对象关系映射（Object Relational Mapping，简称ORM）是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。 简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将java程序中的对象自动持久化到关系数据库中。 JDBC (Java Database Connectivity) API，即Java数据库编程接口，是一组标准的Java语言中的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-09-21T12:09:35.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java ORM框架">
-<meta name="twitter:description" content="一些概念 ORM :对象关系映射（Object Relational Mapping，简称ORM）是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。 简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将java程序中的对象自动持久化到关系数据库中。 JDBC (Java Database Connectivity) API，即Java数据库编程接口，是一组标准的Java语言中">
+<meta name="twitter:description" content="一些概念ORM :对象关系映射（Object Relational Mapping，简称ORM）是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。 简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将java程序中的对象自动持久化到关系数据库中。 JDBC (Java Database Connectivity) API，即Java数据库编程接口，是一组标准的Java语言中的">
 
 
 
@@ -355,22 +355,15 @@
       
 
       
-        <h1>一些概念</h1>
-<p><strong>ORM</strong> :对象关系映射（Object Relational Mapping，简称ORM）是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。 简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将java程序中的对象自动持久化到关系数据库中。</p>
-<p><strong>JDBC</strong> (Java Database Connectivity) API，即Java数据库编程接口，是一组标准的Java语言中的接口和类，使用这些接口和类，Java客户端程序可以访问各种不同类型的数据库。<br>
-常见的JDBC代码，简单的select语句也需要冗长的出错处理，并且每个函数都不断地重复同样的代码。<br>
-Spring Framework的<code>JdbcTemplate</code>正是为了减少上述繁琐的代码而设计出来的。它是对JDBC的一种封装，抽象我们常用的一些方法。</p>
-<p><strong>JPA</strong> 全称为Java Persistence API ，Java持久化API是Sun公司在Java EE 5规范中提出的Java持久化接口。JPA吸取了目前Java持久化技术的优点，旨在规范、简化Java对象的持久化工作。使用JPA持久化对象，并不是依赖于某一个ORM框架。<br>
-JPA规范本质上就是一种ORM规范，注意不是ORM框架——因为JPA并未提供ORM实现，它只是制订了一些规范，提供了一些编程的API接口，但具体实现则由服务厂商来提供实现，JBoss应用服务器底层就以Hibernate作为JPA的实现。<br>
-虽然ORM框架都实现了JPA规范，但是在不同ORM框架之间切换是需要编写的代码有一些差异，而通过使用Spring Data Jpa能够方便大家在不同的ORM框架中间进行切换而不要更改代码。并且Spring Data Jpa对Repository层封装的很好，可以省去不少的麻烦。</p>
-<h1>MyBatis</h1>
-<ul>
+        <h1 id="一些概念"><a href="#一些概念" class="headerlink" title="一些概念"></a>一些概念</h1><p><strong>ORM</strong> :对象关系映射（Object Relational Mapping，简称ORM）是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术。 简单的说，ORM是通过使用描述对象和数据库之间映射的元数据，将java程序中的对象自动持久化到关系数据库中。</p>
+<p><strong>JDBC</strong> (Java Database Connectivity) API，即Java数据库编程接口，是一组标准的Java语言中的接口和类，使用这些接口和类，Java客户端程序可以访问各种不同类型的数据库。<br>常见的JDBC代码，简单的select语句也需要冗长的出错处理，并且每个函数都不断地重复同样的代码。<br>Spring Framework的<code>JdbcTemplate</code>正是为了减少上述繁琐的代码而设计出来的。它是对JDBC的一种封装，抽象我们常用的一些方法。</p>
+<p><strong>JPA</strong> 全称为Java Persistence API ，Java持久化API是Sun公司在Java EE 5规范中提出的Java持久化接口。JPA吸取了目前Java持久化技术的优点，旨在规范、简化Java对象的持久化工作。使用JPA持久化对象，并不是依赖于某一个ORM框架。<br>JPA规范本质上就是一种ORM规范，注意不是ORM框架——因为JPA并未提供ORM实现，它只是制订了一些规范，提供了一些编程的API接口，但具体实现则由服务厂商来提供实现，JBoss应用服务器底层就以Hibernate作为JPA的实现。<br>虽然ORM框架都实现了JPA规范，但是在不同ORM框架之间切换是需要编写的代码有一些差异，而通过使用Spring Data Jpa能够方便大家在不同的ORM框架中间进行切换而不要更改代码。并且Spring Data Jpa对Repository层封装的很好，可以省去不少的麻烦。</p>
+<h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><ul>
 <li><a href="http://www.mybatis.org/mybatis-3/zh/getting-started.html" target="_blank" rel="noopener">MyBatis 3 | 入门</a></li>
 <li><a href="https://gitbook.cn/books/5a37b6b66eec7c4f044a75d0/index.html" target="_blank" rel="noopener">通过源码深入理解 SQL 的执行过程</a></li>
 <li><a href="https://blog.csdn.net/luanlouis/article/details/40422941" target="_blank" rel="noopener">MyBatis的架构设计以及实例分析</a></li>
 </ul>
-<h1>Hibernate</h1>
-<ul>
+<h1 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h1><ul>
 <li><a href="https://www.w3cschool.cn/hibernate/" target="_blank" rel="noopener">Hibernate 教程</a></li>
 </ul>
 
@@ -591,7 +584,7 @@ JPA规范本质上就是一种ORM规范，注意不是ORM框架——因为JPA�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">一些概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">MyBatis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">Hibernate</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一些概念"><span class="nav-text">一些概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MyBatis"><span class="nav-text">MyBatis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hibernate"><span class="nav-text">Hibernate</span></a></li></ol></div>
             
 
           </div>

@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="安装 Package Control Sublime text 3安装Package Control的方法: View -&amp;gt; Show Console, 输入: import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f8969">
+<meta name="description" content="安装 Package ControlSublime text 3安装Package Control的方法:View -&amp;gt; Show Console, 输入:import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f89698a6">
 <meta name="keywords" content="编辑器,Sublime">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sublime Text 3 扩展&amp;快捷键">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[工具] Sublime Text 3 快捷键/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="安装 Package Control Sublime text 3安装Package Control的方法: View -&amp;gt; Show Console, 输入: import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f8969">
+<meta property="og:description" content="安装 Package ControlSublime text 3安装Package Control的方法:View -&amp;gt; Show Console, 输入:import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f89698a6">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sublime Text 3 扩展&amp;快捷键">
-<meta name="twitter:description" content="安装 Package Control Sublime text 3安装Package Control的方法: View -&amp;gt; Show Console, 输入: import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f8969">
+<meta name="twitter:description" content="安装 Package ControlSublime text 3安装Package Control的方法:View -&amp;gt; Show Console, 输入:import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f89698a6">
 
 
 
@@ -355,20 +355,15 @@
       
 
       
-        <h1>安装 Package Control</h1>
-<p>Sublime text 3安装<a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">Package Control</a>的方法:<br>
-View -&gt; Show Console, 输入:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;2deb499853c4371624f5a07e27c334aa&apos; + &apos;bf8c4e67d14fb0525ba4f89698a6d7e1&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure>
-<h1>安装插件</h1>
-<ul>
+        <h1 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h1><p>Sublime text 3安装<a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">Package Control</a>的方法:<br>View -&gt; Show Console, 输入:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;2deb499853c4371624f5a07e27c334aa&apos; + &apos;bf8c4e67d14fb0525ba4f89698a6d7e1&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure></p>
+<h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><ul>
 <li>SideBarEnhancements : 侧边栏右键增强, 配置参考<a href="https://github.com/titoBouzout/SideBarEnhancements/#f12-key-conflict" target="_blank" rel="noopener">这里</a></li>
-<li>Emmet: 前身是&quot;Zen Coding&quot;, 可以更高效地编写HTML和CSS, 比如输入<code>html:5</code>然后按 <code>Tab</code> 就能自动产生代码段, <a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">速查表在这里</a></li>
-<li><a href="https://github.com/SublimeLinter/SublimeLinter3" target="_blank" rel="noopener">SublimeLinter</a>: 语法错误检查, 安装完SublimeLinter后还要安装对应语言的扩展, 在Package Control搜索&quot;SublimeLinter-&quot;即可.
-<ol>
+<li>Emmet: 前身是”Zen Coding”, 可以更高效地编写HTML和CSS, 比如输入<code>html:5</code>然后按 <code>Tab</code> 就能自动产生代码段, <a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">速查表在这里</a></li>
+<li><a href="https://github.com/SublimeLinter/SublimeLinter3" target="_blank" rel="noopener">SublimeLinter</a>: 语法错误检查, 安装完SublimeLinter后还要安装对应语言的扩展, 在Package Control搜索”SublimeLinter-“即可.<ol>
 <li><a href="https://github.com/SublimeLinter/SublimeLinter-php" target="_blank" rel="noopener">SublimeLinter-php</a>: 需要安装php</li>
 <li><a href="https://github.com/SublimeLinter/SublimeLinter-pep8" target="_blank" rel="noopener">SublimeLinter-pep8</a>:</li>
 <li><a href="https://github.com/SublimeLinter/SublimeLinter-jshint" target="_blank" rel="noopener">SublimeLinter-jshint</a>: 需要安装jshint: <code>npm install -g jshint</code></li>
-<li><a href="https://github.com/nirm03/SublimeLinter-clang" target="_blank" rel="noopener">SublimeLinter-clang</a>: 需要安装clang, Windows用户请安装&quot;mingw with clang&quot;</li>
+<li><a href="https://github.com/nirm03/SublimeLinter-clang" target="_blank" rel="noopener">SublimeLinter-clang</a>: 需要安装clang, Windows用户请安装”mingw with clang”</li>
 </ol>
 </li>
 <li><a href="https://github.com/SublimeCodeIntel/SublimeCodeIntel" target="_blank" rel="noopener">SublimeCodeIntel</a>: 函数定义跳转, 支持Js,Py,PHP等等, 但是不支持C/C++.</li>
@@ -379,9 +374,7 @@ View -&gt; Show Console, 输入:</p>
 <li>ConvertToUTF8:</li>
 <li>SublimeClang: C/C++的代码补全, 现在只支持ST2并且作者好久没更新了, 用ST3的洗洗睡吧. SublimeClang的static analyzer功能需clang的支持, 在Windows上安装clang又是喜闻乐见的困难, so~Windows用户也可以洗洗睡了.</li>
 </ul>
-<h1>快捷键</h1>
-<h2 id="1-跳转">1. 跳转</h2>
-<ul>
+<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><h2 id="1-跳转"><a href="#1-跳转" class="headerlink" title="1. 跳转"></a>1. 跳转</h2><ul>
 <li><code>Ctrl+P</code> : 快速打开文件</li>
 <li><code>Ctrl+R</code> : 快速搜索函数</li>
 <li><code>Ctrl+G</code> : 跳转到行</li>
@@ -394,8 +387,7 @@ View -&gt; Show Console, 输入:</p>
 <li><code>Ctrl+M</code> : 括号跳转</li>
 <li><code>Ctrl+Shift+M</code> : 选中当前括号内容，重复可选着括号本身</li>
 </ul>
-<h2 id="2-编辑">2. 编辑</h2>
-<ul>
+<h2 id="2-编辑"><a href="#2-编辑" class="headerlink" title="2. 编辑"></a>2. 编辑</h2><ul>
 <li><code>Ctrl+Alt+上下</code> : 列模式</li>
 <li><code>Ctrl+D</code> : 多处同步编辑, 继续按Ctrl+D可以持续选中下一处.</li>
 <li><code>Ctrl + Backspace</code> : 向前删除一个单词</li>
@@ -408,26 +400,22 @@ View -&gt; Show Console, 输入:</p>
 <li><code>Ctrl+Enter</code> : 在下一行插入新行</li>
 <li><code>Ctrl+Shift+Enter</code> : 在上一行插入新行</li>
 </ul>
-<h2 id="3-搜索替换">3. 搜索替换</h2>
-<ul>
+<h2 id="3-搜索替换"><a href="#3-搜索替换" class="headerlink" title="3. 搜索替换"></a>3. 搜索替换</h2><ul>
 <li><code>Ctrl+Shift+F</code> : 搜索状态下Ctrl+E,</li>
 <li><code>Ctrl+F</code> : <code>Enter</code>查找下一个, <code>Shift+Enter</code>查找上一个</li>
 <li><code>Ctrl+H</code> : 替换</li>
 </ul>
-<h2 id="4-注释">4. 注释</h2>
-<ul>
+<h2 id="4-注释"><a href="#4-注释" class="headerlink" title="4. 注释"></a>4. 注释</h2><ul>
 <li><code>Ctrl+K+B</code> : 关闭侧边栏</li>
 <li><code>Ctrl+/</code> : 注释当前行</li>
 <li><code>Ctrl+Alt+/</code> : 插入注释</li>
 </ul>
-<h2 id="5-SublimeCodeIntel">5. SublimeCodeIntel:</h2>
-<ul>
+<h2 id="5-SublimeCodeIntel"><a href="#5-SublimeCodeIntel" class="headerlink" title="5. SublimeCodeIntel:"></a>5. SublimeCodeIntel:</h2><ul>
 <li>Jump to definition = <code>Control + Windows + Alt + Up</code> or <code>Alt + Click</code></li>
 <li>Go back = <code>Control + Windows + Alt + Left</code></li>
 <li>Manual Code Intelligence = <code>Control + Shift + space</code></li>
 </ul>
-<h2 id="6-CTags">6. CTags</h2>
-<ul>
+<h2 id="6-CTags"><a href="#6-CTags" class="headerlink" title="6. CTags"></a>6. CTags</h2><ul>
 <li>Rebuild ctags = <code>ctrl+t, ctrl+r</code></li>
 <li>Jump to definition =  <code>ctrl+t, ctrl+t</code></li>
 <li>Jump back = <code>ctrl+t, ctrl+b</code></li>
@@ -644,7 +632,7 @@ View -&gt; Show Console, 输入:</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">安装 Package Control</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-跳转"><span class="nav-text">1. 跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-编辑"><span class="nav-text">2. 编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-搜索替换"><span class="nav-text">3. 搜索替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-注释"><span class="nav-text">4. 注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-SublimeCodeIntel"><span class="nav-text">5. SublimeCodeIntel:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-CTags"><span class="nav-text">6. CTags</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-Package-Control"><span class="nav-text">安装 Package Control</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装插件"><span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#快捷键"><span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-跳转"><span class="nav-text">1. 跳转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-编辑"><span class="nav-text">2. 编辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-搜索替换"><span class="nav-text">3. 搜索替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-注释"><span class="nav-text">4. 注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-SublimeCodeIntel"><span class="nav-text">5. SublimeCodeIntel:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-CTags"><span class="nav-text">6. CTags</span></a></li></ol></li></ol></div>
             
 
           </div>
