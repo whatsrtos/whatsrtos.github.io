@@ -915,7 +915,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  235
+                  239
                 </span>
               
 
@@ -941,7 +941,7 @@
 
       
         
-          <h1 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h1><p><a href="../30MinsToturial/Java Tutorials.md">参考 Java Tutorials.md - (十七)安全</a></p>
+          <h1 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h1><p>[参考 Java Tutorials.md - (十七)安全](../30MinsToturial/Java Tutorials.md)</p>
 <blockquote>
 <p>Blowfish是1993年布鲁斯·施奈尔(Bruce Schneier)开发的对称密钥区块加密算法，区块长为64位，密钥为1至448位的可变长度。与DES等算法相比，其处理速度较快。因为其无须授权即可使用，作为一种自由授权的加密方式在SSH、文件加密软件等被广泛地使用</p>
 </blockquote>
@@ -1229,7 +1229,7 @@
 
       
         
-          <p><img src="/images/正则表达式-RegExp/regexp.png" alt="RegEXp"></p>
+          <p><img src="/images/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F-RegExp/regexp.png" alt="RegEXp"></p>
 <h1 id="正则表达式的流派"><a href="#正则表达式的流派" class="headerlink" title="正则表达式的流派"></a>正则表达式的流派</h1><p>正则的两个标准： Perl 和 POSIX 标准</p>
 <ol>
 <li>Perl标准(PCRE)： 标准概述： <a href="http://perldoc.perl.org/perlre.html#Regular-Expressions" target="_blank" rel="noopener">perlre - perldoc.perl.org</a>，只关注[The Basics] 和[Metacharacters] （元字符）这两节即可.<ul>
@@ -1349,7 +1349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  43,904
+                  44,012
                 </span>
               
 
@@ -1375,7 +1375,7 @@
 
       
         
-          <p><img src="/images/Java Tutorials/Java-Series-Title.png" alt="title"></p>
+          <p>![title](/images/Java Tutorials/Java-Series-Title.png)</p>
 <h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><p>Java的基本类型有: char(2字节), byte(1字节), short(2字节), int(4字节), long(8字节), float(4字节), double(8字节), boolean(-),<br>Java没有bit类型, 但可以使用<code>BitSet</code>类代替.</p>
 <ul>
 <li>byte: 1字节, 范围-128~127</li>
@@ -1644,7 +1644,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  11,986
+                  11,999
                 </span>
               
 
@@ -1671,18 +1671,26 @@
       
         
           <h1 id="—Part-1-ANSI-C—"><a href="#—Part-1-ANSI-C—" class="headerlink" title="—Part 1: ANSI C—"></a>—Part 1: ANSI C—</h1><h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><ul>
-<li>C/C++作为一种强类型语言, 一个变量被使用前必须被定义.</li>
-<li>在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B);</li>
-<li>在64位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(<strong>8B</strong>) long(<strong>8B</strong>), float(4B), double(8B), long long(8B);</li>
-<li>long 和 int 范围是[-2^31,2^31)，即-2147483648~2147483647。</li>
-<li>而unsigned范围是[0,2^32)，即0~4294967295。也就是说，常规的32位整数只能够处理40亿以下的数。</li>
-<li>相比于C++98标准，C++11整型的最大改变就是多了long long。</li>
+<li><p>C/C++作为一种强类型语言, 一个变量被使用前必须被定义.</p>
+</li>
+<li><p>在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B);</p>
+</li>
+<li><p>在64位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(<strong>8B</strong>) long(<strong>8B</strong>), float(4B), double(8B), long long(8B);</p>
+</li>
+<li><p>long 和 int 范围是[-2^31,2^31)，即-2147483648~2147483647。</p>
+</li>
+<li><p>而unsigned范围是[0,2^32)，即0~4294967295。也就是说，常规的32位整数只能够处理40亿以下的数。</p>
+</li>
+<li><p>相比于C++98标准，C++11整型的最大改变就是多了long long。</p>
+</li>
 <li><p>long long整型有两种：long long和unsigned long long。在C++11中，标准要求long long整型可以在不同平台上有不同的长度，但至少有64位。我们在写常数字面量时，可以使用LL后缀（或是ll）标识一个long long类型的字面量，而ULL（或ull、Ull、uLL）表示一个unsigned long long类型的字面量。比如：</p>
   <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> lli = <span class="number">-9000000000000000000L</span>L;</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ulli = <span class="number">-9000000000000000000U</span>LL;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>比如对于有符号的，下面的类型是等价的：long long、signed long long、long long int、signed long long int；而unsigned long long和unsigned long long int也是等价的。</p>
 </li>
-<li>同其他的整型一样，要了解平台上<code>long long</code>大小的方法就是查看<code>&lt;climits&gt;</code>（或<code>&lt;limits.h&gt;</code>中的宏）。<br>与long long整型相关的一共有3个：LLONG_MIN、LLONG_MAX和ULLONG_MIN，它们分别代表了平台上最小的long long值、最大的long long值，以及最大的unsigned long long值。  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ll_min = LLONG_MIN;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ll_max = LLONG_MAX;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull_max = ULLONG_MAX;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"min of long long: %lld\n"</span>, ll_min); <span class="comment">// min of long long: -9223372036854775808</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"max of long long: %lld\n"</span>, ll_max); <span class="comment">// max of long long: 9223372036854775807</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"max of unsigned long long: %llu\n"</span>, ull_max);   <span class="comment">// max of unsigned long long: 18446744073709551615</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译选项:g++ -std=c++11 2-2-1.cpp</span></span><br><span class="line"><span class="comment">// 在代码清单中，将以上3个宏打印了出来，对于printf函数来说，</span></span><br><span class="line"><span class="comment">// 输出有符号的long long类型变量可以用符号%lld，</span></span><br><span class="line"><span class="comment">// 无符号的unsigned long long则可以采用%llu。</span></span><br></pre></td></tr></table></figure>
+<li><p>同其他的整型一样，要了解平台上<code>long long</code>大小的方法就是查看<code>&lt;climits&gt;</code>（或<code>&lt;limits.h&gt;</code>中的宏）。<br>与long long整型相关的一共有3个：LLONG_MIN、LLONG_MAX和ULLONG_MIN，它们分别代表了平台上最小的long long值、最大的long long值，以及最大的unsigned long long值。</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ll_min = LLONG_MIN;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ll_max = LLONG_MAX;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull_max = ULLONG_MAX;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"min of long long: %lld\n"</span>, ll_min); <span class="comment">// min of long long: -9223372036854775808</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"max of long long: %lld\n"</span>, ll_max); <span class="comment">// max of long long: 9223372036854775807</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"max of unsigned long long: %llu\n"</span>, ull_max);   <span class="comment">// max of unsigned long long: 18446744073709551615</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译选项:g++ -std=c++11 2-2-1.cpp</span></span><br><span class="line"><span class="comment">// 在代码清单中，将以上3个宏打印了出来，对于printf函数来说，</span></span><br><span class="line"><span class="comment">// 输出有符号的long long类型变量可以用符号%lld，</span></span><br><span class="line"><span class="comment">// 无符号的unsigned long long则可以采用%llu。</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <blockquote>

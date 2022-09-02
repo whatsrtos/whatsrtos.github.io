@@ -581,9 +581,12 @@
 <li>Master宕机时自动切换到从</li>
 <li>如果发现某个redis节点运行出现状况，能够通知另外一个进程(例如它的客户端);</li>
 </ul>
-<p>运行sentinel有两种方式:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis-sentinel /path/to/sentinel.conf</span><br><span class="line">redis-server /path/to/sentinel.conf --sentinel</span><br></pre></td></tr></table></figure></p>
+<p>运行sentinel有两种方式:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis-sentinel /path/to/sentinel.conf</span><br><span class="line">redis-server /path/to/sentinel.conf --sentinel</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/Arch-NoSQL-Redis/redis-sentinel.png" alt="Redis_Sentinel"></p>
 <h2 id="配置文件解读"><a href="#配置文件解读" class="headerlink" title="配置文件解读"></a>配置文件解读</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 定义一个&apos;mymaster&apos;, 2表示两个Sentinel认为Master挂掉了才算</span><br><span class="line">sentinel monitor mymaster 127.0.0.1 6379 2</span><br><span class="line"></span><br><span class="line"># 在6000ms内ping不通, 则主观认为该实例下线</span><br><span class="line">sentinel down-after-milliseconds mymaster 60000</span><br><span class="line">sentinel failover-timeout mymaster 180000</span><br><span class="line"></span><br><span class="line">#表示如果master重新选出来后，其它slave节点能同时并行从新master同步缓存的台数有多少个</span><br><span class="line">sentinel parallel-syncs mymaster 1</span><br><span class="line"></span><br><span class="line"># 当使用了sentinel时，master可能会变成一个slave，slave也可能会变成master ..</span><br><span class="line">sentinel auth-pass &lt;master_name&gt; xxxxx</span><br></pre></td></tr></table></figure>
+
 <h1 id="事务处理"><a href="#事务处理" class="headerlink" title="事务处理"></a>事务处理</h1><p>@TODO</p>
 <h1 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h1><ul>
 <li>redis 性能测试的基本命令如下：<code>redis-benchmark [option] [option value]</code></li>
@@ -627,13 +630,20 @@
 </li>
 <li><p>memory 部分记录了服务器的内存信息，它包含以下域：</p>
 <ul>
-<li>used_memory : 由 Redis 分配器分配的内存总量，以字节（byte）为单位</li>
-<li>used_memory_human : 以人类可读的格式返回 Redis 分配的内存总量</li>
-<li>used_memory_rss : 从操作系统的角度，返回 Redis 已分配的内存总量（俗称常驻集大小）。这个值和 top 、 ps 等命令的输出一致。</li>
-<li>used_memory_peak : Redis 的内存消耗峰值（以字节为单位）</li>
-<li>used_memory_peak_human : 以人类可读的格式返回 Redis 的内存消耗峰值</li>
-<li>used_memory_lua : Lua 引擎所使用的内存大小（以字节为单位）</li>
-<li>mem_fragmentation_ratio : used_memory_rss 和 used_memory 之间的比率</li>
+<li><p>used_memory : 由 Redis 分配器分配的内存总量，以字节（byte）为单位</p>
+</li>
+<li><p>used_memory_human : 以人类可读的格式返回 Redis 分配的内存总量</p>
+</li>
+<li><p>used_memory_rss : 从操作系统的角度，返回 Redis 已分配的内存总量（俗称常驻集大小）。这个值和 top 、 ps 等命令的输出一致。</p>
+</li>
+<li><p>used_memory_peak : Redis 的内存消耗峰值（以字节为单位）</p>
+</li>
+<li><p>used_memory_peak_human : 以人类可读的格式返回 Redis 的内存消耗峰值</p>
+</li>
+<li><p>used_memory_lua : Lua 引擎所使用的内存大小（以字节为单位）</p>
+</li>
+<li><p>mem_fragmentation_ratio : used_memory_rss 和 used_memory 之间的比率</p>
+</li>
 <li><p>mem_allocator : 在编译时指定的， Redis 所使用的内存分配器。可以是 libc 、 jemalloc 或者 tcmalloc 。</p>
 <blockquote>
 <p>在理想情况下， used_memory_rss 的值应该只比 used_memory 稍微高一点儿。<br>当 rss &gt; used ，且两者的值相差较大时，表示存在（内部或外部的）内存碎片。<br>内存碎片的比率可以通过 mem_fragmentation_ratio 的值看出。<br>当 used &gt; rss 时，表示 Redis 的部分内存被操作系统换出到交换空间了，在这种情况下，操作可能会产生明显的延迟。<br>Because Redis does not have control over how its allocations are mapped to memory pages, high used_memory_rss is often the result of a spike in memory usage.</p>

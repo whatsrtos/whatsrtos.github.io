@@ -332,7 +332,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,858
+                  1,862
                 </span>
               
 
@@ -385,8 +385,8 @@
 <li><code>caw</code> : 剪切光标处单词, 包括空格</li>
 <li><code>dip</code> : 删除一段</li>
 </ul>
-<h1 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h1><p>下上左右：<code>ＪＫＨＬ</code><br>移动到上一个单词首<code>b</code><br>移动到下一个单词首<code>w</code>，移动3个单词<code>3w</code><br>    <----b w----=""></----b></p>
-<p><code>w</code> / <code>b</code>是在单词首部移动，在单词尾部移动为<code>ge</code> / <code>e</code><br>    <----ge e----=""></----ge></p>
+<h1 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h1><p>下上左右：<code>ＪＫＨＬ</code><br>移动到上一个单词首<code>b</code><br>移动到下一个单词首<code>w</code>，移动3个单词<code>3w</code><br>    &lt;—-b w—-&gt;</p>
+<p><code>w</code> / <code>b</code>是在单词首部移动，在单词尾部移动为<code>ge</code> / <code>e</code><br>    &lt;—-ge e—-&gt;</p>
 <p>如果是大写的<code>B</code>，<code>W</code>，<code>gE</code>，<code>E</code>，则只将“空格”作为单词分隔符，例如’gloal.member’被当作一个完整的词。</p>
 <p><code>^</code> 光标移动到行开头<br><code>$</code> 光标移动到行结尾<br><code>fx</code> 光标移动到下一个x处，3fx移动到第三个x处<br><code>Fx</code> 光标移动到前面的x处<br><code>tx</code>，<code>Tx</code>类似，移动到x之前<br><code>ma</code> 标记当前行， 标签可以是a-z任意字符<br><code>~a</code> 跳转到a标签</p>
 <p>跳转到上次编辑位置: <code>C-O</code><br>跳转到匹配的括号<code>%</code><br>移动到文件首<code>gg</code><br>有趣的命令: <code>9999k</code>作用也是移动到文件首<br>移动到文件尾<code>G</code><br>跳转到第33行<code>33G</code><br>或者输入 <code>:33</code> 也可以跳转<br>如移动到文档1/3处 ，直接输入<code>33%</code><br>将当前光标所在的行移到屏幕中间 <code>zz</code><br>当前光标所在的行移到屏幕顶，<code>zt</code> 助记t=top 。<br>当前光标所在的行移到屏幕底，<code>zb</code> 助记b=bottom 。<br>分别为移动到文档的head, middle, last的位置 <code>H, M, L</code>。<br> 向前向后翻页 <code>C-F</code> , <code>C-B</code></p>
@@ -435,13 +435,14 @@
 <li>剪切<code>&quot;+x</code><br>注: 以上快捷键在命令可视模式/模式有效，先按双引号进入寄存器模式,再按加号,然后按<code>y/p/x</code><br>如果在插入模式, 先按<code>ctrl+R</code>进入寄存器模式（会出现<code>&quot;</code>号）, 再按对应的寄存器编号，系统共享寄存器编号是+号.<br>在VIM正常模式下,<code>ctrl+r</code> 是重做。</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&quot; 加入到_vimrc文件中:</span><br><span class="line">map &lt;C-c&gt; &quot;+y &quot;加号寄存器-复制</span><br><span class="line">map &lt;C-v&gt; &quot;+p &quot;加号寄存器-复制</span><br><span class="line">map &lt;CTRL-X&gt; &quot;+x &quot;加号寄存器-复制</span><br><span class="line">map &lt;C-s&gt; :w&lt;cr&gt; &quot; 保存</span><br></pre></td></tr></table></figure>
+
 <h1 id="多窗口"><a href="#多窗口" class="headerlink" title="多窗口"></a>多窗口</h1><ul>
 <li>关闭分屏窗口: <code>Ctrl+W c</code> 或 <code>Ctrl+W q</code></li>
 <li>上下分割窗口: <code>Ctrl+W s</code></li>
 <li>左右分割窗口: <code>Ctrl+W v</code><br><code>Ctrl+w Ctrl+]</code> 在新窗口打开定义</li>
 </ul>
 <h1 id="多文件buff操作"><a href="#多文件buff操作" class="headerlink" title="多文件buff操作"></a>多文件buff操作</h1><p><code>:E</code> 或者<code>:Explore</code> 浏览目录<br><code>:edit filename</code> 编辑文件；<br><code>:ls</code> 列出所有buffer；<br><code>:b 2</code>或<code>:buffer 2</code>将切换到相关的buffer<br><code>:b2</code> 关闭buff=2的文件；<br><code>:bn</code> 删除文件缓冲(关闭文件)。<br><code>zz</code> 将当前编辑的行置于屏幕中间。<br><code>ZZ</code> 保存退出。<br><code>:q!</code> 不保存退出, <code>:qa!</code>表示退出所有buff并不保存<br><code>:wq</code> 保存退出</p>
-<h1 id="搜索和替换"><a href="#搜索和替换" class="headerlink" title="搜索和替换"></a>搜索和替换</h1><h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p><code>/include</code> 正向搜索，n下一个，N上一个<br><code>?include</code> 反向搜索<br><code>/\&lt;the\&gt;</code> 全词匹配搜索单词＂the＂，助记开头\&lt;，结尾><br><code>#</code>号是向后搜索匹配单词，<code>*</code>向前搜索匹配单词, <code>gd</code>类似*号的功能.</p>
+<h1 id="搜索和替换"><a href="#搜索和替换" class="headerlink" title="搜索和替换"></a>搜索和替换</h1><h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p><code>/include</code> 正向搜索，n下一个，N上一个<br><code>?include</code> 反向搜索<br><code>/\&lt;the\&gt;</code> 全词匹配搜索单词＂the＂，助记开头&lt;，结尾&gt;<br><code>#</code>号是向后搜索匹配单词，<code>*</code>向前搜索匹配单词, <code>gd</code>类似*号的功能.</p>
 <h2 id="正则搜索"><a href="#正则搜索" class="headerlink" title="正则搜索"></a>正则搜索</h2><p><code>/^the</code> 搜索the开头的行（针对行，而非单词）<br><code>/here$</code> 搜索here结尾的行<br>点号匹配任何单字符，如果要搜索的内容本身包含点号，则用.代替，比如：<br><code>/the.</code> 搜索＂the＂匹配的内容<br><code>/the\.</code> 搜索＂the.＂匹配的内容</p>
 <h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>最常用的替换命令就是<code>:%s/1/2/g</code>了, 其中%符号表示范围整个文件, s表示搜索, 最后的g表示全局替换.<br>如果要制定范围内替换, 比如在31~文件尾范围内替换: <code>:31,$s/hello/world/gc</code>, 最后的c参数表示替换过程中需要确认(confirm).</p>
 <h1 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h1><p><code>shift + v</code>: 行选择模式<br>大写<code>V</code>同上<br>所选择区域转换为大写<code>U</code>，转换为小写<code>u</code><br><code>x</code>和<code>d</code>在可视模式都是删除<br><code>&gt;</code>和<code>&lt;</code>在可视模式为右移,左移</p>

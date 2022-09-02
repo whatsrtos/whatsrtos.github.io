@@ -613,7 +613,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,379
+                  1,381
                 </span>
               
 
@@ -1067,6 +1067,7 @@
 <li>以administrator打开PowerShell, 输入以下命令:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &quot;%appdata%\Sublime Text 3\Packages\&quot;</span><br><span class="line">mkdir &apos;X:\Dropbox\SublimeText3&apos;</span><br><span class="line">mv User &apos;X:\Dropbox\SublimeText3\&apos;</span><br><span class="line">cmd /c mklink /D User &quot;X:\Dropbox\SublimeText3\User&quot;</span><br></pre></td></tr></table></figure>
+
 <p>注意, 根据情况替换上面的<code>X:\Dropbox\SublimeText3</code>路径;<br>第三行<code>mv</code>命令只能在相同盘符的目录之间移动, 如果你的Dropbox同步目录不是在C盘, 手动打开<code>%AppData%\Sublime Text 3\Packages\\</code>, 把下面的User目录移动到Dropbox同步目录中.</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1479,7 +1480,7 @@
 
       
         
-          <p><img src="https://user-images.githubusercontent.com/378023/49132477-f4b77680-f31f-11e8-8357-ac6491761c6c.png" alt=""></p>
+          <p><img src="https://user-images.githubusercontent.com/378023/49132477-f4b77680-f31f-11e8-8357-ac6491761c6c.png" alt></p>
 <p>本文介绍用 Chocolatey 在 Windows上安装 Atom编辑器.</p>
 <blockquote>
 <p>Atom是由GitHub开发的自由及开放源代码的文字与代码编辑器，支持macOS、Windows和Linux操作系统，支持Node.js所写的插件，并内置由Github提供的Git版本控制系统。多数的延伸包皆为开放源代码授权，并由社群建置与维护。</p>
@@ -1617,7 +1618,9 @@
 
       
         
-          <h1 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h1><p>Sublime text 3安装<a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">Package Control</a>的方法:<br>View -&gt; Show Console, 输入:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;2deb499853c4371624f5a07e27c334aa&apos; + &apos;bf8c4e67d14fb0525ba4f89698a6d7e1&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure></p>
+          <h1 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h1><p>Sublime text 3安装<a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">Package Control</a>的方法:<br>View -&gt; Show Console, 输入:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;2deb499853c4371624f5a07e27c334aa&apos; + &apos;bf8c4e67d14fb0525ba4f89698a6d7e1&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure>
+
 <h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><ul>
 <li>SideBarEnhancements : 侧边栏右键增强, 配置参考<a href="https://github.com/titoBouzout/SideBarEnhancements/#f12-key-conflict" target="_blank" rel="noopener">这里</a></li>
 <li>Emmet: 前身是”Zen Coding”, 可以更高效地编写HTML和CSS, 比如输入<code>html:5</code>然后按 <code>Tab</code> 就能自动产生代码段, <a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">速查表在这里</a></li>
@@ -1636,7 +1639,6 @@
 <li>ConvertToUTF8:</li>
 <li>SublimeClang: C/C++的代码补全, 现在只支持ST2并且作者好久没更新了, 用ST3的洗洗睡吧. SublimeClang的static analyzer功能需clang的支持, 在Windows上安装clang又是喜闻乐见的困难, so~Windows用户也可以洗洗睡了.</li>
 </ul>
-<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/farbox_archive/[工具] Sublime Text 3 快捷键/#more" rel="contents">

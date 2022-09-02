@@ -334,7 +334,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8,487
+                  8,486
                 </span>
               
 
@@ -397,69 +397,67 @@
 <h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><table>
 <thead>
 <tr>
-<th style="text-align:left">符号</th>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">备注</th>
+<th align="left">符号</th>
+<th align="left">描述</th>
+<th align="left">备注</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">=</td>
-<td style="text-align:left">等于</td>
-<td style="text-align:left"></td>
+<tbody><tr>
+<td align="left">=</td>
+<td align="left">等于</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:left">&gt;</td>
-<td style="text-align:left">大于</td>
-<td style="text-align:left"></td>
+<td align="left">&gt;</td>
+<td align="left">大于</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:left">&lt;</td>
-<td style="text-align:left">小于</td>
-<td style="text-align:left"></td>
+<td align="left">&lt;</td>
+<td align="left">小于</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:left">!=</td>
-<td style="text-align:left">不等于</td>
-<td style="text-align:left">不可比较NULL, 例 1 != NULL也返回NULL</td>
+<td align="left">!=</td>
+<td align="left">不等于</td>
+<td align="left">不可比较NULL, 例 1 != NULL也返回NULL</td>
 </tr>
 <tr>
-<td style="text-align:left">&lt;&gt;</td>
-<td style="text-align:left">不等于</td>
-<td style="text-align:left">同上</td>
+<td align="left">&lt;&gt;</td>
+<td align="left">不等于</td>
+<td align="left">同上</td>
 </tr>
 <tr>
-<td style="text-align:left">&lt;=&gt;</td>
-<td style="text-align:left">等于</td>
-<td style="text-align:left">NULL-Safe的比较, NULL&lt;=&gt;NULL为1, 1&lt;=&gt;NULL为0</td>
+<td align="left">&lt;=&gt;</td>
+<td align="left">等于</td>
+<td align="left">NULL-Safe的比较, NULL&lt;=&gt;NULL为1, 1&lt;=&gt;NULL为0</td>
 </tr>
 <tr>
-<td style="text-align:left">IS NULL</td>
-<td style="text-align:left">等于NULL</td>
-<td style="text-align:left"></td>
+<td align="left">IS NULL</td>
+<td align="left">等于NULL</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:left">IS NOT NULL</td>
-<td style="text-align:left">不等于NULL</td>
-<td style="text-align:left"></td>
+<td align="left">IS NOT NULL</td>
+<td align="left">不等于NULL</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:left">BETWEEN</td>
-<td style="text-align:left">在两值之间</td>
-<td style="text-align:left"></td>
+<td align="left">BETWEEN</td>
+<td align="left">在两值之间</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:left">IN</td>
-<td style="text-align:left">在集合中</td>
-<td style="text-align:left"></td>
+<td align="left">IN</td>
+<td align="left">在集合中</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:left">LIKE</td>
-<td style="text-align:left">模糊匹配</td>
-<td style="text-align:left"></td>
+<td align="left">LIKE</td>
+<td align="left">模糊匹配</td>
+<td align="left"></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
 <li>字符串拼接: CONCAT(s1, s2, …)</li>
 <li>LOWER(s1), UPPER(s1)</li>
@@ -483,7 +481,8 @@
 <li>FOREIGN KEY 约束也能防止非法数据插入外键列，因为它必须是它指向的那个表中的值之一。</li>
 </ul>
 </li>
-<li><strong>外键约束</strong>：<ul>
+<li><p><strong>外键约束</strong>：</p>
+<ul>
 <li>(1)插入非空值时，如果主键值中没有这个值，则不能插入。</li>
 <li>(2)更新时，不能改为主键表中没有的值。</li>
 <li>(3)删除主键表记录时，可以在建外键时选定外键记录一起联删除还是拒绝删除。</li>
@@ -551,11 +550,7 @@
 <blockquote>
 <p><a href="https://blog.csdn.net/wepe12/article/details/53024400" target="_blank" rel="noopener">mysql测试数据库employees一些sql语句_数据库_wepe12的博客-CSDN博客</a></p>
 </blockquote>
-<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name ( field1, field2,...fieldN )</span><br><span class="line">                    <span class="keyword">VALUES</span></span><br><span class="line">                    ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure>
-</code></pre><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name [<span class="keyword">WHERE</span> Clause]</span><br></pre></td></tr></table></figure>
-</code></pre><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name <span class="keyword">SET</span> field1=<span class="keyword">new</span>-value1, field2=<span class="keyword">new</span>-value2</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br></pre></td></tr></table></figure>
-</code></pre><h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br><span class="line">[<span class="keyword">LIMIT</span> N][ <span class="keyword">OFFSET</span> M]</span><br></pre></td></tr></table></figure>
-</code></pre><h3 id="子句-WHERE-HAVING-GROUP-BY-ORDER-BY-LIMIT"><a href="#子句-WHERE-HAVING-GROUP-BY-ORDER-BY-LIMIT" class="headerlink" title="子句: WHERE, HAVING, GROUP BY, ORDER BY, LIMIT"></a>子句: WHERE, HAVING, GROUP BY, ORDER BY, LIMIT</h3><p>按照被执行的顺序: from、where、group by、having、select、order by、limit</p>
+<h2 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h2><pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name ( field1, field2,...fieldN )</span><br><span class="line">                    <span class="keyword">VALUES</span></span><br><span class="line">                    ( value1, value2,...valueN );</span><br></pre></td></tr></table></figure></code></pre><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name [<span class="keyword">WHERE</span> Clause]</span><br></pre></td></tr></table></figure></code></pre><h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name <span class="keyword">SET</span> field1=<span class="keyword">new</span>-value1, field2=<span class="keyword">new</span>-value2</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br></pre></td></tr></table></figure></code></pre><h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2><pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name,column_name</span><br><span class="line"><span class="keyword">FROM</span> table_name</span><br><span class="line">[<span class="keyword">WHERE</span> Clause]</span><br><span class="line">[<span class="keyword">LIMIT</span> N][ <span class="keyword">OFFSET</span> M]</span><br></pre></td></tr></table></figure></code></pre><h3 id="子句-WHERE-HAVING-GROUP-BY-ORDER-BY-LIMIT"><a href="#子句-WHERE-HAVING-GROUP-BY-ORDER-BY-LIMIT" class="headerlink" title="子句: WHERE, HAVING, GROUP BY, ORDER BY, LIMIT"></a>子句: WHERE, HAVING, GROUP BY, ORDER BY, LIMIT</h3><p>按照被执行的顺序: from、where、group by、having、select、order by、limit</p>
 <ul>
 <li>WHERE: 是唯一一个是直接从磁盘获取数据的时候就开始判断的条件, 从磁盘取出一条记录, 开始进行where判断:判断的结果如果成立就保存到内存中, 如果失败则直接放弃</li>
 <li>GROUP BY: 根据一个或多个列, 对结果集进行分组, 在分组的列上我们可以使用 COUNT, SUM, AVG,等函数。<ul>
@@ -633,16 +628,17 @@
 </li>
 <li><p>多次JOIN:</p>
   <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> collum <span class="keyword">from</span> TABLE1</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> TABLE2 <span class="keyword">ON</span> condition2</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> TABLE3 <span class="keyword">ON</span> condition3</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="UNION"><a href="#UNION" class="headerlink" title="UNION"></a>UNION</h3><p>UNION： 操作符用于连接两个以上的 SELECT 语句的结果组合到一个结果集合中。UNION会去掉重复的行, 但UNION ALL不会。</p>
-<pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> columnA <span class="keyword">from</span> table1</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">select</span> collumB <span class="keyword">from</span> table2</span><br></pre></td></tr></table></figure>
-</code></pre><p>columnA和columnB必须是同类型</p>
+<pre><code><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> columnA <span class="keyword">from</span> table1</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">select</span> collumB <span class="keyword">from</span> table2</span><br></pre></td></tr></table></figure></code></pre><p>columnA和columnB必须是同类型</p>
 <h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>用括号<code>()</code>括起来的一个完整查询语句相当于一个Table, 子查询不包含 ORDER BY 子句。对一个 SELECT 语句只能用一个 ORDER BY 子句，并且如果指定了它就必须放在主 SELECT 语句的最后。</p>
 <ul>
 <li><p>子查询作为 查询条件:</p>
 <ul>
 <li>如果子查询返回单个结果, 可以用 例如=，&gt;，&lt;等 与子查询比较 :<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT customerNumber, checkNumber, amount FROM payments</span><br><span class="line">WHERE amount = (SELECT MAX(amount) FROM payments);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <ul>
@@ -656,6 +652,7 @@
 </li>
 <li><p>EXISTS和NOT EXISTS: 当子查询与EXISTS或NOT EXISTS运算符一起使用时，子查询返回一个布尔值为TRUE或FALSE的值。以下查询说明了与EXISTS运算符一起使用的子查询：</p>
   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT * FROM tb_students_info</span><br><span class="line">WHERE EXISTS (</span><br><span class="line">    SELECT dept_name FROM tb_departments WHERE dept_id=1</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h1 id="索引原理"><a href="#索引原理" class="headerlink" title="索引原理"></a>索引原理</h1><p>参考列表:</p>
@@ -796,9 +793,13 @@
 <blockquote>
 <p>MyISAM 不支持行锁, 不支持行锁意味着并发控制只能使用表锁，对于这种引擎的表，同一张表上任何时刻只能有一个更新在执行，这就会影响到业务并发度。InnoDB 是支持行锁的，这也是 MyISAM 被 InnoDB 替代的重要原因之一。</p>
 </blockquote>
-<p>表锁的使用:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lock table xxx read； // 读锁</span><br><span class="line">// 其他线程只可以对表select查询，查询立刻返回</span><br><span class="line">// 但是无法对update/delete，操作会阻塞</span><br><span class="line">unlock tables</span><br></pre></td></tr></table></figure></p>
+<p>表锁的使用:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lock table xxx read； // 读锁</span><br><span class="line">// 其他线程只可以对表select查询，查询立刻返回</span><br><span class="line">// 但是无法对update/delete，操作会阻塞</span><br><span class="line">unlock tables</span><br></pre></td></tr></table></figure>
+
 <h2 id="本机事务"><a href="#本机事务" class="headerlink" title="本机事务"></a>本机事务</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">start transaction; // 开始一个事务</span><br><span class="line">// 开始事务后, 表是没有锁的, 因为start transaction会隐式的unlock表</span><br><span class="line">语句</span><br><span class="line">savepoint xxx;</span><br><span class="line">语句</span><br><span class="line">rollback to savepoint xxx;</span><br><span class="line">// 在commit 之前, 其他线程可以查询表, 但看不到上面的结果</span><br><span class="line">commit;</span><br><span class="line">// 在commit 之后, 其他线程才可以看到改变</span><br></pre></td></tr></table></figure>
+
 <h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xa start &apos;test&apos;, &apos;db1&apos;;  -- 启动xid=&apos;text&apos;, 分支=&apos;db1&apos;的分布式事务</span><br><span class="line">SQL 语句...</span><br><span class="line">xa end &apos;test&apos;, &apos;db1&apos;;</span><br><span class="line">xa prepare &apos;test&apos;, &apos;db1&apos;; -- 分支db1进入prepare状态</span><br><span class="line">-- 必须xid=&apos;test&apos;的所有分支都commit, 事务才算完成</span><br><span class="line">xa commit &apos;text&apos;, &apos;db1&apos;;</span><br></pre></td></tr></table></figure>
+
 <table>
 <thead>
 <tr>
@@ -807,8 +808,7 @@
 <th></th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>xa start ‘transxxx’ ‘db1’</td>
 <td>xa start ‘transxxx’ ‘db2’</td>
 <td>开始事务</td>
@@ -833,8 +833,7 @@
 <td>xa commit  ‘transxxx’ ‘db2’</td>
 <td>提交事务</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>命令说明:</p>
 <ul>
 <li>开始事务: <code>xa start xid</code>, xid是某个分布式事务的唯一id, xid分三部分: 分布式事务标识+事务分支标识+formatid<ul>
@@ -846,7 +845,7 @@
 </ul>
 <h3 id="2PC和3PC"><a href="#2PC和3PC" class="headerlink" title="2PC和3PC"></a>2PC和3PC</h3><p>参考:</p>
 <ul>
-<li>[x] <a href="http://www.hollischuang.com/archives/681" target="_blank" rel="noopener">关于分布式事务、两阶段提交协议、三阶提交协议-HollisChuang’s Blog</a> @Ref</li>
+<li><input checked disabled type="checkbox"> <a href="http://www.hollischuang.com/archives/681" target="_blank" rel="noopener">关于分布式事务、两阶段提交协议、三阶提交协议-HollisChuang’s Blog</a> @Ref</li>
 </ul>
 <p>▶ 什么情况下需要分布式事务:</p>
 <ul>
@@ -916,6 +915,7 @@
 <li>2PC: 在参与者收到 Prepare 指令后, 如果等待协调者超时, 参与者会一直等待下去</li>
 </ul>
 <h1 id="MySQL-Commands"><a href="#MySQL-Commands" class="headerlink" title="MySQL Commands"></a>MySQL Commands</h1><h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql -h 127.0.0.1 -u xxx -pXXX -P 3306</span><br><span class="line"></span><br><span class="line"># --auto-rehash 启用自动补全(但我试了没用)</span><br><span class="line">mysql -h主机地址 -P端口 -u用户名 -p密码 -D数据库名 --auto-rehash</span><br><span class="line">#　Mysql的`schemas`和`数据库名`是等同的</span><br><span class="line"></span><br><span class="line"># 连接成功后可以输入以下命令, 分号是必须的:</span><br><span class="line">show databases;</span><br><span class="line">use db_name;</span><br><span class="line">show tables;</span><br><span class="line">desc table_name; # 查看表结构</span><br><span class="line">use table_name;</span><br><span class="line"></span><br><span class="line"># 如果输入了一半sql命令想要放弃, 加上&apos;\c&apos;即可</span><br><span class="line">select * from table_name \c</span><br><span class="line"></span><br><span class="line"># 如果忘记了table在那个database 或schema, 表占用大小以及行数:</span><br><span class="line">select * from  information_schema.tables where table_name = &apos;xxx&apos;</span><br></pre></td></tr></table></figure>
+
 <h2 id="explain"><a href="#explain" class="headerlink" title="explain"></a>explain</h2><p><code>explain</code>显示了mysql如何使用索引来处理select语句以及连接表。可以帮助选择更好的索引和写出更优化的查询语句。使用方法，在select语句前加上explain就可以了。所以使用explain可以查看。</p>
 <h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><ul>
 <li>导出数据库结构,不带数据: <code>mysqldump -h ip_addr -uxxx -pxxx -d DBName &gt; dump.sql</code></li>
@@ -928,10 +928,13 @@
 <h2 id="mycli"><a href="#mycli" class="headerlink" title="mycli"></a>mycli</h2><p>官网: <a href="https://www.mycli.net/" target="_blank" rel="noopener">https://www.mycli.net/</a></p>
 <p>安装:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install mycli</span><br></pre></td></tr></table></figure>
+
 <p>或:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew update &amp;&amp; brew install mycli</span><br></pre></td></tr></table></figure>
+
 <p>Usage:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 获取帮助</span><br><span class="line">mycli --help</span><br><span class="line"></span><br><span class="line"># 连接数据库</span><br><span class="line">mycli -h 主机地址 -p 端口 -u 用户</span><br></pre></td></tr></table></figure>
+
 
       
     </div>

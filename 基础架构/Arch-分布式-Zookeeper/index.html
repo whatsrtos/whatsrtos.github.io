@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="Zookeeperzookeeper命令# 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作 或者使用socket:  echo stat|nc 127.0.0.1">
+<meta name="description" content="Zookeeperzookeeper命令# 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作  或者使用socket:  echo stat|nc 127.0.0.1">
 <meta name="keywords" content="后端技术,分布式,Apache,Zookeeper,Paxos,ZAB,CAP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zookeeper">
 <meta property="og:url" content="https://whatsrtos.github.io/基础架构/Arch-分布式-Zookeeper/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="Zookeeperzookeeper命令# 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作 或者使用socket:  echo stat|nc 127.0.0.1">
+<meta property="og:description" content="Zookeeperzookeeper命令# 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作  或者使用socket:  echo stat|nc 127.0.0.1">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-04-16T13:43:12.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zookeeper">
-<meta name="twitter:description" content="Zookeeperzookeeper命令# 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作 或者使用socket:  echo stat|nc 127.0.0.1">
+<meta name="twitter:description" content="Zookeeperzookeeper命令# 连接 zk Server:bin/zkCli.sh -server 127.0.0.1:2181#ls /create /zk myData # 创建节点/zk, 对应值为myDataset /zk &quot;xxx&quot;get /zkls /cmt5/prod/config # 类似目录操作  或者使用socket:  echo stat|nc 127.0.0.1">
 
 
 
@@ -356,6 +356,7 @@
 
       
         <h1 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h1><h1 id="zookeeper命令"><a href="#zookeeper命令" class="headerlink" title="zookeeper命令"></a>zookeeper命令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 连接 zk Server:</span></span><br><span class="line">bin/zkCli.sh -server 127.0.0.1:2181</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">ls /</span><br><span class="line">create /zk myData # 创建节点/zk, 对应值为myData</span><br><span class="line">set /zk "xxx"</span><br><span class="line">get /zk</span><br><span class="line">ls /cmt5/prod/config # 类似目录操作</span><br></pre></td></tr></table></figure>
+
 <p>或者使用socket:</p>
 <ul>
 <li>echo stat|nc 127.0.0.1 2181 查看哪个节点被选择作为follower或者leader</li>

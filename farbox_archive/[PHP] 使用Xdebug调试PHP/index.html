@@ -365,6 +365,7 @@
 </ol>
 <p>(2) 配置<br>编辑服务端的php.ini, 增加:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zend_extension=&quot;/usr/local/php/modules/xdebug.so&quot;</span><br><span class="line">xdebug.remote_autostart = 1</span><br><span class="line">xdebug.remote_enable=1</span><br><span class="line">xdebug.remote_handler = &quot;dbgp&quot;</span><br><span class="line">xdebug.remote_host = &quot;127.0.0.1&quot; # 允许指定IP的调试客户端连接</span><br><span class="line">xdebug.remote_port=9000 # 监听的端口</span><br><span class="line">xdebug.trace_output_dir = &quot;/tmp/xampp/trace&quot;</span><br><span class="line">;xdebug.profiler_enable=1 # 性能分析, 非常占资源, 暂关</span><br><span class="line">;xdebug.profiler_output_dir = &quot;/tmp/xampp/profile&quot;</span><br></pre></td></tr></table></figure>
+
 <p>(3) 测试xdebug server<br>重启web server, 然后新建一个test.php, 内容<code>&lt;?php phpinfo(); ?&gt;</code>, 如果访问这个test.php能看到<code>xdebug</code>相关, 说明安装完成.</p>
 <h1 id="（二）PC端安装xdebug-client"><a href="#（二）PC端安装xdebug-client" class="headerlink" title="（二）PC端安装xdebug client"></a>（二）PC端安装xdebug client</h1><h2 id="浏览器设置"><a href="#浏览器设置" class="headerlink" title="浏览器设置"></a>浏览器设置</h2><p>Chrome安装”debug helper”, 火狐安装”The easiest Xdebug”, 并在插件在设置<code>IDE Key</code>为”PHPSTORM” (这里名字随便设, 但是记住要与IDE里的设置一致).</p>
 <h2 id="IDE设置"><a href="#IDE设置" class="headerlink" title="IDE设置"></a>IDE设置</h2><p>这里xdebug client根据你的IDE有多个版本可以选择: Eclipse , NetBeans, Vim, 选择自己喜欢的开发环境, 下面是Vim设置xdebug的例子, 其他的IDE可以参考链接:</p>
@@ -377,6 +378,7 @@
 <li>在_vimrc中增加如下配置:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Bundle &apos;joonty/vdebug.git&apos;</span><br><span class="line">&quot; 以下选项的说明在 https://github.com/joonty/vdebug/blob/master/doc/Vdebug.txt</span><br><span class="line">let g:vdebug_options = &#123;</span><br><span class="line">  \    &quot;port&quot; : 9000,</span><br><span class="line">  \    &quot;timeout&quot; : 10,</span><br><span class="line">  \    &quot;break_on_open&quot; : 0,</span><br><span class="line">  \    &quot;ide_key&quot; : &apos;PHPSTORM&apos;</span><br><span class="line">  \&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>执行<code>:BundleInstall</code>安装vdebug</p>
 </li>

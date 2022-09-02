@@ -333,7 +333,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,379
+                  1,381
                 </span>
               
 
@@ -371,13 +371,17 @@
 <h2 id="使用-EasyGrep"><a href="#使用-EasyGrep" class="headerlink" title="使用 EasyGrep"></a>使用 EasyGrep</h2><p>之前有过一篇介绍: <a href="http://zuyunfei.com/2013/08/25/vim-plugin-easy-grep/" target="_blank" rel="noopener">vim中的杀手级插件: EasyGrep</a>,<br>EasyGrep使用的是vim内置的搜索命令vimgrep, 相比上面说的移植版grep, vimgrep 在Win上兼容性要大大好于上面的grep移植版.<br>不过EasyGrep提供了一个比较友好的搜索选项界面, 就像下面这个样子, 调整搜索选项是不是要比grep.vim直观许多?<br><img src="https://cloud.githubusercontent.com/assets/2375604/9804914/d0c39ff0-5800-11e5-8e7d-b77543bf2dcf.gif" alt="EasyGrep Options"><br>vimgrep的最大问题是搜索效率, 真的很差, 尤其你要搜索的目录里有成百上千的文件时.<br>这时候可以切到Chrome里刷一会知乎…<br>但刷完知乎后却发现vimgrep仍旧在努力的转动你的硬盘… 所以我又放弃了EasyGrep.</p>
 <h2 id="使用-findstr-vim"><a href="#使用-findstr-vim" class="headerlink" title="使用 findstr.vim"></a>使用 findstr.vim</h2><p>Windows下提供了一个原生命令<code>findstr</code>, 相当于Linux下的grep.<br>如果你想了解一下findstr命令的使用姿势, 可以看这里: <a href="https://technet.microsoft.com/en-us/library/bb490907.aspx" target="_blank" rel="noopener">Findstr - TechNet - Microsoft</a><br>在vim.org上也找了一个为findstr写的插件 – <a href="http://www.vim.org/scripts/script.php?script_id=1575" target="_blank" rel="noopener">findstr.vim : Using MS-Windows findstr utility to search for text with Vim </a><br>看来在Windows上用Vim的可怜人儿还不少, 我觉得这款插件的作者就是一个:(<br>不过这插件简直可算得上朴素, 只提供了四个插件命令, 我觉得跟手动敲findstr命令行效率差不多, 可是我懒且健忘, 记不住这么多findstr参数,<br>等等, 刚才聊到的EasyGrep的搜索选项界面不是挺方便的嘛, 所以, 为什么不能把EasyGrep的搜索界面搬到findstr.vim上来?<br>恩, 对于程序员来说这并不难, vimscript似乎有些像shell和php的结合语言. 所以…</p>
 <h2 id="改进后的findstr-vim"><a href="#改进后的findstr-vim" class="headerlink" title="改进后的findstr.vim"></a>改进后的findstr.vim</h2><p>靠着google和勤勉的copy, 一个带有良好人机交互的多功能<code>findstr.vim</code>被提交到了github上(666)<br>Github repository在这里: <a href="https://github.com/whatrtos/findstr.vim" target="_blank" rel="noopener">https://github.com/whatrtos/findstr.vim</a><br><img src="https://raw.githubusercontent.com/whatrtos/findstr.vim/test/screenshot.png" alt="findstr"></p>
-<p>在vimrc里新增一行配置:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nmap &lt;leader&gt;gg :VimFindstr&lt;CR&gt;</span><br></pre></td></tr></table></figure></p>
+<p>在vimrc里新增一行配置:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nmap &lt;leader&gt;gg :VimFindstr&lt;CR&gt;</span><br></pre></td></tr></table></figure>
+
 <p>这样, 在普通模式按下<code>\gg</code>就可以愉快的使用findstr了.</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
 <li><a href="http://zuyunfei.com/2013/08/25/vim-plugin-easy-grep/" target="_blank" rel="noopener">vim中的杀手级插件: EasyGrep</a></li>
 <li><a href="http://vim.wikia.com/wiki/Find_in_files_within_Vim" target="_blank" rel="noopener">Find in files within Vim</a></li>
 </ul>
-<h1 id="附-vimgrep命令"><a href="#附-vimgrep命令" class="headerlink" title="附: vimgrep命令"></a>附: vimgrep命令</h1><p>vimgrep命令格式如下:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vimgrep /搜索字符串/gj 文件</span><br></pre></td></tr></table></figure></p>
+<h1 id="附-vimgrep命令"><a href="#附-vimgrep命令" class="headerlink" title="附: vimgrep命令"></a>附: vimgrep命令</h1><p>vimgrep命令格式如下:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">vimgrep /搜索字符串/gj 文件</span><br></pre></td></tr></table></figure>
+
 <p>上面的<code>g</code>和<code>j</code>参数都是可选的,</p>
 <ul>
 <li>/g : 加上g参数的话, 如果一行有多个匹配, 那么这些匹配会都出现在搜索结果里, 所以一般不用加<code>/g</code>参数;</li>
@@ -392,7 +396,7 @@
 <li>Linux绝对路径, 递归搜索: <code>vimgrep /字符串/j /home/user/**/*.cpp</code></li>
 <li>Win绝对路径, 递归搜索: <code>vimgrep /字符串/j D:\home\user/**/*.cpp</code></li>
 </ul>
-<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>@2016-08-01 发现一个问题, findstr.vim试用的是<code>system(cmd)</code>来执行findstr命令, 正常情况下这是没什么问题的, 但当遇到中文目录的时候, <code>system</code>执行的结果中的中文会变成”<3b><4a>“这样的代码. 所以搜索在中文目录会很蛋疼, 在quickfix里跳转不到正确的文件.<br>折中的办法是, 插件新增一个选项, 可以在使用findstr和vimgrep之间切换(最终还是没能摆脱vimgrep), 一般情况下推荐使用效率更高的findstr, 只有当遇到上面的问题时才使用”slowly but compatible”的vimgrep.</4a></3b></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>@2016-08-01 发现一个问题, findstr.vim试用的是<code>system(cmd)</code>来执行findstr命令, 正常情况下这是没什么问题的, 但当遇到中文目录的时候, <code>system</code>执行的结果中的中文会变成”&lt;3b&gt;&lt;4a&gt;”这样的代码. 所以搜索在中文目录会很蛋疼, 在quickfix里跳转不到正确的文件.<br>折中的办法是, 插件新增一个选项, 可以在使用findstr和vimgrep之间切换(最终还是没能摆脱vimgrep), 一般情况下推荐使用效率更高的findstr, 只有当遇到上面的问题时才使用”slowly but compatible”的vimgrep.</p>
 <p>findstr迭代了几个版本, 修改了一些bug和改进易用性, 欢迎fork, 提交pr和issue:)</p>
 <hr>
 <blockquote>

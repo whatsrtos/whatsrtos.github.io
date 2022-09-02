@@ -395,6 +395,7 @@
 <li>运行executable的Jar包（Jar包指定了Main-Class）： <code>java -jar JAR_FILE_NAME</code></li>
 <li>执行Jar包里的类（该类有main方法）： <code>java -cp JAR_FILE_NAME CLASS_FULL_NAME</code></li>
 <li>执行Jar包里的类的指定方法： <code>java -cp JAR_FILE_NAME CLASS_FULL_NAME METHOD_NAME</code>, 例如Tomcat 的启动脚本最终是执行了 Bootstrap这个主类中的start方法：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">java</span><br><span class="line">-Djava.util.logging.config.file=/data0/tomcat/tomcat_8080/conf/logging.properties</span><br><span class="line">-Xms2048m -Xmx2048m -XX:MaxPermSize=256m</span><br><span class="line">-classpath /data0/tomcat/tomcat_8080/bin/bootstrap.jar:/data0/tomcat/tomcat_8080/bin/tomcat-juli.jar -Dcatalina.base=/data0/tomcat/tomcat_8080 -Dcatalina.home=/data0/tomcat/tomcat_8080 -Djava.io.tmpdir=/data0/tomcat/tomcat_8080/temp</span><br><span class="line">org.apache.catalina.startup.Bootstrap start</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="javap-javah"><a href="#javap-javah" class="headerlink" title="javap, javah"></a>javap, javah</h3><ul>
@@ -438,8 +439,7 @@
 <th>Oracle 提供的免费更新</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Java 8(LTS)</td>
 <td>2014.3</td>
 <td>2019.1</td>
@@ -464,8 +464,7 @@
 <td>2019.3</td>
 <td>2019.9</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>使用 Oracle JDK的解决方案：</p>
 <ul>
 <li>Oracle Java 8 （LTS）:<ul>
@@ -594,6 +593,7 @@
 <li>HotSpot 虚拟机中方法区也常被称为 “永久代”，本质上两者并不等价。仅仅是因为 HotSpot 虚拟机设计团队用永久代来实现方法区而已，这样 HotSpot 虚拟机的垃圾收集器就可以像管理 Java 堆一样管理这部分内存，能够省去专门为方法区编写内存管理代码的工作。对于其他的虚拟机（如Oracle JRockit、IBM J9等）来说是不存在永久代的概念的。</li>
 <li>所以在 HotSpot VM, <strong>永久代也是有GC的, GC时机与老年代相同（再次提醒永久代不属于堆）</strong></li>
 <li>HotSpot VM的永久代大小由<code>-XX:PermSize</code> ~ <code>-XX:MaxPermSize</code>指定, 一般服务器设置为:  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-XX:MaxPermSize=500m</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <p>JDK 1.6的HotSpot 的永久代包括:</p>
@@ -609,6 +609,7 @@
 </ul>
 <h2 id="JDK7时期"><a href="#JDK7时期" class="headerlink" title="JDK7时期"></a>JDK7时期</h2><p>String Pool被从 PermGen里移除了, 放在了Heap里, 并且可以通过<code>-XX:StringTableSize</code>指定其大小;<br>Runtime Constant Pool 也在1.7之后放入了Heap里? @Uncertain<br>此外JDK7的内存模型基本和6一样;</p>
 <h2 id="JDK6-7的VM参数总结"><a href="#JDK6-7的VM参数总结" class="headerlink" title="JDK6~7的VM参数总结"></a>JDK6~7的VM参数总结</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">             &lt;JVM 6 &amp; 7 Memory options&gt;</span><br><span class="line">+-----------------+-----------------+--------------</span><br><span class="line">|     PC          |                 |</span><br><span class="line">|-----------------|-----------------+-------------</span><br><span class="line">|    Stack &amp;      |                 |</span><br><span class="line">|  Native Stack   |                 |  -Xss</span><br><span class="line">+-----------------+-----------------+---------------</span><br><span class="line">|   Method Area   |  String Pool &amp;  |</span><br><span class="line">|   (PermGen)     |    Runtime-     | -XX:MaxPermSize</span><br><span class="line">|                 |  Constant Pool  | -XX:PermSize</span><br><span class="line">+-----------------+-----------------+-------+-------+---</span><br><span class="line">|    OldGen       |                 |       |       |</span><br><span class="line">|  (TenuredGen)   |                 |       | -Xmx  |</span><br><span class="line">+-----------------+-----------------+-------+       |</span><br><span class="line">|                 |  To Survivor    |       |       | Heap</span><br><span class="line">|    YoungGen     |-----------------| -Xmn  |       |</span><br><span class="line">|                 |  From Survivor  |       | -Xms  |</span><br><span class="line">|                 |-----------------|       |       |</span><br><span class="line">|                 |     Eden        |       |       |</span><br><span class="line">+-----------------+-----------------+-------+-------+---</span><br></pre></td></tr></table></figure>
+
 <h2 id="JDK8时期"><a href="#JDK8时期" class="headerlink" title="JDK8时期"></a>JDK8时期</h2><p>在HotSpot JDK7以及更早的版本里, 永久代最大大小由<code>-XX:MaxPermSize</code>指定, 一旦超过这个大小就不能再扩展, 假如加载的类过多会导致Medhod Area过大而导致OOM,<br>HotSpot JDK8 <strong>移除</strong> 了JDK7的 PermGen(永久代), 类的元信息被移到了 Meta space(元空间), 这块内存放在 Native memory当中, 不再属于JVM线程内的内存区.</p>
 <blockquote>
 <p>JDK7 移除了PermGen 的 运行时常量池 &amp; 字符串常量池;<br>JDK8 移除了整个PermGen, 类的元信息被放在 MateSpace; // 运行时常量池呢?</p>
@@ -617,6 +618,7 @@
 <p><img src="/images/Advanced-Java-Tutorial/jvm-memory-heap-jdk8.png" alt="JVM-Memory-Heap-JDK8"></p>
 <p>JDK8 使用 <code>-XX:MetaspaceSize</code> 和 <code>-XX:MaxMetaspaceSize</code> 指定 Meta space(元空间)的大小:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m</span><br></pre></td></tr></table></figure>
+
 <p>以上设置的<code>MetaspaceSize</code> 并不是永久代初始大小, 这个JVM参数是指Metaspace扩容时触发FullGC的初始化阈值，也是最小的阈值。这里有几个要点需要明确：</p>
 <ul>
 <li>如果没有配置 <code>-XX:MetaspaceSize</code>，那么触发FGC的阈值是21807104（约20.8m），可以通过 <code>jinfo -flag MetaspaceSize pid</code> 命令得到这个值；</li>
@@ -639,6 +641,7 @@
 <p><img src="/images/Advanced-Java-Tutorial/jvm-gensize-experience-point.png" alt="JVM_GenSize_Experience_Point"></p>
 <p>例如，根据GC日志获得老年代的活跃数据大小为300M，那么各分区大小可以设为：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">总堆：1200MB = 300MB × 4</span><br><span class="line">新生代：450MB = 300MB × 1.5</span><br><span class="line">老年代： 750MB = 1200MB - 450MB</span><br></pre></td></tr></table></figure>
+
 <h2 id="内存分区可能抛出的错误"><a href="#内存分区可能抛出的错误" class="headerlink" title="内存分区可能抛出的错误"></a>内存分区可能抛出的错误</h2><ul>
 <li>Stack : <code>StackOverflowError</code> &amp; <code>OutOfMemoryError</code></li>
 <li>Heap: <code>OutOfMemoryError</code></li>
@@ -694,6 +697,7 @@
 </blockquote>
 <p>下面代码运行结果是 ?</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String s = <span class="keyword">new</span> String(<span class="string">"1"</span>); <span class="comment">// 两个对象, 一个存储于String Pool, 一个在Heap</span></span><br><span class="line">s.intern();</span><br><span class="line">String s2 = <span class="string">"1"</span>;</span><br><span class="line">System.out.println(s == s2);</span><br><span class="line"></span><br><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">"1"</span>) + <span class="keyword">new</span> String(<span class="string">"1"</span>); <span class="comment">// 一个对象, 在Heap</span></span><br><span class="line">s3.intern();</span><br><span class="line">String s4 = <span class="string">"11"</span>;</span><br><span class="line"><span class="comment">//s3.intern();</span></span><br><span class="line">System.out.println(s3 == s4);</span><br></pre></td></tr></table></figure>
+
 <p>先说答案: 在JDK6 下结果是 “false false”, 在JDK8下是 “false, true”.</p>
 <p>没有在JDK8上验证, 但我觉得 7和8在 String Pool 上改动不大, 8仅仅是把 Method Area 移动到了 Native Memory 中 –被叫做 Metespace(元空间)的区域.<br>因为看不到 HotSpot的 native层源码, 所以只能看 OpenJDK的, 但是不保证 OpenJDK 与 HotSpot 实现一样 @TODO 有时间一定要看了才能解惑.</p>
 <p>从JDK6 到 JDK7 的 String Pool 和 <code>intern</code>方法的改变都比较大(String Pool从 PermGen移动到了 Heap, <code>String.intern()</code>改变见下面的分析)</p>
@@ -955,15 +959,19 @@
 </li>
 <li><a href="https://engineering.linkedin.com/garbage-collection/garbage-collection-optimization-high-throughput-and-low-latency-java-applications" target="_blank" rel="noopener">Garbage Collection Optimization for High-Throughput and Low-Latency Java Applications | LinkedIn Engineering</a></li>
 </ul>
-<h2 id="GC日志解读"><a href="#GC日志解读" class="headerlink" title="GC日志解读"></a>GC日志解读</h2><p>GC日志相关参数:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-XX:+PrintGC 输出GC日志</span><br><span class="line">-XX:+PrintGCDetails 输出GC的详细日志</span><br><span class="line">-XX:+PrintGCTimeStamps 输出GC的时间戳（以基准时间的形式）</span><br><span class="line">-XX:+PrintGCDateStamps 输出GC的时间戳（以日期的形式，如 2013-05-04T21:53:59.234+0800）</span><br><span class="line">-XX:+PrintHeapAtGC 在进行GC的前后打印出堆的信息</span><br><span class="line">-Xloggc:../logs/gc.log 日志文件的输出路径</span><br></pre></td></tr></table></figure></p>
+<h2 id="GC日志解读"><a href="#GC日志解读" class="headerlink" title="GC日志解读"></a>GC日志解读</h2><p>GC日志相关参数:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-XX:+PrintGC 输出GC日志</span><br><span class="line">-XX:+PrintGCDetails 输出GC的详细日志</span><br><span class="line">-XX:+PrintGCTimeStamps 输出GC的时间戳（以基准时间的形式）</span><br><span class="line">-XX:+PrintGCDateStamps 输出GC的时间戳（以日期的形式，如 2013-05-04T21:53:59.234+0800）</span><br><span class="line">-XX:+PrintHeapAtGC 在进行GC的前后打印出堆的信息</span><br><span class="line">-Xloggc:../logs/gc.log 日志文件的输出路径</span><br></pre></td></tr></table></figure>
+
 <h3 id="一般GC日志格式"><a href="#一般GC日志格式" class="headerlink" title="一般GC日志格式"></a>一般GC日志格式</h3><p>图1: Young GC日志格式解释如下(ParallelGC):</p>
 <p><img src="/images/Advanced-Java-Tutorial/JVM-GC-Minor-Parallel.png" alt=""></p>
 <p>图2: Full GC日志格式解释如下(ParallelGC):</p>
 <p><img src="/images/Advanced-Java-Tutorial/JVM-GC-Full-Parallel.png" alt=""></p>
 <h3 id="GC日志实例分析"><a href="#GC日志实例分析" class="headerlink" title="GC日志实例分析"></a>GC日志实例分析</h3><h4 id="Serial收集器"><a href="#Serial收集器" class="headerlink" title="Serial收集器"></a>Serial收集器</h4><p><strong>一次YGC和Full GC:</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">33.125: [GC [DefNew: 3324K-&gt;152K(3712K), 0.0025925 secs] 3324K-&gt;152K(11904K), 0.0031680 secs]</span><br><span class="line"># 33.125 表示从Java虚拟机启动以来经过的秒数</span><br><span class="line"># DefNew 表示新生代用了Serial收集器, ParNew表示ParNew收集器, PSYoungGen表示Parallel Scavenge收集器</span><br><span class="line"># 3324K-&gt;152K(3712K) 表示 GC前新生代大小-&gt;GC后新生代大小(新生代总大小)</span><br><span class="line"># 3324K-&gt;152K(11904K) 表示 GC前堆大小-&gt;GC后堆大小(堆总大小)</span><br><span class="line"># 0.0025925 secs 表示此次新生代GC耗时2ms</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">100.667: [Full GC [Tenured: 0K-&gt;210K(10240K), 0.0149142 secs] 4603K-&gt;210K(19456K), [Perm : 2999K-&gt;2999K(21248K)], 0.0150007 secs] [Times: user=0.01 sys=0.00, real=0.02 secs]</span><br><span class="line"># 100.667 表示从Java虚拟机启动以来经过的秒数</span><br><span class="line"># Full GC 表示这是一次Full GC</span><br><span class="line"># [Tenured: 0K-&gt;210K(10240K), 0.0149142 secs] 老年代GC前-&gt;后大小</span><br><span class="line"># 4603K-&gt;210K(19456K) 表示堆GC前-&gt;后</span><br><span class="line"># [Times: user=0.01 sys=0.00, real=0.02 secs] 表示耗时20ms</span><br></pre></td></tr></table></figure>
+
 <h4 id="ParNew-CMS收集器"><a href="#ParNew-CMS收集器" class="headerlink" title="ParNew + CMS收集器"></a>ParNew + CMS收集器</h4><p><strong>正常的CMS GC日志, 可以看到CMS标记的三个阶段:</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 初始标记, STW</span><br><span class="line">15578.148: [GC [1 CMS-initial-mark: 6294851K(20971520K)] 6354687K(24746432K), 0.0466580 secs] [Times: user=0.04 sys=0.00, real=0.04 secs]</span><br><span class="line"></span><br><span class="line"># 并发标记, 从CG Root出发开始标记</span><br><span class="line">15578.195: [CMS-concurrent-mark-start]</span><br><span class="line">15578.333: [CMS-concurrent-mark: 0.138/0.138 secs] [Times: user=1.01 sys=0.21, real=0.14 secs]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 预清理</span><br><span class="line">15578.334: [CMS-concurrent-preclean-start]</span><br><span class="line">15578.391: [CMS-concurrent-preclean: 0.056/0.057 secs] [Times: user=0.20 sys=0.12, real=0.06 secs]</span><br><span class="line"></span><br><span class="line"># 可中断预清理</span><br><span class="line">15578.391: [CMS-concurrent-abortable-preclean-start]</span><br><span class="line">15581.905: [CMS-concurrent-abortable-preclean: 3.506/3.514 secs] [Times: user=11.93 sys=6.77, real=3.51 secs]</span><br><span class="line"></span><br><span class="line"># 重新标记, STW</span><br><span class="line">15582.032: [weak refs processing, 0.0027800 secs]15582.035: [class unloading, 0.0033120 secs]15582.038: [scrub symbol table, 0.0016780 secs]15582.040: [scrub string table, 0.0004780 secs] [1 CMS-remark: 6299829K(20971520K)] 6348225K(24746432K), 0.1365130 secs] [Times: user=1.24 sys=0.00, real=0.14 secs]</span><br><span class="line"></span><br><span class="line"># 并发清理</span><br><span class="line">15582.043: [CMS-concurrent-sweep-start]</span><br><span class="line">15590.327: [CMS-concurrent-sweep: 8.193/8.284 secs] [Times: user=30.34 sys=16.44, real=8.28 secs]</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>阶段1：Initial Mark, 这个是 CMS 两次 stop-the-wolrd 事件的其中一次，这个阶段的目标是：标记那些直接被 GC root 引用或者被年轻代存活对象所引用的所有对象，</p>
 <blockquote>
@@ -1001,6 +1009,7 @@
 </blockquote>
 <p><strong>有GC问题的日志例子:</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">106.641: [GC 106.641: [ParNew (promotion failed): 14784K-&gt;14784K(14784K), 0.0370328 secs]106.678: [CMS106.715: [CMS-concurrent-mark: 0.065/0.103 secs] [Times: user=0.17 sys=0.00, real=0.11 secs]</span><br><span class="line"># ParNew (promotion failed) 表示新生代GC过程中, 对象晋升到老年代失败, 因为需要晋升至老年代的对象超过了老年代的可用大小</span><br><span class="line"># 这种情况下会触发Full GC, 见下</span><br><span class="line"></span><br><span class="line">0.195: [GC 0.195: [ParNew: 2986K-&gt;2986K(8128K), 0.0000083 secs]0.195: [CMS0.212: [CMS-concurrent-preclean: 0.011/0.031 secs] [Times: user=0.03 sys=0.02, real=0.03 secs]</span><br><span class="line">(concurrent mode failure): 56046K-&gt;138K(57344K), 0.0271519 secs] 59032K-&gt;138K(65472K), [CMS Perm : 2079K-&gt;2078K(12288K)], 0.0273119 secs] [Times: user=0.03 sys=0.00, real=0.03 secs]</span><br><span class="line"># 第二行表示在cms-preclean阶段发生了 concurrent mode failure,</span><br><span class="line"># CMS失败往往意味着JVM会退回到 Serial Old 收集器进行回收, 造成较长的STW</span><br></pre></td></tr></table></figure>
+
 <p>上面是因为执行 ParNew GC的时候, 因为需要晋升至老年代的对象超过了老年代的可用大小, 所以 promotion failed, 而触发了 Full GC,<br>还存在一种情况, 老年代大小足够的情况下仍然会触发 promotion failed, 可以通过 <code>-XX:UseCMSCompactAtFullCollection -XX:CMSFullGCBeforeCompaction=5</code> 参数, 在5次 Full GC后进行一次 Compaction操作避免内存碎片.</p>
 <p><strong>总结 CMS GC常见的两种错误解决方案:</strong></p>
 <ol>
@@ -1027,22 +1036,30 @@
 </ul>
 <p><strong>How to Use:</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ReferenceQueue&lt;String&gt; queue = <span class="keyword">new</span> ReferenceQueue&lt;&gt;(); <span class="comment">// 对象被回收后, 被放入q里</span></span><br><span class="line"></span><br><span class="line">String str = <span class="keyword">new</span> String(<span class="string">"hello"</span>);</span><br><span class="line">WeakReference&lt;String&gt; softRef = <span class="keyword">new</span> WeakReference&lt;String&gt;(str, queue); <span class="comment">// 这一步后, 有两个引用指向"Hello"</span></span><br><span class="line">str = <span class="keyword">null</span>; <span class="comment">// 当String对象只有一个软引用指向它时, 才有可能被回收</span></span><br><span class="line">System.out.print(softRef.get()); <span class="comment">// 通过软引用调用对象用get方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 假设这里因内存不足发生了GC，被回收的软引用会被放入队列queue</span></span><br><span class="line"><span class="comment">// 从队列取出第一个:</span></span><br><span class="line">Reference&lt;? extends String&gt; ref = queue.poll();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(ref != <span class="keyword">null</span>) &#123;  <span class="comment">// 从队列里取出的ref是个引用地址，非空</span></span><br><span class="line">  <span class="keyword">if</span>(ref.get() != <span class="keyword">null</span>) &#123; <span class="comment">// 对ref再次get，肯定返回null</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>WeakReference内部如何实现:</strong></p>
 <h2 id="WeakHashMap"><a href="#WeakHashMap" class="headerlink" title="WeakHashMap"></a>WeakHashMap</h2><p><strong>How to Use:</strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">weakHashMapTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Map&lt;Key, Project&gt; map = <span class="keyword">new</span> WeakHashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        Key key1 = <span class="keyword">new</span> Key();</span><br><span class="line">        <span class="keyword">final</span> Key key2 = <span class="keyword">new</span> Key();</span><br><span class="line"></span><br><span class="line">        map.put(k1, <span class="keyword">new</span> Object());</span><br><span class="line">        map.put(k2, <span class="keyword">new</span> Object());</span><br><span class="line"></span><br><span class="line">        System.gc();</span><br><span class="line">        <span class="keyword">for</span> (Entry&lt;Key, Project&gt; entry : map.entrySet()) &#123;</span><br><span class="line">            System.out.println(entry.getKey().getKey() + <span class="string">"   "</span> + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        key1 = <span class="keyword">null</span>;</span><br><span class="line">        System.gc();</span><br><span class="line">        <span class="keyword">for</span> (Entry&lt;Key, Project&gt; entry : map.entrySet()) &#123;</span><br><span class="line">            System.out.println(entry.getKey().getKey() + <span class="string">"   "</span> + entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>WeakHashMap 自动回收的特性可以作为缓存来用, 例如 tomcat的ConcurrentCache</p>
-<p><strong>源码解析:</strong><br>WeakHashMap 的主要属性:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class WeakHashMap&lt;K,V&gt;</span><br><span class="line">    extends AbstractMap&lt;K,V&gt; implements Map&lt;K,V&gt; &#123;</span><br><span class="line"></span><br><span class="line">        // 桶数组</span><br><span class="line">        Entry&lt;K,V&gt;[] table;</span><br><span class="line"></span><br><span class="line">        // 回收队列</span><br><span class="line">        private final ReferenceQueue&lt;Object&gt; queue = new ReferenceQueue&lt;&gt;();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>源码解析:</strong><br>WeakHashMap 的主要属性:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class WeakHashMap&lt;K,V&gt;</span><br><span class="line">    extends AbstractMap&lt;K,V&gt; implements Map&lt;K,V&gt; &#123;</span><br><span class="line"></span><br><span class="line">        // 桶数组</span><br><span class="line">        Entry&lt;K,V&gt;[] table;</span><br><span class="line"></span><br><span class="line">        // 回收队列</span><br><span class="line">        private final ReferenceQueue&lt;Object&gt; queue = new ReferenceQueue&lt;&gt;();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 <p>同时, <code>WeakHashMap</code> 的内部类<code>Entry</code>（也就是实际存储数据的节点）继承自<code>WeakReference&lt;T&gt;</code>，看一下Entry的构造：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Entry(Object key, V value,</span><br><span class="line">    ReferenceQueue&lt;Object&gt; queue,</span><br><span class="line">    <span class="keyword">int</span> hash, Entry&lt;K,V&gt; next) &#123;</span><br><span class="line">  <span class="keyword">super</span>(key, queue); <span class="comment">// 调用了WeakReference(T, Queue)</span></span><br><span class="line">  <span class="keyword">this</span>.value = value;</span><br><span class="line">  <span class="keyword">this</span>.hash  = hash;</span><br><span class="line">  <span class="keyword">this</span>.next  = next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>调用WeakHashMap 的 put(k,v), 首先创建Entry对象, Entry构造里首先调用了<code>WeakReference(K, Queue)</code>,<br>用一个WeakReference指向key，key会在下次GC被回收(null)，value被一个强引用指向了，不会被回收，可以通过queue.poll取出所有被释放的Key，</p>
 <p>A: 那么WeakHashMap 是如何回收value的?</p>
 <p>Q: 在<code>get</code>, <code>put</code>, <code>size</code> 方法里都会先调用一个<code>expungeStaleEntries()</code>方法,<br>遍历ReferenceQueue 取出每个Entry(即被回收的Key), 找到Entry 对应的<code>table[i]</code>,<br><code>table[i]</code>是 Entry组成的链表(当hash冲突的时候), 遍历这个链表, 取出每一个Entry, 如果ReferenceQueue 取出的那个Entry,<br>把这个 Entry.value置为null, 帮助回收;</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private void expungeStaleEntries() &#123;</span><br><span class="line">     for (Object x; (x = queue.poll()) != null; ) &#123;</span><br><span class="line">         synchronized (queue) &#123;</span><br><span class="line">             @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">                 Entry&lt;K,V&gt; e = (Entry&lt;K,V&gt;) x; // @Uncertain</span><br><span class="line">             int i = indexFor(e.hash, table.length);</span><br><span class="line"></span><br><span class="line">             Entry&lt;K,V&gt; prev = table[i];</span><br><span class="line">             Entry&lt;K,V&gt; p = prev;</span><br><span class="line">             while (p != null) &#123;</span><br><span class="line">                 Entry&lt;K,V&gt; next = p.next;</span><br><span class="line">                 if (p == e) &#123;</span><br><span class="line">                     if (prev == e)</span><br><span class="line">                         table[i] = next;</span><br><span class="line">                     else</span><br><span class="line">                         prev.next = next;</span><br><span class="line">                     // Must not null out e.next;</span><br><span class="line">                     // stale entries may be in use by a HashIterator</span><br><span class="line">                     e.value = null; // Help GC</span><br><span class="line">                     size--;</span><br><span class="line">                     break;</span><br><span class="line">                 &#125;</span><br><span class="line">                 prev = p;</span><br><span class="line">                 p = next;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
 <p>// 疑问, 只有Key是WeakReference, GC发生时, 应该只有Key 被放入ReferenceQueue, 而不是Entry对象<br>// 解释, queue 里存储的是 <code>Reference&lt;K&gt;</code> 类型, 而Entry 是Reference的子类, 所以可以转换<br>// <a href="https://www.zhihu.com/question/63932795" target="_blank" rel="noopener">WeakHashMap中关于queue的疑惑 ？ - 知乎</a></p>
 <h1 id="JVM参数和性能"><a href="#JVM参数和性能" class="headerlink" title="JVM参数和性能"></a>JVM参数和性能</h1><h2 id="JVM的模式"><a href="#JVM的模式" class="headerlink" title="JVM的模式"></a>JVM的模式</h2><p><a href="http://www.importnew.com/20715.html" target="_blank" rel="noopener">关于JVM的类型和模式 - ImportNew</a></p>
 <ul>
-<li>使用<code>java -version</code>命令查看出当前虚拟机处于哪种类型模式: <em>Server</em> or <em>Client</em></li>
-<li>JVM启动时采用何种模式是在名为jvm.cfg的配置文件中配置的:<ul>
+<li><p>使用<code>java -version</code>命令查看出当前虚拟机处于哪种类型模式: <em>Server</em> or <em>Client</em></p>
+</li>
+<li><p>JVM启动时采用何种模式是在名为jvm.cfg的配置文件中配置的:</p>
+<ul>
 <li>在32位JDK中，jvm.cfg位置为：JAVA_HOME/jre/lib/i386/jvm.cfg</li>
 <li>在64位JDK中，jvm.cfg位置为：JAVA_HOME/jre/lib/amd64/jvm.cfg</li>
 </ul>
@@ -1088,33 +1105,52 @@
 <ul>
 <li><p>-XX: 不稳定的参数, 不推荐在生产环境中使用:</p>
 <ul>
-<li><code>-XX:AutoBoxCacheMax</code> : JAVA进程启动的时候,会加载rt.jar这个核心包的,rt.jar包里的Integer自然也是被加载到JVM中, VM在加载Integer这个类时,会优先加载静态的代码。当JVM进程启动完毕后, -128 ~ +127 范围的数字会被缓存起来,调用valueOf方法的时候,如果是这个范围内的数字,则直接从缓存取出。<br>因此可以根据实际情况把AutoBoxCacheMax的值设置的更多一些: -XX:AutoBoxCacheMax=2000</li>
-<li><code>-XX:+AlwaysPreTouch</code> : JAVA进程启动的时候,虽然我们可以为JVM指定合适的内存大小,但是这些内存操作系统并没有真正的分配给JVM,而是等JVM访问这些内存的时候,才真正分配.<br>这个参数可以让让操作系统在启动JVM时, 把内存真正的分配给JVM;</li>
+<li><p><code>-XX:AutoBoxCacheMax</code> : JAVA进程启动的时候,会加载rt.jar这个核心包的,rt.jar包里的Integer自然也是被加载到JVM中, VM在加载Integer这个类时,会优先加载静态的代码。当JVM进程启动完毕后, -128 ~ +127 范围的数字会被缓存起来,调用valueOf方法的时候,如果是这个范围内的数字,则直接从缓存取出。<br>因此可以根据实际情况把AutoBoxCacheMax的值设置的更多一些: -XX:AutoBoxCacheMax=2000</p>
+</li>
+<li><p><code>-XX:+AlwaysPreTouch</code> : JAVA进程启动的时候,虽然我们可以为JVM指定合适的内存大小,但是这些内存操作系统并没有真正的分配给JVM,而是等JVM访问这些内存的时候,才真正分配.<br>这个参数可以让让操作系统在启动JVM时, 把内存真正的分配给JVM;</p>
+</li>
 <li><p><code>-XX:CMSInitiatingOccupancyFraction</code> : 当老年代堆空间的使用率达到75%的时候就开始执行垃圾回收, CMSInitiatingOccupancyFraction默认值是92%,这个就太大了<br>如 <code>-XX:CMSInitiatingOccupancyFraction=75</code>, 注意 <code>CMSInitiatingOccupancyFraction</code> 参数必须跟下面两个参数一起使用才能生效:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-XX:+UseConcMarkSweepGC</span><br><span class="line">-XX:+UseCMSInitiatingOccupancyOnly</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>-XX:MaxTenuringThreshold</code> 默认情况下, 这个值是15, 意思是 当新生代执行了15次 young gc后, 如果还有对象存活在Survivor区中,那么就可以直接将这些对象晋升到老年代.<br>但是由于新生代使用copy算法,如果 Survivor区存活的对象太久的话, Survivor区存活的对象就越多, 这个就会影响copy算法的性能,使得 young gc停顿的时间加长,建议设置成6。<br>有个例外的情况, 可能导致GC收集器 不按照<code>MaxTenuringThreshold</code>的值进行晋升,<br>[动态年龄计算] :JVM遍历所有对象时，按照年龄从小到大对其所占用的大小进行累积，当累积的某个年龄大小超过了survivor区的一半时，取这个年龄和MaxTenuringThreshold中更小的一个值，作为新的晋升年龄阈值。例如age=2的所有对象占用了超过一半Survivor区大小, 那么晋升至老年代的age阈值会调整为2</p>
 </li>
-<li><code>-XX:ExplicitGCInvokesConcurrent</code> 如果系统使用堆外内存,比如用到了Netty的DirectByteBuffer类,那么当想回收堆外内存的时候,需要调用<code>System.gc()</code>, 而这个方法将进行full gc,整个应用将会停顿,<br>如果是使用CMS垃圾收集器,那么可以设置<code>-XX:+ExplicitGCInvokesConcurrent</code>, 来改变<code>System.gc()</code>的行为,让其从 full gc 变为 CMS GC,<br>CMS GC 是并发收集的,且中间执行的过程中,只有部分阶段需要 STW;</li>
-<li><code>-XX:PermSize</code> : 设置持久代(perm gen)初始值    物理内存的1/64, 例 <code>XX:PermSize=512M</code></li>
-<li><code>-XX:MaxPermSize</code>    设置持久代最大值    物理内存的1/4</li>
-<li><code>-XX:SurvivorRatio</code>: Eden和Survivor的大小比例, <code>-XX:SurvivorRatio=8</code>表示 <code>Eden:Survivor=8:1</code>，这是默认值</li>
-<li><code>-XX:NewRatio</code>: 年轻代(包括Eden和两个Survivor区)与年老代的比值(除去持久代), <code>-XX:NewRatio=2</code>表示 <code>老年代:年轻代=2:1</code>, 这也是Server JVM的默认值;<br>如果Young GC很频繁, 可以降低老年代的比例: <code>-XX:NewRatio=1</code> ;</li>
-<li><code>-XX:MaxTenuringThreshold</code>: 控制进入老年前生存次数等, 如果设置为0的话,则年轻代对象不经过Survivor区,直接进入年老代. 对于年老代比较多的应用,可以提高效率.如果将此值设置为一个较大值,则年轻代对象会在Survivor区进行多次复制,这样可以增加对象再年轻代的存活 时间,增加在年轻代即被回收的概率, 该参数只有在串行GC时才有效.</li>
-<li><code>-XX:+DisableExplicitGC</code>:    关闭System.gc()         这个参数需要严格的测试</li>
-<li><code>-XX:+UseParallelGC</code>: 选择垃圾收集器为并行收集器.此配置仅对年轻代有效</li>
-<li><code>-XX:+UseParNewGC</code>: 设置年轻代为并行收集</li>
-<li><code>-XX:+UseParallelOldGC</code>: 老年代垃圾收集方式为并行收集(Parallel Compacting)</li>
-<li><code>-XX:+UseConcMarkSweepGC</code>:    使用CMS内存收集</li>
-<li><code>-XX:+PrintGC</code></li>
-<li><code>-XX:+PrintGCDetails</code></li>
-<li><code>-XX:+PrintGC:PrintGCTimeStamps</code></li>
-<li><code>-XX:+HeapDumpOnOutOfMemoryError</code>: 当JVM因内存不足崩溃时产生dump文件</li>
-<li><code>-XX:ErrorFile=/var/log/hs_err_pid.log</code>: JVM崩溃, 产生的日志位置</li>
+<li><p><code>-XX:ExplicitGCInvokesConcurrent</code> 如果系统使用堆外内存,比如用到了Netty的DirectByteBuffer类,那么当想回收堆外内存的时候,需要调用<code>System.gc()</code>, 而这个方法将进行full gc,整个应用将会停顿,<br>如果是使用CMS垃圾收集器,那么可以设置<code>-XX:+ExplicitGCInvokesConcurrent</code>, 来改变<code>System.gc()</code>的行为,让其从 full gc 变为 CMS GC,<br>CMS GC 是并发收集的,且中间执行的过程中,只有部分阶段需要 STW;</p>
+</li>
+<li><p><code>-XX:PermSize</code> : 设置持久代(perm gen)初始值    物理内存的1/64, 例 <code>XX:PermSize=512M</code></p>
+</li>
+<li><p><code>-XX:MaxPermSize</code>    设置持久代最大值    物理内存的1/4</p>
+</li>
+<li><p><code>-XX:SurvivorRatio</code>: Eden和Survivor的大小比例, <code>-XX:SurvivorRatio=8</code>表示 <code>Eden:Survivor=8:1</code>，这是默认值</p>
+</li>
+<li><p><code>-XX:NewRatio</code>: 年轻代(包括Eden和两个Survivor区)与年老代的比值(除去持久代), <code>-XX:NewRatio=2</code>表示 <code>老年代:年轻代=2:1</code>, 这也是Server JVM的默认值;<br>如果Young GC很频繁, 可以降低老年代的比例: <code>-XX:NewRatio=1</code> ;</p>
+</li>
+<li><p><code>-XX:MaxTenuringThreshold</code>: 控制进入老年前生存次数等, 如果设置为0的话,则年轻代对象不经过Survivor区,直接进入年老代. 对于年老代比较多的应用,可以提高效率.如果将此值设置为一个较大值,则年轻代对象会在Survivor区进行多次复制,这样可以增加对象再年轻代的存活 时间,增加在年轻代即被回收的概率, 该参数只有在串行GC时才有效.</p>
+</li>
+<li><p><code>-XX:+DisableExplicitGC</code>:    关闭System.gc()         这个参数需要严格的测试</p>
+</li>
+<li><p><code>-XX:+UseParallelGC</code>: 选择垃圾收集器为并行收集器.此配置仅对年轻代有效</p>
+</li>
+<li><p><code>-XX:+UseParNewGC</code>: 设置年轻代为并行收集</p>
+</li>
+<li><p><code>-XX:+UseParallelOldGC</code>: 老年代垃圾收集方式为并行收集(Parallel Compacting)</p>
+</li>
+<li><p><code>-XX:+UseConcMarkSweepGC</code>:    使用CMS内存收集</p>
+</li>
+<li><p><code>-XX:+PrintGC</code></p>
+</li>
+<li><p><code>-XX:+PrintGCDetails</code></p>
+</li>
+<li><p><code>-XX:+PrintGC:PrintGCTimeStamps</code></p>
+</li>
+<li><p><code>-XX:+HeapDumpOnOutOfMemoryError</code>: 当JVM因内存不足崩溃时产生dump文件</p>
+</li>
+<li><p><code>-XX:ErrorFile=/var/log/hs_err_pid.log</code>: JVM崩溃, 产生的日志位置</p>
+</li>
 </ul>
 </li>
 </ul>
 <h2 id="JVM参数最佳实践"><a href="#JVM参数最佳实践" class="headerlink" title="JVM参数最佳实践"></a>JVM参数最佳实践</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-Xmx4g -Xms4g -Xmn1G</span><br><span class="line">-XX:+UseParNewGC -XX:UseConcMarkSweepGC</span><br><span class="line">-XX:CMSInitiatingOccupancyFraction=70</span><br><span class="line">-verbose:gc -XX:+printGCDetails -XX:+PrintGCTimeStamps -Xloggc:$&#123;HBASE_HOME&#125;/logs/gc-$&#123;hostname&#125;-hbase.log</span><br></pre></td></tr></table></figure>
+
 <h1 id="JVM分析工具"><a href="#JVM分析工具" class="headerlink" title="JVM分析工具"></a>JVM分析工具</h1><p>包括 jps, jstat, jstack, jmap, JProfiler, VisualVM.</p>
 <h2 id="JDK提供的命令行"><a href="#JDK提供的命令行" class="headerlink" title="JDK提供的命令行"></a>JDK提供的命令行</h2><blockquote>
 <p>以下每个工具都可以 <code>cmd --help</code>的方式查看说明</p>
@@ -1149,7 +1185,9 @@
 <p>jstat -gc pid@remote_IP # 用jstat连接远端的jstatd</p>
 </blockquote>
 </blockquote>
-<h4 id="jstat-gc返回列解析"><a href="#jstat-gc返回列解析" class="headerlink" title="jstat -gc返回列解析"></a>jstat -gc返回列解析</h4><p><strong>示例1</strong>: attaches 到pid=14542的进程上, -h3表示每三行打印一次列名称, 采样间隔5s<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jstat -gc -h3 14542 5s</span><br><span class="line"></span><br><span class="line"> S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line">10240.0 10752.0  0.0    0.0   133120.0 10215.4   87552.0     9225.3   27904.0 26661.4 3328.0 3007.2     20    0.305  13      1.410    1.715</span><br><span class="line">10240.0 10752.0  0.0    0.0   133120.0 10659.2   87552.0     9225.3   27904.0 26661.4 3328.0 3007.2     20    0.305  13      1.410    1.715</span><br><span class="line">10240.0 10752.0  0.0    0.0   133120.0 10659.2   87552.0     9225.3   27904.0 26661.4 3328.0 3007.2     20    0.305  13      1.410    1.715</span><br><span class="line"> S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line">10240.0 512.0   0.0    0.0   133120.0   79.2    87552.0     9224.0   27904.0 26662.1 3328.0 3007.2     21    0.318  14      1.522    1.840</span><br><span class="line">10240.0 512.0   0.0    0.0   133120.0  523.0    87552.0     9224.0   27904.0 26662.1 3328.0 3007.2     21    0.318  14      1.522    1.840</span><br><span class="line">10240.0 512.0   0.0    0.0   133120.0  523.0    87552.0     9224.0   27904.0 26662.1 3328.0 3007.2     21    0.318  14      1.522    1.840</span><br></pre></td></tr></table></figure></p>
+<h4 id="jstat-gc返回列解析"><a href="#jstat-gc返回列解析" class="headerlink" title="jstat -gc返回列解析"></a>jstat -gc返回列解析</h4><p><strong>示例1</strong>: attaches 到pid=14542的进程上, -h3表示每三行打印一次列名称, 采样间隔5s</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jstat -gc -h3 14542 5s</span><br><span class="line"></span><br><span class="line"> S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line">10240.0 10752.0  0.0    0.0   133120.0 10215.4   87552.0     9225.3   27904.0 26661.4 3328.0 3007.2     20    0.305  13      1.410    1.715</span><br><span class="line">10240.0 10752.0  0.0    0.0   133120.0 10659.2   87552.0     9225.3   27904.0 26661.4 3328.0 3007.2     20    0.305  13      1.410    1.715</span><br><span class="line">10240.0 10752.0  0.0    0.0   133120.0 10659.2   87552.0     9225.3   27904.0 26661.4 3328.0 3007.2     20    0.305  13      1.410    1.715</span><br><span class="line"> S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line">10240.0 512.0   0.0    0.0   133120.0   79.2    87552.0     9224.0   27904.0 26662.1 3328.0 3007.2     21    0.318  14      1.522    1.840</span><br><span class="line">10240.0 512.0   0.0    0.0   133120.0  523.0    87552.0     9224.0   27904.0 26662.1 3328.0 3007.2     21    0.318  14      1.522    1.840</span><br><span class="line">10240.0 512.0   0.0    0.0   133120.0  523.0    87552.0     9224.0   27904.0 26662.1 3328.0 3007.2     21    0.318  14      1.522    1.840</span><br></pre></td></tr></table></figure>
+
 <p><strong>每列说明如下</strong>:</p>
 <ul>
 <li>S0C: S0 Capacity(KB)</li>
@@ -1170,11 +1208,15 @@
 <li>PU: Perm Utilization(KB)</li>
 </ul>
 </blockquote>
-<h4 id="jstat-gcutil返回列解析"><a href="#jstat-gcutil返回列解析" class="headerlink" title="jstat -gcutil返回列解析"></a>jstat -gcutil返回列解析</h4><p><strong>示例2</strong>: attaches 到pid=14542的进程上, -h3表示每三行打印一次列名称, 采样间隔250ms<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jstat -gcutil -h3 14542 3s</span><br><span class="line"></span><br><span class="line">  S0     S1     E      O      M     CCS    YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line"> 16.35   0.00  94.62  63.31  97.41  94.84   4522   83.661    32    0.931   84.592</span><br><span class="line"> 16.35   0.00  95.52  63.31  97.41  94.84   4522   83.661    32    0.931   84.592</span><br><span class="line"> 16.35   0.00  96.92  63.31  97.41  94.84   4522   83.661    32    0.931   84.592</span><br><span class="line">  S0     S1     E      O      M     CCS    YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line">  0.00  14.90   1.43  63.31  97.41  94.84   4523   83.678    32    0.931   84.609</span><br><span class="line">  0.00  14.90   2.65  63.31  97.41  94.84   4523   83.678    32    0.931   84.609</span><br><span class="line">  0.00  14.90   3.68  63.31  97.41  94.84   4523   83.678    32    0.931   84.609</span><br></pre></td></tr></table></figure></p>
+<h4 id="jstat-gcutil返回列解析"><a href="#jstat-gcutil返回列解析" class="headerlink" title="jstat -gcutil返回列解析"></a>jstat -gcutil返回列解析</h4><p><strong>示例2</strong>: attaches 到pid=14542的进程上, -h3表示每三行打印一次列名称, 采样间隔250ms</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jstat -gcutil -h3 14542 3s</span><br><span class="line"></span><br><span class="line">  S0     S1     E      O      M     CCS    YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line"> 16.35   0.00  94.62  63.31  97.41  94.84   4522   83.661    32    0.931   84.592</span><br><span class="line"> 16.35   0.00  95.52  63.31  97.41  94.84   4522   83.661    32    0.931   84.592</span><br><span class="line"> 16.35   0.00  96.92  63.31  97.41  94.84   4522   83.661    32    0.931   84.592</span><br><span class="line">  S0     S1     E      O      M     CCS    YGC     YGCT    FGC    FGCT     GCT</span><br><span class="line">  0.00  14.90   1.43  63.31  97.41  94.84   4523   83.678    32    0.931   84.609</span><br><span class="line">  0.00  14.90   2.65  63.31  97.41  94.84   4523   83.678    32    0.931   84.609</span><br><span class="line">  0.00  14.90   3.68  63.31  97.41  94.84   4523   83.678    32    0.931   84.609</span><br></pre></td></tr></table></figure>
+
 <p>上面发生了一次Young GC, S0从16.35%降到0%, S1从0%增长到14.90%, Eden从96.92%降到1.43, 耗时0.017s</p>
 <p>以上参考Oracle Java 8 jstat手册：<br><a href="https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html" target="_blank" rel="noopener">jstat</a></p>
 <h4 id="jstatd"><a href="#jstatd" class="headerlink" title="jstatd"></a>jstatd</h4><p>jstatd是一个RMI的server，它可以监控Hotspot的JVM的启动和结束，同时提供接口可以让远程机器连接到JVM。 比如 jstat / JVisualVM 都可以通过jstatd来远程观察JVM的运行情况。<br>在远程服务器上启动jstatd: <code>nohup jstatd -J-Djava.security.policy=/home/xxx/jstatd.all.policy -J-Djava.rmi.server.hostname=192.168.0.2 -p 1099 &amp;</code> , 1099是jstatd的默认端口</p>
-<p>jstatd.all.policy内容如下:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grant codebase &quot;file:$&#123;java.home&#125;/../lib/tools.jar&quot; &#123;</span><br><span class="line">    permission java.security.AllPermission;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>jstatd.all.policy内容如下:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">grant codebase &quot;file:$&#123;java.home&#125;/../lib/tools.jar&quot; &#123;</span><br><span class="line">    permission java.security.AllPermission;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <h3 id="jstack"><a href="#jstack" class="headerlink" title="jstack"></a>jstack</h3><p>查看jvm进程的线程状态, 也可以做线程的dump,<br><code>jstack pid</code> : 查看当前所有线程的运行栈, 包括线程当前状态(blocked, waitting), 线程占用了哪个对象锁, 线程在等待哪个对象锁;</p>
 <h3 id="jmap"><a href="#jmap" class="headerlink" title="jmap"></a>jmap</h3><p>查看堆内存的情况, 也可以生成堆内存的dump信息,<br>jmap dump会触发Full GC, 所以在生产环境要小心使用.</p>
 <ul>
@@ -1226,6 +1268,7 @@
 <h2 id="VisualVM"><a href="#VisualVM" class="headerlink" title="VisualVM"></a>VisualVM</h2><p>VisualVM 是一个性能分析工具，自从 JDK 6 Update 7 以后已经作为 Oracle JDK 的一部分，位于 JDK 根目录的 bin 文件夹下。<br>以下参考自: <a href="https://www.ibm.com/developerworks/cn/java/j-lo-visualvm/index.html" target="_blank" rel="noopener">使用 VisualVM 进行性能分析及调优</a> @Ref</p>
 <p>使用VisualVM需要远程服务器上运行一个jstatd守护进程, 或者远程服务器上运行的Java Application启用了JMX, 应用程序添加如下参数来启动JMX:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-Dcom.sun.management.jmxremote=true</span><br><span class="line">-Dcom.sun.management.jmxremote.port=9090</span><br><span class="line">-Dcom.sun.management.jmxremote.ssl=false</span><br><span class="line">-Dcom.sun.management.jmxremote.authenticate=false</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/Advanced-Java-Tutorial/JVisualVM.png" alt="JVisualVM UI"></p>
 <p>JVisualVM连接到JVM线程使用了Attach API,  在本文档搜索<code>Attach API</code>.<br>启动命令: <code>jvisualvm</code></p>
 <h2 id="Btrace"><a href="#Btrace" class="headerlink" title="Btrace"></a>Btrace</h2><blockquote>
@@ -1280,94 +1323,92 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">类型</th>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">数量</th>
+<th align="left">类型</th>
+<th align="center">名称</th>
+<th align="center">数量</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">u4</td>
-<td style="text-align:center">magic</td>
-<td style="text-align:center">1</td>
+<tbody><tr>
+<td align="left">u4</td>
+<td align="center">magic</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">minor_version</td>
-<td style="text-align:center">1</td>
+<td align="left">u2</td>
+<td align="center">minor_version</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">major_version</td>
-<td style="text-align:center">1</td>
+<td align="left">u2</td>
+<td align="center">major_version</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">constant_pool_count</td>
-<td style="text-align:center">1</td>
+<td align="left">u2</td>
+<td align="center">constant_pool_count</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">cp_info</td>
-<td style="text-align:center">constant_pool</td>
-<td style="text-align:center">constant_pool_count - 1</td>
+<td align="left">cp_info</td>
+<td align="center">constant_pool</td>
+<td align="center">constant_pool_count - 1</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">access_flags</td>
-<td style="text-align:center">1</td>
+<td align="left">u2</td>
+<td align="center">access_flags</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">this_class</td>
-<td style="text-align:center">1</td>
+<td align="left">u2</td>
+<td align="center">this_class</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">super_class</td>
-<td style="text-align:center">1</td>
+<td align="left">u2</td>
+<td align="center">super_class</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">interfaces_count</td>
-<td style="text-align:center">1</td>
+<td align="left">u2</td>
+<td align="center">interfaces_count</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">interfaces</td>
-<td style="text-align:center">interfaces_count</td>
+<td align="left">u2</td>
+<td align="center">interfaces</td>
+<td align="center">interfaces_count</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">fields_count</td>
-<td style="text-align:center">1</td>
+<td align="left">u2</td>
+<td align="center">fields_count</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">field_info</td>
-<td style="text-align:center">fields</td>
-<td style="text-align:center">fields_count</td>
+<td align="left">field_info</td>
+<td align="center">fields</td>
+<td align="center">fields_count</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">methods_count</td>
-<td style="text-align:center">1</td>
+<td align="left">u2</td>
+<td align="center">methods_count</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">method_info</td>
-<td style="text-align:center">methods</td>
-<td style="text-align:center">methods_count</td>
+<td align="left">method_info</td>
+<td align="center">methods</td>
+<td align="center">methods_count</td>
 </tr>
 <tr>
-<td style="text-align:left">u2</td>
-<td style="text-align:center">attribute_count</td>
-<td style="text-align:center">1</td>
+<td align="left">u2</td>
+<td align="center">attribute_count</td>
+<td align="center">1</td>
 </tr>
 <tr>
-<td style="text-align:left">attribute_info</td>
-<td style="text-align:center">attributes</td>
-<td style="text-align:center">attributes_count</td>
+<td align="left">attribute_info</td>
+<td align="center">attributes</td>
+<td align="center">attributes_count</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>下图参考自: <a href="https://blog.csdn.net/luanlouis/article/details/39960815" target="_blank" rel="noopener">《Java虚拟机原理图解》 Class文件中的常量池详解</a> @Ref<br><img src="/images/Advanced-Java-Tutorial/JVM-Class-Struct.png" alt=""></p>
 <p><strong>class文件每个区域的说明：</strong></p>
 <ul>
@@ -1401,8 +1442,10 @@
 <h2 id="class文件常量池"><a href="#class文件常量池" class="headerlink" title="class文件常量池"></a>class文件常量池</h2><p>注意不要与JVM内存模型中的”运行时常量池”混淆, Class文件中常量池主要存储了字面量以及符号引用，其中<br>字面量主要包括字符串，final常量的值或者某个属性的初始值等等，<br>符号引用主要存储类和接口的全限定名称，字段的名称以及描述符，方法的名称以及描述符，<br>JVM内存模型中有堆，方法区，栈，而方法区中又存在一块区域叫运行时常量池，运行时常量池中存放的其实也是各种字面量以及符号引用， 只不过运行时常量池具有动态性，它可以在运行的时候向其中增加其它的常量进去，最具代表性的就是<code>String.intern</code>方法。</p>
 <h2 id="实例分析class文件常量池"><a href="#实例分析class文件常量池" class="headerlink" title="实例分析class文件常量池"></a>实例分析class文件常量池</h2><p>Java测试类:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CJEntry</span> <span class="keyword">extends</span> <span class="title">CJBaseClass</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> thatIsConstVar = <span class="number">5</span>; <span class="comment">// 整形常量</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> thatIsStaticVar = <span class="keyword">true</span>; <span class="comment">// 静态</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> thatIsInstanceVar;  <span class="comment">// 实例变量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">thatIsInstanceMethod</span><span class="params">(String input)</span> </span>&#123; <span class="comment">// 实例方法</span></span><br><span class="line">        <span class="keyword">return</span> Integer.parseInt(input); <span class="comment">// 调用静态方法</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>编译后使用javap分析class文件: <code>javac org/kshan/corej/CJEntry.java &amp;&amp; javap -v org.kshan.corej.CJEntry</code>, 只截取输出的”Constant pool” :</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> #1 = Methodref          #5.#23         // org/kshan/corej/CJBaseClass.&quot;&lt;init&gt;&quot;:()V  ## 构造方法的符号引用</span><br><span class="line"> #2 = Methodref          #24.#25        // java/lang/Integer.parseInt:(Ljava/lang/String;)I  ## Integer.parseInt()的符号引用</span><br><span class="line"> #3 = Fieldref           #4.#26         // org/kshan/corej/CJEntry.thatIsStaticVar:Z  ## 静态field的符号引用</span><br><span class="line"> #4 = Class              #27            // org/kshan/corej/CJEntry  ## 父类符号引用</span><br><span class="line"> #5 = Class              #28            // org/kshan/corej/CJBaseClass ## 接口符号引用</span><br><span class="line"> #7 = Utf8               thatIsConstVar  ##static final常量名字</span><br><span class="line">#10 = Integer            5  ## static final常量值</span><br><span class="line">#11 = Utf8               thatIsStaticVar  ## 变量名字</span><br><span class="line">#13 = Utf8               thatIsInstanceVar ## 变量名字</span><br><span class="line">#14 = Utf8               &lt;init&gt; ##</span><br><span class="line">#15 = Utf8               ()V  ##</span><br><span class="line">#18 = Utf8               thatIsInstanceMethod</span><br><span class="line">#19 = Utf8               (Ljava/lang/String;)I</span><br><span class="line">#23 = NameAndType        #14:#15  // &quot;&lt;init&gt;&quot;:()V  ## 构造方法的NameAndType, &lt;init&gt;是构造方法的名字, ()V表示无参返回Void</span><br><span class="line">#24 = Class              #30      // java/lang/Integer</span><br><span class="line">#25 = NameAndType        #31:#19        // parseInt:(Ljava/lang/String;)I  ## 静态方法名字:描述符`(形参列表)返回值`的格式</span><br><span class="line">#26 = NameAndType        #11:#12        // thatIsStaticVar:Z</span><br><span class="line">#27 = Utf8               org/kshan/corej/CJEntry</span><br><span class="line">#28 = Utf8               org/kshan/corej/CJBaseClass</span><br><span class="line">#29 = Utf8               java/io/Serializable</span><br><span class="line">#30 = Utf8               java/lang/Integer</span><br><span class="line">#31 = Utf8               parseInt</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>参考: <a href="https://coolshell.cn/articles/9229.html" target="_blank" rel="noopener">实例分析Java Class的文件结构 | | 酷 壳 - CoolShell</a> @Ref</p>
 </blockquote>
@@ -1460,6 +1503,7 @@
 </ul>
 <p>通过内部类实现单例:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonHolder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SingletonHolder.instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="ClassLoader-editing"><a href="#ClassLoader-editing" class="headerlink" title="ClassLoader @editing"></a>ClassLoader @editing</h2><p>JVM在加载(Loading)阶段依靠ClassLoader完成, ClassLoader的加载类过程主要使用<code>ClassLoader.loadClass(String name)</code>方法，<br>该方法中封装了中加载机制 <strong>双亲委派模式</strong> ：每当一个类加载器接收到加载请求时，它会先将请求转发给父类加载器。在父类加载器没有找到所请求的类的情况下，该类加载器才会尝试去加载。<br>加载完成后, 虚拟机外部的二进制字节流就按照虚拟机所需的格式存储在方法区之中, 在JVM堆中也创建一个 java.lang.Class 类的对象.</p>
 <h3 id="ClassLoader分类"><a href="#ClassLoader分类" class="headerlink" title="ClassLoader分类"></a>ClassLoader分类</h3><p>Java 中的类加载器大致可以分成两类，一类是系统提供的”系统提供的ClassLoader”，另外一类则是由应用开发者编写的”应用程序类ClassLoader”。</p>
 <ul>
@@ -1495,41 +1539,39 @@
 <h3 id="ClassLoader-API介绍"><a href="#ClassLoader-API介绍" class="headerlink" title="ClassLoader API介绍"></a>ClassLoader API介绍</h3><table>
 <thead>
 <tr>
-<th style="text-align:left">method</th>
-<th style="text-align:left">desc</th>
+<th align="left">method</th>
+<th align="left">desc</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">getParent()</td>
-<td style="text-align:left">返回该类加载器的父类加载器。</td>
+<tbody><tr>
+<td align="left">getParent()</td>
+<td align="left">返回该类加载器的父类加载器。</td>
 </tr>
 <tr>
-<td style="text-align:left">loadClass(String name)</td>
-<td style="text-align:left">加载名称为 name的类，返回的结果是 java.lang.Class类的实例。</td>
+<td align="left">loadClass(String name)</td>
+<td align="left">加载名称为 name的类，返回的结果是 java.lang.Class类的实例。</td>
 </tr>
 <tr>
-<td style="text-align:left">findClass(String name)</td>
-<td style="text-align:left">查找名称为 name的类，返回的结果是 java.lang.Class类的实例。</td>
+<td align="left">findClass(String name)</td>
+<td align="left">查找名称为 name的类，返回的结果是 java.lang.Class类的实例。</td>
 </tr>
 <tr>
-<td style="text-align:left">findLoadedClass(String name)</td>
-<td style="text-align:left">查找名称为 name的已经被加载过的类，返回的结果是 java.lang.Class类的实例。</td>
+<td align="left">findLoadedClass(String name)</td>
+<td align="left">查找名称为 name的已经被加载过的类，返回的结果是 java.lang.Class类的实例。</td>
 </tr>
 <tr>
-<td style="text-align:left">resolveClass(Class&lt;?&gt; c)</td>
-<td style="text-align:left">链接指定的 Java 类。</td>
+<td align="left">resolveClass(Class&lt;?&gt; c)</td>
+<td align="left">链接指定的 Java 类。</td>
 </tr>
 <tr>
-<td style="text-align:left">defineClass(String name, byte[] b, int off, int len)</td>
-<td style="text-align:left">把字节数组 b中的内容转换成 Java 类，返回的结果是 java.lang.Class类的实例。这个方法被声明为 final的。</td>
+<td align="left">defineClass(String name, byte[] b, int off, int len)</td>
+<td align="left">把字节数组 b中的内容转换成 Java 类，返回的结果是 java.lang.Class类的实例。这个方法被声明为 final的。</td>
 </tr>
 <tr>
-<td style="text-align:left">getResources(String path)</td>
-<td style="text-align:left">获取classpath下面的文件, path是包名路径（例如<code>com/sina/ml</code>）, 返回的是classpath绝对路径的URL封装</td>
+<td align="left">getResources(String path)</td>
+<td align="left">获取classpath下面的文件, path是包名路径（例如<code>com/sina/ml</code>）, 返回的是classpath绝对路径的URL封装</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>比较loadClass 和 defineClass方法:</p>
 <ul>
 <li>启动类的加载过程是通过调用 <code>loadClass()</code>来实现的, <code>loadClass()</code>被称为类的“初始加载器”(initiating loader), <code>loadClass()</code>里封装了前面提到的代理模式的实现;</li>
@@ -1538,6 +1580,7 @@
 <li>defineClass抛出NoClassDefFoundError异常;</li>
 </ul>
 <h3 id="实现一个ClassLoader"><a href="#实现一个ClassLoader" class="headerlink" title="实现一个ClassLoader"></a>实现一个ClassLoader</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1继承CLassLoader</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClassLoader</span> <span class="keyword">extends</span> <span class="title">ClassLoader</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 2重写findClass</span></span><br><span class="line">   <span class="keyword">protected</span> Class&lt;?&gt; findClass(String classFullName) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">      String path = classFullName.repace(<span class="string">"."</span>, File.separatorChar) + <span class="string">".class"</span>; <span class="comment">// 装换为路径.class</span></span><br><span class="line">      InputStream ins = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line">      ByteArrayOutputStream baos = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">      <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">4096</span>];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">int</span> bytesNumRead = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> ((bytesNumRead = ins.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">          baos.write(buffer, <span class="number">0</span>, bytesNumRead);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">byte</span>[] bytes =  classBytes baos.toByteArray();</span><br><span class="line">      <span class="keyword">return</span> defineClass(name, classData, <span class="number">0</span>, classData.length); <span class="comment">// 3 defineClass抛出NoClassDefFoundError异常</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 测试classLoader</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      MyClassLoader loader1 = <span class="keyword">new</span> MyClassLoader();  <span class="comment">// 自定义的加载器</span></span><br><span class="line">      MyClassLoader loader2 = Thread.currentThread().getContextClassLoader(); <span class="comment">// `Launcher$AppClassLoader`</span></span><br><span class="line"></span><br><span class="line">      Class&lt;?&gt; class1 = loader1.loadClass(<span class="string">"com.example.Sample"</span>); <span class="comment">// 4 loadClass抛出ClassNotFoundException异常</span></span><br><span class="line">      Class&lt;?&gt; class2 = loader2.loadClass(<span class="string">"com.example.Sample"</span>);</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span>(class1 == class2) &#123; <span class="comment">// true, class1, class2指向同一个引用</span></span><br><span class="line">        System.out.println(<span class="string">"class1 == class2"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="显示加载和隐式加载"><a href="#显示加载和隐式加载" class="headerlink" title="显示加载和隐式加载"></a>显示加载和隐式加载</h3><ul>
 <li>显式加载：调用 <code>ClassLoader.loadClass(className)</code>与 <code>Class.forName(className)</code></li>
 <li>隐式加载：<ul>
@@ -1559,6 +1602,7 @@
 <p><img src="/images/Advanced-Java-Tutorial/JVM-JavaWeb-ClassLoader.png" alt=""></p>
 <h3 id="JVM如何判断两个类是否相同"><a href="#JVM如何判断两个类是否相同" class="headerlink" title="JVM如何判断两个类是否相同"></a>JVM如何判断两个类是否相同</h3><p>JVM在判定两个class是否相同时，不仅要判断两个类名是否相同，而且要判断是否由同一个类加载器实例加载的。<br>只有两者同时满足的情况下，JVM才认为这两个class是相同的。就算两个class是同一份class字节码，如果被两个不同的ClassLoader实例所加载，JVM也会认为它们是两个不同class。<br>比如网络上的一个Java类<code>org.classloader.simple.NetClassLoaderSimple</code>，javac编译之后生成字节码文件 NetClassLoaderSimple.class，<br>ClassLoaderA 和 ClassLoaderB 这两个类加载器并读取了 NetClassLoaderSimple.class文件，并分别定义出了java.lang.Class实例来表示这个类，对于JVM来说，它们是两个不同的实例对象，但它们确实是同一份字节码文件，如果试图将这个Class实例生成具体的对象进行转换时，就会抛运行时异常java.lang.ClassCaseException</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NewworkClassLoaderTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//测试加载网络中的class文件</span></span><br><span class="line">            String rootUrl = <span class="string">"http://localhost:8080/httpweb/classes"</span>;</span><br><span class="line">            String className = <span class="string">"org.classloader.simple.NetClassLoaderSimple"</span>;</span><br><span class="line">            NetworkClassLoader ncl1 = <span class="keyword">new</span> NetworkClassLoader(rootUrl);</span><br><span class="line">            NetworkClassLoader ncl2 = <span class="keyword">new</span> NetworkClassLoader(rootUrl);</span><br><span class="line">            Class&lt;?&gt; clazz1 = ncl1.loadClass(className);</span><br><span class="line">            Class&lt;?&gt; clazz2 = ncl2.loadClass(className);</span><br><span class="line">            Object obj1 = clazz1.newInstance();</span><br><span class="line">            Object obj2 = clazz2.newInstance();</span><br><span class="line">            clazz1.getMethod(<span class="string">"setNetClassLoaderSimple"</span>, Object.class).invoke(obj1, obj2);  <span class="comment">// 抛出 ClassCaseException</span></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>@uncerten 实际代码测试结果:<br>相同的CL类, 不同的CL实例, 创建的class实例是==的</p>
 <h1 id="Java对象内存模型"><a href="#Java对象内存模型" class="headerlink" title="Java对象内存模型"></a>Java对象内存模型</h1><p>HotSpot虚拟机中，对象在内存中存储的布局可以分为三块区域：对象头（Header）、实例数据（Instance Data）和对齐填充（Padding）。</p>
 <p><img src="/images/Advanced-Java-Tutorial/JVM-Object-Memory.png" alt=""></p>
@@ -1679,7 +1723,9 @@
 <p>编译器和处理器对重排序准守<code>as-if-serial</code>语义，<code>as-if-serial</code>的意思指：不管怎么重排序（编译器和处理器为了提高并行度），（单线程）程序的执行结果不能被改变。编译器/runtime/处理器都必须遵守as-if-serial语义。</p>
 <p>为了遵守<code>as-if-serial</code>语义，编译器和处理器在重排序时，会遵守数据依赖性，编译器和处理器不能改变存在数据依赖关系的两个操作的执行顺序。比如<code>a=b; b=1;</code> 以及<code>a=1; b=a;</code>，这里所说的数据依赖性仅针对单个处理器中执行的指令序列和单个线程中执行的操作，不同处理器之间和不同线程之间的数据依赖性不被编译器和处理器考虑。</p>
 <p><strong>编译器和处理器仅指在单线程环境下遵守as-if-serial</strong>，在多线程程序中，对存在控制依赖的操作重排序，可能会改变程序的执行结果。必须通过正确的同步实现.</p>
-<p>注意：if等控制语句没有 <strong>数据依赖性</strong>，比如代码：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(flag)</span><br><span class="line">  int i = r * r;</span><br></pre></td></tr></table></figure></p>
+<p>注意：if等控制语句没有 <strong>数据依赖性</strong>，比如代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(flag)</span><br><span class="line">  int i = r * r;</span><br></pre></td></tr></table></figure>
+
 <p>其中<code>if</code>和<code>int i= r * r</code>是控制依赖关系，但没有数据依赖性。<br>当代码中存在控制依赖性时，会影响指令序列执行的并行度。为此，编译器和处理器会采用猜测（Speculation）执行来克服控制相关性对并行度的影响，提高执行效率。<br>下面的情形是有可能发生的：处理器可以提前读取并计算<code>r * r</code>，然后把计算结果临时保存到一个名为 <strong>重排序缓冲（reorder buffer ROB）</strong> 的硬件缓存中。当接下来<code>if(flag)</code>的条件判断为真时，就把该计算结果写入变量i中。</p>
 <h3 id="内存屏障"><a href="#内存屏障" class="headerlink" title="内存屏障"></a>内存屏障</h3><p>编译器和处理器必须同时遵守重排规则。由于单核处理器能确保与“顺序执行”相同的一致性，所以在单核处理器上并不需要专门做什么处理，就可以保证正确的执行顺序。但在多核处理器上通常需要使用内存屏障指令来确保这种一致性。在不同的CPU架构上内存屏障的实现非常不一样。相对来说Intel CPU的强内存模型比DEC Alpha的弱复杂内存模型（缓存不仅分层了，还分区了）更简单。</p>
 <blockquote>
@@ -1695,8 +1741,7 @@
 <th>实现效果</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>LoadLoad</td>
 <td>Load1; LoadLoad; Load2;</td>
 <td>确保Load1数据的装载，之前于Load2及所有后续装载指令的装载。(禁止Load1,Load2重排序)</td>
@@ -1716,8 +1761,7 @@
 <td>Store1; StoreLoad; Load2;</td>
 <td>确保Store1数据对其他处理器变得可见（刷新到内存），之前于Load2及所有后续装载指令的装载。StoreLoad Barriers会使该屏障之前的所有内存访问指令（存储和装载指令）完成之后，才执行该屏障之后的内存访问指令。(禁止Store1,Load2重排序)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>StoreLoad</strong> 是一个“全能型”的屏障，它可以保证“先刷新到主内存再访问”。现代的多处理器大都支持该屏障（其他类型的屏障不一定被所有处理器支持）。执行该屏障开销会很昂贵，因为当前处理器通常要把写缓冲区中的数据全部刷新到内存中（buffer fully flush）。</p>
 <h2 id="Volatile"><a href="#Volatile" class="headerlink" title="Volatile"></a>Volatile</h2><h3 id="volatile变量的特性"><a href="#volatile变量的特性" class="headerlink" title="volatile变量的特性"></a>volatile变量的特性</h3><ul>
 <li>可见性：对一个volatile变量的读，总是能看到（任意线程）对这个volatile变量最后的写入。可以认为对volatile的写是原子的；</li>
@@ -1728,6 +1772,7 @@
 </blockquote>
 <h3 id="volatile读写建立的happens-before关系"><a href="#volatile读写建立的happens-before关系" class="headerlink" title="volatile读写建立的happens before关系"></a>volatile读写建立的happens before关系</h3><p><strong>从JSR-133开始，volatile变量的写-读可以实现线程之间的通信</strong>。看代码：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VolatileExample</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">boolean</span> flag = <span class="keyword">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 线程A执行writer():</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">writer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        a = <span class="number">1</span>;               <span class="comment">//1</span></span><br><span class="line">        flag = <span class="keyword">true</span>;         <span class="comment">//2</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 线程B执行read():</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reader</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (flag) &#123;          <span class="comment">//3</span></span><br><span class="line">            <span class="keyword">int</span> i =  a;      <span class="comment">//4</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>根据happens-before①，1 happens-before 2，3 happens-before 4；</li>
 <li>根据volatile语义，2 happens-before 3；</li>
@@ -1755,9 +1800,13 @@
 <li>在每个 <strong>volatile读</strong> 操作的 <strong>后面</strong> 插入一个<code>LoadLoad</code>屏障。</li>
 <li>在每个 <strong>volatile读</strong> 操作的 <strong>后面</strong> 插入一个<code>LoadStore</code>屏障。</li>
 </ul>
-<p><strong>① volatile写 插入的内存屏障：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通读/写操作</span><br><span class="line">StoreStore屏障 //禁止上面的普通写和下面的 Volatile写 重排序</span><br><span class="line">volatile写</span><br><span class="line">StoreLoad屏障  //禁止上面的Volatile写和下面有可能的 Volatile读写 重排序</span><br></pre></td></tr></table></figure></p>
+<p><strong>① volatile写 插入的内存屏障：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">普通读/写操作</span><br><span class="line">StoreStore屏障 //禁止上面的普通写和下面的 Volatile写 重排序</span><br><span class="line">volatile写</span><br><span class="line">StoreLoad屏障  //禁止上面的Volatile写和下面有可能的 Volatile读写 重排序</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/Advanced-Java-Tutorial/jmm-volatile-barriers_store.png" alt="jmm-volatile-read-barriers"></p>
-<p><strong>② volatile读 插入的内存屏障：</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">volatile读</span><br><span class="line">LoadLoad屏障  // 禁止下面的普通读和上面的 Volatile读 重排序</span><br><span class="line">LoadStore屏障 // 禁止下面的普通写和上面的 Volatile读 重排序</span><br><span class="line">普通读/写</span><br></pre></td></tr></table></figure></p>
+<p><strong>② volatile读 插入的内存屏障：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">volatile读</span><br><span class="line">LoadLoad屏障  // 禁止下面的普通读和上面的 Volatile读 重排序</span><br><span class="line">LoadStore屏障 // 禁止下面的普通写和上面的 Volatile读 重排序</span><br><span class="line">普通读/写</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/Advanced-Java-Tutorial/jmm-volatile-barriers_load.png" alt="jmm-volatile-write-barriers"></p>
 <h2 id="Synchronized"><a href="#Synchronized" class="headerlink" title="Synchronized"></a>Synchronized</h2><p>有关Synchronized的实现, 请参考👉<a href="https://whatsrtos.github.io/30MinsTutorial/Java%20Tutorials/#Synchronized">《Java Tutorials》</a></p>
 <h3 id="Synchronized的释放-获取建立的happens-before关系"><a href="#Synchronized的释放-获取建立的happens-before关系" class="headerlink" title="Synchronized的释放-获取建立的happens before关系"></a>Synchronized的释放-获取建立的happens before关系</h3><p>线程A在释放锁之前所有可见的共享变量，在线程B获取同一个锁之后，将立刻变得对B线程可见。</p>
@@ -1822,8 +1871,10 @@
 <h3 id="FINAL-域是引用类型"><a href="#FINAL-域是引用类型" class="headerlink" title="FINAL 域是引用类型"></a>FINAL 域是引用类型</h3><p>对于引用类型，写 final 域的重排序规则对编译器和处理器增加了如下约束：<br>在构造函数内对一个 final 引用的对象的成员域的写入，与随后在构造函数外把这个被构造对象的引用赋值给一个引用变量，这两个操作之间不能重排序。</p>
 <h2 id="回到错误的DLC单例代码"><a href="#回到错误的DLC单例代码" class="headerlink" title="回到错误的DLC单例代码"></a>回到错误的DLC单例代码</h2><p>常见的双重锁检查（Double Checked Locking）的单例代码如下：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoubleCheckedLocking</span> </span>&#123;                 <span class="comment">//1</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Instance instance;                    <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Instance <span class="title">getInstance</span><span class="params">()</span> </span>&#123;               <span class="comment">//3</span></span><br><span class="line">        <span class="keyword">if</span> (instance == <span class="keyword">null</span>) &#123;                          <span class="comment">//4:第一次检查</span></span><br><span class="line">            <span class="keyword">synchronized</span> (DoubleCheckedLocking.class) &#123;  <span class="comment">//5:加锁</span></span><br><span class="line">                <span class="keyword">if</span> (instance == <span class="keyword">null</span>)                    <span class="comment">//6:第二次检查</span></span><br><span class="line">                    instance = <span class="keyword">new</span> Instance();           <span class="comment">//7:问题的根源出在这里</span></span><br><span class="line">            &#125;                                            <span class="comment">//8</span></span><br><span class="line">        &#125;                                                <span class="comment">//9</span></span><br><span class="line">        <span class="keyword">return</span> instance;                                 <span class="comment">//10</span></span><br><span class="line">    &#125;                                                    <span class="comment">//11</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>但是这样写是有问题的，在多线程并发的情况下，当有某个线程在步骤4进行检查的时候发现instance非null，但instance却指向一块已经分配但是未初始化的内存。<br>示例代码的第7行<code>instance = new Instance()</code>创建一个对象。这一行代码可以分解为如下的三行伪代码：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">synchronized (DoubleCheckedLocking.class) &#123;</span><br><span class="line">    if (instance == null) &#123;</span><br><span class="line">        memory = allocate();   //1：分配对象的内存空间</span><br><span class="line">        ctorInstance(memory);  //2：初始化对象</span><br><span class="line">        instance = memory;     //3：设置instance指向刚分配的内存地址</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>由JSR-133的happens-before和<code>as-if-serial</code>语义，在单线程里1 happens-before 3，但2不能保证happens-before 3，<br>2和3有可能发生重排序，执行顺序变为 1-3-2，调用构造方法初始化对象被重排序到了最后一步，</p>
 <p>如果发生了1-3-2的重排序，<br>当线程A执行完3，但还没执行2的时候(instance指向分配好的内存, 但这块内存还未由构造函数初始化)，A线程却被CPU让出了,<br>线程B开始运行, 到第一次判断<code>instance==null</code>，线程B判断instance是非null，不用走下面的sync, 直接返回了这个instance, 线程B获取到了(还未初始化的)instance引用。然后就出问题了</p>
 <p><strong>所以, 解决方法有两种思路:</strong></p>
@@ -1834,10 +1885,10 @@
 <p>第一种解决方案是, 将 <code>instance</code> 变量声明成 volatile。<br>当声明对象的引用为 volatile 后，“问题的根源”的三行伪代码中的 2 和 3 之间的重排序，在多线程环境中将会被禁止。</p>
 <p>第二种方案, 基于类初始化锁, 代码示例:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceFactory</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">InstanceHolder</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> Instance instance = <span class="keyword">new</span> Instance();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Instance <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> InstanceHolder.instance ;  <span class="comment">// 这里将导致 InstanceHolder 类被初始化</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>回顾一下Java对初始化的规范:</p>
 <pre><code>T 是一个类, 首次对 T 的 static成员属性 进行读写的时候, 会触发 T的初始化
-T 是一个外部类, T被初始化的时候, 其静态内部类Inner不会被初始化,
-</code></pre><p>作为内部类, InstanceHolder 不会在 外部类初始化时被初始化(可以实现延后初始化),<br>首次调用 <code>InstanceFactory.getInstance()</code>的时候, 相当于调用了 <code>getstatic</code>指令读取 InstanceHolder的静态属性, 会导致 InstanceHolder 被初始化,<br>初始化包括 执行static代码块, 初始化static成员属性, 这些操作代码都被放在一个叫 <code>&lt; clinit &gt;</code>的方法中, 被JVM加锁执行.<br>这个方案的实质是：允许“问题的根源”的三行伪代码中的 2 和 3 重排序，但不允许其他线程（这里指线程 B）“看到”这个重排序。</p>
+T 是一个外部类, T被初始化的时候, 其静态内部类Inner不会被初始化,</code></pre><p>作为内部类, InstanceHolder 不会在 外部类初始化时被初始化(可以实现延后初始化),<br>首次调用 <code>InstanceFactory.getInstance()</code>的时候, 相当于调用了 <code>getstatic</code>指令读取 InstanceHolder的静态属性, 会导致 InstanceHolder 被初始化,<br>初始化包括 执行static代码块, 初始化static成员属性, 这些操作代码都被放在一个叫 <code>&lt; clinit &gt;</code>的方法中, 被JVM加锁执行.<br>这个方案的实质是：允许“问题的根源”的三行伪代码中的 2 和 3 重排序，但不允许其他线程（这里指线程 B）“看到”这个重排序。</p>
 <blockquote>
 <p>Java 语言规范规定，对于每一个类或接口 C，都有一个唯一的初始化锁 LC 与之对应。从 C 到 LC 的映射，由 JVM 的具体实现去自由实现。JVM 在类初始化期间会获取这个初始化锁，并且每个线程至少获取一次锁来确保这个类已经被初始化过了</p>
 </blockquote>
@@ -1943,6 +1994,7 @@ T 是一个外部类, T被初始化的时候, 其静态内部类Inner不会被�
 </ul>
 <p>▶ 用 Netty 实现多线程 Reactor:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">NioEventLoopGroup bossGroup = <span class="keyword">new</span> NioEventLoopGroup();</span><br><span class="line">NioEventLoopGroup workerGroup = <span class="keyword">new</span> NioEventLoopGroup();</span><br><span class="line">ServerBootstrap bootstrap = <span class="keyword">new</span> ServerBootstrap();</span><br><span class="line">bootstrap.group(bossGroup,workerGroup)</span><br><span class="line">        .channel(NioServerSocketChannel.class)</span><br><span class="line">        .option(ChannelOption.TCP_NODELAY, <span class="keyword">true</span>)</span><br><span class="line">        .option(ChannelOption.SO_BACKLOG, <span class="number">1024</span>)</span><br><span class="line">        .childHandler(<span class="keyword">new</span> ServerHandlerInitializer());</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>一个Server 有两个 NioEventLoopGroup: bossGroup 和 workerGroup</li>
 <li>作为boss的 NioEventLoopGroup, 取第一个EventLoop, 用select 监听 accept事件, 然后交给Acceptor处理;</li>
@@ -1968,6 +2020,7 @@ T 是一个外部类, T被初始化的时候, 其静态内部类Inner不会被�
 </li>
 <li><p>直接使用unsafe:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Unsafe unsafe = GetUsafeInstance.getUnsafeInstance();</span><br><span class="line">long pointer = unsafe.allocateMemory(1024);</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <blockquote>
@@ -1978,6 +2031,7 @@ T 是一个外部类, T被初始化的时候, 其静态内部类Inner不会被�
 <li>通过Unsafe回收;</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FreeDirectMemoryExample</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">long</span> address = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> Unsafe unsafe = GetUsafeInstance.getUnsafeInstance();</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">FreeDirectMemoryExample</span><span class="params">(<span class="keyword">int</span> size)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		address = unsafe.allocateMemory(size);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.finalize();</span><br><span class="line">		unsafe.freeMemory(address);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="堆外内存GC"><a href="#堆外内存GC" class="headerlink" title="堆外内存GC"></a>堆外内存GC</h3><p>如果堆外内存容量超过了<code>-XX:MaxDirectMemorySize</code> 会发生<code>OutOfMemoryError: Direct buffer memory</code>，<br>如果GC 回收了 DirectBuffer 对象，那么 DirectBuffer 对象指向的堆外内存，会在GC的后期被回收，<br>如果Java程序使用的堆内内存（Heap）占用率不高但是却大量使用DirectBuffer分配堆外内存，<br>这种情况下不会因为堆内内存触发 Full GC也就无法自动释放堆外内存，<br>所以通常需要调用 <code>System.gc()</code> 来强制回收 堆外内存（但是线上环境不建议这样触发Full GC），这种情况下一定确保不能启用了 <code>-XX:+DisableExplicitGC</code> 导致 <code>System.gc()</code>被禁用。</p>
 <blockquote>
 <p><code>System.gc()</code>会建议JVM进行Full GC, 对新生代的老生代都会进行内存回收，这样会比较彻底地回收DirectByteBuffer对象以及他们关联的堆外内存.<br>DirectByteBuffer对象本身其实是很小的，但是它后面可能关联了一个非常大的堆外内存，因此我们通常称之为冰山对象.<br>JVM 发生 YGC（Young gc很频繁, 会STW, 但是Copy GC算法的STW极短）的时候会将新生代里的不可达的 DirectByteBuffer 对象及其堆外内存回收了，但是无法对Old Gen里的 DirectByteBuffer 对象及其堆外内存进行回收，这也是我们通常碰到的最大的问题。( 并且堆外内存多用于生命期中等或较长的对象 )<br>如果有大量的 DirectByteBuffer 对象移到了Old Gen，但是又一直没有做Old Gen 的CMS GC或者Gull GC，那么物理内存可能被慢慢耗光，但是我们还不知道发生了什么，因为heap明明剩余的内存还很多。</p>

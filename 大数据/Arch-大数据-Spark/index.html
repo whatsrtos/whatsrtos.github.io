@@ -123,15 +123,15 @@
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
 <meta property="og:description" content="什么是Spark概述现如今在大规模数据处理分析的技术领域中，Hadoop及其生态内的各功能组件占据了绝对的统治地位。Hadoop原生的MapReduce计算框架由于任务抽象简单、计算流程固定、计算的中间结果写入磁盘引起大量读写开销等短板，正逐步的被基于内存的分布式计算框架Spark代替，应用于各类大规模数据处理分析的场景中，其优势主要体现在以下5个方面：  1、更快的计算速度。采用计算中间结果的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-Spark/Stream-Processing-Analitics-and-Machine-Learning.jpg">
-<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-Spark/Spark-RDD-Process.png">
-<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-Spark/Spark-Yarn.png">
-<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-大数据-Spark/Spark-Tech-Stack.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark/Stream-Processing-Analitics-and-Machine-Learning.jpg">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark/Spark-RDD-Process.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark/Spark-Yarn.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark/Spark-Tech-Stack.png">
 <meta property="og:updated_time" content="2019-10-14T15:36:52.075Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark">
 <meta name="twitter:description" content="什么是Spark概述现如今在大规模数据处理分析的技术领域中，Hadoop及其生态内的各功能组件占据了绝对的统治地位。Hadoop原生的MapReduce计算框架由于任务抽象简单、计算流程固定、计算的中间结果写入磁盘引起大量读写开销等短板，正逐步的被基于内存的分布式计算框架Spark代替，应用于各类大规模数据处理分析的场景中，其优势主要体现在以下5个方面：  1、更快的计算速度。采用计算中间结果的">
-<meta name="twitter:image" content="https://whatsrtos.github.io/images/Arch-大数据-Spark/Stream-Processing-Analitics-and-Machine-Learning.jpg">
+<meta name="twitter:image" content="https://whatsrtos.github.io/images/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark/Stream-Processing-Analitics-and-Machine-Learning.jpg">
 
 
 
@@ -360,7 +360,7 @@
       
 
       
-        <p><img src="/images/Arch-大数据-Spark/Stream-Processing-Analitics-and-Machine-Learning.jpg" alt=""></p>
+        <p><img src="/images/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark/Stream-Processing-Analitics-and-Machine-Learning.jpg" alt=""></p>
 <h1 id="什么是Spark"><a href="#什么是Spark" class="headerlink" title="什么是Spark"></a>什么是Spark</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>现如今在大规模数据处理分析的技术领域中，Hadoop及其生态内的各功能组件占据了绝对的统治地位。<br>Hadoop原生的MapReduce计算框架由于任务抽象简单、计算流程固定、计算的中间结果写入磁盘引起大量读写开销等短板，正逐步的被基于内存的分布式计算框架Spark代替，应用于各类大规模数据处理分析的场景中，其优势主要体现在以下5个方面：</p>
 <ul>
 <li>1、更快的计算速度。采用计算中间结果的内存缓存机制和基于DAG的数据处理过程优化策略，进一步提升数据处理速率。</li>
@@ -371,12 +371,12 @@
 </ul>
 <h2 id="RDD计算模型原理"><a href="#RDD计算模型原理" class="headerlink" title="RDD计算模型原理"></a>RDD计算模型原理</h2><p>Spark将数据处理过程抽象为对内存中RDD（弹性分布式数据集）的操作，RDD的可以通过从数据源直接读取和集合数据类型封装两种方式创建。<br>针对RDD的操作，根据其结果主要分为如map、flatMap、mapPartition、filter等生成新的RDD的transformation（转换）操作和collect、reduce、foreach等生成集合数据类型或结果写入的action（行为）操作两大类。</p>
 <p>下图描述了一个典型的Spark作业基于RDD实现数据的处理过程。其中，Spark对RDD的处理过程是惰性的，只有调用对RDD的action操作才能启动对RDD的计算过程，连续的调用多个transformation操作是无法使数据处理过程真正的执行。<br>在触发RDD计算过程后，根据Spark内置的DAG（有向无环图）引擎将多个对RDD的操作执行策略进行优化。<br>为满足对大规模数据的处理需要，Spark将RDD划分为多个partition（分区），以partition为单位将数据分散到集群上的各个节点中。<br>针对RDD的action操作和transformation操作间的本质区别就是生成的结果是否为RDD。</p>
-<p><img src="/images/Arch-大数据-Spark/Spark-RDD-Process.png" alt=""></p>
+<p><img src="/images/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark/Spark-RDD-Process.png" alt=""></p>
 <h2 id="基于Yarn实现资源管理"><a href="#基于Yarn实现资源管理" class="headerlink" title="基于Yarn实现资源管理"></a>基于Yarn实现资源管理</h2><p>由于Hadoop的HDFS与Spark的RDD抽象读写具有较为完备的兼容性，各版本Spark均提供对应当前Hadoop版本的安装包。<br>同样，Spark也可以使用Hadoop中的Yarn作为自身的资源管理器，用以完成对Spark集群中是作业管理和任务计算资源调度分配等工作。</p>
 <p>在Spark作业的执行过程中，Yarn将在集群中的物理节点上的Executor的JVM进程封装为独立的Container，并提供独立的临时文件目录以及内存和CPU资源。<br>同时，Spark还提供了共享文件依赖的机制将Spark作业执行过程中，各Executor所需的如jar包、.so动态库、py文件及其他格式类型的文件依赖资源与Spark作业自身的执行文件分发到各Container中，使得Spark作业能够具备更为灵活的拓展性。</p>
-<p><img src="/images/Arch-大数据-Spark/Spark-Yarn.png" alt=""></p>
+<p><img src="/images/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark/Spark-Yarn.png" alt=""></p>
 <h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><p>现如今，Spark作业支持Java、Scala、Python以及R四种语言编写，Spark自身提供了SQL、机器学习、流计算以及图运算四种类型的计算功能组件，开发人员可根据实际的应用需求和相应组件的功能特性完成Spark作业的开发。<br>但是，其中如GraphX等部分功能组件仅支持Java及Scala语言的调用。</p>
-<h2 id="核心组件"><a href="#核心组件" class="headerlink" title="核心组件"></a>核心组件</h2><p>核心组件如下:<br><img src="/images/Arch-大数据-Spark/Spark-Tech-Stack.png" alt=""></p>
+<h2 id="核心组件"><a href="#核心组件" class="headerlink" title="核心组件"></a>核心组件</h2><p>核心组件如下:<br><img src="/images/Arch-%E5%A4%A7%E6%95%B0%E6%8D%AE-Spark/Spark-Tech-Stack.png" alt=""></p>
 <ul>
 <li>Spark Core：包含Spark的基本功能；尤其是定义RDD的API、操作以及这两者上的动作。其他Spark的库都是构建在RDD和Spark Core之上的。</li>
 <li>Spark SQL：提供通过Apache Hive的SQL变体Hive查询语言（HiveQL）与Spark进行交互的API。每个数据库表被当做一个RDD，Spark SQL查询被转换为Spark操作。<br>基于对内存中RDD操作和DAG引擎优化，Spark能够实现比基于原生MapReduce的Hive SQL更高效的计算过程。同时，采用DataFrame封装Spark作业能够以函数调用的方式完成SQL操作。</li>

@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="Markdown,Hexo," />
+  <meta name="keywords" content="Hexo,Markdown," />
 
 
 
@@ -116,7 +116,7 @@
 
 
 <meta name="description" content="静态博客对比 Hugo: 基于Golang The world’s fastest framework for building websites | Hugo Jekyll: 基于Ruby / 支持 GitHub Pages 部署 Jekyll • Simple, blog-aware, static sites | Transform your plain text into static w">
-<meta name="keywords" content="Markdown,Hexo">
+<meta name="keywords" content="Hexo,Markdown">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo部署和使用指北(Windows)">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/Hexo部署和使用指北/index.html">
@@ -332,7 +332,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,781
+                  1,777
                 </span>
               
 
@@ -364,27 +364,39 @@
 </ul>
 <h1 id="安装-Step-by-Step"><a href="#安装-Step-by-Step" class="headerlink" title="安装 Step by Step"></a>安装 Step by Step</h1><p>安装<a href="http://git-scm.com/downloads" target="_blank" rel="noopener">Git客户端</a>和<a href="http://nodejs.org/download/" target="_blank" rel="noopener">node.js</a>环境, 然后你还要有一个Github帐号.<br>安装完node.js之后, 不要忘记把<code>User/AppData/Roaming/npm</code>添加到PATH.</p>
 <ul>
-<li>安装hexo: 打开Git CMD（因为），输入: <code>npm install -g hexo-cli</code></li>
-<li>初始化hexo: <code>hexo init BLOG</code>, 将在当前目录建立”BLOG”为名的目录并在此初始化, Hexo 即会自动在目标文件夹建立网站所需要的所有文件.</li>
-<li>安装依赖包: <code>cd BLOG &amp;&amp; npm install</code>,<ul>
+<li><p>安装hexo: 打开Git CMD（因为），输入: <code>npm install -g hexo-cli</code></p>
+</li>
+<li><p>初始化hexo: <code>hexo init BLOG</code>, 将在当前目录建立”BLOG”为名的目录并在此初始化, Hexo 即会自动在目标文件夹建立网站所需要的所有文件.</p>
+</li>
+<li><p>安装依赖包: <code>cd BLOG &amp;&amp; npm install</code>,</p>
+<ul>
 <li>如果需要把Blog部署到Github上, 还需要安装hexo-git模块: <code>npm install hexo-deployer-git --save</code> (这一步可选);</li>
 <li>如果需要Blog主页不显示全文而是摘要, 需要安装<code>npm install --save hexo-excerpt</code> (这一步可选);</li>
 </ul>
 </li>
-<li>本地启动测试: <code>hexo server</code>, 然后访问<a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">127.0.0.1:4000</a>查看.</li>
-<li>Github上新建一个repository, 名字为<code>yoursite.github.io</code></li>
+<li><p>本地启动测试: <code>hexo server</code>, 然后访问<a href="http://127.0.0.1:4000/" target="_blank" rel="noopener">127.0.0.1:4000</a>查看.</p>
+</li>
+<li><p>Github上新建一个repository, 名字为<code>yoursite.github.io</code></p>
+</li>
 <li><p>修改本地的<code>_config.yml</code>文件, 找到<code>#site</code>一栏, 修改博客的title, 然后在最后的<code>deploy:</code>处增加下面几行:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">type: github</span><br><span class="line">repository: https://github.com/Your_Github_Account/yoursite.github.io.git</span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>添加评论系统: 国外比较常用的评论系统有disqus等, 这个在hexo中也是默认开启的, 如果我们要添加其他的评论系统, 还需要做一点修改.<br>在国内推荐使用搜狐畅言: <img src="http://changyan.sohu.com/platformstatic/images/pic/f02.jpg" alt="搜狐畅言-专业的社会化评论系统">.<br>首先需要在配置文件中禁用disqus, 编辑根目录的_config.yml文件: 查找并注释掉<code>disqus_shortname</code>一行.<br>然后编辑 <code>themes\landscape\layout\_partial\article.ejs</code>文件, 在文件最后找到<code>section id=&quot;comments&quot;</code>一段, 修改为:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;% if (!index)&#123; %&gt;</span><br><span class="line">&lt;section id=&quot;comments&quot;&gt;</span><br><span class="line">    &lt;%- partial(&apos;comment&apos;) %&gt;</span><br><span class="line">&lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
 <p>编辑<code>themes\landscape\layout\_partial\comment.ejs</code> 并添加<a href="http://changyan.sohu.com/" target="_blank" rel="noopener">畅言</a>的Js代码:</p>
 </li>
 </ul>
 <h2 id="附-hexo命令列表"><a href="#附-hexo命令列表" class="headerlink" title="附: hexo命令列表"></a>附: hexo命令列表</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new &quot;post title with whitespace&quot;</span><br><span class="line">hexo new page --path about/me &quot;About me&quot;</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br><span class="line">hexo deploy</span><br><span class="line">hexo clean: 清除缓存文件 (`db.json`) 和已生成的静态文件 (`public`)</span><br><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+
 <h2 id="附-npm命令列表"><a href="#附-npm命令列表" class="headerlink" title="附: npm命令列表"></a>附: npm命令列表</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm ls</span><br><span class="line">npm outdated</span><br><span class="line">npm update  # npm update [-g] [&lt;pkg&gt;...]</span><br><span class="line">npm install [-g] moduleName [--save]  # -g 全局安装 , --save将被写入package.json的dependencies</span><br><span class="line">npm uninstall [&lt;pkg&gt;...]</span><br><span class="line">npm cache clean</span><br></pre></td></tr></table></figure>
-<h1 id="使用NexT主题"><a href="#使用NexT主题" class="headerlink" title="使用NexT主题"></a>使用NexT主题</h1><p>下载NexT主题:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd BLOG</span><br><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p>
-<p>修改<code>_config.yml</code>:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure></p>
+
+<h1 id="使用NexT主题"><a href="#使用NexT主题" class="headerlink" title="使用NexT主题"></a>使用NexT主题</h1><p>下载NexT主题:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd BLOG</span><br><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<p>修改<code>_config.yml</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+
 <p>如果使用了<code>NexT</code>主题, 第三方评论系统需要在<code>themes/nextlayout/_partials/comments.swig</code>修改, 增加畅言评论的js</p>
 <h1 id="添加-修改文章"><a href="#添加-修改文章" class="headerlink" title="添加/修改文章"></a>添加/修改文章</h1><ol>
 <li>打开Git Bash并执行:<ul>
@@ -402,17 +414,21 @@
 <ul>
 <li>安装插件hexo-generator-sitemap，用于生成sitemap：<code>npm install hexo-generator-sitemap --save</code></li>
 <li>在 <strong>站点配置文件</strong> _config.yml中添加如下字段：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sitemap:</span><br><span class="line">path: sitemap.xml</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h3 id="添加-robots-txt"><a href="#添加-robots-txt" class="headerlink" title="添加 robots.txt"></a>添加 robots.txt</h3><p>网站通过Robots协议告诉搜索引擎哪些页面可以抓取，哪些页面不能抓取。robots.txt 通常存放于网站根目录。<br>在source文件夹下新建robots.txt文件，文件内容如下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User-agent: *</span><br><span class="line">Allow: /</span><br><span class="line">Allow: /archives/</span><br><span class="line">Allow: /categories/</span><br><span class="line">Allow: /tags/</span><br><span class="line">Disallow: /vendors/</span><br><span class="line">Disallow: /js/</span><br><span class="line">Disallow: /lib/</span><br><span class="line">Disallow: /css/</span><br><span class="line">Disallow: /fonts/</span><br><span class="line">Sitemap: https://your_site.com/sitemap.xml</span><br></pre></td></tr></table></figure>
+
 <h2 id="Hexo正文中标题自动编号"><a href="#Hexo正文中标题自动编号" class="headerlink" title="Hexo正文中标题自动编号"></a>Hexo正文中标题自动编号</h2><ul>
-<li>安装heading-index: <code>npm install hexo-heading-index --save</code></li>
+<li><p>安装heading-index: <code>npm install hexo-heading-index --save</code></p>
+</li>
 <li><p>修改顶层_config.yml</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">heading_index:</span><br><span class="line">  enable: true</span><br><span class="line">  index_styles: &quot;&#123;1&#125; &#123;1&#125; &#123;1&#125; &#123;1&#125; &#123;1&#125; &#123;1&#125;&quot;</span><br><span class="line">  connector: &quot;.&quot;</span><br><span class="line">  global_prefix: &quot;&quot;</span><br><span class="line">  global_suffix: &quot;: &quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改Hexo主题下的_config.yml， 避免侧边栏重复自动生成编号，禁用侧边栏自动编号</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">toc:</span><br><span class="line">  enable: true</span><br><span class="line">  # Automatically add list number to toc.</span><br><span class="line">  number: false</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <!-- /TOC -->
@@ -428,20 +444,29 @@
 </blockquote>
 <h2 id="NexT-主题修改Toc"><a href="#NexT-主题修改Toc" class="headerlink" title="NexT 主题修改Toc"></a>NexT 主题修改Toc</h2><p>NexT主题的Toc列表是在sidebar显示的, 如果在手机或平板等小屏幕设备上不显示sidebar,<br>如何在手机浏览时可以显示sidebar的Toc可以参考:<br><a href="https://blog.zzbd.org/2017/06/10/keep-sidebar/" target="_blank" rel="noopener">Next主题小屏幕下保留侧边栏 | J.F’s BLOG</a></p>
 <h2 id="NexT-主题自定义css"><a href="#NexT-主题自定义css" class="headerlink" title="NexT 主题自定义css"></a>NexT 主题自定义css</h2><p>NexT的自定义文件在: source/css/_custom/custom.styl</p>
-<h2 id="NexT-主题支持数学公式"><a href="#NexT-主题支持数学公式" class="headerlink" title="NexT 主题支持数学公式"></a>NexT 主题支持数学公式</h2><p>安装:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-math --save</span><br></pre></td></tr></table></figure></p>
-<p>在站点配置文件 _config.yml 中添加：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line">  engine: &apos;mathjax&apos; # or &apos;katex&apos;</span><br><span class="line">  mathjax:</span><br><span class="line">    # src: custom_mathjax_source</span><br><span class="line">    config:</span><br><span class="line">    # MathJax config</span><br></pre></td></tr></table></figure></p>
-<p>在 next 主题配置文件中 themes/next-theme/_config.yml 添加：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># MathJax Support</span><br><span class="line">mathjax:</span><br><span class="line">  enable: true</span><br><span class="line">  per_page: false</span><br><span class="line">  cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span><br></pre></td></tr></table></figure></p>
-<p>使用:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">行内公式: $数学公式$</span><br><span class="line">行间公式, 独占一行: $$数学公式$$</span><br></pre></td></tr></table></figure></p>
+<h2 id="NexT-主题支持数学公式"><a href="#NexT-主题支持数学公式" class="headerlink" title="NexT 主题支持数学公式"></a>NexT 主题支持数学公式</h2><p>安装:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-math --save</span><br></pre></td></tr></table></figure>
+
+<p>在站点配置文件 _config.yml 中添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line">  engine: &apos;mathjax&apos; # or &apos;katex&apos;</span><br><span class="line">  mathjax:</span><br><span class="line">    # src: custom_mathjax_source</span><br><span class="line">    config:</span><br><span class="line">    # MathJax config</span><br></pre></td></tr></table></figure>
+
+<p>在 next 主题配置文件中 themes/next-theme/_config.yml 添加：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># MathJax Support</span><br><span class="line">mathjax:</span><br><span class="line">  enable: true</span><br><span class="line">  per_page: false</span><br><span class="line">  cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML</span><br></pre></td></tr></table></figure>
+
+<p>使用:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">行内公式: $数学公式$</span><br><span class="line">行间公式, 独占一行: $$数学公式$$</span><br></pre></td></tr></table></figure>
+
 <h1 id="插件列表"><a href="#插件列表" class="headerlink" title="插件列表"></a>插件列表</h1><ul>
-<li>[x] hexo-generator-index-pin-top: 增加文章置顶功能, 在文章 front-matter 里增加<code>top: True</code>即可</li>
-<li>[ ] hexo-heading-index : 为标题(headings)添加自动编号</li>
-<li>[x] hexo-generator-sitemap: 生成sitemap</li>
-<li>[x] hexo-excerpt: 主页显示文章摘要而不是全文</li>
-<li>[ ] hexo-toc: 将markdown代码中的 <code>&lt;!-- toc --&gt;</code> 替换为TOC（Table Of Content） // 已知的问题: 会导致NexT的边栏TOC不可用</li>
-<li>[x] hexo-math: mathjax 数学公式渲染</li>
+<li><input checked disabled type="checkbox"> hexo-generator-index-pin-top: 增加文章置顶功能, 在文章 front-matter 里增加<code>top: True</code>即可</li>
+<li><input disabled type="checkbox"> hexo-heading-index : 为标题(headings)添加自动编号</li>
+<li><input checked disabled type="checkbox"> hexo-generator-sitemap: 生成sitemap</li>
+<li><input checked disabled type="checkbox"> hexo-excerpt: 主页显示文章摘要而不是全文</li>
+<li><input disabled type="checkbox"> hexo-toc: 将markdown代码中的 <code>&lt;!-- toc --&gt;</code> 替换为TOC（Table Of Content） // 已知的问题: 会导致NexT的边栏TOC不可用</li>
+<li><input checked disabled type="checkbox"> hexo-math: mathjax 数学公式渲染</li>
 </ul>
 <h1 id="问题修复"><a href="#问题修复" class="headerlink" title="问题修复"></a>问题修复</h1><h2 id="node版本导致hexo-g生成静态文件size-0"><a href="#node版本导致hexo-g生成静态文件size-0" class="headerlink" title="node版本导致hexo g生成静态文件size=0"></a>node版本导致hexo g生成静态文件size=0</h2><p>降级node:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew uninstall node</span><br><span class="line">brew install node@12</span><br><span class="line">brew link --overwrite --force node@12</span><br></pre></td></tr></table></figure>
+
 <p>参考:</p>
 <ul>
 <li><a href="https://magi003769.github.io/post/MAC-hexo/" target="_blank" rel="noopener">MAC上配置Hexo部署GitHub Page | QueinDecim</a></li>
@@ -450,6 +475,7 @@
 <h2 id="hexo-renderer-marked版本导致图片解析问题"><a href="#hexo-renderer-marked版本导致图片解析问题" class="headerlink" title="hexo-renderer-marked版本导致图片解析问题"></a>hexo-renderer-marked版本导致图片解析问题</h2><p>发现有些博文里的markdown图片没有正常解析, 看起来像是render的问题, 因为最近重新安装过hexo-renderer-marked,<br>我的Hexo还是3.5版本,  在hexo-renderer-marked的github页面看到 0.2+版本适用于Hexo 3,<br>用npm list 查看目前安装的hexo-renderer-marked版本, 已经是2.0.0了,<br>所以试试降低hexo-renderer-marked的版本.</p>
 <p>使用<code>npm view hexo-renderer-marked versions</code>命令查看所有已发布版本, 然后使用<code>npm install hexo-renderer-marked@0.2.11 --save</code>安装0.2版本的.<br>ps: hexo-renderer-ejs, hexo-renderer-stylus 也需要降级</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm view hexo-renderer-stylus  versions</span><br><span class="line"></span><br><span class="line">npm uninstall hexo-renderer-marked &amp;&amp; npm uninstall hexo-renderer-ejs &amp;&amp; npm uninstall hexo-renderer-stylus</span><br><span class="line"></span><br><span class="line">npm install hexo-renderer-marked@0.2.11 --save &amp;&amp; npm install hexo-renderer-stylus@0.2.3 --save &amp;&amp; npm install hexo-renderer-ejs@0.2.0 --save</span><br></pre></td></tr></table></figure>
+
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h1><ul>
 <li><a href="http://www.jianshu.com/p/05289a4bc8b2" target="_blank" rel="noopener">http://www.jianshu.com/p/05289a4bc8b2</a></li>
 <li><a href="http://segmentfault.com/blog/zhongbaitu/1190000000458953" target="_blank" rel="noopener">http://segmentfault.com/blog/zhongbaitu/1190000000458953</a></li>
@@ -472,9 +498,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Markdown/" rel="tag"># Markdown</a>
-          
             <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+            <a href="/tags/Markdown/" rel="tag"># Markdown</a>
           
         </div>
       

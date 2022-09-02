@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="编程语言快速入门,C/C++,宏,指针," />
+  <meta name="keywords" content="C/C++,编程语言快速入门,宏,指针," />
 
 
 
@@ -115,20 +115,18 @@
 
 
 
-<meta name="description" content="—Part 1: ANSI C—基本数据类型 C/C++作为一种强类型语言, 一个变量被使用前必须被定义. 在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B); 在64位系统中基本类型的长度(字节): char(1B), short(2B),">
-<meta name="keywords" content="编程语言快速入门,C&#x2F;C++,宏,指针">
+<meta name="description" content="—Part 1: ANSI C—基本数据类型 C/C++作为一种强类型语言, 一个变量被使用前必须被定义.  在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B);  在64位系统中基本类型的长度(字节): char(1B), short(2B)">
+<meta name="keywords" content="C&#x2F;C++,编程语言快速入门,宏,指针">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C&#x2F;C++ Tutorials">
 <meta property="og:url" content="https://whatsrtos.github.io/30MinsTutorial/C_C++ Tutorials/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="—Part 1: ANSI C—基本数据类型 C/C++作为一种强类型语言, 一个变量被使用前必须被定义. 在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B); 在64位系统中基本类型的长度(字节): char(1B), short(2B),">
+<meta property="og:description" content="—Part 1: ANSI C—基本数据类型 C/C++作为一种强类型语言, 一个变量被使用前必须被定义.  在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B);  在64位系统中基本类型的长度(字节): char(1B), short(2B)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://whatsrtos.github.io/images/C_C++%20Tutorials/cpp_vm_model.png">
 <meta property="og:updated_time" content="2020-10-19T12:00:19.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C&#x2F;C++ Tutorials">
-<meta name="twitter:description" content="—Part 1: ANSI C—基本数据类型 C/C++作为一种强类型语言, 一个变量被使用前必须被定义. 在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B); 在64位系统中基本类型的长度(字节): char(1B), short(2B),">
-<meta name="twitter:image" content="https://whatsrtos.github.io/images/C_C++%20Tutorials/cpp_vm_model.png">
+<meta name="twitter:description" content="—Part 1: ANSI C—基本数据类型 C/C++作为一种强类型语言, 一个变量被使用前必须被定义.  在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B);  在64位系统中基本类型的长度(字节): char(1B), short(2B)">
 
 
 
@@ -332,7 +330,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  11,986
+                  11,999
                 </span>
               
 
@@ -358,18 +356,26 @@
 
       
         <h1 id="—Part-1-ANSI-C—"><a href="#—Part-1-ANSI-C—" class="headerlink" title="—Part 1: ANSI C—"></a>—Part 1: ANSI C—</h1><h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><ul>
-<li>C/C++作为一种强类型语言, 一个变量被使用前必须被定义.</li>
-<li>在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B);</li>
-<li>在64位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(<strong>8B</strong>) long(<strong>8B</strong>), float(4B), double(8B), long long(8B);</li>
-<li>long 和 int 范围是[-2^31,2^31)，即-2147483648~2147483647。</li>
-<li>而unsigned范围是[0,2^32)，即0~4294967295。也就是说，常规的32位整数只能够处理40亿以下的数。</li>
-<li>相比于C++98标准，C++11整型的最大改变就是多了long long。</li>
+<li><p>C/C++作为一种强类型语言, 一个变量被使用前必须被定义.</p>
+</li>
+<li><p>在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B);</p>
+</li>
+<li><p>在64位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(<strong>8B</strong>) long(<strong>8B</strong>), float(4B), double(8B), long long(8B);</p>
+</li>
+<li><p>long 和 int 范围是[-2^31,2^31)，即-2147483648~2147483647。</p>
+</li>
+<li><p>而unsigned范围是[0,2^32)，即0~4294967295。也就是说，常规的32位整数只能够处理40亿以下的数。</p>
+</li>
+<li><p>相比于C++98标准，C++11整型的最大改变就是多了long long。</p>
+</li>
 <li><p>long long整型有两种：long long和unsigned long long。在C++11中，标准要求long long整型可以在不同平台上有不同的长度，但至少有64位。我们在写常数字面量时，可以使用LL后缀（或是ll）标识一个long long类型的字面量，而ULL（或ull、Ull、uLL）表示一个unsigned long long类型的字面量。比如：</p>
   <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> lli = <span class="number">-9000000000000000000L</span>L;</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ulli = <span class="number">-9000000000000000000U</span>LL;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>比如对于有符号的，下面的类型是等价的：long long、signed long long、long long int、signed long long int；而unsigned long long和unsigned long long int也是等价的。</p>
 </li>
-<li>同其他的整型一样，要了解平台上<code>long long</code>大小的方法就是查看<code>&lt;climits&gt;</code>（或<code>&lt;limits.h&gt;</code>中的宏）。<br>与long long整型相关的一共有3个：LLONG_MIN、LLONG_MAX和ULLONG_MIN，它们分别代表了平台上最小的long long值、最大的long long值，以及最大的unsigned long long值。  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ll_min = LLONG_MIN;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ll_max = LLONG_MAX;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull_max = ULLONG_MAX;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"min of long long: %lld\n"</span>, ll_min); <span class="comment">// min of long long: -9223372036854775808</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"max of long long: %lld\n"</span>, ll_max); <span class="comment">// max of long long: 9223372036854775807</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"max of unsigned long long: %llu\n"</span>, ull_max);   <span class="comment">// max of unsigned long long: 18446744073709551615</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译选项:g++ -std=c++11 2-2-1.cpp</span></span><br><span class="line"><span class="comment">// 在代码清单中，将以上3个宏打印了出来，对于printf函数来说，</span></span><br><span class="line"><span class="comment">// 输出有符号的long long类型变量可以用符号%lld，</span></span><br><span class="line"><span class="comment">// 无符号的unsigned long long则可以采用%llu。</span></span><br></pre></td></tr></table></figure>
+<li><p>同其他的整型一样，要了解平台上<code>long long</code>大小的方法就是查看<code>&lt;climits&gt;</code>（或<code>&lt;limits.h&gt;</code>中的宏）。<br>与long long整型相关的一共有3个：LLONG_MIN、LLONG_MAX和ULLONG_MIN，它们分别代表了平台上最小的long long值、最大的long long值，以及最大的unsigned long long值。</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ll_min = LLONG_MIN;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ll_max = LLONG_MAX;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull_max = ULLONG_MAX;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"min of long long: %lld\n"</span>, ll_min); <span class="comment">// min of long long: -9223372036854775808</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"max of long long: %lld\n"</span>, ll_max); <span class="comment">// max of long long: 9223372036854775807</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"max of unsigned long long: %llu\n"</span>, ull_max);   <span class="comment">// max of unsigned long long: 18446744073709551615</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译选项:g++ -std=c++11 2-2-1.cpp</span></span><br><span class="line"><span class="comment">// 在代码清单中，将以上3个宏打印了出来，对于printf函数来说，</span></span><br><span class="line"><span class="comment">// 输出有符号的long long类型变量可以用符号%lld，</span></span><br><span class="line"><span class="comment">// 无符号的unsigned long long则可以采用%llu。</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <blockquote>
@@ -410,6 +416,7 @@
 <h1 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h1><p>格式化输出printf是一个变参函数, 原型为<code>int printf(char *format,...)</code> ,<br>C语言用宏来处理这些可变参数, 根据参数入栈的特点从最靠近第一个可变参数的固定参数开始, 依次获取每个可变参数的地址.  例如<code>printf (&quot;Decimals: %d %ld\n&quot;, 1977, 650000L);</code><br>需要注意的是格式要跟变量的长度对应, 比如long long要使用<code>%ll</code>, int类型不能使用<code>%c</code>格式.</p>
 <h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="数组-amp-指针的不同"><a href="#数组-amp-指针的不同" class="headerlink" title="数组 &amp; 指针的不同"></a>数组 &amp; 指针的不同</h2><p>比如有:</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> s[] = <span class="string">"hello"</span>;</span><br><span class="line"><span class="keyword">char</span> *p = <span class="string">"hello"</span>;</span><br></pre></td></tr></table></figure>
+
 <ol>
 <li>初始化的不同<ul>
 <li>在第一句中,以<code>&amp;s[0]</code>开始的连续6个字节内存分别被赋值为: ‘h’, ‘e’, ‘l’, ‘l’, ‘o’, ‘/0’</li>
@@ -432,12 +439,16 @@
 </ol>
 <h2 id="静态数组索引-C99"><a href="#静态数组索引-C99" class="headerlink" title="静态数组索引(C99)"></a>静态数组索引(C99)</h2><p>下面的代码向编译器保证，你传递给f 的指针指向一个具有至少10个int 类型元素的数组的首个元素。我猜这也是为了优化；例如，编译器将会假定a 非空。编译器还会在你尝试要将一个可以被静态确定为null的指针传入或是一个数组太小的时候发出警告。</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> a[<span class="keyword">static</span> <span class="number">10</span>])</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>声明一个不可修改的数组，这和说明符<code>int * const a</code>.作用是一样的</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> a[<span class="keyword">const</span>])</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="柔性数组-flexible-array"><a href="#柔性数组-flexible-array" class="headerlink" title="柔性数组(flexible array)"></a>柔性数组(flexible array)</h2><p>C99中，结构中的最后一个元素允许是未知大小的数组，这就叫做柔性数组成员，但结构中的柔性数组成员前面必须至少一个其他成员。<br>柔性数组成员允许结构中包含一个大小可变的数组。sizeof返回的这种结构大小不包括柔性数组的内存。<br>包含柔性数组成员的结构用malloc ()函数进行内存的动态分配，并且分配的内存应该大于结构的大小，以适应柔性数组的预期大小。<br>柔性数组到底如何使用呢？看下面例子：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">st_type</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">0</span>];</span><br><span class="line">&#125;type_a;</span><br></pre></td></tr></table></figure>
+
 <p>有些编译器会报错无法编译可以改成：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">st_type</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">int</span> a[];</span><br><span class="line">&#125;type_a;</span><br></pre></td></tr></table></figure>
+
 <p>这样我们就可以定义一个可变长的结构体，用 <code>sizeof(type_a)</code>得到的只有 4，就是<code>sizeof(i)=sizeof(int)</code>。<br>那个 0 个元素的数组没有占用空间，而后我们可以进行变长操作了。通过如下表达式给结构体分配内存：</p>
 <p><code>type_a *p = (type_a*)malloc(sizeof(type_a) + 100*sizeof(int));</code></p>
 <p>这样我们为结构体指针 p 分配了一块内存(该内存块大小远大于结构的大小)。用 <code>p-&gt;item[n]</code>就能简单地访问可变长元素。<br>但是这时候我们再用 <code>sizeof（*p）</code>测试结构体的大小，发现仍然为 4。<br>已经确定不包含柔性数组的内存大小。只是说在使用柔性数组时需要把它当作结构体的一个成员，仅此而已。再说白点，柔性数组其实与结构体没什么关系，算不得结构体的正式成员。</p>
@@ -452,11 +463,15 @@
 <li><code>restrict</code>关键词是一个限定词，可以被用在指针上。它向编译器保证，在这个指针的生命周期内，任何通过该指针访问的内存，都只能被这个指针改变。比如，</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">const</span> <span class="keyword">int</span>* <span class="keyword">restrict</span> x, <span class="keyword">int</span>* y)</span> </span>&#123;</span><br><span class="line">    (*y)++;</span><br><span class="line">    <span class="keyword">int</span> z = *x;</span><br><span class="line">    (*y)--;</span><br><span class="line">    <span class="keyword">return</span> z;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">inline</span> String&amp; String::<span class="keyword">operator</span>=(<span class="keyword">const</span> String&amp; other)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>!=&amp;other)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] m_data;</span><br><span class="line">        <span class="keyword">if</span>(!other.m_data) m_data=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            m_data = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(other.m_data)+<span class="number">1</span>];</span><br><span class="line">            <span class="built_in">strcpy</span>(m_data,other.m_data);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>; <span class="comment">//返回this的解</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h1><p>在C99之前，你只能按顺序初始化一个结构体。在C99中你可以这样做</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Foo</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">int</span> y;</span><br><span class="line">    <span class="keyword">int</span> z;</span><br><span class="line">&#125;;</span><br><span class="line">Foo foo = &#123;.z = <span class="number">3</span>, .x = <span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>这段代码首先初始化了foo.z,然后初始化了foo.x. foo.y 没有被初始化，所以被置为0。<br>这一语法同样可以被用在数组中。以下三行代码是等价的：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">5</span>] = &#123;[<span class="number">1</span>] = <span class="number">2</span>, [<span class="number">4</span>] = <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> a[] = &#123;[<span class="number">1</span>] = <span class="number">2</span>, [<span class="number">4</span>] = <span class="number">5</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">5</span>] = &#123;<span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">5</span>&#125;;</span><br></pre></td></tr></table></figure>
+
 <h2 id="结构体字节对齐"><a href="#结构体字节对齐" class="headerlink" title="结构体字节对齐"></a>结构体字节对齐</h2><ol>
 <li><p>一般结构体的<code>sizeof</code>, gcc和cl编译器有所不同,以cl为例,</p>
 <ul>
@@ -471,9 +486,11 @@
 </li>
 <li><p>包含结构体成员的结构体,</p>
 <ul>
-<li>（1）在寻找最宽基本类型成员时，应当包括“子结构体”的成员；</li>
+<li><p>（1）在寻找最宽基本类型成员时，应当包括“子结构体”的成员；</p>
+</li>
 <li><p>（2）“子结构体变量”的首地址能够被其最宽基本类型成员的大小所整除；</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S1</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">&#125;; <span class="comment">//sizeof(S1) = 8</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S3</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> c1;</span><br><span class="line">    S1 s;  <span class="comment">//8 bytes</span></span><br><span class="line">    <span class="keyword">char</span> c2</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>S1或S3的最宽简单成员的类型都为int，所以S3的最宽简单类型为int；<br>S3::s的类型是struct S1，其起始地址是sizeof(int)的整数倍（struct S1最宽的成员是int型）；<br>S3占用内存如下：<br>S3:c1占1字, 填充3字, S1:c占一字, 填充3字, S1:i占4字, S3:c2占1字, 填充3字, 故sizeof(struct S3) = 16;</p>
 </blockquote>
@@ -484,6 +501,7 @@
 <ol start="3">
 <li><p>改变缺省的对齐条件, 即“成员相对于结构体首地址的偏移量，是成员大小的整数倍”，变成了“成员相对于结构体首地址的偏移量，是对齐字节的整数倍”<br>VC6中使用语法如下：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(push) <span class="comment">// 将当前pack设置压栈保存</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(2) <span class="comment">//按照2字节对齐</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">&#125;; <span class="comment">// 6 bytes</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">S2</span>&#123;</span></span><br><span class="line">    <span class="keyword">char</span>  c1;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">S1</span> <span class="title">sss</span>;</span></span><br><span class="line">    <span class="keyword">char</span> c2</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> pack(pop)</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p><code>#pragma pack(n)</code>，如果n比结构体成员的sizeof值小，那么该成员的偏移量应该以此值为准，结构体成员的偏移量应该取二者的最小值。<br>上面对定义中最宽的int，和#pragma pack(2)比较，所以对齐条件是2字节；<br>char S1::c占1字，int S1::i宽度是4，这里不以4而是以2对齐，所以int S1::i的起始位置是2，sizeof(S1) == 6。<br>注: 没有任何成员的“空结构体”占1byte；</p>
 </blockquote>
@@ -503,25 +521,34 @@
 <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="重载函数"><a href="#重载函数" class="headerlink" title="重载函数"></a>重载函数</h2><p>C++ 允许在同一作用域中的某个函数和运算符指定多个定义，分别称为函数重载和运算符重载。</p>
 <h2 id="重载运算符"><a href="#重载运算符" class="headerlink" title="重载运算符"></a>重载运算符</h2><p>头文件:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyString</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    MyString(<span class="keyword">const</span> <span class="keyword">char</span> *str=<span class="literal">NULL</span>);<span class="comment">//构造函数</span></span><br><span class="line">    MyString(<span class="keyword">const</span> Mystring&amp; obj); <span class="comment">//拷贝构造函数</span></span><br><span class="line">    MyString&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> Mystring &amp;obj);</span><br><span class="line">    MyString&amp; <span class="keyword">operator</span>+(<span class="keyword">const</span> Mystring &amp;obj);</span><br><span class="line">    MyString&amp; <span class="keyword">operator</span>+=(<span class="keyword">const</span> Mystring &amp;obj);</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> !=(<span class="keyword">const</span> MyString &amp;obj);</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &gt;(<span class="keyword">const</span> MyString &amp;obj);</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt;(<span class="keyword">const</span> MyString &amp;obj);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">friend</span>  <span class="built_in">std</span>::ostream &amp; <span class="keyword">operator</span>&lt;&lt;(<span class="built_in">std</span>::ostream &amp;out, <span class="keyword">const</span> MyString &amp;obj);</span><br><span class="line">    <span class="keyword">friend</span>  <span class="built_in">std</span>::istream &amp; <span class="keyword">operator</span>&gt;&gt;(<span class="built_in">std</span>::istream &amp;in, MyString &amp;obj);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>源文件:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"MyString.h"</span></span></span><br><span class="line">Mystring Mystring::<span class="keyword">operator</span>=(<span class="keyword">const</span> Mystring &amp;obj)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//分配内存空间，记得+1，因为c风格的字符串以'\n'结尾，需要多加一个字符</span></span><br><span class="line">    <span class="keyword">this</span>-&gt;pstr=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(obj.pstr)+<span class="number">1</span>];</span><br><span class="line">    <span class="built_in">strcpy</span>(<span class="keyword">this</span>-&gt;pstr,obj.pstr);</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="宏-macro"><a href="#宏-macro" class="headerlink" title="宏(macro)"></a>宏(macro)</h1><p>C/C++的宏定义将一个标识符定义为一个字符串，源程序中的该标识符均以指定的字符串来代替。宏的替换是在程序源代码被编译之前，由预处理器（Preprocessor）对程序源代码进行的处理。<br>宏主要用在宏定义和条件编译</p>
 <h2 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h2><h3 id="宏常量"><a href="#宏常量" class="headerlink" title="宏常量"></a>宏常量</h3><p><code>#define MAX 1000</code>: 在《Effective C++》中，这种做法却并不提倡，书中更加推荐以const常量来代替宏常量。因为在进行词法分析时，宏的引用已经被其实际内容替换，因此宏名不会出现在符号表中。所以一旦出错，看到的将是一个无意义的数字，比如上文中的1000，而不是一个有意义的名称，如上文中的MAX。而const在符号表中会有自己的位置，因此出错时可以看到更加有意义的错误提示。</p>
 <h3 id="宏函数"><a href="#宏函数" class="headerlink" title="宏函数"></a>宏函数</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(a,b) ((a)&lt;(b) ? (b) : (a))</span></span><br></pre></td></tr></table></figure>
+
 <p>为什么大量的宏定义中用到了<code>do-while</code>:</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FOO(x) bar(x); baz(x)</span></span><br><span class="line"><span class="comment">// 如果这样使用宏:</span></span><br><span class="line"><span class="keyword">if</span> (condition)</span><br><span class="line">    FOO(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// 会被替换成:</span></span><br><span class="line"><span class="keyword">if</span> (condition)</span><br><span class="line">    bar(x); baz(x); <span class="comment">// 第二句脱离了if控制</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改进一下, 加上大括号</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FOO(x)  &#123; bar(x); baz(x); &#125;</span></span><br><span class="line"><span class="comment">// 被替换成这样:</span></span><br><span class="line"><span class="keyword">if</span> (condition)</span><br><span class="line">    &#123; bar(x); baz(x); &#125;; <span class="comment">// 多了个分号, 编译错误</span></span><br></pre></td></tr></table></figure>
+
 <p>所以正确的写法:</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FOO(x) do &#123; bar(x); baz(x); &#125; while (0)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果这样使用宏:</span></span><br><span class="line"><span class="keyword">if</span> (condition)</span><br><span class="line">    FOO(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// 会被替换成:</span></span><br><span class="line"><span class="keyword">if</span> (condition)</span><br><span class="line">    <span class="keyword">do</span> &#123; bar(x); baz(x); &#125; <span class="keyword">while</span> (<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
 <p><code>do{...} while(condition)</code>语句最后可以有分号也可以没有, 这两种语法上都正确</p>
 <h3 id="宏定义中的”-”和”-”"><a href="#宏定义中的”-”和”-”" class="headerlink" title="宏定义中的”#”和”##”"></a>宏定义中的”#”和”##”</h3><p><code>#</code>的功能是将其后面的宏参数进行字符串化操作（Stringfication）：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DEBUG_RUN(func)</span></span><br><span class="line"><span class="keyword">do</span> &#123; <span class="built_in">printf</span>(<span class="string">"entry:"</span>#func<span class="string">"\n"</span>); func(); &#125; <span class="keyword">while</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
 <p><code>#func</code>替换后, 作为字符串拼接, 相当于<code>printf(&quot;entry:&quot; + funcName + &quot;\n&quot;)</code></p>
 <p><code>##</code>##被称为连接符（concatenator），用来将两个Token连接为一个Token。</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">command</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="keyword">char</span> * name;</span><br><span class="line">  <span class="keyword">void</span> (*function) (<span class="keyword">void</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> COMMAND(NAME) &#123; NAME, NAME ## _command &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 然后你就用一些预先定义好的命令来方便的初始化一个command结构的数组了：</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">command</span> <span class="title">cmds</span>[] = &#123;</span></span><br><span class="line">COMMAND(quit),</span><br><span class="line">COMMAND(help),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="条件编译"><a href="#条件编译" class="headerlink" title="条件编译"></a>条件编译</h2><p><code>#define</code>常与<code>#ifdef</code>, <code>#ifndef</code>, <code>defined</code>指令配合使用，用于条件编译。</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _HEADER_INC_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _HEADER_INC_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
 <p>用宏控制debug日志:</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"Debug information\n"</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
 <p>通过DEBUG宏，我们可以在代码调试的过程中输出辅助调试的信息。当DEBUG宏被删除时，这些输出的语句就不会被编译。更重要的是，这个宏可以通过编译参数来定义。因此通过改变编译参数，就可以方便的添加和取消这个宏的定义，从而改变代码条件编译的结果。</p>
 <h1 id="—Part-2-C-—"><a href="#—Part-2-C-—" class="headerlink" title="—Part 2: C++—"></a>—Part 2: C++—</h1><h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><h2 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h2><ul>
 <li>private：只能由1.该类中的函数、2.其友元函数访问。不能被任何其他访问，该类的对象也不能访问。</li>
@@ -552,7 +579,8 @@
 <h2 id="虚继承"><a href="#虚继承" class="headerlink" title="虚继承"></a>虚继承</h2><p>@TODO</p>
 <h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="充满风险的隐式类型转换"><a href="#充满风险的隐式类型转换" class="headerlink" title="充满风险的隐式类型转换"></a>充满风险的隐式类型转换</h3><p>施工中</p>
 <h3 id="现实类型转换"><a href="#现实类型转换" class="headerlink" title="现实类型转换"></a>现实类型转换</h3><ul>
-<li>旧风格的类型转换:<ul>
+<li><p>旧风格的类型转换:</p>
+<ul>
 <li>C 风格（C-style）强制转型: <code>(T) exdivssion</code> // cast exdivssion to be of type T</li>
 <li>函数风格（Function-style）强制转型: <code>T(exdivssion)</code> // cast exdivssion to be of type T</li>
 </ul>
@@ -591,13 +619,17 @@
 <li>始终经由RAII类的实例使用资源，在栈上创建RAII类型的函数内变量，当函数退出时依靠”Stack winding”来保证一定调用RAII类的析构函数完成资源释放</li>
 </ul>
 <h3 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;TYPENAME T&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RAII</span> &#123;</span></span><br><span class="line">  T* p_;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  explicit RAII(T* p) : p_(p) &#123;&#125;</span><br><span class="line">  ~RAII() &#123;</span><br><span class="line">    <span class="keyword">delete</span> p_;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  T&amp; <span class="keyword">operator</span>*() <span class="keyword">const</span> &#123;</span><br><span class="line">     <span class="keyword">return</span> *p_;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  RAII(<span class="keyword">const</span> RAII&amp; other);</span><br><span class="line">  RAII&amp; <span class="keyword">operator</span>=(<span class="keyword">const</span> RAII&amp; other);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">///</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Example</span> &#123;</span></span><br><span class="line">  RAII&lt;SOMERESOURCE&gt; p_;</span><br><span class="line">  RAII&lt;SOMERESOURCE&gt; p2_;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  Example() :</span><br><span class="line">    p_(<span class="keyword">new</span> SomeResource()),</span><br><span class="line">    p2_(<span class="keyword">new</span> SomeResource()) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  ~Example() &#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Deleting Example, freeing SomeResource!/n"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>问题: <code>new Example()</code>生成的<code>Example</code>实例, 如果没有调用<code>delete()</code>, <code>RAII</code>类的析构函数会被调用到吗?</p>
 <h3 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h3><p>错误的加锁:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bad</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mutex.lock();    <span class="comment">// 请求互斥</span></span><br><span class="line">    f();             <span class="comment">// 若 f() 抛异常，则互斥不被释放</span></span><br><span class="line">    mutex.unlock();  <span class="comment">// 抵达此语句，互斥才被释放</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>正确的方法, 使用<code>std::lock_guard</code>:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">std</span>::mutex mutex; <span class="comment">// 定义全局的mutex</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">good</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::lock_guard&lt;<span class="built_in">std</span>::mutex&gt; lock(mutex);</span><br><span class="line">    f(); <span class="comment">// f()抛出异常, 仍然会调用到~lock_guard() 释放锁</span></span><br><span class="line">    <span class="comment">// 运行到这里自动执行~lock_guard()</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>注:lock_guard是互斥封装器, 构造/析构函数定义如下:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">explicit lock_guard(Mutex&amp; m_):</span><br><span class="line">    m(m_)</span><br><span class="line">&#123;</span><br><span class="line">    m.lock();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">~lock_guard()</span><br><span class="line">    &#123;</span><br><span class="line">        m.unlock();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
 <p>参考:</p>
 <ul>
 <li><a href="http://zh.cppreference.com/w/cpp/language/raii" target="_blank" rel="noopener">RAII - cppreference.com</a> @Ref</li>
@@ -607,8 +639,10 @@
 <h3 id="“实现私有化”必要性"><a href="#“实现私有化”必要性" class="headerlink" title="“实现私有化”必要性"></a>“实现私有化”必要性</h3><p>在C++中, 头文件(类的声明)和源文件(类的实现)是分开的,<br>举个例子, 头文件<code>base.h</code>里声明了一个基类<code>Base</code>, 如果改动<code>Base</code>的公有接口, 会导致所有包含<code>base.h</code>的类(调用Base类的代码, 以及Base的派生类)都有重新编译, 在一个大工程中，这样的修改可能导致重新编译时间的激增。你可以使用Doxygen或者SciTools看看头文件依赖。<br>改动公有接口导致的编译时间激增是可以理解的, 但是如果我们改动了<code>Base</code>的私有接口或者成员, 也会导致上面编译时间激增的情况, 这就有些不可接受了.</p>
 <h3 id="如何Pimpl"><a href="#如何Pimpl" class="headerlink" title="如何Pimpl"></a>如何Pimpl</h3><p>MyClass.h 文件内容如下:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClassImpl</span>;</span>   <span class="comment">// forward declaration</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  MyClass();</span><br><span class="line">  ~MyClass();</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">foo</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  MyClassImpl *m_pImpl;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>MyClass.cpp 文件内容如下:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义MyClass的函数:</span></span><br><span class="line">MyClass::MyClass() : m_pImpl(<span class="keyword">new</span> MyClassImpl) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyClass::~MyClass() &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">delete</span> m_pImpl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (...) &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> MyClass::foo() &#123;</span><br><span class="line">    <span class="keyword">return</span> m_pImpl-&gt;foo();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明并定义MyClassImpl</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClassImpl</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> bar();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bar</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> var++; &#125;</span><br><span class="line">        <span class="keyword">int</span> var;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
 <li>Pimpl要实现的是, 在对类的私有函数/成员做改动时, 不希望(所有包含该头文件的)源文件被重新编译.</li>
 <li><strong>如果一个类被设计为基类，应避免在头文件中出现private函数或成员</strong>， 如果该类有private的函数或成员，最好把它们放进“前置声明（forward declaration）”的类里面，以避免private的声明出现在头文件；</li>
@@ -617,6 +651,7 @@
 <h3 id="前置声明-forward-declaration"><a href="#前置声明-forward-declaration" class="headerlink" title="前置声明(forward declaration)"></a>前置声明(forward declaration)</h3><p>如果类A中, 有C类型的成员, 则可以在A.h中声明该成员之前, 用<code>class C;</code>的方式来前置声明类型C, 而不再需要在A.h中包含C.h文件:</p>
 <p>A.h头文件:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// #include "C.h"  // 不再需要这一行了</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">C</span>;</span> <span class="comment">// 前置声明C</span></span><br><span class="line">    C* ptr; <span class="comment">// 成员声明</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <p>但是使用类型的前置声明是有条件的。假设有一个类C，那么如果你的类中如果有定义类型为C的非静态成员，抑或你的类继承了C的话，就不能使用类Test的前置声明，只能用<code>include C.h</code>的方式<br>大概有三种情况可以使用前置声明：</p>
 <ul>
 <li>参数或返回类型为C的函数声明；</li>
@@ -639,6 +674,7 @@
 <h3 id="为什么需要NVI"><a href="#为什么需要NVI" class="headerlink" title="为什么需要NVI"></a>为什么需要NVI</h3><p>在标准C++库中我们可以看到这样的一个现象：6个公有虚函数，并且都是std::exception::what()和其重载。142个非公有虚函数。<br>这样设计的目的何在呢，为什么“多此一举”的把虚函数设置为非公有呢？</p>
 <p>先看示例代码:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span> &#123;</span></span><br><span class="line"> <span class="keyword">public</span>:</span><br><span class="line">     <span class="function"><span class="keyword">void</span> <span class="title">Foo</span><span class="params">()</span></span>&#123;</span><br><span class="line">         DoFoo1();</span><br><span class="line">         DoFoo2();</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">protected</span>:</span><br><span class="line">     <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">DoFoo1</span><span class="params">()</span></span>&#123;</span><br><span class="line">         <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base's DoFoo1"</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> <span class="keyword">private</span>:</span><br><span class="line">     <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">DoFoo2</span><span class="params">()</span></span>&#123;</span><br><span class="line">         <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base's DoFoo2"</span> &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span>:</span> <span class="keyword">public</span> Base&#123;</span><br><span class="line"> <span class="keyword">private</span>:</span><br><span class="line">     <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">DoFoo2</span><span class="params">()</span></span>&#123;</span><br><span class="line">         <span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived's DoFoo2"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">     &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>因为C++没有Interface的概念, 我们把基类里定义的 <strong>public且非虚的函数</strong> 视作”接口”, 与java中的接口不同的是, 基类的”接口”函数有自己的函数体.</p>
 </blockquote>
@@ -668,7 +704,7 @@
 </blockquote>
 <p>问题: 函数堆栈里的局部变量, 是不是按照上面的规则对齐的?</p>
 <h1 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h1><p>回顾: 进程的虚拟内存地址布局</p>
-<p><img src="/images/C_C++ Tutorials/cpp_vm_model.png" alt="进程虚拟内存布局"></p>
+<p>![进程虚拟内存布局](/images/C_C++ Tutorials/cpp_vm_model.png)</p>
 <p>对用户来说，主要关注的空间是User Space。将User Space放大后，可以看到里面主要分为如下几段：</p>
 <ul>
 <li>Code：这是整个用户空间的最低地址部分，存放的是指令（也就是程序所编译成的可执行机器码）</li>
@@ -703,6 +739,7 @@
 <li>因为Heap区都是小于128k的细碎内存块, 上面的链表可以防止反复申请/释放带来的内存碎片, 但mmap对应的区域都是大块(大于128K)的内存, 所以不用采用上面的机制.</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">         +-----------+</span><br><span class="line">         |  Mapping  |</span><br><span class="line">         |  Area     |</span><br><span class="line">         +------------- - - -+--</span><br><span class="line">         |           |       |</span><br><span class="line">         |  Unmapped |       |</span><br><span class="line">         |   Region  |       |</span><br><span class="line">         |           |     Heap</span><br><span class="line">break -&gt; +-----------+</span><br><span class="line">         |  Mapped   |       |</span><br><span class="line">         |  Region   |       |</span><br><span class="line">         |           |       |</span><br><span class="line">         +------------- - - -+--</span><br><span class="line">         |   BSS     |</span><br><span class="line">         |   DATA    |</span><br><span class="line">         |   TEXT    |</span><br><span class="line">         +-----------+</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>Linux维护一个break指针，这个指针指向堆空间的某个地址。从堆起始地址到break之间的地址空间为映射好的，可以供进程访问；<br>而从break往高地址，是未映射的地址空间，如果访问这段空间则程序会报错。</p>
 </blockquote>
@@ -725,6 +762,7 @@
 <li>对应的删除<code>delete operator</code>, 调用析构函数并释放内存</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">A* a = <span class="keyword">new</span> A();</span><br><span class="line"><span class="keyword">delete</span> a;</span><br></pre></td></tr></table></figure>
+
 <p>通过反汇编可以看出<code>A* = new A</code>会被gcc解析成<code>operator new(sizeof(A))</code>和<code>A()</code>两个步骤, <code>delete a</code>被解析为<code>~A()</code>和<code>operator delete(a)</code>两个步骤。</p>
 <p>通过下面的<code>operator new</code>一节可以得知, 如果一个类重载了operator new函数, new运算符会调用该类自己的operator new版本,<br>但是下面的语句可以指定使用全局的operator new:  <code>A *p = ::new A;</code></p>
 <h3 id="operator-new"><a href="#operator-new" class="headerlink" title="operator new"></a>operator new</h3><ul>
@@ -739,8 +777,10 @@
 </ul>
 <p>全局operaotr new 源码:</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> *__<span class="function">CRTDECL <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="keyword">size_t</span> size)</span> _<span class="title">THROW1</span><span class="params">(_STD bad_alloc)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// try to allocate size bytes</span></span><br><span class="line">    <span class="keyword">void</span> *p;</span><br><span class="line">    <span class="keyword">while</span> ((p = <span class="built_in">malloc</span>(size)) == <span class="number">0</span>) <span class="comment">//申请空间</span></span><br><span class="line">        <span class="keyword">if</span> (_callnewh(size) == <span class="number">0</span>) <span class="comment">//若申请失败则调用处理函数</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// report no memory</span></span><br><span class="line">            <span class="keyword">static</span> <span class="keyword">const</span> <span class="built_in">std</span>::bad_alloc nomem;</span><br><span class="line">            _RAISE(nomem); <span class="comment">// #define _RAISE(x) ::std:: _Throw(x) 抛出nomem的异常</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> (p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>如何调用operator new：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 指定调用全局的operator new , 而不是类自己重载的版本 // 存疑</span></span><br><span class="line"><span class="keyword">void</span> *p = ::<span class="keyword">operator</span> <span class="keyword">new</span>(<span class="number">100</span>);</span><br><span class="line"><span class="keyword">void</span> *p = <span class="keyword">operator</span> <span class="keyword">new</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>operator new有三种形式：</p>
 <ul>
@@ -751,8 +791,10 @@
 </li>
 <li><p><code>A* a = new A;</code> 这句代码里的new先是调用了throwing版本的operator new分配内存, 然后调用构造;</p>
 </li>
-<li><code>A* a = new(std::nothrow) A;</code> new先调用nothrow版本的operator new, 然后调用构造;</li>
-<li>placement版本的operator new，它也是对operator new的一个重载，定义于<code>&lt;new&gt;</code>中, 它多接收一个ptr参数，但它只是简单地返回ptr, 内部什么都没有做, 当使用 <strong>placement new expression</strong> 的时候会调用这个版本的operator new</li>
+<li><p><code>A* a = new(std::nothrow) A;</code> new先调用nothrow版本的operator new, 然后调用构造;</p>
+</li>
+<li><p>placement版本的operator new，它也是对operator new的一个重载，定义于<code>&lt;new&gt;</code>中, 它多接收一个ptr参数，但它只是简单地返回ptr, 内部什么都没有做, 当使用 <strong>placement new expression</strong> 的时候会调用这个版本的operator new</p>
+</li>
 </ul>
 <h4 id="重载-operator-new"><a href="#重载-operator-new" class="headerlink" title="重载::operator new"></a>重载::operator new</h4><p>Effective C++ 第三版第 50 条列举了定制 new/delete 的几点理由</p>
 <ul>
@@ -764,14 +806,18 @@
 <li>不改变operator new的默认参数重载: 用这种方式的重载，使用方不需要包含任何特殊的头文件，也就是说不需要看见这两个函数声明。“性能优化”通常用这种方式。</li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span> sz)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">printf</span>(<span class="string">"global op new called, size = %zu\n"</span>,sz);</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">std</span>::<span class="built_in">malloc</span>(sz);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>* ptr)</span> <span class="keyword">noexcept</span> </span>&#123;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">puts</span>(<span class="string">"global op delete called"</span>);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">free</span>(ptr);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 以下调用自定义的operator new/delete:</span></span><br><span class="line">     <span class="keyword">int</span>* p1 = <span class="keyword">new</span> <span class="keyword">int</span>;</span><br><span class="line">     <span class="keyword">delete</span> p1;</span><br><span class="line"></span><br><span class="line">     <span class="keyword">int</span>* p2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">     <span class="keyword">delete</span>[] p2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <ol start="2">
 <li>增加新的参数的operator new, 为了跟踪内存分配的错误</li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="keyword">size_t</span> size, <span class="keyword">const</span> <span class="keyword">char</span>* file, <span class="keyword">int</span> line)</span></span>;  <span class="comment">// 其返回的指针必须能被普通的 ::operator delete(void*) 释放</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="keyword">operator</span> <span class="title">delete</span><span class="params">(<span class="keyword">void</span>* p, <span class="keyword">const</span> <span class="keyword">char</span>* file, <span class="keyword">int</span> line)</span></span>;   <span class="comment">// 这个函数只在析构函数抛异常的情况下才会被调用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// new (__FILE, __LINE__)会调用构造函数吗?</span></span><br><span class="line">Foo* p = <span class="keyword">new</span> (__FILE, __LINE__) Foo;</span><br></pre></td></tr></table></figure>
+
 <h4 id="重载class-operator-new"><a href="#重载class-operator-new" class="headerlink" title="重载class::operator new"></a>重载class::operator new</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">X</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span>* <span class="keyword">operator</span> <span class="title">new</span><span class="params">(<span class="built_in">std</span>::<span class="keyword">size_t</span> sz)</span></span>&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"custom new for size "</span> &lt;&lt; sz &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">        <span class="keyword">return</span> ::<span class="keyword">operator</span> <span class="keyword">new</span>(sz);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">void</span>* <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="built_in">std</span>::<span class="keyword">size_t</span> sz)&#123;</span><br><span class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"custom new for size "</span> &lt;&lt; sz &lt;&lt; <span class="string">'\n'</span>;</span><br><span class="line">        <span class="keyword">return</span> ::<span class="keyword">operator</span> <span class="keyword">new</span>(sz);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="comment">// 以下会调用类成员的operator new/delete</span></span><br><span class="line">     X* p1 = <span class="keyword">new</span> X;</span><br><span class="line">     <span class="keyword">delete</span> p1;</span><br><span class="line">     X* p2 = <span class="keyword">new</span> X[<span class="number">10</span>];</span><br><span class="line">     <span class="keyword">delete</span>[] p2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="重载时的优先顺序"><a href="#重载时的优先顺序" class="headerlink" title="重载时的优先顺序"></a>重载时的优先顺序</h4><p>在使用 new运算符分配类类型的对象时（如果该类重载了operator new），将调用该类的operator new。<br>在使用 new运算符分配内置类型的对象、未重载operator new函数的类类型的对象、任何类型的数组时，将调用全局operator new 函数。</p>
 <h4 id="new-handler"><a href="#new-handler" class="headerlink" title="new_handler"></a>new_handler</h4><p>operator new失败, 会调用<code>new_handler</code>, 如果<code>new_handler</code>不存在则抛出一个<code>std::bad_alloc</code>异常,<br><code>std::set_new_handler</code>可以为当前operator new指定一个new_handler</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*p_new_handler)</span><span class="params">()</span></span>;</span><br><span class="line"><span class="built_in">std</span>::set_new_handler(p_new_handler);</span><br><span class="line"><span class="keyword">int</span>* pBigDataArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1000000000000L</span>];</span><br></pre></td></tr></table></figure>
+
 <p>如何设计一个良好的new_handler ? 《Effective C++》建议以下几种做法(选1即可):</p>
 <ol>
 <li>让更多的内存可以被使用（也就是清理内存，让出更多的空间给这里的内存分配操作）</li>
@@ -781,6 +827,7 @@
 <li>调用abort()或exit()直接终止程序</li>
 </ol>
 <h3 id="placement-new-expression"><a href="#placement-new-expression" class="headerlink" title="placement new expression"></a>placement new expression</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span>* ptr = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="keyword">sizeof</span>(T)]; <span class="comment">// 分配内存</span></span><br><span class="line">T* tptr = <span class="keyword">new</span>(ptr) T(<span class="string">"hello"</span>);   <span class="comment">// 在已分配内存进行构造</span></span><br><span class="line">tptr-&gt;~T();                      <span class="comment">// 析构</span></span><br><span class="line"><span class="keyword">delete</span>[] ptr;</span><br></pre></td></tr></table></figure>
+
 <p>第二行的<code>new(ptr) T(&quot;hello&quot;)</code>会调用operator new的placement形式</p>
 <blockquote>
 <p>delete tptr能释放ptr指向的内存吗?</p>
@@ -889,9 +936,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/编程语言快速入门/" rel="tag"># 编程语言快速入门</a>
-          
             <a href="/tags/C-C/" rel="tag"># C/C++</a>
+          
+            <a href="/tags/编程语言快速入门/" rel="tag"># 编程语言快速入门</a>
           
             <a href="/tags/宏/" rel="tag"># 宏</a>
           

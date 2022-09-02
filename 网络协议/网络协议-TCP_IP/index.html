@@ -123,15 +123,15 @@
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
 <meta property="og:description" content="Part I: TCPOSI七层模型回顾 7应用层: 该层协议包括 Socket, HTTP, HTTPS, FTP, SSH, POP3,  // WebSocket属于哪一层? 6表示层: 格式转换, 把数据转换为应用层能兼容的格式 或 适合传输的格式, 比如: 加密/解密, 压缩/解压 5会话层: 维护和管理数据传输过程中两台计算机之间的连接, 该层协议有: SSL/TLS 4传输层: 传输">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://whatsrtos.github.io/images/网络协议-TCP_IP/tcp_header.jpg">
-<meta property="og:image" content="https://whatsrtos.github.io/images/网络协议-TCP_IP/tcp_state_machine.png">
-<meta property="og:image" content="https://whatsrtos.github.io/images/网络协议-TCP_IP/tcp_open_close.jpg">
-<meta property="og:image" content="https://whatsrtos.github.io/images/网络协议-TCP_IP/tcp_sack_example.jpg">
+<meta property="og:image" content="https://whatsrtos.github.io/images/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP/tcp_header.jpg">
+<meta property="og:image" content="https://whatsrtos.github.io/images/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP/tcp_state_machine.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP/tcp_open_close.jpg">
+<meta property="og:image" content="https://whatsrtos.github.io/images/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP/tcp_sack_example.jpg">
 <meta property="og:updated_time" content="2020-07-29T16:37:56.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网络协议：TCP&#x2F;IP">
 <meta name="twitter:description" content="Part I: TCPOSI七层模型回顾 7应用层: 该层协议包括 Socket, HTTP, HTTPS, FTP, SSH, POP3,  // WebSocket属于哪一层? 6表示层: 格式转换, 把数据转换为应用层能兼容的格式 或 适合传输的格式, 比如: 加密/解密, 压缩/解压 5会话层: 维护和管理数据传输过程中两台计算机之间的连接, 该层协议有: SSL/TLS 4传输层: 传输">
-<meta name="twitter:image" content="https://whatsrtos.github.io/images/网络协议-TCP_IP/tcp_header.jpg">
+<meta name="twitter:image" content="https://whatsrtos.github.io/images/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP/tcp_header.jpg">
 
 
 
@@ -369,7 +369,7 @@
 <li>2链路层: 负责网络寻找和错误侦测, 该层把「数据链表头」DLH加入数据开头, 以及「数据链表尾」DLT加入数据结尾, 形成「信息框」Data Frame, 数据链表头包括, 该层协议包括WiFi, GPRS(通用分组无线服务)</li>
 <li>1物理层: 在局部局域网上传送「数据帧」Data Frame, 该层定义了网络硬件和网络数据之间的互通, 包括: 针脚/电压/集线器/网卡等</li>
 </ul>
-<h2 id="TCP报头"><a href="#TCP报头" class="headerlink" title="TCP报头"></a>TCP报头</h2><p><img src="/images/网络协议-TCP_IP/tcp_header.jpg" alt="TCP头"></p>
+<h2 id="TCP报头"><a href="#TCP报头" class="headerlink" title="TCP报头"></a>TCP报头</h2><p><img src="/images/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP/tcp_header.jpg" alt="TCP头"></p>
 <ul>
 <li>Source Port，Destination Port：TCP的包是没有IP地址的，那是IP层上的事。但是有源端口和目标端口。</li>
 <li>Sequence Number是包的序号，用来解决网络包乱序（reordering）问题。</li>
@@ -386,8 +386,8 @@
 <li>Window又叫Advertised-Window，也就是著名的滑动窗口（Sliding Window），用于解决流控的。</li>
 </ul>
 <h2 id="TCP状态机，以及三次握手、四次挥手"><a href="#TCP状态机，以及三次握手、四次挥手" class="headerlink" title="TCP状态机，以及三次握手、四次挥手"></a>TCP状态机，以及三次握手、四次挥手</h2><p>网络上的传输是没有连接的，包括TCP也是一样的。而TCP所谓的“连接”，其实只不过是在通讯的双方维护一个“连接状态”，让它看上去好像有连接一样。所以，TCP的状态变换是非常重要的。</p>
-<p>下图是“TCP协议的状态机” 和 “TCP建链接”、“传数据” 、“TCP断链接”的对照图：<br><img src="/images/网络协议-TCP_IP/tcp_state_machine.png" alt="state machie"></p>
-<p>第二张图描述了TCP建立链接，收发数据，关闭链接三个步骤里TCP状态机的状态改变和发送的报文：<br><img src="/images/网络协议-TCP_IP/tcp_open_close.jpg" alt="open and close"></p>
+<p>下图是“TCP协议的状态机” 和 “TCP建链接”、“传数据” 、“TCP断链接”的对照图：<br><img src="/images/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP/tcp_state_machine.png" alt="state machie"></p>
+<p>第二张图描述了TCP建立链接，收发数据，关闭链接三个步骤里TCP状态机的状态改变和发送的报文：<br><img src="/images/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP/tcp_open_close.jpg" alt="open and close"></p>
 <h3 id="三次握手、四次挥手"><a href="#三次握手、四次挥手" class="headerlink" title="三次握手、四次挥手"></a>三次握手、四次挥手</h3><ul>
 <li>创建链接：双方交换Sequence Number的过程，服务端初始状态是<code>LISTEN</code><ul>
 <li>客户端 -&gt; 服务端： SYN seq=x，自身状态变为<code>SYN_SENT</code>（这一步是客户端发起的，调用<code>connect()</code>）；</li>
@@ -433,7 +433,7 @@
 <p>比如：如果发送方发出了1，2，3，4，5份数据，<br>数据1先到送了，于是就接收方ack回2，但数据2因为某些原因没收到，3却到达了，于是接收方还是ack回2，<br>后面的4和5都收到了，接收方还是ack回2，因为数据2仍旧没有收到，于是发送端收到了三个ack=2的确认。<br>发送方便知道2有可能丢了，于是就发送方重发送2。然后接收端收到了2，此时因为3，4，5都收到了，于是ack回6。</p>
 <p>Fast Retransmit只解决了一个问题，就是timeout的问题，它依然面临一个艰难的选择：是重传之前的一个还是重传所有的问题。对于上面的示例来说，因为发送端并不清楚这连续的3个ack(2)是哪次传回来的？ 这样，发送端很有可能要重传从2到20的这堆数据（这就是某些TCP的实际的实现）。</p>
 <h3 id="SACK"><a href="#SACK" class="headerlink" title="SACK"></a>SACK</h3><p>另外一种更好的方式叫：Selective Acknowledgment (SACK)（参看RFC 2018），这种方式需要在TCP头里加一个SACK的东西，ACK还是Fast Retransmit的ACK，SACK则是汇报收到的数据碎版。<br>比如发送三分数据：100-299，300-499，500-699，中间一份数据丢失，接收方收到500-699之后，会回复<code>ACK=300，SACK=500-700</code>，<br>这样发送端从SACK就知道500前面的一段数据需要重发。</p>
-<p><img src="/images/网络协议-TCP_IP/tcp_sack_example.jpg" alt="ack_example"></p>
+<p><img src="/images/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP/tcp_sack_example.jpg" alt="ack_example"></p>
 <h3 id="Duplicate-SACK"><a href="#Duplicate-SACK" class="headerlink" title="Duplicate SACK"></a>Duplicate SACK</h3><p>施工中</p>
 <hr>
 <h2 id="总结-KeepAlive"><a href="#总结-KeepAlive" class="headerlink" title="总结: KeepAlive"></a>总结: KeepAlive</h2><p>KeepAlive并不是TCP协议规范的一部分，但在几乎所有的TCP/IP协议栈（不管是Linux还是Windows）中，都实现了KeepAlive功能。<br>参考 [RFC1122 #TCP Keep-Alives] @Ref</p>
@@ -448,9 +448,14 @@
 </blockquote>
 <p>KeepAlive默认情况下是关闭的，可以被上层应用开启和关闭, 下面介绍在Java、C语言和Nginx中如何设置KeepAlive</p>
 <h3 id="Java-Netty-设置KeepAlive"><a href="#Java-Netty-设置KeepAlive" class="headerlink" title="Java(Netty)设置KeepAlive"></a>Java(Netty)设置KeepAlive</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ServerBootstrap b = <span class="keyword">new</span> ServerBootstrap();</span><br><span class="line">    b.group(bossGroup, workerGroup)</span><br><span class="line">            .channel(NioServerSocketChannel.class)</span><br><span class="line">            .option(ChannelOption.SO_BACKLOG, <span class="number">100</span>)</span><br><span class="line">            .childOption(ChannelOption.SO_KEEPALIVE, <span class="keyword">true</span>)</span><br><span class="line">            .handler(<span class="keyword">new</span> LoggingHandler(LogLevel.INFO));</span><br></pre></td></tr></table></figure>
+
 <p>Java程序只能做到设置<code>SO_KEEPALIVE</code>选项，其他配置项只能依赖于sysctl配置，系统进行读取。</p>
-<h3 id="C语言设置KeepAlive"><a href="#C语言设置KeepAlive" class="headerlink" title="C语言设置KeepAlive"></a>C语言设置KeepAlive</h3><p>setsockopt函数原型:<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setsockopt</span><span class="params">(<span class="keyword">int</span> socket, <span class="keyword">int</span> level, <span class="keyword">int</span> option_name,</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">const</span> <span class="keyword">void</span> *option_value, <span class="keyword">socklen_t</span> option_len)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>How to use:<br><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">(<span class="keyword">int</span> domain, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> (*libc_socket)(<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>);</span><br><span class="line">  <span class="keyword">int</span> s, optval;</span><br><span class="line">  <span class="keyword">char</span> *env;</span><br><span class="line"></span><br><span class="line">  *(<span class="keyword">void</span> **)(&amp;libc_socket) = dlsym(RTLD_NEXT, <span class="string">"socket"</span>);</span><br><span class="line">  <span class="keyword">if</span>(dlerror()) &#123;</span><br><span class="line">    errno = EACCES;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>((s = (*libc_socket)(domain, type, protocol)) != <span class="number">-1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>((domain == PF_INET) &amp;&amp; (type == SOCK_STREAM)) &#123;</span><br><span class="line">      <span class="keyword">if</span>(!(env = getenv(<span class="string">"KEEPALIVE"</span>)) || strcasecmp(env, <span class="string">"off"</span>)) &#123;</span><br><span class="line">        optval = <span class="number">1</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        optval = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(!(env = getenv(<span class="string">"KEEPALIVE"</span>)) || strcasecmp(env, <span class="string">"skip"</span>)) &#123;</span><br><span class="line">        setsockopt(s, SOL_SOCKET, SO_KEEPALIVE, &amp;optval, <span class="keyword">sizeof</span>(optval));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="C语言设置KeepAlive"><a href="#C语言设置KeepAlive" class="headerlink" title="C语言设置KeepAlive"></a>C语言设置KeepAlive</h3><p>setsockopt函数原型:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">setsockopt</span><span class="params">(<span class="keyword">int</span> socket, <span class="keyword">int</span> level, <span class="keyword">int</span> option_name,</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">const</span> <span class="keyword">void</span> *option_value, <span class="keyword">socklen_t</span> option_len)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>How to use:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span><span class="params">(<span class="keyword">int</span> domain, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> (*libc_socket)(<span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">int</span>);</span><br><span class="line">  <span class="keyword">int</span> s, optval;</span><br><span class="line">  <span class="keyword">char</span> *env;</span><br><span class="line"></span><br><span class="line">  *(<span class="keyword">void</span> **)(&amp;libc_socket) = dlsym(RTLD_NEXT, <span class="string">"socket"</span>);</span><br><span class="line">  <span class="keyword">if</span>(dlerror()) &#123;</span><br><span class="line">    errno = EACCES;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>((s = (*libc_socket)(domain, type, protocol)) != <span class="number">-1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>((domain == PF_INET) &amp;&amp; (type == SOCK_STREAM)) &#123;</span><br><span class="line">      <span class="keyword">if</span>(!(env = getenv(<span class="string">"KEEPALIVE"</span>)) || strcasecmp(env, <span class="string">"off"</span>)) &#123;</span><br><span class="line">        optval = <span class="number">1</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        optval = <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(!(env = getenv(<span class="string">"KEEPALIVE"</span>)) || strcasecmp(env, <span class="string">"skip"</span>)) &#123;</span><br><span class="line">        setsockopt(s, SOL_SOCKET, SO_KEEPALIVE, &amp;optval, <span class="keyword">sizeof</span>(optval));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>代码摘取自libkeepalive源码，C语言可以设置更为详细的TCP内核参数</p>
 <h3 id="Nginx配置KeepAlive"><a href="#Nginx配置KeepAlive" class="headerlink" title="Nginx配置KeepAlive"></a>Nginx配置KeepAlive</h3><p>Nginx配置里有两处KeepAlive, 含义不同:</p>
 <ul>
@@ -470,7 +475,9 @@
 <li>应用层心跳包可以定制，可以应对更复杂的情况或传输一些额外信息</li>
 <li>KeepAlive仅代表TCP层连接仍保持着，而心跳包往往还代表客户端可正常工作</li>
 </ul>
-<h4 id="比较Http协议头中Keep-Alive"><a href="#比较Http协议头中Keep-Alive" class="headerlink" title="比较Http协议头中Keep-Alive"></a>比较Http协议头中Keep-Alive</h4><p>在Http Response的http头可以看到下面的字段:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Content-Length: 40026</span><br><span class="line">Connection: keep-alive</span><br></pre></td></tr></table></figure></p>
+<h4 id="比较Http协议头中Keep-Alive"><a href="#比较Http协议头中Keep-Alive" class="headerlink" title="比较Http协议头中Keep-Alive"></a>比较Http协议头中Keep-Alive</h4><p>在Http Response的http头可以看到下面的字段:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Content-Length: 40026</span><br><span class="line">Connection: keep-alive</span><br></pre></td></tr></table></figure>
+
 <p>HTTP协议采用“请求-应答”模式，当使用普通模式，即非KeepAlive模式时，每个请求/应答客户和服务器都要新建一个连接，完成 之后立即断开连接（HTTP协议为无连接的协议）；当使用Keep-Alive模式（又称持久连接、连接重用）时，Keep-Alive功能使客户端到服 务器端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive功能避免了建立或者重新建立连接。</p>
 <blockquote>
 <p>http 1.0中默认是关闭的, http 1.1中默认启用Keep-Alive</p>

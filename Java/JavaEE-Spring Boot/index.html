@@ -381,6 +381,7 @@
 <li><code>@RestController</code>: 作用是将controller的方法返回的对象通过适当的转换器转换为指定的格式之后，写入到response对象的body区，通常用来返回JSON或者是XML。使用此注解之后不会再走视图处理器，而是直接将数据写入到输入流中，效果等同于通过向<code>response.getOutputStream()</code>写入数据</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@ImportResource</span>(locations = &#123;<span class="string">"classpath:spring/spring-main.xml"</span>&#125;)</span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApiApplication</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(MyApiApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="Spring-Cloud-amp-微服务"><a href="#Spring-Cloud-amp-微服务" class="headerlink" title="Spring Cloud &amp; 微服务"></a>Spring Cloud &amp; 微服务</h1><p>@TODO</p>
 
       

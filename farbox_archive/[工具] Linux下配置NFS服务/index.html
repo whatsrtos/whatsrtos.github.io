@@ -364,7 +364,9 @@
 <p>apt-get install nfs-kernel-server nfs-common</p>
 </blockquote>
 <p>以上都需要root权限.</p>
-<h2 id="配置NFS"><a href="#配置NFS" class="headerlink" title="配置NFS"></a>配置NFS</h2><p>编辑 /etc/exports, 添加如下内容:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/home/steffan/nfs *(insecure,rw,sync,no_root_squash)</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置NFS"><a href="#配置NFS" class="headerlink" title="配置NFS"></a>配置NFS</h2><p>编辑 /etc/exports, 添加如下内容:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/home/steffan/nfs *(insecure,rw,sync,no_root_squash)</span><br></pre></td></tr></table></figure>
+
 <p>注意星号<code>*</code>表示允许所有ip访问, 可以改为自己的ip. 且<code>*</code>后不能有空格, 带空格的话mount的时候会有错误提示<code>mount.nfs: access denied by server while mounting</code></p>
 <p>编辑 /etc/idmapd.conf<br>搜索并修改为Domain为自己的主机名.</p>
 <h2 id="启动NFS"><a href="#启动NFS" class="headerlink" title="启动NFS"></a>启动NFS</h2><p>为了方便做了一个启动NFS的脚本xNFS(适用于Fedora):</p>
@@ -373,6 +375,7 @@
 <p>touch /usr/local/xNFS<br>chmod a+x /usr/local/xNFS</p>
 <p>在xNFS脚本增加以下内容:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">echo &quot;start service...&quot;</span><br><span class="line">systemctl start rpcbind.service</span><br><span class="line">systemctl start nfs-server.service</span><br><span class="line">systemctl start nfs-lock.service</span><br><span class="line">systemctl start nfs-idmap.service</span><br><span class="line"></span><br><span class="line">echo &quot;enable service...&quot;</span><br><span class="line">systemctl enable rpcbind.service</span><br><span class="line">systemctl enable nfs-server.service</span><br><span class="line">systemctl enable nfs-lock.service</span><br><span class="line">systemctl enable nfs-idmap.service</span><br><span class="line"></span><br><span class="line">echo &quot;check service status&quot;</span><br><span class="line">systemctl status rpcbind.service</span><br><span class="line">systemctl status nfs-server.service</span><br><span class="line">systemctl status nfs-lock.service</span><br><span class="line">systemctl status nfs-idmap.service</span><br></pre></td></tr></table></figure>
+
 <p>对于Ubuntu,用下面的命令启动NFS服务:</p>
 <blockquote>
 </blockquote>

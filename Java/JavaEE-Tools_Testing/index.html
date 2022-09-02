@@ -361,10 +361,14 @@
 </li>
 <li><p>IDEA, 右键项目, maven -&gt; reimport</p>
 </li>
-<li>在src下, 创建一个test目录, 与main同级</li>
-<li>右键这个test目录, “Mark Directory as”  -&gt; “Test Resources Root”</li>
-<li>选中要测试的类, cmd+shift+T, 创建Test类 （Junit3是继承TestCase, Junit4是基于<code>@Test</code>注解）</li>
-<li>Junit提供的断言:<ul>
+<li><p>在src下, 创建一个test目录, 与main同级</p>
+</li>
+<li><p>右键这个test目录, “Mark Directory as”  -&gt; “Test Resources Root”</p>
+</li>
+<li><p>选中要测试的类, cmd+shift+T, 创建Test类 （Junit3是继承TestCase, Junit4是基于<code>@Test</code>注解）</p>
+</li>
+<li><p>Junit提供的断言:</p>
+<ul>
 <li>assertEquals</li>
 <li>assertNull</li>
 </ul>
@@ -372,6 +376,7 @@
 </ul>
 <h2 id="用Junit4测试Spring项目"><a href="#用Junit4测试Spring项目" class="headerlink" title="用Junit4测试Spring项目"></a>用Junit4测试Spring项目</h2><p>同样创建测试类, 测试类要加上如下注解:</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@ContextConfiguration</span>(locations=<span class="string">"/META-INF/applicationContext.xml"</span>)</span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserDAOImplTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>@Ref: <a href="http://linbinghe.com/2017/3698e116.html" target="_blank" rel="noopener">关于Java单元测试，你需要知道的一切 | Lam’s Blog</a></p>
 </blockquote>

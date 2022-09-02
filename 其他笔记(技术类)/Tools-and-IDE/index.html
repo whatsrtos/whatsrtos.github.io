@@ -608,10 +608,14 @@
 </li>
 <li><p>修改完后 合并源分支(issue3) 到远程目标分支(develop)：</p>
 <ul>
-<li><code>git pull --rebase</code>    // merge 前先pull(更新dev), 如果先merge再pull, 会导致把pull下来的代码也当作自己修改的merge上去</li>
-<li><code>git checkout master</code>  // 切换到目标分支</li>
-<li><code>git merge --no-ff issue3</code></li>
-<li><code>git push origin</code>本地分支名:远程分支名</li>
+<li><p><code>git pull --rebase</code>    // merge 前先pull(更新dev), 如果先merge再pull, 会导致把pull下来的代码也当作自己修改的merge上去</p>
+</li>
+<li><p><code>git checkout master</code>  // 切换到目标分支</p>
+</li>
+<li><p><code>git merge --no-ff issue3</code></p>
+</li>
+<li><p><code>git push origin</code>本地分支名:远程分支名</p>
+</li>
 <li><p>如果merge时出现冲突,</p>
 <ul>
 <li>(4) 修改冲突文件, 然后重新<code>git add confilct_file</code>(重新staged), 将把它们标记为已解决状态（译注：实际上就是来一次快照保存到暂存区域）。因为一旦暂存，就表示冲突已经解决。</li>
@@ -641,16 +645,23 @@
 </li>
 </ol>
 <h2 id="撤销和回滚"><a href="#撤销和回滚" class="headerlink" title="撤销和回滚:"></a>撤销和回滚:</h2><ul>
-<li>修改了文件, 但还没有git add:  输入<code>git status</code>, 会提示用<code>git checkout -- file</code>丢弃工作区, 文件回到服务器状态;</li>
-<li>修改并add了README.md, 还没有commit, 输入<code>git status</code>, 提示use <code>git reset HEAD filename</code> to unstage;</li>
-<li>已经commit/已经merge: <code>git log -p -n 3</code> 查看最近3次历史, 记录下commit的哈希值, 然后执行 <code>git reset --hard commit_hashid</code></li>
+<li><p>修改了文件, 但还没有git add:  输入<code>git status</code>, 会提示用<code>git checkout -- file</code>丢弃工作区, 文件回到服务器状态;</p>
+</li>
+<li><p>修改并add了README.md, 还没有commit, 输入<code>git status</code>, 提示use <code>git reset HEAD filename</code> to unstage;</p>
+</li>
+<li><p>已经commit/已经merge: <code>git log -p -n 3</code> 查看最近3次历史, 记录下commit的哈希值, 然后执行 <code>git reset --hard commit_hashid</code></p>
+</li>
 <li><p>已经push:</p>
 <ul>
-<li><code>git reflog</code> 查看 commit_hashid</li>
-<li><code>git reset --hard commit_hashid</code></li>
-<li><code>git push -f</code></li>
+<li><p><code>git reflog</code> 查看 commit_hashid</p>
+</li>
+<li><p><code>git reset --hard commit_hashid</code></p>
+</li>
+<li><p><code>git push -f</code></p>
+</li>
 <li><p>我们是要把本地的修改强制推送到远程分支上，在强推mster的可能会报错，意思是没有权限之类的错误，报错如下。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">remote: GitLab: You don&apos;t have permission</span><br><span class="line">To git@10.255.223.213:code-ddreader/media-hapi.git</span><br><span class="line">! [remote rejected] master (pre-receive hook declined)</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>是因为master分支一般会成为保护分支，所以我们首先要去除master为保护分支，才可以强推。</li>
 </ul>
@@ -667,6 +678,7 @@
 <li>已经commit/push了: <code>git log -p -n 2</code> 解释: -p 显示详细内容修改, -n 2显示最后两次的更改</li>
 </ol>
 <h2 id="有用的alias设置"><a href="#有用的alias设置" class="headerlink" title="有用的alias设置:"></a>有用的alias设置:</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.pr &quot;pull --rebase --no-ff&quot;  #</span><br><span class="line">git config --global alias.mg &quot;merge --no-ff&quot;          # --no-ff 不使用快照合并</span><br><span class="line">git config --global alias.ca &quot;commit -a&quot;</span><br></pre></td></tr></table></figure>
+
 <p>以及: <code>git config --global core.autocrlf false</code> 使用LR而不是Win系统的CRLF</p>
 <h2 id="当你把git弄的一团糟时"><a href="#当你把git弄的一团糟时" class="headerlink" title="当你把git弄的一团糟时"></a>当你把git弄的一团糟时</h2><p><img src="/images/git-mess.png" alt=""></p>
 <h1 id="svn"><a href="#svn" class="headerlink" title="svn"></a>svn</h1><ul>

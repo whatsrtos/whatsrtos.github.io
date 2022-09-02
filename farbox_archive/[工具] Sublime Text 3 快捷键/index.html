@@ -115,18 +115,18 @@
 
 
 
-<meta name="description" content="安装 Package ControlSublime text 3安装Package Control的方法:View -&amp;gt; Show Console, 输入:import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f89698a6">
+<meta name="description" content="安装 Package ControlSublime text 3安装Package Control的方法:View -&amp;gt; Show Console, 输入: import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f89698a">
 <meta name="keywords" content="编辑器,Sublime">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sublime Text 3 扩展&amp;快捷键">
 <meta property="og:url" content="https://whatsrtos.github.io/farbox_archive/[工具] Sublime Text 3 快捷键/index.html">
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
-<meta property="og:description" content="安装 Package ControlSublime text 3安装Package Control的方法:View -&amp;gt; Show Console, 输入:import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f89698a6">
+<meta property="og:description" content="安装 Package ControlSublime text 3安装Package Control的方法:View -&amp;gt; Show Console, 输入: import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f89698a">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-17T15:40:16.733Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sublime Text 3 扩展&amp;快捷键">
-<meta name="twitter:description" content="安装 Package ControlSublime text 3安装Package Control的方法:View -&amp;gt; Show Console, 输入:import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f89698a6">
+<meta name="twitter:description" content="安装 Package ControlSublime text 3安装Package Control的方法:View -&amp;gt; Show Console, 输入: import urllib.request,os,hashlib; h = &amp;apos;2deb499853c4371624f5a07e27c334aa&amp;apos; + &amp;apos;bf8c4e67d14fb0525ba4f89698a">
 
 
 
@@ -355,7 +355,9 @@
       
 
       
-        <h1 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h1><p>Sublime text 3安装<a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">Package Control</a>的方法:<br>View -&gt; Show Console, 输入:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;2deb499853c4371624f5a07e27c334aa&apos; + &apos;bf8c4e67d14fb0525ba4f89698a6d7e1&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure></p>
+        <h1 id="安装-Package-Control"><a href="#安装-Package-Control" class="headerlink" title="安装 Package Control"></a>安装 Package Control</h1><p>Sublime text 3安装<a href="https://packagecontrol.io/installation" target="_blank" rel="noopener">Package Control</a>的方法:<br>View -&gt; Show Console, 输入:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import urllib.request,os,hashlib; h = &apos;2deb499853c4371624f5a07e27c334aa&apos; + &apos;bf8c4e67d14fb0525ba4f89698a6d7e1&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)</span><br></pre></td></tr></table></figure>
+
 <h1 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h1><ul>
 <li>SideBarEnhancements : 侧边栏右键增强, 配置参考<a href="https://github.com/titoBouzout/SideBarEnhancements/#f12-key-conflict" target="_blank" rel="noopener">这里</a></li>
 <li>Emmet: 前身是”Zen Coding”, 可以更高效地编写HTML和CSS, 比如输入<code>html:5</code>然后按 <code>Tab</code> 就能自动产生代码段, <a href="http://docs.emmet.io/cheat-sheet/" target="_blank" rel="noopener">速查表在这里</a></li>

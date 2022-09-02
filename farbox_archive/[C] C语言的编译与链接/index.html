@@ -357,8 +357,10 @@
       
         <p>这篇半成品已经在硬盘上放了好久了, 今天终于忍无可忍, 熬夜也要写完(▔皿▔)<br>起因是因为一个makefile引起的 <code>undefined reference</code> 问题, 下面贴出出错的makefile:</p>
 <h1 id="起因：Makefile错误"><a href="#起因：Makefile错误" class="headerlink" title="起因：Makefile错误"></a>起因：Makefile错误</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CC = gcc</span><br><span class="line">CXX = g++</span><br><span class="line">LD = ldd</span><br><span class="line"></span><br><span class="line">$(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp</span><br><span class="line">	$(CXX) $(CFLAGS) -o $@ $&lt; $(INCLUDE)</span><br><span class="line"></span><br><span class="line">$(OBJS): $(DIR_OBJ)/%.o: %.c</span><br><span class="line">	$(CC) -c $(CFLAGS) -o $@ $&lt; $(INCLUDE)</span><br><span class="line"></span><br><span class="line">$(APP): $(OBJS) $(CPP_OBJS)</span><br><span class="line">	$(CC) $^ -o $(APP) $(LDFLAGS) $(INCLUDE)</span><br></pre></td></tr></table></figure>
+
 <p>这个makefile很简单，g++将<em>.cpp文件编译为 \</em>.o, gcc将 *.c 文件编译为 *.o, 最后 gcc链接所有的 *.o生成可执行程序.<br>但是上面这个简单的 makefile, 执行make时却报错了:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; gcc   -o _test_code.o _test_code.c -I.</span><br><span class="line">/usr/lib/gcc/x86_64-redhat-linux/4.7.2/../../../../lib64/crt1.o: In function &apos;_start&apos;:</span><br><span class="line">(.text+0x20): undefined reference to &apos;main&apos;</span><br><span class="line">collect2: error: ld returned 1 exit status</span><br></pre></td></tr></table></figure>
+
 <h1 id="错误分析-amp-解决"><a href="#错误分析-amp-解决" class="headerlink" title="错误分析 &amp; 解决"></a>错误分析 &amp; 解决</h1><p>要解释上面的问题, 先来回顾下gcc是如何将*.c编译为可执行程序的, 共4个步骤:</p>
 <ol>
 <li>预编译: <code>gcc -E test.c -o test.i</code></li>
@@ -369,8 +371,10 @@
 <p>报错很明确的告诉我: lib64/crt1.o 里的<code>_start</code>函数调用了<code>main()</code>函数, 但<code>main()</code>函数缺少定义.<br>工程中<code>main()</code>函数的定义放在源文件 main.cpp中, 为什么还报 undefined reference to ‘main’呢?<br>看仔细了, 是在将 test_code.cpp编译为 test_code.o的时候报错, test_code.cpp里没有<code>main()</code>的定义,<br>这个 makefile的”本意”是这样的: 第一步 g++将 x.cpp文件编译为 x.o, 第二步 gcc将 x.c文件编译为 x.o, 最后 gcc链接所有的 x.o生成可执行程序.<br>按道理说, 第一步编译只是进行语法分析并生成中间文件, 并不会去找函数有没有定义, 只有在三步链接所有 x.o的时候才可能报出 undefined reference func的错误.<br>再仔细看看上面的 makefile: <code>$(CXX) $(CFLAGS) -o $@ $&lt; $(INCLUDE)</code><br>是没有加 <code>-c</code>参数的, 相当于让 g++一步编译出最终文件(可执行文件), 当然会报 undefined reference 的错误了.<br>原来是一个笔误🙃</p>
 <p>修改也很简单, x.c/x.cpp编译为x.o的过程加上 <code>-c</code>参数就可以了, 正确的 makefile如下:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">(CPP_OBJS): $(DIR_OBJ)/%.o: %.cpp</span></span><br><span class="line"><span class="meta">	$</span><span class="bash">(CXX) -c $(CFLAGS) -o <span class="variable">$@</span> $&lt; $(INCLUDE)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash">(OBJS): $(DIR_OBJ)/%.o: %.c</span></span><br><span class="line"><span class="meta">	$</span><span class="bash">(CC) -c $(CFLAGS) -o <span class="variable">$@</span> $&lt; $(INCLUDE)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash">(APP): $(OBJS) $(CPP_OBJS)</span></span><br><span class="line"><span class="meta">	$</span><span class="bash">(CC) $^ -o $(APP) $(LDFLAGS) $(INCLUDE)</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="错误日志里的新发现"><a href="#错误日志里的新发现" class="headerlink" title="错误日志里的新发现"></a>错误日志里的新发现</h1><p>再回头看看上面的报错里有一句:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lib64/crt1.o: In function &apos;_start&apos;:</span><br><span class="line">(.text+0x20): undefined reference to &apos;main&apos;</span><br></pre></td></tr></table></figure>
+
 <p>这个 crt1.o是什么? 这个function <code>_start</code> 又是什么🤔?</p>
 <p>从上面的打印信息可以知道, gcc先编译出 xxx.o然后再做 Link, 这时候 gcc会对 /usr/lib/crt1.o和我们的 main.o做链接 (因为 crt1.o里的<code>_start</code>函数调用了我们的 <code>main()</code>函数).<br>由此可见, 可自行文件真正的”入口”并不是 <code>main()</code>, 而是 ctr1.o里的<code>_start</code>, 事实上这个库的名字里 “crt”就是 “startup routine”的意思.<br>所以, gcc在链接所有的 x.o时, 还会把 /usr/lib/crt1.o也链接进来.<br>此外gcc有一个默认参数<code>-lc</code>, 表示动态链接 libc库.</p>
 <blockquote>
@@ -378,8 +382,10 @@
 </blockquote>
 <h1 id="编译过程中的链接-ld"><a href="#编译过程中的链接-ld" class="headerlink" title="编译过程中的链接: ld"></a>编译过程中的链接: ld</h1><p>下面是一个分三步编译出 a.out的例子</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gcc -S main.c -o main.s</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gcc -c main.s -o main.o</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> gcc main.o -o a.out</span></span><br></pre></td></tr></table></figure>
+
 <p>我们知道在编译汇编程序时, 也是分compile,link两个步骤:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">as hello.s -o hello.o</span><br><span class="line">ld hello.o -o hello</span><br></pre></td></tr></table></figure>
+
 <p>c程序用 gcc链接, 汇编程序用 ld来做链接, 那么这个 ld能不能直接用于 c程序的链接呢?<br>我们可以试一下, 用 ld去链接所有的 x.o : <code>$(LD) $^ -o $(APP) $(LDFLAGS) $(INCLUDE)</code><br>然后<code>make clean &amp;&amp; make all</code>, 会报错:<br>ld: cannot find -lstdc++</p>
 <p>@Ref (<a href="http://sp1.wikidot.com/gnulinker" target="_blank" rel="noopener">http://sp1.wikidot.com/gnulinker</a>)</p>
 <h1 id="附录-I"><a href="#附录-I" class="headerlink" title="附录 I"></a>附录 I</h1><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>“编译”的概念： 1、利用编译程序从源语言编写的源程序产生目标程序的过程。 2、用编译程序产生目标程序的动作，编译就是把高级语言变成计算机可以识别的2进制语言。</p>
@@ -408,6 +414,7 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">as hello.s -o hello.o  #这一步将汇编源码*.s编译为*.o</span><br><span class="line">ld hello.o -o hello    #这一步将*.o链接, 生成ELF</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>(3) 连接器ld<br>ld根据链接定位文件Linkcmds中的代码区、数据区、BSS区和栈区等定位信息，将可重定位的目标模块链接成一个单一的、绝对定位的目标程序。该目标程序是ELF格式，并且可以包含调试信息。<br>ld会产生一个内存映象文件Map.txt,该文件显示所有目标模块、区和符号的绝对定位地址。它也产生交叉参考列表，显示参考每个全局符号的目标模块。<br>ld支持将多个目标模块链接成一个单一的、绝对定位的目标程序，也能够依此对目标模块进行链接，这个特性称为增量链接(Incremental Linking)。<br>假如输入文件是一个函数库，ld会自动从函数库装载被其它目标模块参考的函数模块。ld与其它链接程序相比，能提供更有帮助的诊断信息。许多链接器遇到第一个错误即放弃链接，而ld只要有可能都继续执行，帮助用户识别其它错误，有时甚至能获得输出代码。</p>
 </li>
@@ -415,6 +422,7 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ gcc -c 1.c 2.c 3.c   # 生成1.o, 2.o, 3.o</span><br><span class="line">$ ar rs lib123.a 1.o 2.o 3.o # 将所有*.o打包成lib123.a:</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>(5) 工程管理器MAKE<br>Make是用于自动编译、链接程序的实用工具,使用make后就不需要手工的编译每个程序文件。要使用make,首先要编写makefile。<br>Makefile描述程序文件之间的依赖关系，并提供更新文件的命令。在一个程序中，可执行文件依赖于目标文件,而目标文件依赖于源文件。如果makefile文件存在,每次修改完源程序后，用户通常所需要做的事情就是在命令行敲入“make”,然后所有的事情都由make来完成。</li>
 </ul>

@@ -410,11 +410,13 @@
 <li><code>ps -T -p &lt;pid&gt;</code> : 查看进程的所有线程</li>
 </ul>
 <h3 id="ps-aux"><a href="#ps-aux" class="headerlink" title="ps aux"></a>ps aux</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">USER               PID  %CPU %MEM      VSZ    RSS   TT  STAT STARTED      TIME COMMAND</span><br><span class="line">root                47   0.0  0.0  2502056   1700   ??  Ss   一09上午   0:11.65 /usr/libexec/kextd</span><br><span class="line">root                45   0.0  0.2  2503976   6576   ??  Ss   一09上午   0:29.45 /usr/libexec/UserEventAgent (System)</span><br><span class="line">root                44   0.0  0.0  2472460   1204   ??  Ss   一09上午   0:32.91 /usr/sbin/syslogd</span><br><span class="line">beefymiracle       424  98.7  0.1  2507128   4764   ??  R    一09上午 1762:56.80 /System/Library/PrivateFrameworks/ParsecUI.framework/Versions/A/Support/SpotlightNetHelper.app/Contents/MacOS/SpotlightNetHelper</span><br></pre></td></tr></table></figure>
+
 <h4 id="VSZ"><a href="#VSZ" class="headerlink" title="VSZ"></a>VSZ</h4><p>KB, virtual memory size, Device mappings are currently excluded;</p>
 <h4 id="RSS"><a href="#RSS" class="headerlink" title="RSS"></a>RSS</h4><p>KB, resident set size, 一般作为实际占用内存大小,<br>包括程序二进制映像(binary image), Heap/Stack实际使用(系统为进程分配的堆和栈, 不一定完全用掉), 共享区(shared Library, 也即Memory Mapping)实际使用的空间;</p>
 <h4 id="区分VSZ-RSS-SZ"><a href="#区分VSZ-RSS-SZ" class="headerlink" title="区分VSZ,RSS,SZ"></a>区分VSZ,RSS,SZ</h4><p><a href="http://stackoverflow.com/questions/7880784/what-is-rss-and-vsz-in-linux-memory-management" target="_blank" rel="noopener">http://stackoverflow.com/questions/7880784/what-is-rss-and-vsz-in-linux-memory-management</a></p>
 <h4 id="STAT"><a href="#STAT" class="headerlink" title="STAT"></a>STAT</h4><p>R/S/D/T/Z/X : <a href="http://askubuntu.com/questions/360252/what-do-the-stat-column-values-in-ps-mean" target="_blank" rel="noopener">http://askubuntu.com/questions/360252/what-do-the-stat-column-values-in-ps-mean</a></p>
 <h3 id="ps-el"><a href="#ps-el" class="headerlink" title="ps -el"></a>ps -el</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">UID   PID  PPID        F CPU PRI NI       SZ    RSS WCHAN     S             ADDR TTY           TIME CMD</span><br><span class="line">  0     1     0     4004   0  37  0  2478772   7372 -      Ss                  0 ??         3:01.68 /sbin/launchd</span><br><span class="line">  0    44     1     4004   0   4  0  2474032   1228 -      Ss                  0 ??         0:32.87 /usr/sbin/syslogd</span><br><span class="line">501   424     1     4004   0   4  0  2506604   4952 -      R                   0 ??       1757:31.24 /System/Library/PrivateFrameworks/ParsecUI.framework/Versions/A/Support/SpotlightNetHelper.app/Contents/MacOS/SpotlightNetHelper</span><br></pre></td></tr></table></figure>
+
 <h4 id="SZ"><a href="#SZ" class="headerlink" title="SZ"></a>SZ</h4><p>size in physical pages of the core image of the process. This includes text, data, and stack space. Device mappings are currently excluded</p>
 <h4 id="PRI-优先级"><a href="#PRI-优先级" class="headerlink" title="PRI 优先级"></a>PRI 优先级</h4><p>PRI表示线程优先级(数值越小越先执行), 优先级的范围是[0, MAX_PRIO-1], <code>MAX_PRIO</code> 的值一般为140.</p>
 <h4 id="NI-修正优先级"><a href="#NI-修正优先级" class="headerlink" title="NI 修正优先级"></a>NI 修正优先级</h4><ul>
@@ -448,6 +450,7 @@
 </li>
 </ul>
 <h2 id="vmstat"><a href="#vmstat" class="headerlink" title="vmstat"></a>vmstat</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@tc_157_46 ~]# vmstat 1</span><br><span class="line">procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu------</span><br><span class="line"> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st</span><br><span class="line"> 3 23   2840 3118492 110100 21213972    0    0    19   201    0    0  1  1 97  1  0</span><br></pre></td></tr></table></figure>
+
 <h3 id="vmstat每列解释"><a href="#vmstat每列解释" class="headerlink" title="vmstat每列解释"></a>vmstat每列解释</h3><h4 id="procs列"><a href="#procs列" class="headerlink" title="procs列"></a>procs列</h4><ul>
 <li>r 等待cpu时间片的进程数, 如果长期大于1, 说明cpu不足, 需要增加cpu.</li>
 <li>b (在等待资源的进程数, 比如正在等待I/O, 或者内存交换等).</li>
@@ -478,6 +481,7 @@
 </ul>
 <h2 id="iostat"><a href="#iostat" class="headerlink" title="iostat"></a>iostat</h2><p>命令格式: <code>iostat [option] [间隔秒数] [统计次数]</code> , 比如<code>iostat -x 1 10</code>表示1秒打印一次, 共10次</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@tc_157_46 ~]# iostat -x 1 1</span><br><span class="line">Linux 2.6.18-274.el5 (tc_157_46)        07/26/2016</span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %nice %system %iowait  %steal   %idle</span><br><span class="line">           1.18    0.00    1.01    1.06    0.00   96.75</span><br><span class="line"></span><br><span class="line">Device:         rrqm/s   wrqm/s   r/s   w/s   rsec/s   wsec/s avgrq-sz avgqu-sz   await  svctm  %util</span><br><span class="line">sda               1.34   747.37  4.12 55.96   600.54  6426.98   116.95     0.03    0.49   0.38   2.25</span><br><span class="line">sda1              0.00     1.56  0.01  0.66     0.25    17.76    26.94     0.03   38.49  11.73   0.78</span><br><span class="line">sda2              0.00     0.01  0.00  0.00     0.02     0.04   106.87     0.00   88.03   7.93   0.00</span><br><span class="line">sda3              0.01     1.31  0.04  1.94     1.34    26.02    13.83     0.02   11.81   8.91   1.76</span><br><span class="line">sda4              0.00     0.00  0.00  0.00     0.00     0.00     7.40     0.00  110.47 110.47   0.00</span><br><span class="line">sda5              0.01     0.36  0.02  0.25     0.59     4.84    20.14     0.01   41.69  17.49   0.47</span><br><span class="line">sda6              1.32   744.13  4.05 53.12   598.33  6378.33   122.03     0.03    0.52   0.18   1.00</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>%util: IO操作占用CPU时间的百分比: 如果%util长期接近100%, 说明产生的I/O请求太多, I/O系统已经满负荷, 该磁盘可能存在瓶颈.</li>
 <li>Idle如果长期大于70% IO压力就比较大了,这时一般读取速度有较多的wait.</li>
@@ -506,6 +510,7 @@
 </ul>
 <h2 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h2><p>查看TCP的并发数/TCP连接的状态, 以一个Nginx服务器为例:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@zw_85_63 ~]# netstat -n | awk &apos;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a, S[a]&#125;&apos;</span><br><span class="line">TIME_WAIT 37968</span><br><span class="line">SYN_SENT 1</span><br><span class="line">FIN_WAIT1 5</span><br><span class="line">FIN_WAIT2 4</span><br><span class="line">ESTABLISHED 2725</span><br><span class="line">SYN_RECV 18</span><br><span class="line">LAST_ACK 4</span><br></pre></td></tr></table></figure>
+
 <h1 id="sysctl优化内核参数"><a href="#sysctl优化内核参数" class="headerlink" title="sysctl优化内核参数"></a>sysctl优化内核参数</h1><ul>
 <li>sysctl -a | grep vm</li>
 <li>sysctl -a | grep net.ipv4</li>

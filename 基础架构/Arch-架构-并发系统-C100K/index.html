@@ -370,6 +370,7 @@
 </ul>
 <p>ulimit起作用的范围是”当前Shell”, 并不是作用于”当前用户”, 如要对”用户”级别做限制, 则需要修改系统文件 <code>/etc/security/limits.conf</code>:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># * 表示所有用户, nofile表示限制文件打开数, 限制在100</span><br><span class="line">* hard nofile 100</span><br></pre></td></tr></table></figure>
+
 <p>如果是针对整个系统, 则需要使用<code>sysctl</code>修改, 命令格式为: <code>sysctl -w fs.nr_open=10000000</code>, 每个系统参数对应一个/proc下的文件, <code>fs.nr_open</code>对应的文件路径是<code>/proc/sys/fs/nr_open</code><br>系统最大打开文件数相关的参数有两个:</p>
 <ul>
 <li>fs.nr_open，进程级别</li>
@@ -411,7 +412,9 @@
 </ul>
 </li>
 </ul>
-<p>在Nginx机器上测试:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@zw_85_63 ~]# netstat -n | awk &apos;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a, S[a]&#125;&apos;</span><br><span class="line">TIME_WAIT 37968</span><br><span class="line">SYN_SENT 1</span><br><span class="line">FIN_WAIT1 5</span><br><span class="line">FIN_WAIT2 4</span><br><span class="line">ESTABLISHED 2725</span><br><span class="line">SYN_RECV 18</span><br><span class="line">LAST_ACK 4</span><br></pre></td></tr></table></figure></p>
+<p>在Nginx机器上测试:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[@zw_85_63 ~]# netstat -n | awk &apos;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a, S[a]&#125;&apos;</span><br><span class="line">TIME_WAIT 37968</span><br><span class="line">SYN_SENT 1</span><br><span class="line">FIN_WAIT1 5</span><br><span class="line">FIN_WAIT2 4</span><br><span class="line">ESTABLISHED 2725</span><br><span class="line">SYN_RECV 18</span><br><span class="line">LAST_ACK 4</span><br></pre></td></tr></table></figure>
+
 <h2 id="系统最大进线程数"><a href="#系统最大进线程数" class="headerlink" title="系统最大进线程数"></a>系统最大进线程数</h2><p>某些服务程序(Apache, Tomcat) 采用 “Thread Per Request”, 系统的进线程最大数也会影响并发性能.</p>
 <p>Linux 没有 <strong>直接限制</strong> 每个进程能够创建线程数, 仅限制了系统最大进线程数, 相关的配置有 :</p>
 <ul>

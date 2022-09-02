@@ -775,7 +775,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8,487
+                  8,486
                 </span>
               
 
@@ -801,7 +801,7 @@
 
       
         
-          <p><img src="/images/Arch-DB-MySQL/Database-MySQL-Title.png" alt=""></p>
+          <p><img src="/images/Arch-DB-MySQL/Database-MySQL-Title.png" alt></p>
 <h1 id="MySQL基础"><a href="#MySQL基础" class="headerlink" title="MySQL基础"></a>MySQL基础</h1><p>参考:《深入浅出MySQL》</p>
 <h2 id="SCHEMA"><a href="#SCHEMA" class="headerlink" title="SCHEMA"></a>SCHEMA</h2><p><strong>schema</strong> 为数据库对象的集合，schema里面包含了各种对象如tables, views, sequences, 可以视作”数据库”, <code>show database</code>可以看到schema.<br>不同数据库产品的schema概念是不同的:</p>
           <!--noindex-->
@@ -1225,7 +1225,9 @@
       
         
           <h1 id="h文件"><a href="#h文件" class="headerlink" title="h文件"></a>h文件</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"AnyHeaderFile.h"</span></span></span><br><span class="line">@interface ClassName : SuperClass</span><br><span class="line">&#123;</span><br><span class="line">    @property <span class="keyword">int</span> x; <span class="comment">// @property属性成员, m文件不用自己写getter 和 setter</span></span><br><span class="line">    @property (nonatomic, assign) <span class="keyword">int</span> commentTimeFontSize;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 公有方法</span></span><br><span class="line">+ (<span class="keyword">void</span>) getInstance; <span class="comment">// 静态方法</span></span><br><span class="line">- (type)doItWithA:(type)a;</span><br><span class="line">- (type)doItWithA:(type)a</span><br><span class="line">    ParamB:(type)b</span><br><span class="line">    ParamC:(type)c;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
 <h1 id="m文件"><a href="#m文件" class="headerlink" title="m文件"></a>m文件</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"YourClassName.h"</span></span></span><br><span class="line">@<span class="function">interface <span class="title">ClassName</span> <span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="comment">// m文件里也可以定义interface</span></span></span><br><span class="line">@end</span><br><span class="line">@implementation ClassName &#123;</span><br><span class="line">    <span class="comment">// define private instance variables</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// implement methods</span></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+
 <h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1511,6 +1513,7 @@
 <li>在函数内引用全局变量:</li>
 </ul>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$var1 = <span class="string">"hello world"</span>;</span><br><span class="line">$var2 = <span class="string">""</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 相当于$var1 =&amp; GLOBALS['var1'], 函数内新建一个本地的引用$var1指向全局变量</span></span><br><span class="line">    <span class="keyword">global</span> $var1,$var2;</span><br><span class="line">    $var2 =&amp; var1; <span class="comment">// 本地的引用$var2重新被指向</span></span><br><span class="line">&#125;</span><br><span class="line">f();</span><br><span class="line">var_dump($var2); <span class="comment">// var2仍然是空字串</span></span><br></pre></td></tr></table></figure>
+
 <p>下面的代码不会改变$bar的值:</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">(&amp;ref)</span> </span>&#123; <span class="comment">// 新建本地引用变量$ref, 指向$bar</span></span><br><span class="line">    $ref =&amp; GLOBALS[<span class="string">'xxx'</span>]; <span class="comment">// $ref被重新指向</span></span><br><span class="line">&#125;</span><br><span class="line">f($bar);</span><br></pre></td></tr></table></figure>
           <!--noindex-->

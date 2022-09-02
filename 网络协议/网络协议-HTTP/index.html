@@ -330,7 +330,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,482
+                  1,515
                 </span>
               
 
@@ -425,7 +425,9 @@
 <li>application/xml</li>
 </ul>
 <h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control:"></a>Cache-Control:</h3><h3 id="Location"><a href="#Location" class="headerlink" title="Location:"></a>Location:</h3><p>用于将客户端重定向一个新的地址，一般和302状态值相关。</p>
-<h4 id="Content-Length"><a href="#Content-Length" class="headerlink" title="Content-Length:"></a>Content-Length:</h4><p>指定response的长度，如果一个response太大服务器无法确定其长度，服务器会在response头部插入一个 <code>Transfer-Encoding: chunked</code>字段，表示需要分块传输. 这个response的<code>消息体</code>包括数个chunk，每个chunk都由<code>本chunk字节数+CRLF</code> + <code>本chunk内容+CRLF</code>组成，最后会带一个长度为0的chunk表示结束。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/plain</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line"></span><br><span class="line">25</span><br><span class="line">This is the data in the first chunk</span><br><span class="line">1A</span><br><span class="line">and this is the second one</span><br><span class="line">0</span><br></pre></td></tr></table></figure></p>
+<h4 id="Content-Length"><a href="#Content-Length" class="headerlink" title="Content-Length:"></a>Content-Length:</h4><p>指定response的长度，如果一个response太大服务器无法确定其长度，服务器会在response头部插入一个 <code>Transfer-Encoding: chunked</code>字段，表示需要分块传输. 这个response的<code>消息体</code>包括数个chunk，每个chunk都由<code>本chunk字节数+CRLF</code> + <code>本chunk内容+CRLF</code>组成，最后会带一个长度为0的chunk表示结束。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/plain</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line"></span><br><span class="line">25</span><br><span class="line">This is the data in the first chunk</span><br><span class="line">1A</span><br><span class="line">and this is the second one</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
 <h1 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h1><p>HTTPS的端口是443，HTTP的端口是80，二者的区别还在于HTTPS是在普通HTTP和TCP之间插入了一个SSL(Secure SocketLaye，基于非对称/对称加密算法的协议)。</p>
 <h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><p>SSL使用了RSA非对称加密，SSL握手过程:</p>
 <ul>
@@ -440,7 +442,7 @@
 <li>动词不应该出现在URI中, 而使用HTTP协议里的<code>GET, POST, DELETE, PUT</code>对应查询, 新增, 删除, 更新;</li>
 <li>接口返回JSON, 或者XML</li>
 <li>返回Code用HTTP状态表示</li>
-<li><a href="https://github. com/tianlu1677/filemanager/wiki/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%87%E7%94%A8RESTful%E6%9E%B6%E6%9E%84%EF%BC%9F" target="_blank" rel="noopener">为什么要采用RESTful架构？·tianlu1677/filemanagerWiki·GitHub</a></li>
+<li>[为什么要采用RESTful架构？·tianlu1677/filemanagerWiki·GitHub](<a href="https://github" target="_blank" rel="noopener">https://github</a>. com/tianlu1677/filemanager/wiki/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E9%87%87%E7%94%A8RESTful%E6%9E%B6%E6%9E%84%EF%BC%9F)</li>
 </ul>
 <h2 id="Java对Restful的支持"><a href="#Java对Restful的支持" class="headerlink" title="Java对Restful的支持"></a>Java对Restful的支持</h2><ul>
 <li>用Java技术创建RESTfulWeb服务（JAX-RS）:<a href="https://www.ibm.com/developerworks/cn/web/wa-jaxrs/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/web/wa-jaxrs/</a></li>

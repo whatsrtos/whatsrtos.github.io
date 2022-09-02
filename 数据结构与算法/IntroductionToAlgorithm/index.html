@@ -141,14 +141,14 @@
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201211/05/1352080679_6613.jpg">
 <meta property="og:image" content="http://img.my.csdn.net/uploads/201211/05/1352080779_4529.jpg">
 <meta property="og:image" content="https://whatsrtos.github.io/images/IntroductionToAlgorithm/cross-product.png">
-<meta property="og:image" content="https://whatsrtos.github.io/images/IntroductionToAlgorithm/向量积（叉积、外积）的坐标表达式.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/IntroductionToAlgorithm/%E5%90%91%E9%87%8F%E7%A7%AF%EF%BC%88%E5%8F%89%E7%A7%AF%E3%80%81%E5%A4%96%E7%A7%AF%EF%BC%89%E7%9A%84%E5%9D%90%E6%A0%87%E8%A1%A8%E8%BE%BE%E5%BC%8F.png">
 <meta property="og:image" content="https://whatsrtos.github.io/images/IntroductionToAlgorithm/convex-hull.png">
 <meta property="og:image" content="http://dl2.iteye.com/upload/attachment/0078/0473/e4911d9e-ad3d-306c-8d58-8ae34c9ceb7c.jpg">
 <meta property="og:image" content="https://lh3.googleusercontent.com/--RRz9U4CNjg/Wg5ObvdXO1I/AAAAAAAAHZc/rhufTVQwzGkhiCRbrvad6xwyHF5sKzktACLcBGAs/s0/kmpexample.jpg">
 <meta property="og:image" content="https://i.stack.imgur.com/EyFvY.png">
 <meta property="og:image" content="https://whatsrtos.github.io/images/IntroductionToAlgorithm/trie-tree.png">
 <meta property="og:image" content="https://whatsrtos.github.io/images/IntroductionToAlgorithm/maximum-flow-problem.png">
-<meta property="og:image" content="https://whatsrtos.github.io/images/IntroductionToAlgorithm/残留网络.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/IntroductionToAlgorithm/%E6%AE%8B%E7%95%99%E7%BD%91%E7%BB%9C.png">
 <meta property="og:image" content="http://i.imgur.com/hkRDu4q.png">
 <meta property="og:image" content="https://whatsrtos.github.io/images/IntroductionToAlgorithm/minimumcostmaximums-tflow.png">
 <meta property="og:image" content="http://img.voidcn.com/vcimg/000/006/386/599_c3b_0d5.png">
@@ -361,7 +361,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,990
+                  5,988
                 </span>
               
 
@@ -479,6 +479,7 @@
 <hr>
 <h2 id="基础数学算法"><a href="#基础数学算法" class="headerlink" title="基础数学算法"></a>基础数学算法</h2><h3 id="二分查找算法"><a href="#二分查找算法" class="headerlink" title="二分查找算法"></a>二分查找算法</h3><p>问题：在一个给定的升序数组array中，找到第一个大于或者等于x的数的位置，没有则返回-1。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int search(int[] array, int low, int high, int x) &#123;</span><br><span class="line">  int ans = -1;</span><br><span class="line">  while (low &lt;= high) &#123;</span><br><span class="line">    int mid = low + (high - low) / 2;</span><br><span class="line">    if (judge(mid)) &#123;</span><br><span class="line">      ans = mid;</span><br><span class="line">      high = mid - 1;</span><br><span class="line">    &#125; else low = mid + 1;</span><br><span class="line">  &#125;</span><br><span class="line">  return ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>问题变形：</p>
 <ul>
 <li>求第一个大于x的数的位置</li>
@@ -488,15 +489,17 @@
 </ul>
 <p>题目：给定$n$个木棍，每个木棍有一个长度（精确到两位小数），需要把他们截成$k$个长度相同的小木棍，求小木棍的最大长度。</p>
 <p>解答：把最大长度的小木棍的值作为二分变量，进行浮点数的二分。</p>
-<p>题目：一条长为L（1~1,000,000,000）的河中，有$n$(1~50,000)块可垫脚的石头，<br>给出它们与起始点的距离$rock[i]$，移除其中的$m$块使得具有最小间距的相邻两块石头之间的距离最大。</p>
+<p>题目：一条长为L（1<del>1,000,000,000）的河中，有$n$(1</del>50,000)块可垫脚的石头，<br>给出它们与起始点的距离$rock[i]$，移除其中的$m$块使得具有最小间距的相邻两块石头之间的距离最大。</p>
 <p>解答：二分最终的结果，用上述整数二分的写法进行处理，每一次判断使用贪心策略，记录每次符合条件的策略，二分最后得到的就是最终的答案。</p>
 <blockquote>
 <p>二分经典应用：求上（下）界的最小（大）值</p>
 </blockquote>
 <h3 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h3><p>求两个整数的最大公约数－－辗转相除法</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int gcd(int a, int b) &#123;</span><br><span class="line">	if (a == 0) return b;</span><br><span class="line">	return gcd(b, a % b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="快速幂算法"><a href="#快速幂算法" class="headerlink" title="快速幂算法"></a>快速幂算法</h3><p>问题：$a, b$都是整数，如何快速求$a^b$</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int fpow(int a, int b)&#123;</span><br><span class="line">    int result = 1;</span><br><span class="line">    for (; b; b &gt;&gt;= 1) &#123;</span><br><span class="line">	    if (b &amp; 1) result = result * a;</span><br><span class="line">	    a = a * a;</span><br><span class="line">	｝</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>题目：快速求第$n$个斐波那契数。</p>
 <p>解法：<br>经典的矩阵快速幂，下面这个式子是成立的：<img src="https://pic1.zhimg.com/50/d900e0509f9d056286ff9455e7706f90_hd.jpg" alt="enter image description here"><br>不停地利用这个式子迭代右边的列向量，会得到下面的式子：<img src="https://pic3.zhimg.com/50/c564ec78cf8008541bc1bbcfd4a70dea_hd.jpg" alt="enter image description here"><br>这样，问题就转化为如何计算这个矩阵的$n$ 次方了。</p>
 <hr>
@@ -509,8 +512,7 @@
 <th>时间复杂度（总计）</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>邻接矩阵、搜索</td>
 <td>$O(V^2)$</td>
 </tr>
@@ -522,8 +524,7 @@
 <td>斐波那契堆、邻接表</td>
 <td>$O(E + V log(V))$</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h4 id="Kruskal算法"><a href="#Kruskal算法" class="headerlink" title="Kruskal算法"></a>Kruskal算法</h4><p>kruskal算法的基本思想（使用到了并查集）：</p>
 <ol>
 <li>首先将$G$的$n$个顶点看成$n$个孤立的连通分支（$n$个孤立点）并将所有的边按权从小大排序。</li>
@@ -555,7 +556,7 @@
 <h2 id="计算几何算法"><a href="#计算几何算法" class="headerlink" title="计算几何算法"></a>计算几何算法</h2><h3 id="向量性质"><a href="#向量性质" class="headerlink" title="向量性质"></a>向量性质</h3><h4 id="向量点积"><a href="#向量点积" class="headerlink" title="向量点积"></a>向量点积</h4><p>向量的点积结果跟两个向量之间的角度有关<br><img src="http://img.my.csdn.net/uploads/201211/05/1352080679_6613.jpg" alt="enter image description here"><br><img src="http://img.my.csdn.net/uploads/201211/05/1352080779_4529.jpg" alt="enter image description here"></p>
 <h4 id="向量叉积"><a href="#向量叉积" class="headerlink" title="向量叉积"></a>向量叉积</h4><p>向量积可以被定义为：$a \times b = absin\theta$（在这里$θ$表示两向量之间的夹角(共起点的前提下)（$0° ≤ θ ≤ 180°$）</p>
 <p><img src="/images/IntroductionToAlgorithm/cross-product.png" alt="Cross_Product"></p>
-<p><img src="/images/IntroductionToAlgorithm/向量积（叉积、外积）的坐标表达式.png" alt="向量积（叉积、外积）的坐标表达式"></p>
+<p><img src="/images/IntroductionToAlgorithm/%E5%90%91%E9%87%8F%E7%A7%AF%EF%BC%88%E5%8F%89%E7%A7%AF%E3%80%81%E5%A4%96%E7%A7%AF%EF%BC%89%E7%9A%84%E5%9D%90%E6%A0%87%E8%A1%A8%E8%BE%BE%E5%BC%8F.png" alt="向量积（叉积、外积）的坐标表达式"></p>
 <blockquote>
 <p>$c$的长度在数值上等于以$a$，$b$，夹角为$θ$组成的平行四边形的面积。</p>
 </blockquote>
@@ -585,6 +586,7 @@
 <hr>
 <h2 id="字符串匹配算法"><a href="#字符串匹配算法" class="headerlink" title="字符串匹配算法"></a>字符串匹配算法</h2><h3 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h3><p>问题：在一个主文本字符串S内查找一个词W的出现位置。<br>思想：通过运用对这个词在不匹配时本身就包含足够的信息来确定下一个匹配将在哪里开始的发现，从而避免重新检查先前匹配的字符。<br><img src="https://lh3.googleusercontent.com/--RRz9U4CNjg/Wg5ObvdXO1I/AAAAAAAAHZc/rhufTVQwzGkhiCRbrvad6xwyHF5sKzktACLcBGAs/s0/kmpexample.jpg" alt="enter image description here" title="kmpexample.jpg"><br>next[j]取决于模式串中T[0 ~ j-1]中前缀和后缀相等部分的长度，并且next[j]恰好等于这个最大长度；此外在j位匹配出错，刚好是从next[j]位开始重新匹配；next[j]在j-1处产生。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void getnxt(char *t,int *f)&#123; //字符串长度至少为1，求nxt数组</span><br><span class="line">	int i,j,len=strlen(t);</span><br><span class="line">	f[0]=f[1]=0;</span><br><span class="line">	for (i=1; i&lt;len; i++)&#123;</span><br><span class="line">		j=f[i];</span><br><span class="line">		while (j &amp;&amp; t[i]!=t[j]) j=f[j];</span><br><span class="line">		f[i+1]= t[i]==t[j] ? j+1 : 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int kmp(char *s,char *t,int *f)&#123; //这里肯定是O(n+m)的</span><br><span class="line">	int i,j,tem,n=strlen(s),m=strlen(t);</span><br><span class="line">	getnxt(t,f);</span><br><span class="line">	for (i=j=0; i&lt;n; i++)&#123;</span><br><span class="line">		while (j &amp;&amp; s[i]!=t[j]) j=f[j];</span><br><span class="line">		if (s[i]==t[j]) j++;</span><br><span class="line">		if (j==m) return i-m+1;</span><br><span class="line">		//if (j==m) num++,j=f[j]; //若统计有多少个</span><br><span class="line">	&#125;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>时间复杂度分析：在kmp函数中，每一次while 循环$j$的值都会减小（至少为1），然而每一次j++都伴随一次i++，所以总的复杂度是O(n)。在getnxt函数中过程类似。</p>
 </blockquote>
@@ -614,7 +616,7 @@
 <h2 id="网络流算法"><a href="#网络流算法" class="headerlink" title="网络流算法"></a>网络流算法</h2><h3 id="最大流算法"><a href="#最大流算法" class="headerlink" title="最大流算法"></a>最大流算法</h3><p>在优化理论中,最大流问题涉及到在一个单源点、单汇点的网络流中找到一条最大的流。</p>
 <p><img src="/images/IntroductionToAlgorithm/maximum-flow-problem.png" alt="Maximum_flow_problem"></p>
 <h4 id="经典算法"><a href="#经典算法" class="headerlink" title="经典算法"></a>经典算法</h4><p>核心是将一条边的单向残留容量的减少看做反向残留流量的增加，然后每次寻找增广路径（就是新的流量），直到无法找到增广路径为止。</p>
-<p><img src="/images/IntroductionToAlgorithm/残留网络.png" alt="残留网络"></p>
+<p><img src="/images/IntroductionToAlgorithm/%E6%AE%8B%E7%95%99%E7%BD%91%E7%BB%9C.png" alt="残留网络"></p>
 <ul>
 <li>Edmonds–Karp算法：使用广度优先搜索寻找增广路径。</li>
 <li>Dinic算法</li>
@@ -640,7 +642,8 @@
 </ul>
 <p>解法：用最小费用最大流来解<br>对于每一个格子，我们拆成两个点（因为要限制流量）；每一个格子可以取一次，但是每一个格子是可以走多次的，那么我们在两个点中建两种边：</p>
 <ol>
-<li>费用为权值，流量为１</li>
+<li><p>费用为权值，流量为１</p>
+</li>
 <li><p>费用为0，流量为$\infty$（或$k-1$, $k$都行）</p>
 <p><img src="https://lh3.googleusercontent.com/-ZjQ1MZnRLKo/Wg50x9HRElI/AAAAAAAAHZw/Nm2BrtXMRnEBplAv_ymfoNc_aSQoAzBywCLcBGAs/s0/67607011hafbade7b1dd9%2526690.jpeg" alt="enter image description here" title="67607011hafbade7b1dd9&amp;690.jpeg"></p>
 </li>

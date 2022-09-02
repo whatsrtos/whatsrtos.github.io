@@ -332,7 +332,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,220
+                  1,219
                 </span>
               
 
@@ -391,29 +391,25 @@
 <li><a href="https://www.cnblogs.com/36bian/p/7568015.html" target="_blank" rel="noopener">GFM(GitHub Flavored Markdown)与标准Markdown的语法区别 - 三十六变 - 博客园</a></li>
 </ul>
 <h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><h2 id="0-换行和转义"><a href="#0-换行和转义" class="headerlink" title="(0)换行和转义"></a>(0)换行和转义</h2><p>换行: 文字末尾两个或以上的空格.<br>转义: \</p>
-<h2 id="1-一级-二级题目"><a href="#1-一级-二级题目" class="headerlink" title="(1)一级/二级题目"></a>(1)一级/二级题目</h2><p>一级题目和正文之间用”====”分开<br>如果是二级题目，则用“—-”分开</p>
-<pre><code>题目
-=====
-正文
-</code></pre><h2 id="2-标题"><a href="#2-标题" class="headerlink" title="(2) 标题"></a>(2) 标题</h2><p>Atx-风格的标题在每行的开头使用1－6个#号字符，分别对应标题级别1－6</p>
-<h2 id="3-列表"><a href="#3-列表" class="headerlink" title="(3) 列表"></a>(3) 列表</h2><p>无序列表可使用星号“*”、加号“+”和连字符 “-”</p>
-<pre><code>*   Red
-*   Green
-*   Blue
-</code></pre><p>有序列表用“数字. ”的方式</p>
-<pre><code>1. RED
-2. GREEN
-</code></pre><h2 id="4-代码块"><a href="#4-代码块" class="headerlink" title="(4)代码块"></a>(4)代码块</h2><p>在行内插入一句代码的话，将代码用两个<code>包括起来即可</code>，这是夹杂着<code>一些代码</code>的文字内容。<br>在每行开头，或者段落开头使用<code>&gt;</code>符号也可以引用一个段落，直到遇到空行段落结束。<br>如果是代码块，可以在行首增加Tab，注意除了每行开头都有Tab之外， 每行结束也要有两个及以上空格表示一行结束。 代码块在遇到没有TAB缩进的一行，或者文件末尾时自动结束。<br>除此之外还有使用三个”`”，或者<code> </code>的方式包围代码块：</p>
+<h2 id="1-一级-二级题目"><a href="#1-一级-二级题目" class="headerlink" title="(1)一级/二级题目"></a>(1)一级/二级题目</h2><p>一级题目和正文之间用”====”分开<br>如果是二级题目，则用“—-”分开<br>    题目<br>    =====<br>    正文</p>
+<h2 id="2-标题"><a href="#2-标题" class="headerlink" title="(2) 标题"></a>(2) 标题</h2><p>Atx-风格的标题在每行的开头使用1－6个#号字符，分别对应标题级别1－6</p>
+<h2 id="3-列表"><a href="#3-列表" class="headerlink" title="(3) 列表"></a>(3) 列表</h2><p>无序列表可使用星号“*”、加号“+”和连字符 “-”<br>    *   Red<br>    *   Green<br>    *   Blue<br>有序列表用“数字. ”的方式<br>    1. RED<br>    2. GREEN</p>
+<h2 id="4-代码块"><a href="#4-代码块" class="headerlink" title="(4)代码块"></a>(4)代码块</h2><p>在行内插入一句代码的话，将代码用两个<code>包括起来即可</code>，这是夹杂着<code>一些代码</code>的文字内容。<br>在每行开头，或者段落开头使用<code>&gt;</code>符号也可以引用一个段落，直到遇到空行段落结束。<br>如果是代码块，可以在行首增加Tab，注意除了每行开头都有Tab之外， 每行结束也要有两个及以上空格表示一行结束。 代码块在遇到没有TAB缩进的一行，或者文件末尾时自动结束。<br>除此之外还有使用三个”`”，或者<code> </code>的方式包围代码块：</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bubble_sort</span><span class="params">(<span class="keyword">int</span>* a, <span class="keyword">int</span> size)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    _DEBUG_ENTER(bubble_sort);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;size<span class="number">-1</span>; i++)</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;size-i; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j]&gt;a[j+<span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                swap_array(&amp;a[j],&amp;a[j+<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="5-引用"><a href="#5-引用" class="headerlink" title="(5)引用"></a>(5)引用</h2><p>只需要在行开头增加<code>&gt;</code>符号+空格即可：</p>
 <blockquote>
 <p>这是一行引用的文字</p>
 </blockquote>
 <p>引用结束前要有包括两个以上空格的“空行”作为引用结束的标记。</p>
-<h2 id="6-强调"><a href="#6-强调" class="headerlink" title="(6)强调"></a>(6)强调</h2><p>Markdown 使用星号（<code>*</code>）和底线（<code>_</code>）作为标记强调字词的符号，被 <code>*</code> 或 <code>_</code> 包围的字词会被转为粗斜体. 例如:<br><em>强调</em> 或者 _强调_<br><strong>加重强调</strong> 或者 <strong>加重强调</strong></p>
-<h2 id="7-超链接"><a href="#7-超链接" class="headerlink" title="(7)超链接"></a>(7)超链接</h2><p>使用 &lt;&gt; 包括的 URL 或邮箱地址会被自动转换为超链接,例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[微博](http://weibo.com)  效果是这样的：</span><br></pre></td></tr></table></figure></p>
+<h2 id="6-强调"><a href="#6-强调" class="headerlink" title="(6)强调"></a>(6)强调</h2><p>Markdown 使用星号（<code>*</code>）和底线（<code>_</code>）作为标记强调字词的符号，被 <code>*</code> 或 <code>_</code> 包围的字词会被转为粗斜体. 例如:<br><em>强调</em> 或者 <em>强调</em><br><strong>加重强调</strong> 或者 <strong>加重强调</strong></p>
+<h2 id="7-超链接"><a href="#7-超链接" class="headerlink" title="(7)超链接"></a>(7)超链接</h2><p>使用 &lt;&gt; 包括的 URL 或邮箱地址会被自动转换为超链接,例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[微博](http://weibo.com)  效果是这样的：</span><br></pre></td></tr></table></figure>
+
 <p><a href="http://weibo.com" target="_blank" rel="noopener">微博</a></p>
-<h2 id="8-图片"><a href="#8-图片" class="headerlink" title="(8)图片"></a>(8)图片</h2><p>使用！[]来放置图片， 例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![sebug.net](http://ssvq5.sinaapp.com/sv4/img/ssv_logo_3ee2.png &quot;sebug.net&quot;) 效果如下</span><br></pre></td></tr></table></figure></p>
+<h2 id="8-图片"><a href="#8-图片" class="headerlink" title="(8)图片"></a>(8)图片</h2><p>使用！[]来放置图片， 例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![sebug.net](http://ssvq5.sinaapp.com/sv4/img/ssv_logo_3ee2.png &quot;sebug.net&quot;) 效果如下</span><br></pre></td></tr></table></figure>
+
 <p><img src="http://ssvq5.sinaapp.com/sv4/img/ssv_logo_3ee2.png" alt="sebug.net" title="sebug.net"></p>
 <h1 id="Markdown历史"><a href="#Markdown历史" class="headerlink" title="Markdown历史"></a>Markdown历史</h1><p>Markdown是一种轻量级标记语言，创始人为John Gruber。它允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML（或者HTML）文档”。</p>
 <p>自从John Gruber2004年发布Markdown之后，Markdown进入了自由生长的状态，因为创始人John Gruber打自2004年之后就没有更新过Markdown。因为原生Markdown只是一个轻量级的标记语言，很多功能不具备。为了扩充Markdown的功能，很多Markdown拓展语法被开发出来，其中著名的有GFM、PHP Markdown Extra、MultiMarkdown、Pandoc Markdown（PFM）等等:</p>

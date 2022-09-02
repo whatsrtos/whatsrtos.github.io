@@ -330,7 +330,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  799
+                  798
                 </span>
               
 
@@ -377,19 +377,23 @@
 <p>如果your_name正确显示你的ID，则说明成功设置了SSH公钥.</p>
 <h3 id="一台机器上管理多个SSH-Key"><a href="#一台机器上管理多个SSH-Key" class="headerlink" title="一台机器上管理多个SSH Key"></a>一台机器上管理多个SSH Key</h3><p>如果你在一台机器使用两个github账号（比如私人账号和工作账号）, 两个帐号用不同的SSH KEY，还需要编辑一下配置文件~/.ssh/config:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Host code.company.com</span><br><span class="line">    HostName code.company.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/key_for_company</span><br><span class="line"></span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/key_for_github</span><br></pre></td></tr></table></figure>
+
 <p>解释此配置文件：</p>
 <ul>
-<li>HostName：比如我工作的git仓储地址是<a href="mailto:`git@code.company.com" target="_blank" rel="noopener">`git@code.company.com</a>:username/repo_name.git<code>, 那么我的HostName就要填</code>code.company.com`;</li>
+<li>HostName：比如我工作的git仓储地址是<code>git@code.company.com:username/repo_name.git</code>, 那么我的HostName就要填<code>code.company.com</code>;</li>
 <li>IdentityFile： 所使用的公钥文件;</li>
 </ul>
 <p>配置完毕，用下面的命令测试一下：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -vT git@github.com</span><br><span class="line">Hi xyz! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure>
+
 <p>注： @符号后面的”github.com”就是在~/.ssh/config文件中指定的<code>Host</code>项</p>
 <h4 id="1-为已经clone下来的repos指定ssh-key："><a href="#1-为已经clone下来的repos指定ssh-key：" class="headerlink" title="(1) 为已经clone下来的repos指定ssh-key："></a>(1) 为已经clone下来的repos指定ssh-key：</h4><p>在已经检出的repos目录下执行:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config user.name your_name &amp;&amp; git config user.email your_email</span><br></pre></td></tr></table></figure>
+
 <p>上面<code>git config</code>只对该项目生效</p>
 <p>修改.git/config并找到<code>[remote &quot;origin&quot;]</code>,修改<code>url</code>的值为：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">    url = git@github.com:&lt;user_name&gt;/&lt;repos_name&gt;.git</span><br></pre></td></tr></table></figure>
+
 <h4 id="2-使用指定ssh-key-重新clone一个reop"><a href="#2-使用指定ssh-key-重新clone一个reop" class="headerlink" title="(2) 使用指定ssh-key 重新clone一个reop:"></a>(2) 使用指定ssh-key 重新clone一个reop:</h4><ol>
 <li>使用指定账号clone:<br>执行<code>git clone git@github.com:user_name/repos_name.git</code></li>
 </ol>
@@ -400,6 +404,7 @@
 <li>然后还需要config一下user.name和user.email, 进入本地git仓库目录执行:</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config user.name your_name &amp;&amp; git config user.email your_email</span><br></pre></td></tr></table></figure>
+
 <p>以后在此repos下执行<code>git push origin master</code>就是使用指定的用户push.</p>
 <hr>
 <h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><p><a href="http://code.tutsplus.com/tutorials/quick-tip-how-to-work-with-github-and-multiple-accounts--net-22574" target="_blank" rel="noopener">《Quick Tip: How to Work with GitHub and Multiple Accounts》</a><br><a href="https://gist.github.com/jexchan/2351996" target="_blank" rel="noopener">《Multiple SSH Keys settings for different github account》</a><br><a href="http://www.cnblogs.com/mackxu/p/ssh-keygen.html" target="_blank" rel="noopener">《多个github帐号的SSH key切换》</a><br><a href="https://help.github.com/articles/generating-ssh-keys" target="_blank" rel="noopener">《GitHub: Generating SSH Keys》</a></p>

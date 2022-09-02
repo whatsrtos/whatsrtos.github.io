@@ -379,14 +379,17 @@
 <h2 id="英雄留步"><a href="#英雄留步" class="headerlink" title="英雄留步"></a>英雄留步</h2><p>关于Xcode, 不做iOS开发也要安装, Xcode作用相当于Windows上的.NET Framework, 直接在App Store上安装即可, 下载时间很长, 可以先睡一会, 醒来就装好了.</p>
 <p>安装完Xcode后, 命令行执行:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">xcode-select --install  # 安装 Command Line Tools</span><br><span class="line">sudo xcodebuild -license accept  # 同意协议, 不用再打开一次 Xcode了</span><br></pre></td></tr></table></figure>
+
 <h2 id="Homebrew-amp-cask"><a href="#Homebrew-amp-cask" class="headerlink" title="Homebrew &amp; cask"></a>Homebrew &amp; cask</h2><ul>
 <li>Homebrew 官网: <a href="http://brew.sh/" target="_blank" rel="noopener">http://brew.sh/</a> , 安装方式:</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>Homebrew-cask 官网: <a href="https://caskroom.github.io/" target="_blank" rel="noopener">https://caskroom.github.io/</a> , 安装方式:</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">brew tap caskroom/cask</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>brew 和 brew cask 的区别:</p>
 <blockquote>
@@ -402,10 +405,14 @@
 </blockquote>
 <p>替换为 USTC 镜像：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &quot;$(brew --repo)&quot;/Library/Taps/caskroom/homebrew-cask</span><br><span class="line">git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git</span><br></pre></td></tr></table></figure>
+
 <p>重置为官方地址：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &quot;$(brew --repo)&quot;/Library/Taps/caskroom/homebrew-cask</span><br><span class="line">git remote set-url origin https://github.com/caskroom/homebrew-cask</span><br></pre></td></tr></table></figure>
+
 <h3 id="Homebrew常用命令"><a href="#Homebrew常用命令" class="headerlink" title="Homebrew常用命令"></a>Homebrew常用命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install xxx   # 按名称安装</span><br><span class="line">brew uninstall xxx # 按名称卸载</span><br><span class="line">brew list          # 列出已安装的包</span><br><span class="line">brew outdated      # 列出可更新的包</span><br><span class="line">brew update        # 更新Homebrew自身</span><br><span class="line">brew upgrade xxx   # 升级某个软件包</span><br><span class="line">brew upgrade       # 升级全部软件包</span><br><span class="line">brew pin/unpin xxx # 锁定或者解锁软件包版本，防止误升级</span><br><span class="line">brew search xxx    # 按名称搜索</span><br><span class="line">brew info xxx      # 查看包信息</span><br><span class="line">brew doctor        # 诊断关于Homebrew的问题(Homebrew 有问题时请用它)</span><br><span class="line">brew cleanup       # 清理老版本软件包或者无用的文件</span><br><span class="line"></span><br><span class="line"># 第三方Repositories相关:</span><br><span class="line">brew tap              # 列出所有安装的第三方Repositories</span><br><span class="line">brew tap &lt;user/repo&gt;  # 安装第三方Repositories</span><br></pre></td></tr></table></figure>
+
 <h3 id="Homebrew-Cask常用命令"><a href="#Homebrew-Cask常用命令" class="headerlink" title="Homebrew-Cask常用命令"></a>Homebrew-Cask常用命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注: 不再支持 brew cask xx命令, 改为: brew xx --cask</span><br><span class="line"></span><br><span class="line">brew cask install xxx   # 安装软件</span><br><span class="line">brew cask uninstall xxx # 卸载软件</span><br><span class="line">brew cask search xxx    # 模糊搜索软件</span><br><span class="line">brew cask info xxx      # 显示软件的详细信息</span><br><span class="line">brew cask list          # 列出所有已安装的软件</span><br><span class="line">brew cask upgrade       # 更新所有已安装的软件</span><br></pre></td></tr></table></figure>
+
 <h3 id="安装统计"><a href="#安装统计" class="headerlink" title="安装统计"></a>安装统计</h3><p>在<a href="https://brew.sh/analytics/install/" target="_blank" rel="noopener">Homebrew Analytics Install Events — Homebrew</a>可以看到被安装的app排名</p>
 <p>使用命令<code>brew analytics off</code>来退出 Homebrew 的分析。</p>
 <h2 id="Zsh-和终端替代品iTerm2"><a href="#Zsh-和终端替代品iTerm2" class="headerlink" title="Zsh 和终端替代品iTerm2"></a>Zsh 和终端替代品iTerm2</h2><ul>
@@ -419,6 +426,7 @@
 </li>
 <li><p>补充, 如果使用了Oh-my-zsh就不用上面这么麻烦了, 直接在~/.zshrc里这样enable插件:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">plugins=(git autojump osx mvn gradle zsh-syntax-highlighting zsh-autosuggestions)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="编辑器-Vim-amp-Sublime"><a href="#编辑器-Vim-amp-Sublime" class="headerlink" title="编辑器(Vim &amp; Sublime)"></a>编辑器(Vim &amp; Sublime)</h2><ul>
@@ -426,22 +434,30 @@
 <li>Sublime text: <code>brew cask install sublime-text</code></li>
 </ul>
 <h2 id="java环境"><a href="#java环境" class="headerlink" title="java环境"></a>java环境</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew tap caskroom/versions</span><br><span class="line">brew cask install java8</span><br></pre></td></tr></table></figure>
-<p>或者直接在Oracle官网下载, 并在.bashrc（如果你用的zsh，则是.zshrc）添加<code>$JAVA_HOME</code>环境变量：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br></pre></td></tr></table></figure></p>
+
+<p>或者直接在Oracle官网下载, 并在.bashrc（如果你用的zsh，则是.zshrc）添加<code>$JAVA_HOME</code>环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br></pre></td></tr></table></figure>
+
 <h3 id="Mac上Java的安装目录"><a href="#Mac上Java的安装目录" class="headerlink" title="Mac上Java的安装目录"></a>Mac上Java的安装目录</h3><p>在终端输入<code>which java</code>, 返回的是: “/usr/bin/java” ,<br>/usr/bin/java 是个链接, 指向: “/System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands/java” ,<br>但是我输入<code>echo $JAVA_HOME</code>, 返回”/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home” ,<br>那么 <strong>/System/Library/Frameworks/JavaVM.framework/</strong> 和 <strong>/Library/Java/JavaVirtualMachines</strong> 哪个才是真正的Java安装目录?</p>
 <p><img src="/images/Java_home-20190404-005514.png" alt=""></p>
 <p>答案是后者, 我发现 “/System/Library/Frameworks/JavaVM.framework/Versions/Current/Commands/“ 下所有的可执行文件大小都是完全相同的,<br>该目录中的二进制文件是确定要使用哪个Java VM的存根应用程序, 可以使用<code>dtrace</code>查看<code>java -version</code>命令调用的全过程:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo dtrace -n 'syscall::posix_spawn:entry &#123; trace(copyinstr(arg1)); &#125;' -c "/usr/bin/java -version"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回如下:</span></span><br><span class="line">dtrace: description 'syscall::posix_spawn:entry ' matched 1 probe</span><br><span class="line">dtrace: pid 44727 has exited</span><br><span class="line">CPU     ID                    FUNCTION:NAME</span><br><span class="line">  8    619                posix_spawn:entry   /System/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/bin/java</span><br></pre></td></tr></table></figure>
+
 <h3 id="多版本Java共存"><a href="#多版本Java共存" class="headerlink" title="多版本Java共存"></a>多版本Java共存</h3><p>管理多版本Java的工具: <a href="http://www.jenv.be/" target="_blank" rel="noopener">jEnv</a></p>
 <p>安装 &amp; 配置:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装 jenv</span></span><br><span class="line">brew install jenv</span><br><span class="line">mkdir -p ~/.jenv</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加到你的 shell profile文件:</span></span><br><span class="line">echo 'eval "$(jenv init -)"' &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
+
 <p>添加 jdk:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> jenv add 会在 ~/.jenv/versions 下建立对应 jdk的软链</span></span><br><span class="line">jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home</span><br><span class="line">jenv add /Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home</span><br></pre></td></tr></table></figure>
+
 <p>How to Use:</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 列出所有的 jdk</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> jenv versions</span></span><br><span class="line">  system</span><br><span class="line">  openjdk12.0.2</span><br><span class="line">  oraclejdk1.8.0_172</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用jdk 12(全局生效)</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> jenv global openjdk12.0.2</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用jdk 12(当前shell生效)</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> jenv shell openjdk12.0.2</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>jenv 在我的MBP上一直有问题, <code>jenv global</code>无效, 港真我还是觉得自己手动修改 <code>$JAVA_HOME</code> 的方式比较好</p>
 </blockquote>
 <h2 id="python环境"><a href="#python环境" class="headerlink" title="python环境"></a>python环境</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install python ## will install python &amp; pip</span><br></pre></td></tr></table></figure>
+
 <p>由于 macOS 10.13已经预安装了Python 2.7.10, 上面的命令会安装Python3 到<code>/usr/local/Cellar/python/Version</code>并在<code>/usr/local/bin/</code>创建链接:<br>python3, pip3, easy_install-3.6</p>
 <p>对于用系统默认easy_install安装的包, 会放在<code>/Library/Python/2.7/site-packages</code>, 所以需要sudo:<br><code>sudo easy_install tornado</code></p>
 <p>如果不喜欢sudo, 则可以用pip仅在当前用户下安装, 尤其对于需要升级系统自带的package时:<br><code>pip install --user --upgrade matplotlib</code></p>
@@ -449,9 +465,12 @@
 <p>easy_install和pip<br>两者都是 setuptools 基础上的工具，pip 比 easy_install 提供更多高级选项, 比如uninstall, freeze</p>
 </blockquote>
 <h2 id="php环境"><a href="#php环境" class="headerlink" title="php环境"></a>php环境</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew tap homebrew/php</span><br><span class="line">brew install php70</span><br><span class="line">brew install mcrypt php70-mcrypt</span><br><span class="line">brew install composer</span><br></pre></td></tr></table></figure>
+
 <p>Add PATH:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export PATH=&quot;$(brew --prefix homebrew/php/php70)/bin:$PATH&quot;</span><br></pre></td></tr></table></figure>
+
 <h2 id="node环境"><a href="#node环境" class="headerlink" title="node环境"></a>node环境</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew install node ## will install node &amp; npm</span><br></pre></td></tr></table></figure>
+
 <h2 id="其他工具"><a href="#其他工具" class="headerlink" title="其他工具"></a>其他工具</h2><ul>
 <li>常用开发套件:<br><code>brew install ctags cscope wget watch tmux cmake openssl geoip automake autoconf</code></li>
 <li>虚拟机: <code>brew cask install virtualbox</code></li>
@@ -463,8 +482,12 @@
 </ul>
 <h2 id="cURL"><a href="#cURL" class="headerlink" title="cURL"></a>cURL</h2><p>macOS 中 Curl 的版本针对 SSL/TLS 验证使用安全传输。<br>如果你更愿意使用 OpenSSL，用 <code>brew install curl --with-openssl</code> 安装并通过 <code>brew link --force curl</code> 确保它是默认的。</p>
 <h2 id="JupyterLab"><a href="#JupyterLab" class="headerlink" title="JupyterLab"></a>JupyterLab</h2><p>需要python3、pip3</p>
-<p>安装:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install jupyterlab</span><br><span class="line">pip install notebook</span><br></pre></td></tr></table></figure></p>
-<p>启动:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jupyter lab # 或</span><br><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure></p>
+<p>安装:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install jupyterlab</span><br><span class="line">pip install notebook</span><br></pre></td></tr></table></figure>
+
+<p>启动:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">jupyter lab # 或</span><br><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure>
+
 <p>入门:<br><a href="https://www.dataquest.io/blog/jupyter-notebook-tutorial/" target="_blank" rel="noopener">https://www.dataquest.io/blog/jupyter-notebook-tutorial/</a></p>
 <h1 id="系统设置"><a href="#系统设置" class="headerlink" title="系统设置"></a>系统设置</h1><h2 id="Launchpad"><a href="#Launchpad" class="headerlink" title="Launchpad"></a>Launchpad</h2><p><img src="/images/mac-os-x-launchpad.jpg" alt=""></p>
 <p>重置 Launchpad 图标数据库：在 Terminal 中键入<br><code>defaults write com.apple.dock ResetLaunchPad -bool true &amp;&amp; killall Dock</code></p>
@@ -480,23 +503,33 @@
 <h2 id="Spotlight"><a href="#Spotlight" class="headerlink" title="Spotlight"></a>Spotlight</h2><p>@TODO</p>
 <h2 id="WIFI"><a href="#WIFI" class="headerlink" title="WIFI"></a>WIFI</h2><p>重启airportd:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#/bin/bash</span><br><span class="line">airportd_pid=`ps -ef | grep airportd | grep -v grep | awk &apos;&#123;print $2&#125;&apos;`; echo $&#123;airportd_pid&#125;; sudo kill -9 $&#123;airportd_pid&#125;;</span><br></pre></td></tr></table></figure>
+
 <h2 id="DNS-缓存"><a href="#DNS-缓存" class="headerlink" title="DNS 缓存"></a>DNS 缓存</h2><p>如何清理DNS缓存:</p>
-<p>如果操作系统是Lion、Mountain Lion和Mavericks+：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo killall -HUP mDNSResponder</span><br></pre></td></tr></table></figure></p>
-<p>如果操作系统是Leopard和Snow Leopard：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo dscacheutil -flushcache</span><br></pre></td></tr></table></figure></p>
+<p>如果操作系统是Lion、Mountain Lion和Mavericks+：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo killall -HUP mDNSResponder</span><br></pre></td></tr></table></figure>
+
+<p>如果操作系统是Leopard和Snow Leopard：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo dscacheutil -flushcache</span><br></pre></td></tr></table></figure>
+
 <h2 id="定时任务-launchd"><a href="#定时任务-launchd" class="headerlink" title="定时任务(launchd)"></a>定时任务(launchd)</h2><blockquote>
 <p>launchctl 是一个统一的服务管理框架，可以启动、停止和管理进程、应用程序、脚本等。<br>参考: <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html" target="_blank" rel="noopener">Creating Launch Daemons and Agents</a></p>
 </blockquote>
 <ul>
-<li>创建可执行脚本 task.sh</li>
-<li>在 ~/Library/LaunchAgents 目录下创建 plist文件: <code>touch ~/Library/LaunchAgents/com.myMac.cron.task.plist</code></li>
+<li><p>创建可执行脚本 task.sh</p>
+</li>
+<li><p>在 ~/Library/LaunchAgents 目录下创建 plist文件: <code>touch ~/Library/LaunchAgents/com.myMac.cron.task.plist</code></p>
+</li>
 <li><p>编辑 plist 文件如下:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span><br><span class="line">&lt;plist version=&quot;1.0&quot;&gt;</span><br><span class="line">  &lt;dict&gt;</span><br><span class="line">    &lt;!-- 唯一plist名字 --&gt;</span><br><span class="line">    &lt;key&gt;Label&lt;/key&gt;</span><br><span class="line">    &lt;string&gt;com.myMac.cron.task&lt;/string&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 可执行命令， 第一个为命令，其它为参数 --&gt;</span><br><span class="line">    &lt;key&gt;ProgramArguments&lt;/key&gt;</span><br><span class="line">    &lt;array&gt;</span><br><span class="line">      &lt;string&gt;/Users/xxx/Scripts/task.sh&lt;/string&gt;</span><br><span class="line">    &lt;/array&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 定时执行 这里的例子每天22点 --&gt;</span><br><span class="line">    &lt;key&gt;StartCalendarInterval&lt;/key&gt;</span><br><span class="line">    &lt;dict&gt;</span><br><span class="line">      &lt;key&gt;Minute&lt;/key&gt;</span><br><span class="line">      &lt;integer&gt;0&lt;/integer&gt;</span><br><span class="line">      &lt;key&gt;Hour&lt;/key&gt;</span><br><span class="line">      &lt;integer&gt;22&lt;/integer&gt;</span><br><span class="line">      &lt;key&gt;Weekday&lt;/key&gt;</span><br><span class="line">      &lt;integer&gt;0&lt;/integer&gt;</span><br><span class="line">    &lt;/dict&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 标准输出和错误输出 --&gt;</span><br><span class="line">    &lt;key&gt;StandardOutPath&lt;/key&gt;</span><br><span class="line">    &lt;string&gt;/tmp/cron-task.log&lt;/string&gt;</span><br><span class="line">    &lt;key&gt;StandardErrorPath&lt;/key&gt;</span><br><span class="line">    &lt;string&gt;/tmp/cron-task.log&lt;/string&gt;</span><br><span class="line">  &lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>加载到系统: <code>launchctl load com.myMac.cron.task.plist</code>;</p>
 </li>
-<li>如果查看所有载入的: <code>launchctl list</code>;</li>
-<li>如果需要移除: <code>launchctl unload com.myMac.cron.task.plist</code>;</li>
-<li><code>StartCalendarInterval</code>项的解释:<ul>
+<li><p>如果查看所有载入的: <code>launchctl list</code>;</p>
+</li>
+<li><p>如果需要移除: <code>launchctl unload com.myMac.cron.task.plist</code>;</p>
+</li>
+<li><p><code>StartCalendarInterval</code>项的解释:</p>
+<ul>
 <li><code>&lt;key&gt;Hour&lt;/key&gt;</code>: Hour of the day (0-24).</li>
 <li><code>&lt;key&gt;Weekday&lt;/key&gt;</code>: Weekday is the day of the week (0 and 7 == Sunday).</li>
 <li><code>&lt;key&gt;Day&lt;/key&gt;</code>: Day is the day of the month.</li>
@@ -517,6 +550,7 @@
 <p>设置字体 次像素抗锯齿 级别 (类似 Linux 的 hintstyle 微调样式) 的命令： <code>defaults -currentHost write -globalDomain AppleFontSmoothing -int 3</code></p>
 <p>查看设置后的选项值：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ defaults read -g CGFontRenderingFontSmoothingDisabled</span><br><span class="line">0</span><br><span class="line"></span><br><span class="line">$ defaults -currentHost read -globalDomain AppleFontSmoothing</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
 <p>参考: <a href="https://lvii.github.io/system/2018-09-26-setting-macos-mojave-font-rendering-from-grayscale-to-subpixel-antialiasing/" target="_blank" rel="noopener">macOS Mojave 字体渲染由默认的灰度抗锯齿改回之前的次像素抗锯齿</a></p>
 <h1 id="macOS-Catalina-10-15"><a href="#macOS-Catalina-10-15" class="headerlink" title="macOS Catalina(10.15)"></a>macOS Catalina(10.15)</h1><p>升级到 10.15后要做的:</p>
 <ul>

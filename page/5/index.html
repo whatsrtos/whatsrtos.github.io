@@ -503,7 +503,7 @@
 
       
         
-          <p><img src="/images/Arch-DB-MySQL/Database-MySQL-Title.png" alt=""></p>
+          <p><img src="/images/Arch-DB-MySQL/Database-MySQL-Title.png" alt></p>
 <h1 id="MySQL基础"><a href="#MySQL基础" class="headerlink" title="MySQL基础"></a>MySQL基础</h1><p>参考:《深入浅出MySQL》</p>
 <h2 id="SCHEMA"><a href="#SCHEMA" class="headerlink" title="SCHEMA"></a>SCHEMA</h2><p><strong>schema</strong> 为数据库对象的集合，schema里面包含了各种对象如tables, views, sequences, 可以视作”数据库”, <code>show database</code>可以看到schema.<br>不同数据库产品的schema概念是不同的:</p>
           <!--noindex-->
@@ -1035,7 +1035,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6,997
+                  6,995
                 </span>
               
 
@@ -1062,7 +1062,7 @@
       
         
           <p> <a href="https://book.douban.com/subject/26999243/" target="_blank" rel="noopener">《亿级流量网站架构核心技术》</a> - 读书笔记</p>
-<p><img src="/images/Arch-架构-System-Design/亿级流量网站架构核心技术.png" alt=""></p>
+<p><img src="/images/Arch-%E6%9E%B6%E6%9E%84-System-Design/%E4%BA%BF%E7%BA%A7%E6%B5%81%E9%87%8F%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF.png" alt></p>
 <h1 id="一些概念和测试基准"><a href="#一些概念和测试基准" class="headerlink" title="一些概念和测试基准"></a>一些概念和测试基准</h1><p>本章内容包括: 系统可用性的概念和指标, 系统性能的概念和指标, 如何严谨地做性能测试.</p>
 <h2 id="系统可用性的概念和指标"><a href="#系统可用性的概念和指标" class="headerlink" title="系统可用性的概念和指标"></a>系统可用性的概念和指标</h2>
           <!--noindex-->
@@ -1198,6 +1198,7 @@
       
         
           <h1 id="Zookeeper"><a href="#Zookeeper" class="headerlink" title="Zookeeper"></a>Zookeeper</h1><h1 id="zookeeper命令"><a href="#zookeeper命令" class="headerlink" title="zookeeper命令"></a>zookeeper命令</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 连接 zk Server:</span></span><br><span class="line">bin/zkCli.sh -server 127.0.0.1:2181</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"></span></span><br><span class="line">ls /</span><br><span class="line">create /zk myData # 创建节点/zk, 对应值为myData</span><br><span class="line">set /zk "xxx"</span><br><span class="line">get /zk</span><br><span class="line">ls /cmt5/prod/config # 类似目录操作</span><br></pre></td></tr></table></figure>
+
 <p>或者使用socket:</p>
 <ul>
 <li>echo stat|nc 127.0.0.1 2181 查看哪个节点被选择作为follower或者leader</li>

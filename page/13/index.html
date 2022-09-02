@@ -466,7 +466,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  799
+                  798
                 </span>
               
 
@@ -914,7 +914,7 @@
           <p>半年前败了一个树莓派，因为工作很忙所以没时间折腾一下。<br>最近换工作，确认了offer，赋闲在家，也终于有空摆弄一下树莓派。</p>
 <h1 id="（一）启用SSH"><a href="#（一）启用SSH" class="headerlink" title="（一）启用SSH"></a>（一）启用SSH</h1><p>我的环境为：Thinkpad（Fedora）， TP-Link无线路由，树莓派（debian）一只。<br>树莓派通过网线连接到无线路由器和电脑处于同一网段，没有显示器的情况下如何确定树莓派的IP呢？ 这时候nmap登场：</p>
 <p><code>nmap -v -sP 192.168.1.1/10</code>稍等片刻，然后可以看到Raspberry Pi的设备。</p>
-<p>或者用手机上的一款应用<a href="https://play.google.com/store/apps/details?id=com.overlook.android.fing&amp;hl=zh_CN" target="_blank" rel="noopener">Fing</a>也可以扫描本网段的端口。</p>
+<p>或者用手机上的一款应用<a href="https://play.google.com/store/apps/details?id=com.overlook.android.fing&hl=zh_CN" target="_blank" rel="noopener">Fing</a>也可以扫描本网段的端口。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/farbox_archive/[Raspberry] 树莓派手动玩/#more" rel="contents">
@@ -1049,8 +1049,8 @@
         
           <p>推荐先阅读一下在线版本<em>Git简明指南</em>  <a href="http://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="noopener">http://rogerdudler.github.io/git-guide/index.zh.html</a></p>
 <p>如果你的一台电脑上管理多个Github帐号的SSH Keys，请参照<a href="http://geeksafari.farbox.com/post/tools/sshxie-yi-de-ying-yong" target="_blank" rel="noopener">SSH协议的应用 &amp;为Github配置SSH Key</a></p>
-<p>Git工作流的概念<br>你的本地仓库由 git 维护的三棵“树”组成。<br>第一个是你的 工作目录，它持有实际文件；<br>第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；<br>最后是 HEAD，它指向你最后一次提交的结果。<br>盗用一下别人的图:<br><img src="http://rogerdudler.github.io/git-guide/img/trees.png" alt=""></p>
-<h2 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1.新建仓库"></a>1.新建仓库</h2><p>首先在github上创建一个新的repository，然后<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/repos_name/</span><br><span class="line">$ touch README.md</span><br><span class="line">$ git init</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"first commit"</span></span><br><span class="line">$ git remote add origin https://github.com/username/repos_name.git</span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure></p>
+<p>Git工作流的概念<br>你的本地仓库由 git 维护的三棵“树”组成。<br>第一个是你的 工作目录，它持有实际文件；<br>第二个是 暂存区（Index），它像个缓存区域，临时保存你的改动；<br>最后是 HEAD，它指向你最后一次提交的结果。<br>盗用一下别人的图:<br><img src="http://rogerdudler.github.io/git-guide/img/trees.png" alt></p>
+<h2 id="1-新建仓库"><a href="#1-新建仓库" class="headerlink" title="1.新建仓库"></a>1.新建仓库</h2><p>首先在github上创建一个新的repository，然后</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/farbox_archive/[版本控制] Git简易使用指北/#more" rel="contents">
@@ -1297,7 +1297,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,220
+                  1,219
                 </span>
               
 
@@ -1491,6 +1491,7 @@
         
           <p>C语言里面的陷阱非常多, 多到写了几年C之后还是会不断的踩, 首先, 本文没多少原创内容, 大部分都来自笔记整理.<br>我们先看几个有关Printf函数的坑：</p>
 <h1 id="坑-Printf（一）"><a href="#坑-Printf（一）" class="headerlink" title="坑: Printf（一）"></a>坑: Printf（一）</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 下面一段代码的打印是什么？</span></span><br><span class="line">   <span class="keyword">int64_t</span> a = <span class="number">1</span>;</span><br><span class="line">   <span class="keyword">int</span> b = <span class="number">2</span>;</span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%d %d"</span>,a,b);</span><br></pre></td></tr></table></figure>
+
 <p>运行一下这段代码, 发现打印出来的结果并不是期望的“1 2”, 而是“1 0”, why？<br>这就涉及到 printf 的设计了, printf的第一个参数是字符串, 上面代码中第一个参数是“%d %d”, printf会解析每一个%d这样的结构, 然后将指针做偏移, 偏移的字节数与%后面的类型有关, 例如%d是4字节, %lld是8字节, %c是偏移1字节.<br>所以, 在上面代码中printf(“%d, %d\n”, a, b)实际两个%d分别取得是 a 的低4字节和高4字节, 从而分别是1和0（测试环境是小端, 所以低地址的是LSB）.</p>
 <h2 id="参考-Ref"><a href="#参考-Ref" class="headerlink" title="参考 @Ref"></a>参考 @Ref</h2>
           <!--noindex-->
@@ -1599,7 +1600,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,858
+                  1,862
                 </span>
               
 

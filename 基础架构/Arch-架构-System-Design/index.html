@@ -123,15 +123,15 @@
 <meta property="og:site_name" content="扔掉笔记 ᐛ">
 <meta property="og:description" content="《亿级流量网站架构核心技术》 - 读书笔记  一些概念和测试基准本章内容包括: 系统可用性的概念和指标, 系统性能的概念和指标, 如何严谨地做性能测试. 系统可用性的概念和指标">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-架构-System-Design/亿级流量网站架构核心技术.png">
-<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-架构-System-Design/Arch-HA-Exp.png">
-<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-架构-System-Design/consistent-hash.png">
-<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-架构-System-Design/consistnet-hash-add-node.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-%E6%9E%B6%E6%9E%84-System-Design/%E4%BA%BF%E7%BA%A7%E6%B5%81%E9%87%8F%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-%E6%9E%B6%E6%9E%84-System-Design/Arch-HA-Exp.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-%E6%9E%B6%E6%9E%84-System-Design/consistent-hash.png">
+<meta property="og:image" content="https://whatsrtos.github.io/images/Arch-%E6%9E%B6%E6%9E%84-System-Design/consistnet-hash-add-node.png">
 <meta property="og:updated_time" content="2020-06-26T14:08:31.963Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后端技术：System Design">
 <meta name="twitter:description" content="《亿级流量网站架构核心技术》 - 读书笔记  一些概念和测试基准本章内容包括: 系统可用性的概念和指标, 系统性能的概念和指标, 如何严谨地做性能测试. 系统可用性的概念和指标">
-<meta name="twitter:image" content="https://whatsrtos.github.io/images/Arch-架构-System-Design/亿级流量网站架构核心技术.png">
+<meta name="twitter:image" content="https://whatsrtos.github.io/images/Arch-%E6%9E%B6%E6%9E%84-System-Design/%E4%BA%BF%E7%BA%A7%E6%B5%81%E9%87%8F%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF.png">
 
 
 
@@ -335,7 +335,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  6,997
+                  6,995
                 </span>
               
 
@@ -361,15 +361,15 @@
 
       
         <p> <a href="https://book.douban.com/subject/26999243/" target="_blank" rel="noopener">《亿级流量网站架构核心技术》</a> - 读书笔记</p>
-<p><img src="/images/Arch-架构-System-Design/亿级流量网站架构核心技术.png" alt=""></p>
+<p><img src="/images/Arch-%E6%9E%B6%E6%9E%84-System-Design/%E4%BA%BF%E7%BA%A7%E6%B5%81%E9%87%8F%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF.png" alt=""></p>
 <h1 id="一些概念和测试基准"><a href="#一些概念和测试基准" class="headerlink" title="一些概念和测试基准"></a>一些概念和测试基准</h1><p>本章内容包括: 系统可用性的概念和指标, 系统性能的概念和指标, 如何严谨地做性能测试.</p>
-<h2 id="系统可用性的概念和指标"><a href="#系统可用性的概念和指标" class="headerlink" title="系统可用性的概念和指标"></a>系统可用性的概念和指标</h2><p><strong>高可用性</strong>（high availability，缩写为 HA），IT术语，指系统无中断地执行其功能的能力，代表系统的可用性程度。是进行系统设计时的准则之一。高可用性系统与构成该系统的各个组件相比可以更长时间运行<br>其度量方式，是根据系统损害、无法使用的时间，以及由无法运作恢复到可运作状况的时间，与系统总运作时间的比较。计算公式为:<br><img src="/images/Arch-架构-System-Design/Arch-HA-Exp.png" alt=""><br>A（可用性），MTBF(平均故障间隔)，MDT(平均修复时间)<br>在线系统和执行关键任务的系统通常要求其可用性要达到5个9标准(99.999%)。</p>
+<h2 id="系统可用性的概念和指标"><a href="#系统可用性的概念和指标" class="headerlink" title="系统可用性的概念和指标"></a>系统可用性的概念和指标</h2><p><strong>高可用性</strong>（high availability，缩写为 HA），IT术语，指系统无中断地执行其功能的能力，代表系统的可用性程度。是进行系统设计时的准则之一。高可用性系统与构成该系统的各个组件相比可以更长时间运行<br>其度量方式，是根据系统损害、无法使用的时间，以及由无法运作恢复到可运作状况的时间，与系统总运作时间的比较。计算公式为:<br><img src="/images/Arch-%E6%9E%B6%E6%9E%84-System-Design/Arch-HA-Exp.png" alt=""><br>A（可用性），MTBF(平均故障间隔)，MDT(平均修复时间)<br>在线系统和执行关键任务的系统通常要求其可用性要达到5个9标准(99.999%)。</p>
 <ul>
 <li>3个9：(1-99.9%) x 365 x 24 =8.76小时，表示该软件系统在连续运行1年时间里最多可能的业务中断时间是8.76小时。</li>
 <li>4个9：(1-99.99%) x 365 x 24 =0.876小时=52.6分钟，表示该软件系统在连续运行1年时间里最多可能的业务中断时间是52.6分钟。</li>
 <li>5个9：(1-99.999%) x 365 x 24 x 60 =5.26分钟，表示该软件系统在连续运行1年时间里最多可能的业务中断时间是5.26分钟。</li>
 </ul>
-<p>那么X个9里的X只代表数字3~5，为什么没有1~2，也没有大于6的呢？我们接着往下计算：</p>
+<p>那么X个9里的X只代表数字3<del>5，为什么没有1</del>2，也没有大于6的呢？我们接着往下计算：</p>
 <ul>
 <li>1个9：(1-90%)x365=36.5天</li>
 <li>2个9：(1-99%)x365=3.65天</li>
@@ -449,11 +449,11 @@
 <li>然后采用同样的方法求出存储数据的键的哈希值，并映射到相同的圆上。</li>
 <li>然后从数据映射到的位置开始顺时针查找，将数据保存到找到的第一个服务器上。如果超过2^32仍然找不到服务器，就会保存到第一台memcached服务器上。</li>
 </ol>
-<p><img src="/images/Arch-架构-System-Design/consistent-hash.png" alt="consistent-hash"></p>
+<p><img src="/images/Arch-%E6%9E%B6%E6%9E%84-System-Design/consistent-hash.png" alt="consistent-hash"></p>
 <ol start="4">
 <li>如果增加一个服务器节点, 如下图, 新增 node5 节点, 只有在圆（continuum）上增加服务器的地点逆时针方向的第一台服务器上的键会受到影响</li>
 </ol>
-<p><img src="/images/Arch-架构-System-Design/consistnet-hash-add-node.png" alt="consistnet-hash-add-node"></p>
+<p><img src="/images/Arch-%E6%9E%B6%E6%9E%84-System-Design/consistnet-hash-add-node.png" alt="consistnet-hash-add-node"></p>
 <p>一致性哈希存在的问题: 在服务节点太少时，容易因为节点分部不均匀而造成数据倾斜。<br>解决方式: 虚拟节点</p>
 <h4 id="失败重试机制"><a href="#失败重试机制" class="headerlink" title="失败重试机制"></a>失败重试机制</h4><p>主要针对在Nginx的<code>upstream</code>和<code>proxy_pass</code>进行配置, 作用是实现”多少时间内失败多少次, 则从upstream列表里摘除”</p>
 <h4 id="upstream心跳检查"><a href="#upstream心跳检查" class="headerlink" title="upstream心跳检查"></a>upstream心跳检查</h4><p>失败重试是被动的去摘除upstream无效机器, 心跳检测可以认为是一种主动的检查并摘除无效机器, 主要在<code>upstream</code>的<code>check</code>里, 有http和tcp两种</p>

@@ -370,7 +370,9 @@
 <h1 id="P3P-Cookie"><a href="#P3P-Cookie" class="headerlink" title="P3P Cookie"></a>P3P Cookie</h1><p>假设这样的情况, 访问网页a.com, 网页a通过jsonp或iframe访问了b.com/set-cookie.php, 这个php里会种b.com的cookie.<br>如果b.com/set-cookie.php里没有把response设置P3P头, 那么set-cookie.php种cookie将会不成功(<a href="http://www.lovelucy.info/ie-accept-third-party-cookie.html" target="_blank" rel="noopener">http://www.lovelucy.info/ie-accept-third-party-cookie.html</a>)</p>
 <p>正确的做法, 如果b.com/set-cookie.php是一个(为第三方页面)种cookie的页面, 那么set-cookie.php要增加P3P头:</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">header(<span class="string">'P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"'</span>);</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">response.setHeader(<span class="string">"P3P"</span>,<span class="string">"CP='IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA'"</span>);</span><br></pre></td></tr></table></figure>
+
 <h1 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h1><p>浏览器的同源策略(<a href="https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy</a>)</p>
 <ul>
 <li>a.com/1/xx.html | a.com/2/xx.html 同源</li>
@@ -379,11 +381,16 @@
 </ul>
 <h2 id="资源加载跨域"><a href="#资源加载跨域" class="headerlink" title="资源加载跨域"></a>资源加载跨域</h2><p>原理：所有具有src属性的HTML标签都是可以跨域的<br>限制：需要创建一个DOM对象，只能用于GET方法</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 常用的可以跨域的标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"..."</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"..."</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"..."</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="document-domain-iframe跨域"><a href="#document-domain-iframe跨域" class="headerlink" title="document.domain + iframe跨域"></a>document.domain + iframe跨域</h2><p>这种方式只针对相同主域名不同子域名下的页面才有效,<br>以(<a href="http://a.com/foo.html)和(http://cdn.a.com/bar.html)为例" target="_blank" rel="noopener">http://a.com/foo.html)和(http://cdn.a.com/bar.html)为例</a>:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// URL http://a.com/foo.html</span></span><br><span class="line"><span class="keyword">var</span> ifr = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</span><br><span class="line">ifr.src = <span class="string">'http://cdn.a.com/bar.html'</span>;  <span class="comment">// 这里跨域访问了cdn.a.com/bar</span></span><br><span class="line">ifr.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ifrdoc = ifr.contentDocument || ifr.contentWindow.document;</span><br><span class="line">    ifrdoc.getElementsById(<span class="string">"foo"</span>).innerHTML);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">ifr.style.display = <span class="string">'none'</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(ifr);</span><br></pre></td></tr></table></figure>
-<p>只要在(<a href="http://cdn.a.com/bar.html)里加入声明" target="_blank" rel="noopener">http://cdn.a.com/bar.html)里加入声明</a>:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">document.domain = &apos;a.com&apos; // 往上提了一级域名</span><br></pre></td></tr></table></figure></p>
+
+<p>只要在(<a href="http://cdn.a.com/bar.html)里加入声明" target="_blank" rel="noopener">http://cdn.a.com/bar.html)里加入声明</a>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">document.domain = &apos;a.com&apos; // 往上提了一级域名</span><br></pre></td></tr></table></figure>
+
 <h2 id="ajax使用jsonp跨域"><a href="#ajax使用jsonp跨域" class="headerlink" title="ajax使用jsonp跨域"></a>ajax使用jsonp跨域</h2><p>jsonp 全称是JSON with Padding, 原理是客户端依靠<code>&lt;script src=&quot;...&quot;\&gt;</code>标签的src发起跨域请求, 远端服务器返回给客户端一段js代码, 这段js代码自动调用客户端的函数</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBooks</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            $.ajax(&#123;</span><br><span class="line">                type:<span class="string">'get'</span>,</span><br><span class="line">                url:<span class="string">'http://test.com/bookservice.php'</span>,</span><br><span class="line">                dataType:<span class="string">'jsonp'</span>,</span><br><span class="line">                jsonp:<span class="string">'callback'</span>,</span><br><span class="line">                jsonpCallback:<span class="string">'displayBooks'</span></span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
 <p>参考: <a href="http://www.cnblogs.com/2050/p/3191744.html" target="_blank" rel="noopener">js中几种实用的跨域方法原理详解</a></p>
 <h1 id="HTML简明参考"><a href="#HTML简明参考" class="headerlink" title="HTML简明参考"></a>HTML简明参考</h1><h2 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h2><p>在一个页面上画一个按钮，有四种办法：</p>
 <ul>
@@ -404,7 +411,9 @@
 <li>onload 事件可用于检查访客的浏览器类型和版本，以便基于这些信息来加载不同版本的网页。</li>
 <li>onload 和 onunload 事件可用于处理 cookies。</li>
 </ul>
-<p>下面的例子展示了如何使用 onchange。当用户改变输入字段的内容时，将调用 upperCase() 函数。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; id=&quot;fname&quot; onchange=&quot;upperCase()&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<p>下面的例子展示了如何使用 onchange。当用户改变输入字段的内容时，将调用 upperCase() 函数。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; id=&quot;fname&quot; onchange=&quot;upperCase()&quot;&gt;</span><br></pre></td></tr></table></figure>
+
 <p><code>onmouseover</code> 和 <code>onmouseout</code> 事件可用于在鼠标指针移动到或离开元素时触发函数。</p>
 <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="CSS的「点」和「-」"><a href="#CSS的「点」和「-」" class="headerlink" title="CSS的「点」和「#」"></a>CSS的「点」和「#」</h2><ul>
 <li><p>「点」对应class</p>
