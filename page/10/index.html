@@ -278,6 +278,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/使用fluentd,kafka,mongodb搭建日志处理系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/farbox_archive/使用fluentd,kafka,mongodb搭建日志处理系统/" itemprop="url">使用fluentd,kafka,mongodb搭建日志处理系统</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,811
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>设计实现</h1>
+<ul>
+<li>采集: 可选的有fluentd, td-agent(fluentd的稳定版本, 二者区别), Apache flume.</li>
+<li>消息持久化队列: <a href="http://kafka.apache.org/" target="_blank" rel="noopener">http://kafka.apache.org/</a> (分布式消息队列),
+<ul>
+<li>数据源进行topic分流，实现Category</li>
+<li>作为一层buffer来适配输入输出的消息速率，解除系统耦合度</li>
+<li>作用类似于缓存，即活跃的数据和离线处理系统之间的缓存</li>
+<li>kafka是显式分布式架构，producer、broker（Kafka）和consumer都可以有多个。Kafka的作用类似于缓存，即活跃的数据和离线处理系统之间的缓存。几个基本概念：</li>
+</ul>
+<ol>
+<li>message（消息）是通信的基本单位，每个producer可以向一个topic（主题）发布一些消息。如果consumer订阅了这个主题，那么新发布的消息就会广播给这些consumer。</li>
+<li>Kafka是显式分布式的，多个producer、consumer和broker可以运行在一个大的集群上，作为一个逻辑整体对外提供服务。对于consumer，多个consumer可以组成一个group，这个message只能传输给某个group中的某一个consumer.</li>
+</ol>
+</li>
+<li>存储: mongo</li>
+</ul>
+<h1>Fluentd(td-agent)</h1>
+<p>Fluentd内置三种日志采集, file-tail, tcp, http-url, 通过插件可以支持更多的采集方式.</p>
+<h2 id="Install-fluentd-td-agent-by-RPM">Install fluentd(td-agent) by RPM</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/farbox_archive/使用fluentd,kafka,mongodb搭建日志处理系统/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[IDE]为Eclipse安装Remote System Explorer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1557,170 +1709,6 @@ View -&gt; Show Console, 输入:</p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/farbox_archive/[Raspberry] 在树莓派上安装Samba和FTP服务/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/farbox_archive/[Raspberry] 在树莓派上安装Samba和FTP服务/" itemprop="url">在树莓派上安装Samba和Ftp服务</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  321
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1>Samba</h1>
-<ul>
-<li>
-<p>安装: <code>sudo apt-get install samba samba-common-bin</code></p>
-</li>
-<li>
-<p>修改配置文件: <code>sudo /etc/samba/smb.conf</code>, 修改如下:</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">workgroup = WORKGROUP # !根据实际情况填写&quot;域名&quot;或者&quot;工作组名&quot;</span><br><span class="line"></span><br><span class="line">wins support = yes # !打开对Win支持</span><br><span class="line"></span><br><span class="line">security = user    # !每个samba用户对应linux的用户</span><br><span class="line"></span><br><span class="line"># 找到 Share Definitions 部分, 删除不使用的定义, 并添加:</span><br><span class="line">[pi]</span><br><span class="line">    comment= Raspberry SMB</span><br><span class="line">    path=/home/raspsmb/share</span><br><span class="line">    browseable=Yes</span><br><span class="line">    writeable=Yes</span><br><span class="line">    write list = root,raspsmb</span><br><span class="line">    create mask=0777</span><br><span class="line">    irectory mask=0777</span><br></pre></td></tr></table></figure>
-<ul>
-<li>
-<p>添加用户, 和samba目录:<br>
-<code>sudo useradd raspsmb &amp;&amp; sudo mkdir -p /home/raspsmb/share &amp;&amp; sudo chown -R raspsmb:raspsmb /home/raspsmb/</code><br>
-<code>sudo smbpasswd -a raspsmb</code> 设置samba密码</p>
-</li>
-<li>
-<p>重启samba服务<code>sudo service samba restart</code></p>
-</li>
-<li>
-<p>创建链接: <code>sudo ln -s /home/raspsmb/share /smb</code></p>
-</li>
-<li>
-<p>在Windows上访问: <code>\\ipaddress\pi</code>, &quot;pi&quot;是在配置文件smb.conf中Share Definitions部分定义的<code>[pi]</code>, 用户名是上面创建的&quot;raspsmb&quot;用户. 注意Windows上要保证服务TCP/IP (NetBT) 和Workgroup打卡.</p>
-</li>
-<li>
-<p>参考:<br>
-<a href="http://raspberrywebserver.com/serveradmin/share-your-raspberry-pis-files-and-folders-across-a-network.html" target="_blank" rel="noopener">http://raspberrywebserver.com/serveradmin/share-your-raspberry-pis-files-and-folders-across-a-network.html</a><br>
-<a href="http://www.ttlsa.com/linux/install-samba-on-linux/" target="_blank" rel="noopener">http://www.ttlsa.com/linux/install-samba-on-linux/</a></p>
-</li>
-</ul>
-<h1>FTP</h1>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/farbox_archive/[Raspberry] 在树莓派上安装Samba和FTP服务/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1775,7 +1763,7 @@ View -&gt; Show Console, 输入:</p>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">124</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

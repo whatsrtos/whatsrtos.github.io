@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="数据结构与算法,动态规划,二分查找,优先队列,平衡树,线段树,并查集,BFS,DFS,欧几里得算法,拓扑排序,最小生成树," />
+  <meta name="keywords" content="数据结构与算法,优先队列,平衡树,线段树,并查集,BFS,DFS,二分查找,欧几里得算法,拓扑排序,最小生成树,动态规划," />
 
 
 
@@ -116,7 +116,7 @@
 
 
 <meta name="description" content="基本思想（时空复杂度，规约，枚举，贪心，分治，递推与递归，构造，模拟） 排序（冒泡，选择，插入，归并，堆，快速，桶，基数，希尔，Timsort）（Top K） 经典数据结构（栈，队列，链表，哈希，单调队列，优先队列，平衡树，线段树，并查集） 搜索（BFS，DFS，A*搜索) 基础数学算法（二分查找算法，欧几里得算法，快速幂算法） 图论基础算法（拓扑排序，最小生成树算法，最短路径算法） 动态规划算">
-<meta name="keywords" content="数据结构与算法,动态规划,二分查找,优先队列,平衡树,线段树,并查集,BFS,DFS,欧几里得算法,拓扑排序,最小生成树">
+<meta name="keywords" content="数据结构与算法,优先队列,平衡树,线段树,并查集,BFS,DFS,二分查找,欧几里得算法,拓扑排序,最小生成树,动态规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="影响程序员发展的十类算法（zz）">
 <meta property="og:url" content="https://whatsrtos.github.io/数据结构与算法/IntroductionToAlgorithm/index.html">
@@ -361,7 +361,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5,990
+                  5,987
                 </span>
               
 
@@ -545,7 +545,7 @@ A*算法和DFS、BFS有着较深关系，其中的$g(n)$和$h(n)$作为两个不
 </ul>
 <p>题目：给定$n$个木棍，每个木棍有一个长度（精确到两位小数），需要把他们截成$k$个长度相同的小木棍，求小木棍的最大长度。</p>
 <p>解答：把最大长度的小木棍的值作为二分变量，进行浮点数的二分。</p>
-<p>题目：一条长为L（1~1,000,000,000）的河中，有$n$(1~50,000)块可垫脚的石头，<br>
+<p>题目：一条长为L（1<sub>1,000,000,000）的河中，有$n$(1</sub>50,000)块可垫脚的石头，<br>
 给出它们与起始点的距离$rock[i]$，移除其中的$m$块使得具有最小间距的相邻两块石头之间的距离最大。</p>
 <p>解答：二分最终的结果，用上述整数二分的写法进行处理，每一次判断使用贪心策略，记录每次符合条件的策略，二分最后得到的就是最终的答案。</p>
 <blockquote>
@@ -685,7 +685,7 @@ $$\displaystyle A={\frac {1}{2}}\left({\begin{vmatrix}x_{1}&amp;y_{1}\x_{2}&amp;
 next[j]取决于模式串中T[0 ~ j-1]中前缀和后缀相等部分的长度，并且next[j]恰好等于这个最大长度；此外在j位匹配出错，刚好是从next[j]位开始重新匹配；next[j]在j-1处产生。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void getnxt(char *t,int *f)&#123; //字符串长度至少为1，求nxt数组</span><br><span class="line">	int i,j,len=strlen(t);</span><br><span class="line">	f[0]=f[1]=0;</span><br><span class="line">	for (i=1; i&lt;len; i++)&#123;</span><br><span class="line">		j=f[i];</span><br><span class="line">		while (j &amp;&amp; t[i]!=t[j]) j=f[j];</span><br><span class="line">		f[i+1]= t[i]==t[j] ? j+1 : 0;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int kmp(char *s,char *t,int *f)&#123; //这里肯定是O(n+m)的</span><br><span class="line">	int i,j,tem,n=strlen(s),m=strlen(t);</span><br><span class="line">	getnxt(t,f);</span><br><span class="line">	for (i=j=0; i&lt;n; i++)&#123;</span><br><span class="line">		while (j &amp;&amp; s[i]!=t[j]) j=f[j];</span><br><span class="line">		if (s[i]==t[j]) j++;</span><br><span class="line">		if (j==m) return i-m+1;</span><br><span class="line">		//if (j==m) num++,j=f[j]; //若统计有多少个</span><br><span class="line">	&#125;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>时间复杂度分析：在kmp函数中，每一次while 循环$j$的值都会减小（至少为1），然而每一次j++都伴随一次i++，所以总的复杂度是O(n)。在getnxt函数中过程类似。</p>
+<p>时间复杂度分析：在kmp函数中，每一次while 循环$j$的值都会减小（至少为1），然而每一次j<ins>都伴随一次i</ins>，所以总的复杂度是O(n)。在getnxt函数中过程类似。</p>
 </blockquote>
 <p>题目：找出第一个字符串在第二个字符串中出现次数。</p>
 <p>题目：求既是前缀串儿又是后缀串儿的不同子串的长度，长度从小到大输出。</p>
@@ -777,10 +777,6 @@ AC自动机算法算是比较简单直观的字符串匹配自动机，它其实
           
             <a href="/tags/数据结构与算法/" rel="tag"># 数据结构与算法</a>
           
-            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
-          
-            <a href="/tags/二分查找/" rel="tag"># 二分查找</a>
-          
             <a href="/tags/优先队列/" rel="tag"># 优先队列</a>
           
             <a href="/tags/平衡树/" rel="tag"># 平衡树</a>
@@ -793,11 +789,15 @@ AC自动机算法算是比较简单直观的字符串匹配自动机，它其实
           
             <a href="/tags/DFS/" rel="tag"># DFS</a>
           
+            <a href="/tags/二分查找/" rel="tag"># 二分查找</a>
+          
             <a href="/tags/欧几里得算法/" rel="tag"># 欧几里得算法</a>
           
             <a href="/tags/拓扑排序/" rel="tag"># 拓扑排序</a>
           
             <a href="/tags/最小生成树/" rel="tag"># 最小生成树</a>
+          
+            <a href="/tags/动态规划/" rel="tag"># 动态规划</a>
           
         </div>
       
@@ -913,7 +913,7 @@ AC自动机算法算是比较简单直观的字符串匹配自动机，它其实
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">124</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

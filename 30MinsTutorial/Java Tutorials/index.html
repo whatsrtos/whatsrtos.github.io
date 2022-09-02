@@ -104,7 +104,7 @@
 
 
 
-  <meta name="keywords" content="Java,编程语言快速入门,NIO,Java基础,异常,泛型,反射,多线程," />
+  <meta name="keywords" content="编程语言快速入门,Java,NIO,Java基础,异常,泛型,反射,多线程," />
 
 
 
@@ -116,7 +116,7 @@
 
 
 <meta name="description" content="![title](/images/Java Tutorials/Java-Series-Title.png) 数据类型 基本数据类型 Java的基本类型有: char(2字节), byte(1字节), short(2字节), int(4字节), long(8字节), float(4字节), double(8字节), boolean(-), Java没有bit类型, 但可以使用BitSet类代替.">
-<meta name="keywords" content="Java,编程语言快速入门,NIO,Java基础,异常,泛型,反射,多线程">
+<meta name="keywords" content="编程语言快速入门,Java,NIO,Java基础,异常,泛型,反射,多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java Tutorials">
 <meta property="og:url" content="https://whatsrtos.github.io/30MinsTutorial/Java Tutorials/index.html">
@@ -330,7 +330,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  44,014
+                  44,011
                 </span>
               
 
@@ -649,7 +649,7 @@ Java的构造器实际上是一个static函数, 因为在没有实例化之前�
 </blockquote>
 <p>C++中经常会掉入这个陷阱, 虽然它也提出了替代的方法来解决这个问题. 我们在Java中就不会出现这个问题. 就算两个接口拥有同样的方法, 实现的类只会有一个方法, 这个方法由实现的类编写. 动态的加载类会让多重继承的实现变得困难.</p>
 <blockquote>
-<p>因为在C++没有Interface, 在C++中使用&quot;虚拟继承&quot;解决上面的问题:</p>
+<p>因为在C<ins>没有Interface, 在C</ins>中使用&quot;虚拟继承&quot;解决上面的问题:</p>
 </blockquote>
 <ol>
 <li>B和C去虚拟继承A: <code>class B : public virtual A</code> ,</li>
@@ -693,7 +693,7 @@ Java的构造器实际上是一个static函数, 因为在没有实例化之前�
 <ul>
 <li>在Java的继承中, 除了static和final方法(private也是final的)之外, 其他的方法都是<code>运行时绑定</code>的,</li>
 <li>类的属性成员并不在多态的讨论范围内, &quot;多态&quot;仅仅指方法的多态. 比如基类和派生类都有field属性, 那么在派生类实例中, 将包含两个field, 通过<code>基类.field</code>也只能访问基类的field, 因为 <strong>属性没有多态</strong>.</li>
-<li>类的构造方法不具备多态性, 因为类的构造器默认是static属性的, 对比C++的构造也不具备多态性(C++通过虚函数实现), 原因是构造期间尚未生成虚函数表.</li>
+<li>类的构造方法不具备多态性, 因为类的构造器默认是static属性的, 对比C<ins>的构造也不具备多态性(C</ins>通过虚函数实现), 原因是构造期间尚未生成虚函数表.</li>
 <li>在派生类中, 覆写(Override)基类的私有方法不会编译报错, 但不会照期望的执行, 结论就是: 只有非private方法才可以被派生类覆写(Override).</li>
 <li>Override和Overload都可以看成是多态性的表现, 前者是基类和派生类之间的多态, 后者是一个类内部的多态表现. // 疑似C++理论</li>
 </ul>
@@ -935,7 +935,7 @@ int* const ptr; // 指针ptr本身的值无法被修改<br>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// x返回多少? 会打印出什么?</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">testTryCatch</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        out.println(<span class="string">"try"</span>);</span><br><span class="line">        <span class="keyword">return</span> ++x;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        out.println(<span class="string">"finally"</span>);</span><br><span class="line">        ++x;</span><br><span class="line">        <span class="comment">// return ++x; // 如果finally里也有return?</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果<code>try{return}</code>, 但finally没有return语句(比如上面的代码), 仍旧会执行<code>finally</code>块, try中的&quot;返回值&quot;被保存在局部变量中, jsr指令跳到finally块执行, 然后返回之前保存在局部变量的返回值.</li>
-<li>如果上面代码finally也有return, 执行顺序是: try里的++x, finally里的++x, finally里的return</li>
+<li>如果上面代码finally也有return, 执行顺序是: try里的<ins>x, finally里的</ins>x, finally里的return</li>
 <li>如果try和Catch都有return, 返回catch块的return</li>
 <li>如果try和finally块都有return, try中<code>return表达式</code>仍会执行, 但不会返回try块的返回值, 而是执行finally块的return.</li>
 </ul>
@@ -2982,9 +2982,9 @@ Stream类库有两个通用的规约操作<code>reduce()</code>和<code>collect(
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
             <a href="/tags/编程语言快速入门/" rel="tag"># 编程语言快速入门</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
             <a href="/tags/NIO/" rel="tag"># NIO</a>
           
@@ -3112,7 +3112,7 @@ Stream类库有两个通用的规约操作<code>reduce()</code>和<code>collect(
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">124</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

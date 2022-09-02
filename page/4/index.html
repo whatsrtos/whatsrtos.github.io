@@ -278,6 +278,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/30MinsTutorial/C_C++ Tutorials/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="whatsrtos">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/hexo_avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="扔掉笔记 ᐛ">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/30MinsTutorial/C_C++ Tutorials/" itemprop="url">C/C++ Tutorials</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  11,993
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1>—Part 1: ANSI C—</h1>
+<h1>基本数据类型</h1>
+<ul>
+<li>
+<p>C/C++作为一种强类型语言, 一个变量被使用前必须被定义.</p>
+</li>
+<li>
+<p>在32位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(4B) long(4B), float(4B), double(8B), long long(8B);</p>
+</li>
+<li>
+<p>在64位系统中基本类型的长度(字节): char(1B), short(2B), int(4B), 指针(<strong>8B</strong>) long(<strong>8B</strong>), float(4B), double(8B), long long(8B);</p>
+</li>
+<li>
+<p>long 和 int 范围是[-2<sup>31,2</sup>31)，即-2147483648~2147483647。</p>
+</li>
+<li>
+<p>而unsigned范围是[0,2^32)，即0~4294967295。也就是说，常规的32位整数只能够处理40亿以下的数。</p>
+</li>
+<li>
+<p>相比于C<ins>98标准，C</ins>11整型的最大改变就是多了long long。</p>
+</li>
+<li>
+<p>long long整型有两种：long long和unsigned long long。在C++11中，标准要求long long整型可以在不同平台上有不同的长度，但至少有64位。我们在写常数字面量时，可以使用LL后缀（或是ll）标识一个long long类型的字面量，而ULL（或ull、Ull、uLL）表示一个unsigned long long类型的字面量。比如：</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> lli = <span class="number">-9000000000000000000L</span>L;</span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="keyword">int</span> ulli = <span class="number">-9000000000000000000U</span>LL;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>比如对于有符号的，下面的类型是等价的：long long、signed long long、long long int、signed long long int；而unsigned long long和unsigned long long int也是等价的。</p>
+</li>
+<li>
+<p>同其他的整型一样，要了解平台上<code>long long</code>大小的方法就是查看<code>&lt;climits&gt;</code>（或<code>&lt;limits.h&gt;</code>中的宏）。<br>
+与long long整型相关的一共有3个：LLONG_MIN、LLONG_MAX和ULLONG_MIN，它们分别代表了平台上最小的long long值、最大的long long值，以及最大的unsigned long long值。</p>
+  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ll_min = LLONG_MIN;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ll_max = LLONG_MAX;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull_max = ULLONG_MAX;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"min of long long: %lld\n"</span>, ll_min); <span class="comment">// min of long long: -9223372036854775808</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"max of long long: %lld\n"</span>, ll_max); <span class="comment">// max of long long: 9223372036854775807</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"max of unsigned long long: %llu\n"</span>, ull_max);   <span class="comment">// max of unsigned long long: 18446744073709551615</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译选项:g++ -std=c++11 2-2-1.cpp</span></span><br><span class="line"><span class="comment">// 在代码清单中，将以上3个宏打印了出来，对于printf函数来说，</span></span><br><span class="line"><span class="comment">// 输出有符号的long long类型变量可以用符号%lld，</span></span><br><span class="line"><span class="comment">// 无符号的unsigned long long则可以采用%llu。</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>@Ref: <a href="https://blog.csdn.net/dos5gw/article/details/6448048" target="_blank" rel="noopener">结构体对齐, 位域, 柔性数组 - DOS5GW的专栏 - CSDN博客</a></p>
+</blockquote>
+<h2 id="大小端存储">大小端存储</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/30MinsTutorial/C_C++ Tutorials/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/后端架构/Arch-架构-并发系统-C100K/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1543,151 +1713,6 @@ Facebook的消息类应用，包括Messages、Chats、Emails和SMS系统，用�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://whatsrtos.github.io/网络协议/网络协议-TCP_IP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="whatsrtos">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/hexo_avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="扔掉笔记 ᐛ">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/网络协议/网络协议-TCP_IP/" itemprop="url">网络协议：TCP/IP</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  5,952
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1>Part I: TCP</h1>
-<h2 id="OSI七层模型回顾">OSI七层模型回顾</h2>
-<ul>
-<li>7应用层: 该层协议包括 Socket, HTTP, HTTPS, FTP, SSH, POP3,  // WebSocket属于哪一层?</li>
-<li>6表示层: 格式转换, 把数据转换为应用层能兼容的格式 或 适合传输的格式, 比如: 加密/解密, 压缩/解压</li>
-<li>5会话层: 维护和管理数据传输过程中两台计算机之间的连接, 该层协议有: SSL/TLS</li>
-<li>4传输层: 传输控制, 例如TCP协议(传输控制协议, 主要实现了传输的可靠性, 例如超时重传), 该层把「传输表头」TH加入数据形成「报文」Segment, 传输表头包括了传输协议等</li>
-<li>3网络层: 决定数据的路由, 例如IP/ICMP协议, 该层把「网络表头」NH加入数据形成「包」Packet, 网络表头包括: @TODO</li>
-<li>2链路层: 负责网络寻找和错误侦测, 该层把「数据链表头」DLH加入数据开头, 以及「数据链表尾」DLT加入数据结尾, 形成「信息框」Data Frame, 数据链表头包括, 该层协议包括WiFi, GPRS(通用分组无线服务)</li>
-<li>1物理层: 在局部局域网上传送「数据帧」Data Frame, 该层定义了网络硬件和网络数据之间的互通, 包括: 针脚/电压/集线器/网卡等</li>
-</ul>
-<h2 id="TCP报头">TCP报头</h2>
-<p><img src="/images/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE-TCP_IP/tcp_header.jpg" alt="TCP头"></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/网络协议/网络协议-TCP_IP/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1742,7 +1767,7 @@ Facebook的消息类应用，包括Messages、Chats、Emails和SMS系统，用�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">124</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
