@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://whatsrtos.github.io/index/index.html</loc>
+    
+    <lastmod>2022-09-03T11:25:52.074Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whatsrtos.github.io/about/index.html</loc>
+    
+    <lastmod>2022-09-03T11:23:26.518Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://whatsrtos.github.io/%E5%93%B2%E5%AD%A6&%E5%BF%83%E7%90%86%E5%AD%A6/%E3%80%8A%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89%E5%BF%83%E7%90%86%E6%B2%BB%E7%96%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2022-09-02T19:54:41.146Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://whatsrtos.github.io/%E6%91%84%E5%BD%B1/VSCO%E6%BB%A4%E9%95%9C%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
     
     <lastmod>2022-09-02T19:10:59.358Z</lastmod>
@@ -23,13 +44,6 @@
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E5%93%B2%E5%AD%A6&%E5%BF%83%E7%90%86%E5%AD%A6/%E3%80%8A%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89%E5%BF%83%E7%90%86%E6%B2%BB%E7%96%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2022-09-02T18:31:20.416Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://whatsrtos.github.io/%E5%93%B2%E5%AD%A6&%E5%BF%83%E7%90%86%E5%AD%A6/%E4%BB%80%E4%B9%88%E6%98%AF%E4%BB%B7%E5%80%BC/</loc>
     
     <lastmod>2022-09-02T18:25:50.480Z</lastmod>
@@ -37,23 +51,9 @@
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/index/index.html</loc>
-    
-    <lastmod>2022-09-02T17:13:01.201Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://whatsrtos.github.io/about_scriptorium/</loc>
     
     <lastmod>2022-09-02T17:06:56.869Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whatsrtos.github.io/about/index.html</loc>
-    
-    <lastmod>2022-09-02T17:05:57.448Z</lastmod>
     
   </url>
   
@@ -79,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E4%B9%A0%E6%83%AF%E7%9A%84%E5%8A%9B%E9%87%8F%EF%BC%9A%E5%AF%8C%E5%85%B0%E5%85%8B%E6%9E%97%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</loc>
+    <loc>https://whatsrtos.github.io/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
     
     <lastmod>2022-09-02T14:27:21.360Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://whatsrtos.github.io/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
+    <loc>https://whatsrtos.github.io/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E4%B9%A0%E6%83%AF%E7%9A%84%E5%8A%9B%E9%87%8F%EF%BC%9A%E5%AF%8C%E5%85%B0%E5%85%8B%E6%9E%97%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/</loc>
     
     <lastmod>2022-09-02T14:27:21.360Z</lastmod>
     
@@ -103,13 +103,6 @@
     <loc>https://whatsrtos.github.io/%E7%94%9F%E4%BA%A7%E5%8A%9B%E5%B7%A5%E5%85%B7/%E7%9C%8B%E6%9D%BF%EF%BC%88Kanban%EF%BC%89/</loc>
     
     <lastmod>2022-09-02T08:55:41.251Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://whatsrtos.github.io/%E5%93%B2%E5%AD%A6&%E5%BF%83%E7%90%86%E5%AD%A6/%E8%99%9A%E6%97%A0%E4%B8%BB%E4%B9%89/</loc>
-    
-    <lastmod>2022-09-02T08:47:17.159Z</lastmod>
     
   </url>
   
